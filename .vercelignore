@@ -1,0 +1,14 @@
+.git
+.claude
+.agents
+.env*
+.next
+node_modules
+*.zip
+PMG-Homepage-1H.html
+option-*.html
+index.html
+/assets
+docs
+tests
+*.tsbuildinfo

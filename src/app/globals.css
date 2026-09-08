@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@theme inline {
+  --font-sans: var(--font-poppins);
+  --color-navy: #16293a;
+  --color-brand: #3f78a5;
+  --color-sky: #7fb2d6;
+  --color-ink: #1e2a32;
+  --color-muted: #55626d;
+  --color-line: #e1e9ef;
+  --color-mist: #f7fafc;
+}
+@layer base {
+  body {
+    @apply bg-white text-ink antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  h2 {
+    @apply text-3xl leading-tight font-bold tracking-tight md:text-[34px];
+  }
+  h3 {
+    @apply text-xl leading-snug font-semibold;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+  :focus-visible {
+    outline: 3px solid #3f78a5;
+    outline-offset: 5px;
+  }
+  summary {
+    cursor: pointer;
+  }
+  ::selection {
+    background: #dfeaf3;
+    color: #16293a;
+  }
+}
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-12;
+  }
+  .section-space {
+    @apply py-14 md:py-20;
+  }
+  .eyebrow {
+    @apply mb-4 text-xs font-bold tracking-[.14em] uppercase text-brand;
+  }
+  .button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full px-7 py-3 text-center text-sm font-semibold transition-colors;
+  }
+  .button-primary {
+    @apply bg-brand text-white hover:bg-[#2d5d84];
+  }
+  .button-outline {
+    @apply border border-brand text-[#2d5d84] hover:bg-mist;
+  }
+  .button-dark-outline {
+    @apply border border-[#587186] text-[#dce6ee] hover:bg-[#243e54];
+  }
+  .card {
+    @apply rounded-[20px] border border-line bg-white p-7 shadow-[0_10px_30px_rgba(30,42,50,.05)] md:p-9;
+  }
+  .field {
+    @apply mt-2 w-full rounded-xl border border-[#aabcc9] bg-white px-4 py-3 text-base;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
