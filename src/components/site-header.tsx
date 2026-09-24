@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { primaryNav, utilityNav } from "@/lib/navigation";
+import { headerNav, utilityNav } from "@/lib/navigation";
 import { scheduleCallHref } from "@/lib/site";
 
 export function SiteHeader() {
@@ -12,7 +12,6 @@ export function SiteHeader() {
   const close = () => setOpen(false);
   const isCurrent = (href: string) =>
     pathname === href || pathname.startsWith(href);
-  const findClinic = utilityNav[0];
   return (
     <header className="bg-navy text-white">
       <a
@@ -37,13 +36,16 @@ export function SiteHeader() {
             priority
           />
         </Link>
-        <nav aria-label="Main" className="hidden items-center gap-4 xl:flex">
-          {primaryNav.map((item) => (
+        <nav
+          aria-label="Main"
+          className="hidden items-center gap-6 min-[1440px]:flex"
+        >
+          {headerNav.map((item) => (
             <div key={item.href} className="group relative">
               <Link
                 href={item.href}
                 aria-current={pathname === item.href ? "page" : undefined}
-                className={`py-4 text-[13px] hover:text-white ${isCurrent(item.href) ? "text-white" : "text-[#c4d3df]"}`}
+                className={`py-4 text-sm hover:text-white ${isCurrent(item.href) ? "text-white" : "text-[#c4d3df]"}`}
               >
                 {item.label}
               </Link>
@@ -63,12 +65,6 @@ export function SiteHeader() {
             </div>
           ))}
           <Link
-            href={findClinic.href}
-            className="text-[13px] text-[#c4d3df] hover:text-white"
-          >
-            {findClinic.label}
-          </Link>
-          <Link
             href={scheduleCallHref}
             className="button button-primary px-5 text-xs"
           >
@@ -80,7 +76,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
-          className="rounded-lg border border-[#587186] px-4 py-2 xl:hidden"
+          className="rounded-lg border border-[#587186] px-4 py-2 min-[1440px]:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>
@@ -89,12 +85,12 @@ export function SiteHeader() {
         <nav
           id="mobile-navigation"
           aria-label="Mobile"
-          className="container-shell space-y-3 pb-7 xl:hidden"
+          className="container-shell space-y-3 pb-7 min-[1440px]:hidden"
           onKeyDown={(e) => {
             if (e.key === "Escape") close();
           }}
         >
-          {primaryNav.map((item) => (
+          {headerNav.map((item) => (
             <div key={item.href}>
               <Link
                 href={item.href}
@@ -103,16 +99,20 @@ export function SiteHeader() {
               >
                 {item.label}
               </Link>
-              {item.children.map((child) => (
-                <Link
-                  href={child.href}
-                  key={child.href}
-                  onClick={close}
-                  className="block border-l border-white/20 py-2 pl-4 text-sm text-[#c4d3df]"
-                >
-                  {child.label}
-                </Link>
-              ))}
+              {/* The ten state pages are listed on the Our Partners hub; they would triple the
+                  length of the collapsed menu. */}
+              {(item.href === "/our-partners/" ? [] : item.children).map(
+                (child) => (
+                  <Link
+                    href={child.href}
+                    key={child.href}
+                    onClick={close}
+                    className="block border-l border-white/20 py-2 pl-4 text-sm text-[#c4d3df]"
+                  >
+                    {child.label}
+                  </Link>
+                ),
+              )}
             </div>
           ))}
           <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/20 pt-4 text-sm text-[#c4d3df]">
