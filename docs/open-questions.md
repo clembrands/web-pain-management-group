@@ -69,6 +69,11 @@ Two lists: facts for Clembrands to verify, and the confirmation list to send to 
 - [ ] Inquiry form destination and notification recipient.
 - [ ] Newsletter provider.
 
+### Pain Education (Phase 7)
+
+- [ ] Wording of the educational disclaimer shown on every article.
+- [ ] Medical reviewer (name, credentials, review date) for articles, if PMG wants one.
+
 ### Partners (Phase 5)
 
 - [ ] Names, cities, and open issues in `deliverables/partners-to-confirm.csv` (26 partners,

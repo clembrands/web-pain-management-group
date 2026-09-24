@@ -15,13 +15,13 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 | 3 | Home and Partnership Model | Approved |
 | 4 | Results and Outcomes | Approved |
 | 5 | Our Partners and 10 state pages | Approved |
-| 6 | For Providers and APPs | In review |
-| 7 | Pain Education and 36 articles | |
-| 8 | About, News, Contact, utility pages | In review |
+| 6 | For Providers and APPs | Approved |
+| 7 | Pain Education and 36 articles | In review |
+| 8 | About, News, Contact, utility pages | Approved |
 | 9 | SEO/GEO pass | |
 
-Every Rev 2.0 route exists now. Pages whose content arrives in a later phase render a
-placeholder that is noindex and left out of `sitemap.xml`.
+Every Rev 2.0 route has content. Pages waiting on PMG material (legal text, leadership,
+provider testimonials) have route status `pending`: noindex and left out of `sitemap.xml`.
 
 ## Local development
 
@@ -90,8 +90,10 @@ private `submissions` dataset. Studio is at `/studio/content`, inquiries at
 `/studio/submissions`. Content types: `article`, `newsPost`, `caseStudy`, `partner`, plus
 the private `inquiry` type. All other page copy lives in code (`src/content/pages/`).
 
-Partners and news: until `npm run import:content` runs, the site reads the 40 partners and
-4 news posts migrated from the live site (`src/content/legacy/`). The import never
+Articles, partners, and news: until `npm run import:content` runs, the site reads the 36
+articles, 40 partners, and 4 news posts migrated from the live site (`src/content/legacy/`).
+Regenerate the migrated article and news bodies with `node scripts/inventory/articles.mjs`
+and `node scripts/inventory/news.mjs` (both need the crawl in `inventory/html/`). The import never
 overwrites existing documents. It needs `SANITY_API_WRITE_TOKEN` (an Editor token).
 
 Case studies render from Sanity only; with none published, the index

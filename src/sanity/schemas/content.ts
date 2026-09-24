@@ -84,11 +84,56 @@ const body = defineField({
                   : true,
               ),
         }),
+        // The live iframe's own attributes, kept so the embed renders exactly as before.
+        defineField({ name: "style", type: "string", readOnly: true }),
+        defineField({ name: "allow", type: "string", readOnly: true }),
+        defineField({ name: "loading", type: "string", readOnly: true }),
+        defineField({
+          name: "allowFullScreen",
+          type: "boolean",
+          initialValue: true,
+          readOnly: true,
+        }),
       ],
       preview: {
         select: { title: "src" },
         prepare: ({ title }) => ({
           title: "ViewMedica video",
+          subtitle: title,
+        }),
+      },
+    }),
+    // The older ViewMedica embed used on three articles: ViewMedica's loader script and a
+    // vm_open() call for one video code.
+    defineArrayMember({
+      name: "viewmedicaScript",
+      title: "ViewMedica video (script embed)",
+      type: "object",
+      fields: [
+        defineField({
+          name: "code",
+          title: "Video code",
+          type: "string",
+          validation: (r) => r.required(),
+        }),
+        defineField({
+          name: "client",
+          title: "ViewMedica client ID",
+          type: "string",
+          validation: (r) => r.required(),
+        }),
+        defineField({ name: "width", type: "number" }),
+        defineField({
+          name: "scriptSrc",
+          title: "Loader script URL",
+          type: "url",
+          validation: (r) => r.required(),
+        }),
+      ],
+      preview: {
+        select: { title: "code" },
+        prepare: ({ title }) => ({
+          title: "ViewMedica video (script)",
           subtitle: title,
         }),
       },

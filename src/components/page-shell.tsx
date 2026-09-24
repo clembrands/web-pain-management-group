@@ -150,12 +150,20 @@ export function PageShell({
   );
 }
 
-export function RelatedLinks({ paths }: { paths: string[] }) {
+export function RelatedLinks({
+  paths,
+  eyebrow = "Continue exploring",
+  title = "Your next question, answered.",
+}: {
+  paths: string[];
+  eyebrow?: string;
+  title?: string;
+}) {
   return (
     <section className="bg-mist">
       <div className="container-shell section-space">
-        <p className="eyebrow">Continue exploring</p>
-        <h2 className="mb-8">Your next question, answered.</h2>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="mb-8">{title}</h2>
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {paths.map((p) => {
             const r = getRoute(p);

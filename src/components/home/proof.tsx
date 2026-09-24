@@ -4,7 +4,7 @@ import { RichText } from "@/components/rich-text";
 import { homeContent } from "@/content/pages/home";
 import type { Partner } from "@/content/types";
 
-export function Stats() {
+export function Stats({ partnerHospitals }: { partnerHospitals: number }) {
   const stats = homeContent.stats;
   return (
     <section className="container-shell pt-14">
@@ -17,26 +17,34 @@ export function Stats() {
           <p className="text-sm text-muted">{stats.description}</p>
         </div>
         <dl className="grid grid-cols-2 border-t border-line lg:grid-cols-4">
-          {stats.items.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col-reverse border-r border-line px-6 py-8 last:border-r-0"
-            >
-              <dt className="mt-3 text-sm text-muted">
-                <RichText text={stat.label} />
-              </dt>
-              {/* Placeholders render smaller than a confirmed figure would. */}
-              <dd
-                className={
-                  stat.value.startsWith("{{TBD")
-                    ? "text-base leading-tight font-bold text-navy"
-                    : "text-[38px] leading-none font-bold text-navy md:text-[44px]"
-                }
+          {stats.items
+            .map((s) => ({
+              ...s,
+              value: s.value.replace(
+                "directory:hospitals",
+                String(partnerHospitals),
+              ),
+            }))
+            .map((stat) => (
+              <div
+                key={stat.label}
+                className="flex flex-col-reverse border-r border-line px-6 py-8 last:border-r-0"
               >
-                <RichText text={stat.value} />
-              </dd>
-            </div>
-          ))}
+                <dt className="mt-3 text-sm text-muted">
+                  <RichText text={stat.label} />
+                </dt>
+                {/* Placeholders render smaller than a confirmed figure would. */}
+                <dd
+                  className={
+                    stat.value.startsWith("{{TBD")
+                      ? "text-base leading-tight font-bold text-navy"
+                      : "text-[38px] leading-none font-bold text-navy md:text-[44px]"
+                  }
+                >
+                  <RichText text={stat.value} />
+                </dd>
+              </div>
+            ))}
         </dl>
       </div>
     </section>

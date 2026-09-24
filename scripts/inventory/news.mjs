@@ -1,15 +1,26 @@
 #!/usr/bin/env node
-// Migrates the 4 WordPress news posts, verbatim, from the Phase 1 crawl (inventory/html/).
+// Migrates the 4 WordPress news posts, verbatim, from the Phase 1 crawl.
 //
 //   node scripts/inventory/news.mjs
 //
-// Writes src/content/legacy/news-posts.ts with each post body as Portable Text (the format
-// Sanity stores), and copies post images that still exist on the live site into
-// public/news/<slug>/. Wording is untouched. The only text change is repairing characters
-// the WordPress database stored double-encoded (for example "â€™" back to "’").
+// Writes:
+//   src/content/legacy/news-posts.ts   each post body as Portable Text
+//   public/news/<slug>/                post images that still exist on the live site
+//   inventory/source/news/*.html       the original body HTML, for the verbatim test
+//
+// Wording is untouched (see portable-text.mjs). Any reference to an image that already
+// returns 404 on the live site, whether an <img> or a link to the image file, is dropped;
+// the linked text itself is kept.
 
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import {
+  decode,
+  extractBody,
+  htmlToPortableText,
+  plainTextOfBlocks,
+  plainTextOfHtml,
+} from "./portable-text.mjs";
 
 const ROOT = process.cwd();
 const posts = [
@@ -23,98 +34,25 @@ const dates = Object.fromEntries(
     .trim()
     .split("\n")
     .slice(1)
-    .map((l) => {
-      const [date] = l.split(",");
-      const path = l.match(/,(\/[a-z0-9-]+\/),/)[1];
-      return [path.replace(/\//g, ""), date];
-    }),
+    .map((l) => [l.match(/,\/([a-z0-9-]+)\/,/)[1], l.split(",")[0]]),
 );
 
-const MOJIBAKE = {
-  "â€œ": "“",
-  "â€\u009d": "”",
-  "â€¦": "…",
-  "â€™": "’",
-  "â€“": "–",
-};
-const decode = (s) =>
-  Object.entries(MOJIBAKE)
-    .reduce((t, [bad, good]) => t.split(bad).join(good), s)
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
-    .replace(/&nbsp;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">");
-
-let keyCounter = 0;
-const key = () => `k${(keyCounter++).toString(36)}`;
-
-// One <p> into a Portable Text block: text spans with bold/italic marks and links.
-function paragraph(html) {
-  const markDefs = [];
-  const children = [];
-  const marks = [];
-  for (const part of html.split(/(<[^>]+>)/)) {
-    if (!part) continue;
-    const tag = part.match(/^<(\/?)(\w+)([^>]*)>$/);
-    if (!tag) {
-      const text = decode(part);
-      if (text)
-        children.push({ _type: "span", _key: key(), text, marks: [...marks] });
-      continue;
-    }
-    const [, closing, name, attrs] = tag;
-    const mark = { strong: "strong", b: "strong", em: "em", i: "em" }[name];
-    if (mark && closing) marks.splice(marks.lastIndexOf(mark), 1);
-    else if (mark) marks.push(mark);
-    if (name === "a" && !closing) {
-      const href = decode(attrs.match(/href="([^"]+)"/)?.[1] ?? "");
-      const def = { _type: "link", _key: key(), href };
-      markDefs.push(def);
-      marks.push(def._key);
-    } else if (name === "a" && closing) {
-      const last = [...marks]
-        .reverse()
-        .find((m) => markDefs.some((d) => d._key === m));
-      if (last) marks.splice(marks.lastIndexOf(last), 1);
-    }
+const status = new Map();
+async function check(url) {
+  const https = url.replace(/^http:/, "https:");
+  if (!status.has(https)) {
+    const res = await fetch(https);
+    status.set(https, {
+      ok: res.ok,
+      code: res.status,
+      body: res.ok ? Buffer.from(await res.arrayBuffer()) : null,
+    });
   }
-  // Keep the text exactly, but drop a block that is only whitespace (e.g. an empty link).
-  if (!children.some((c) => c.text.trim())) return null;
-  const used = new Set(children.flatMap((c) => c.marks));
-  return {
-    _type: "block",
-    _key: key(),
-    style: "normal",
-    markDefs: markDefs.filter((d) => used.has(d._key)),
-    children,
-  };
+  return { url: https, ...status.get(https) };
 }
 
 const missing = [];
-async function image(slug, src, alt, width, height) {
-  const url = src.replace(/^http:/, "https:");
-  const res = await fetch(url);
-  if (!res.ok) {
-    missing.push(`${slug}: ${url} (${res.status} on the live site)`);
-    return null;
-  }
-  const file = url.split("/").pop();
-  const dir = join(ROOT, "public/news", slug);
-  await mkdir(dir, { recursive: true });
-  await writeFile(join(dir, file), Buffer.from(await res.arrayBuffer()));
-  return {
-    _type: "image",
-    _key: key(),
-    src: `/news/${slug}/${file}`,
-    alt: decode(alt),
-    width,
-    height,
-  };
-}
-
+await mkdir(join(ROOT, "inventory/source/news"), { recursive: true });
 const out = [];
 for (const slug of posts) {
   const html = await readFile(
@@ -124,34 +62,61 @@ for (const slug of posts) {
   const title = decode(
     html.match(/<title>(.*?) &#8211; Pain Management Group<\/title>/)[1],
   );
-  const start = html.indexOf('<div class="single-blog-content">');
-  const end = html.indexOf('<div class="page-list-single">', start);
-  const content = html
-    .slice(start, end)
-    .replace(/<style[\s\S]*?<\/style>/g, "")
-    .replace(/<!--[\s\S]*?-->/g, "");
-  const body = [];
-  for (const m of content.matchAll(/<p[^>]*>([\s\S]*?)<\/p>|<img\b([^>]*)>/g)) {
-    if (m[1] !== undefined) {
-      const block = paragraph(m[1]);
-      if (block) body.push(block);
-    } else {
-      const src = m[2].match(/\ssrc="([^"]+)"/)?.[1];
-      const alt = m[2].match(/\salt="([^"]*)"/)?.[1] ?? "";
-      const width = Number(m[2].match(/\swidth="(\d+)"/)?.[1] ?? 1024);
-      const height = Number(m[2].match(/\sheight="(\d+)"/)?.[1] ?? 683);
-      const img = src && (await image(slug, src, alt, width, height));
-      if (img) body.push(img);
+  const bodyHtml = extractBody(html);
+  await writeFile(
+    join(ROOT, "inventory/source/news", `${slug}.html`),
+    bodyHtml,
+  );
+
+  const body = await htmlToPortableText(bodyHtml, {
+    onImage: async (tag, _key) => {
+      const src = tag.match(/\ssrc="([^"]+)"/)?.[1];
+      if (!src) return null;
+      const res = await check(src);
+      if (!res.ok) {
+        missing.push(`${slug}: ${res.url} (${res.code} on the live site)`);
+        return null;
+      }
+      const file = res.url.split("/").pop();
+      await mkdir(join(ROOT, "public/news", slug), { recursive: true });
+      await writeFile(join(ROOT, "public/news", slug, file), res.body);
+      return {
+        _type: "image",
+        _key,
+        src: `/news/${slug}/${file}`,
+        alt: decode(tag.match(/\salt="([^"]*)"/)?.[1] ?? ""),
+        width: Number(tag.match(/\swidth="(\d+)"/)?.[1] ?? 1024),
+        height: Number(tag.match(/\sheight="(\d+)"/)?.[1] ?? 683),
+      };
+    },
+  });
+
+  // Links to image files that no longer exist: keep the text, drop the link.
+  for (const block of body.filter((b) => b._type === "block")) {
+    for (const def of [...block.markDefs]) {
+      if (!/\.(jpe?g|png|gif|webp)$/i.test(def.href)) continue;
+      if (!/painmgmtgroup\.com/.test(def.href)) continue;
+      const res = await check(def.href);
+      if (res.ok) continue;
+      missing.push(
+        `${slug}: link to ${res.url} (${res.code} on the live site)`,
+      );
+      block.markDefs = block.markDefs.filter((d) => d !== def);
+      for (const span of block.children)
+        span.marks = span.marks.filter((m) => m !== def._key);
     }
   }
+
+  if (plainTextOfBlocks(body) !== plainTextOfHtml(bodyHtml))
+    throw new Error(`${slug}: migrated text differs from the live post`);
   out.push({ slug, title, date: dates[slug], body });
 }
 
 const file = `// Generated by scripts/inventory/news.mjs from the Phase 1 crawl. Do not edit by hand.
 // The 4 WordPress news posts, verbatim, as Portable Text. Sanity holds news once imported
 // (scripts/import-content.ts); until then the site reads this list.
-// Images already missing on the live site were not migrated:
-${missing.map((m) => `//   ${m}`).join("\n")}
+// References to images already missing on the live site were dropped:
+${[...new Set(missing)].map((m) => `//   ${m}`).join("\n")}
 
 export type LegacyImage = {
   _type: "image";
@@ -165,6 +130,8 @@ export type LegacyBlock = {
   _type: "block";
   _key: string;
   style: string;
+  listItem?: string;
+  level?: number;
   markDefs: { _type: "link"; _key: string; href: string }[];
   children: { _type: "span"; _key: string; text: string; marks: string[] }[];
 };
@@ -179,4 +146,4 @@ export const legacyNewsBodies: LegacyNewsPost[] = ${JSON.stringify(out, null, 1)
 `;
 await writeFile(join(ROOT, "src/content/legacy/news-posts.ts"), file);
 console.log(out.map((p) => `${p.slug}: ${p.body.length} blocks`).join("\n"));
-console.log(`missing images: ${missing.length}`);
+console.log([...new Set(missing)].join("\n"));

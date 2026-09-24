@@ -44,7 +44,8 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 ### Sanity (owner: Clembrands)
 
 - [ ] `SANITY_API_WRITE_TOKEN` (Editor) set locally and in Vercel Production, server-only.
-- [ ] `npm run import:content` run: 40 partners and 4 news posts; records checked in Studio.
+- [ ] `npm run import:content` run: 36 articles, 40 partners, and 4 news posts; records
+      checked in Studio.
 - [ ] `submissions` dataset confirmed private (the form refuses to write to a public one).
 - [ ] Publishing webhook connected so new case studies, news, and partner edits go live.
 
@@ -59,6 +60,18 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
       per server instance, so the firewall rule is the hard cap.
 - [ ] Newsletter provider chosen and connected in `src/lib/newsletter.ts` (brief §10,
       question 4), or the signup box removed from `/news/`.
+
+### Pain Education (owner: PMG / Clembrands)
+
+- [ ] Check ViewMedica playback on the production domain: open an article with an iframe
+      embed (e.g. `/pain-education/spinal-stenosis/`) and one with the older script embed
+      (`/pain-education/genicular-nerve-ablation-rf-neurotomy/`). ViewMedica licenses can
+      be locked to a domain; playback could not be verified from the build environment,
+      and preview URLs may not play.
+- [ ] PMG reviews the article disclaimer: "This article is for general education only and
+      is not medical advice. Talk to your physician about your symptoms and whether a
+      treatment is right for you."
+- [ ] Medical reviewer named in Sanity for each article, if PMG wants one shown.
 
 ### Legal and utility pages (owner: PMG)
 

@@ -9,6 +9,8 @@ import {
   partnerHospitals,
   type PartnerHospital,
 } from "@/content/legacy/partners";
+import { legacyArticleBodies } from "@/content/legacy/articles";
+import { educationArticles } from "@/content/legacy/education";
 import {
   legacyNewsBodies,
   type LegacyNewsPost,
@@ -121,4 +123,33 @@ export const getNewsPosts = cache(async (): Promise<NewsPost[]> => {
 export const getNewsPost = cache(
   async (slug: string): Promise<NewsPost | null> =>
     (await getNewsPosts()).find((p) => p.slug === slug) ?? null,
+);
+
+export type Article = {
+  slug: string;
+  title: string;
+  category: string;
+  body: unknown[];
+  medicalReviewer?: { name: string; credentials?: string; reviewedAt: string };
+  seoTitle?: string;
+  seoDescription?: string;
+};
+
+// A Pain Education article: the Sanity record once imported, otherwise the text migrated
+// from the live site. Titles and categories come from the URL contract in legacy/education.
+export const getArticle = cache(
+  async (slug: string): Promise<Article | null> => {
+    const meta = educationArticles.find((a) => a.slug === slug);
+    if (!meta) return null;
+    if (client) {
+      const record = await client.fetch<Article | null>(
+        `*[_type == "article" && slug == $slug][0]{"slug": slug, title, category, body, medicalReviewer, seoTitle, seoDescription}`,
+        { slug },
+        { next: { revalidate: 60, tags: ["site-content"] } },
+      );
+      if (record?.body?.length) return record;
+    }
+    const legacy = legacyArticleBodies.find((a) => a.slug === slug);
+    return legacy ? { ...meta, body: legacy.body } : null;
+  },
 );

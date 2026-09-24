@@ -7,6 +7,7 @@ import { partnerStates } from "../content/legacy/states.ts";
 import { partnerHospitals } from "../content/legacy/partners.ts";
 import { directoryCounts } from "./partner-stats.ts";
 import { legacyNewsBodies } from "../content/legacy/news-posts.ts";
+import { legacyArticleBodies } from "../content/legacy/articles.ts";
 import { excerpt } from "./excerpt.ts";
 
 const directory = directoryCounts(partnerHospitals);
@@ -213,15 +214,19 @@ export const sections: SiteRoute[] = [
       "Patient education on pain conditions, interventional procedures, and pain medications from Pain Management Group.",
     audience: "patient",
     phase: 7,
-    status: "placeholder",
+    status: "draft",
     children: educationArticles.map((article) =>
       route({
         path: `/pain-education/${article.slug}/`,
         title: article.title,
-        description: `${article.title}: patient education from Pain Management Group.`,
+        description: excerpt(
+          legacyArticleBodies.find((b) => b.slug === article.slug)?.body as {
+            _type: string;
+          }[],
+        ),
         audience: "patient",
         phase: 7,
-        status: "placeholder",
+        status: "draft",
       }),
     ),
   }),

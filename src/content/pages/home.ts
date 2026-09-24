@@ -1,5 +1,6 @@
 // Home page copy (Phase 3). The layout is the approved 1H concept; the copy is rewritten
-// from the live site, and every figure is a {{TBD: ...}} placeholder until PMG confirms it.
+// from the live site. The partner hospital count is counted from the partner directory
+// ("directory"); every other figure is a {{TBD: ...}} placeholder until PMG confirms it.
 export const homeContent = {
   hero: {
     title: "You run the hospital.",
@@ -10,15 +11,18 @@ export const homeContent = {
       src: "/assets/hero-1e.png",
       alt: "A physician and a hospital leader in a bright hospital lobby",
     },
-    facts:
-      "Partnering with hospitals since {{TBD: year}} · {{TBD: number}} hospital partnerships · {{TBD: number}} care locations",
+    facts: [
+      "Partnering with hospitals since {{TBD: year}}",
+      "directory:hospitals partner hospitals",
+      "{{TBD: number}} care locations",
+    ],
   },
   stats: {
     title: "Hospital-based pain programs, measured, not estimated.",
     description:
-      "Quantifiable outcomes and results are part of every PMG partnership. Each figure here will be confirmed by PMG before launch.",
+      "Quantifiable outcomes and results are part of every PMG partnership. The partner hospital count comes from PMG's partner directory; the other figures will be confirmed by PMG before launch.",
     items: [
-      { value: "{{TBD: number}}", label: "hospital partnerships" },
+      { value: "directory:hospitals", label: "partner hospitals" },
       {
         value: "{{TBD: number}}",
         label: "patient encounters in {{TBD: year}}",

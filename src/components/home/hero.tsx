@@ -5,7 +5,7 @@ import { homeContent } from "@/content/pages/home";
 import { scheduleCallHref } from "@/lib/site";
 
 // Two-audience hero: hospital leaders to the Partnership Model, providers to opportunities.
-export function Hero() {
+export function Hero({ partnerHospitals }: { partnerHospitals: number }) {
   const hero = homeContent.hero;
   return (
     <section className="bg-navy text-white">
@@ -40,7 +40,13 @@ export function Hero() {
             </Link>
           </p>
           <p className="mt-6 text-xs font-medium text-[#b9c8d4]">
-            <RichText text={hero.facts} />
+            <RichText
+              text={hero.facts
+                .map((f) =>
+                  f.replace("directory:hospitals", String(partnerHospitals)),
+                )
+                .join(" · ")}
+            />
           </p>
         </div>
         <div className="relative aspect-[1.2] overflow-hidden rounded-[22px] border border-[#2c465c]">

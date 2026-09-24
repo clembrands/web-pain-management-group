@@ -77,6 +77,22 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - Newsletter signup is stubbed behind `src/lib/newsletter.ts`; the form shows "coming soon".
 - Legal pages carry a "Legal text pending PMG review" placeholder; no legal text written.
 
+## 2026-09-24: Phases 6 and 8 approved, Phase 7
+
+- Home's first stat is the directory count, labeled "partner hospitals"; every other home
+  figure stays TBD.
+- "Thank You For Paying It Forward" keeps no reference to its two images, which already 404
+  on the live site.
+- Pain Education: all 36 articles migrated verbatim (encoding repairs only) with their live
+  slugs, from one shared WordPress-to-Portable-Text converter that also handles news.
+  `tests/verbatim.test.ts` compares every body with its source HTML in `inventory/source/`.
+- The live articles have no images and no publish dates; none are added. Schema is
+  MedicalWebPage with PMG as author and publisher; a reviewer appears only when set.
+- ViewMedica: 33 iframe embeds and 3 older script embeds, each reproduced exactly (an iframe
+  `title` is added for screen readers). Playback is checked on the production domain.
+- Each article has breadcrumbs, 3 or 4 related articles from its category, a disclaimer
+  pending PMG review, and the Find a Clinic CTA.
+
 ## Review-build routes (301)
 
 | Review route | Rev 2.0 destination |

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "next-sanity";
+import { ViewMedicaFrame, ViewMedicaScript } from "@/components/viewmedica";
 
 type BodyImage = {
   src?: string;
@@ -10,8 +11,12 @@ type BodyImage = {
   height?: number;
 };
 
-const components: PortableTextComponents = {
+const makeComponents = (title: string): PortableTextComponents => ({
   types: {
+    viewmedica: ({ value }) => (
+      <ViewMedicaFrame {...value} title={`${title}: ViewMedica video`} />
+    ),
+    viewmedicaScript: ({ value }) => <ViewMedicaScript {...value} />,
     // Migrated images carry a local src; Sanity images get theirs from the query.
     image: ({ value }: { value: BodyImage }) =>
       value.src ? (
@@ -50,16 +55,51 @@ const components: PortableTextComponents = {
     h3: ({ children }) => (
       <h3 className="mt-8 text-xl text-navy">{children}</h3>
     ),
+    h4: ({ children }) => (
+      <h4 className="mt-6 text-lg font-semibold text-navy">{children}</h4>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="mt-5 border-l-4 border-line pl-5 italic">
+        {children}
+      </blockquote>
+    ),
   },
-};
+  list: {
+    bullet: ({ children }) => (
+      <ul className="mt-4 list-disc space-y-2 pl-6">{children}</ul>
+    ),
+    number: ({ children }) => (
+      <ol className="mt-4 list-decimal space-y-2 pl-6">{children}</ol>
+    ),
+  },
+  listItem: {
+    // Many migrated articles type their own "– " before each item; show no second marker.
+    bullet: ({ children, value }) => {
+      const first =
+        (value as { children?: { text?: string }[] }).children?.[0]?.text ?? "";
+      return (
+        <li className={/^[–-] /.test(first) ? "-ml-6 list-none" : undefined}>
+          {children}
+        </li>
+      );
+    },
+    number: ({ children }) => <li>{children}</li>,
+  },
+});
 
-// Rich text bodies for news posts and case studies.
-export function PortableBody({ value }: { value: unknown[] }) {
+// Rich text bodies for articles, news posts, and case studies. `title` labels embedded video.
+export function PortableBody({
+  value,
+  title = "",
+}: {
+  value: unknown[];
+  title?: string;
+}) {
   return (
     <div className="text-[17px] leading-relaxed text-ink">
       <PortableText
         value={value as PortableTextBlock[]}
-        components={components}
+        components={makeComponents(title)}
       />
     </div>
   );
