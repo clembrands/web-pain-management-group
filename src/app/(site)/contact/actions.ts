@@ -1,5 +1,4 @@
 "use server";
-import { reviewMode } from "@/content/review/pages";
 import { inquirySchema, type InquiryState } from "@/lib/inquiry-validation";
 import {
   getSubmissionsClient,
@@ -9,11 +8,6 @@ export async function submitInquiry(
   _previous: InquiryState,
   formData: FormData,
 ): Promise<InquiryState> {
-  if (reviewMode)
-    return {
-      status: "error",
-      message: "This is a review site. Inquiries are not sent or saved.",
-    };
   if (formData.get("website"))
     return {
       status: "error",

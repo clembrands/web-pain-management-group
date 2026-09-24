@@ -1,4 +1,4 @@
-import { getHome, getPartners, getSettings } from "@/sanity/lib/content";
+import { getHome, getPartners } from "@/sanity/lib/content";
 import { Hero } from "@/components/home/hero";
 import { Stats, SocialProof } from "@/components/home/proof";
 import {
@@ -12,21 +12,16 @@ import {
   Pathways,
 } from "@/components/home/community";
 import { CtaBand } from "@/components/ui";
-import { pageMetadata } from "@/lib/seo";
-export const metadata = pageMetadata(
-  "Hospital-based pain programs",
-  "We build and run hospital-based pain programs with you — turning pain services into a quality win and a sustainable service line.",
-  "/",
-);
+import { routeMetadata } from "@/lib/seo";
+
+// The approved 1H concept home page. Rebuilt around Rev 2.0 in Phase 3.
+export const metadata = routeMetadata("/");
+
 export default async function HomePage() {
-  const [home, partners, settings] = await Promise.all([
-    getHome(),
-    getPartners(),
-    getSettings(),
-  ]);
+  const [home, partners] = await Promise.all([getHome(), getPartners()]);
   return (
     <>
-      <Hero home={home} schedulingUrl={settings.schedulingUrl} />
+      <Hero home={home} />
       <Stats home={home} />
       <SocialProof partners={partners} />
       <Differentiators home={home} />
@@ -35,7 +30,7 @@ export default async function HomePage() {
       <HomeFaqs home={home} />
       <LocationsPreview home={home} />
       <Pathways />
-      <CtaBand schedulingUrl={settings.schedulingUrl} />
+      <CtaBand />
     </>
   );
 }

@@ -3,18 +3,11 @@ import { cache } from "react";
 import { createClient } from "next-sanity";
 import { projectId, dataset, apiVersion } from "../env";
 import seed from "@/content/site.json";
-import {
-  reviewMode,
-  findReviewPage,
-  type ReviewPage,
-} from "@/content/review/pages";
 import type {
   HomeContent,
   Settings,
   PageContent,
   Partner,
-  Location,
-  Opportunity,
 } from "@/content/types";
 
 const client = projectId
@@ -27,7 +20,7 @@ const client = projectId
     })
   : null;
 async function fetchContent<T>(query: string, fallback: T): Promise<T> {
-  if (!client || reviewMode) return fallback;
+  if (!client) return fallback;
   // Configured CMS errors surface instead of silently hiding broken credentials.
   return (
     (await client.fetch<T | null>(
@@ -38,25 +31,6 @@ async function fetchContent<T>(query: string, fallback: T): Promise<T> {
   );
 }
 const image = (name: string) => `"${name}": ${name}{"url": asset->url, alt}`;
-export const getPublishedPageSlugs = cache(async (): Promise<string[]> => {
-  if (reviewMode || !client) return [];
-  return client.fetch<string[]>(
-    '*[_type == "editorialPage" && approved == true && sample != true].slug',
-    {},
-    { next: { revalidate: 60, tags: ["site-content"] } },
-  );
-});
-export const getEditorialPage = cache(
-  async (slug: string): Promise<ReviewPage | null> => {
-    if (reviewMode) return findReviewPage(slug) || null;
-    if (!client) return null;
-    return client.fetch<ReviewPage | null>(
-      '*[_type == "editorialPage" && slug == $slug && approved == true && sample != true][0]',
-      { slug },
-      { next: { revalidate: 60, tags: ["site-content"] } },
-    );
-  },
-);
 export const getSettings = cache(() =>
   fetchContent<Settings>('*[_id == "siteSettings"][0]', seed.settings),
 );
@@ -93,17 +67,5 @@ export const getPartners = cache(() =>
   fetchContent<Partner[]>(
     `*[_type == "partner"] | order(name asc){_id,name,description,website,${image("logo")}}`,
     seed.partners,
-  ),
-);
-export const getLocations = cache(() =>
-  fetchContent<Location[]>(
-    '*[_type == "location"] | order(state asc, city asc){_id,name,city,state,address,phone,website}',
-    [],
-  ),
-);
-export const getOpportunities = cache(() =>
-  fetchContent<Opportunity[]>(
-    '*[_type == "opportunity"] | order(title asc){_id,title,location,description,applicationUrl}',
-    [],
   ),
 );

@@ -25,7 +25,10 @@ export function PartnerStory({ home }: { home: HomeContent }) {
                 Watch the Story
               </a>
             )}
-            <Link href="/our-partners" className="button button-dark-outline">
+            <Link
+              href="/results/case-studies/"
+              className="button button-dark-outline"
+            >
               Explore Our Partnerships
             </Link>
           </div>
@@ -44,10 +47,13 @@ export function HomeFaqs({ home }: { home: HomeContent }) {
           us
         </h2>
         <p className="mt-5 text-muted">
-          The four objections we hear most — and how the partnership answers
+          The four objections we hear most, and how the partnership answers
           them.
         </p>
-        <Link href="/contact" className="button button-outline mt-7">
+        <Link
+          href="/partnership/questions/"
+          className="button button-outline mt-7"
+        >
           Talk it through with us
         </Link>
       </div>
@@ -62,7 +68,7 @@ export function LocationsPreview({ home }: { home: HomeContent }) {
         <div>
           <h2>{home.locationsTitle}</h2>
           <p className="mt-5 text-muted">{home.locationsDescription}</p>
-          <Link href="/locations" className="button button-outline mt-7">
+          <Link href="/our-partners/" className="button button-outline mt-7">
             Find a location →
           </Link>
         </div>
@@ -86,15 +92,15 @@ export function Pathways() {
         {
           eyebrow: "Hospital leaders",
           title: "Add a pain service line without the startup risk",
-          body: "Physician recruiting, operations, compliance, and quality tracking — handled by a partner whose incentives match yours.",
-          href: "/partnership",
+          body: "Physician recruiting, operations, compliance, and quality tracking, handled by a partner whose incentives match yours.",
+          href: "/partnership/",
           label: "Explore the partnership →",
         },
         {
           eyebrow: "Physicians & APPs",
           title: "A practice model built around the clinician",
           body: "Clinical autonomy, real procedure support, predictable schedules, and a team built around responsible pain care.",
-          href: "/for-providers",
+          href: "/providers/",
           label: "See opportunities →",
         },
       ].map((path, i) => (

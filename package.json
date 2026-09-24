@@ -13,7 +13,10 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "seed:sanity": "node --env-file-if-exists=.env.local scripts/seed-sanity.mjs",
-    "test": "node --experimental-strip-types --test tests/*.test.ts"
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "verify:urls": "node scripts/verify-urls.mjs",
+    "inventory:crawl": "NODE_USE_ENV_PROXY=1 node scripts/inventory/crawl.mjs",
+    "inventory:report": "node scripts/inventory/report.mjs"
   },
   "overrides": {
     "@sanity/runtime-cli": {
@@ -27,10 +30,10 @@
     }
   },
   "dependencies": {
+    "@next/third-parties": "16.3.4",
     "@portabletext/react": "8.0.1",
     "@sanity/image-url": "2.1.1",
     "@sanity/vision": "5.31.2",
-    "@vercel/analytics": "2.0.1",
     "next": "16.3.4",
     "next-sanity": "13.3.4",
     "react": "19.2.8",

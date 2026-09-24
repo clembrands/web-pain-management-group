@@ -1,67 +1,116 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Settings } from "@/content/types";
-import { navigation, utilityNavigation } from "@/lib/navigation";
-import { reviewMode } from "@/content/review/pages";
-export function SiteFooter({ settings }: { settings: Settings }) {
+import { primaryNav } from "@/lib/navigation";
+import { contact, utilityPages } from "@/lib/routes";
+import { organization, scheduleCallHref } from "@/lib/site";
+
+export function SiteFooter() {
+  const a = organization.address;
   return (
-    <footer className="border-t border-line">
-      <div className="container-shell py-10">
-        <div className="flex flex-col justify-between gap-8 md:flex-row">
+    <footer className="border-t border-line bg-mist">
+      <div className="container-shell py-12">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_3fr]">
           <div>
-            <Link href="/">
+            <Link href="/" aria-label="Pain Management Group home">
               <Image
                 src="/assets/pmg-logo.png"
-                alt={settings.title}
+                alt="Pain Management Group"
                 width={210}
                 height={42}
                 className="h-auto w-48"
               />
             </Link>
-            <p className="mt-4 max-w-sm text-sm text-muted">
-              Balanced Pain Treatment Centers.
+            <p className="mt-4 text-sm text-muted">{organization.tagline}</p>
+            <address className="mt-5 text-sm leading-relaxed not-italic text-muted">
+              {a.street}
               <br />
-              Responsible pain care that lasts.
-            </p>
+              {a.city}, {a.region} {a.postalCode}
+              <br />
+              <a
+                className="hover:text-brand"
+                href={`tel:${organization.phone.replace(/[^\d]/g, "")}`}
+              >
+                {organization.phone}
+              </a>
+              <br />
+              <a
+                className="hover:text-brand"
+                href={`mailto:${organization.email}`}
+              >
+                {organization.email}
+              </a>
+            </address>
+            <Link
+              href={scheduleCallHref}
+              className="button button-primary mt-6"
+            >
+              Schedule a Call
+            </Link>
           </div>
           <nav
-            aria-label="Footer navigation"
-            className="flex flex-wrap gap-x-7 gap-y-4 text-sm"
+            aria-label="Footer"
+            className="grid gap-8 sm:grid-cols-2 md:grid-cols-4"
           >
-            {[
-              ...navigation,
-              ...utilityNavigation,
-              { href: "/careers", label: "Careers" },
-              { href: "/privacy", label: "Privacy" },
-              { href: "/accessibility", label: "Accessibility" },
-              ...(reviewMode
-                ? [{ href: "/review", label: "Review all pages" }]
-                : []),
-            ].map((item) => (
+            {primaryNav.map((section) => (
+              <div key={section.href}>
+                <Link
+                  href={section.href}
+                  className="text-sm font-semibold text-navy hover:text-brand"
+                >
+                  {section.label}
+                </Link>
+                {/* State pages are listed on the Our Partners hub and the site map; ten links would crowd the footer. */}
+                {section.href !== "/our-partners/" &&
+                  section.children.length > 0 && (
+                    <ul className="mt-3 space-y-2 text-sm text-muted">
+                      {section.children.map((child) => (
+                        <li key={child.href}>
+                          <Link href={child.href} className="hover:text-brand">
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
+            ))}
+            <div>
               <Link
-                key={item.href}
-                href={item.href}
+                href={contact.path}
+                className="text-sm font-semibold text-navy hover:text-brand"
+              >
+                Contact
+              </Link>
+              <ul className="mt-3 space-y-2 text-sm text-muted">
+                <li>
+                  <Link href="/our-partners/" className="hover:text-brand">
+                    Find a Clinic
+                  </Link>
+                </li>
+                <li>
+                  <a href={organization.sameAs[0]} className="hover:text-brand">
+                    LinkedIn
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-xs text-muted">
+          <p>
+            © {new Date().getFullYear()} {organization.name}. {a.city}, Ohio.
+          </p>
+          <nav aria-label="Legal and utility" className="flex flex-wrap gap-5">
+            {utilityPages.map((page) => (
+              <Link
+                key={page.path}
+                href={page.path}
                 className="hover:text-brand"
               >
-                {item.label}
+                {page.title}
               </Link>
             ))}
           </nav>
-        </div>
-        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-line pt-6 text-xs text-muted">
-          <p>
-            © {new Date().getFullYear()} {settings.title}
-          </p>
-          <div className="flex flex-wrap gap-5">
-            {settings.phone && (
-              <a href={`tel:${settings.phone.replace(/[^+\d]/g, "")}`}>
-                {settings.phone}
-              </a>
-            )}
-            {settings.email && (
-              <a href={`mailto:${settings.email}`}>{settings.email}</a>
-            )}
-          </div>
         </div>
       </div>
     </footer>

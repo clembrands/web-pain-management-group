@@ -68,6 +68,7 @@ await create("homePage", "homePage", seed.home, [
   "storyImage",
   "mapImage",
 ]);
-for (const page of seed.pages) await create(`page-${page.slug}`, "page", page);
-for (const partner of seed.partners)
-  await create(partner._id, "partner", partner, ["logo"]);
+// Only the contact page still reads a "page" document. Partner hospitals, articles, and
+// news are imported from inventory/ in their own build phases, not from concept content.
+for (const page of seed.pages.filter((p) => p.slug === "contact"))
+  await create(`page-${page.slug}`, "page", page);

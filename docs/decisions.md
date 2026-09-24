@@ -1,38 +1,51 @@
 # PMG rebuild decisions log
 
 Source of truth: `deliverables/PMG-Site-Map-Rev-2.0.pdf`. The September 7 client-review
-sitemap (`deliverables/PMG Website Sitemap for Client Review.docx`) is superseded.
+sitemap (`deliverables/PMG Website Sitemap for Client Review.docx`) and the documents built
+on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are superseded.
 
-## 2026-09-24
+## 2026-09-24: Phase 1 approved
 
-- **CMS: keep Sanity.** Sanity holds Pain Education, News, Case Studies, and partner
-  hospital data. Every other page is code.
-- **Routes follow Rev 2.0 exactly**, with `trailingSlash: true` to match the live
-  WordPress URLs. The review build's routes are replaced (see below).
-- **Pain Education article count:** preserve every article the crawl finds, with its exact
-  slug, whether that is 32 or 35. Phase 1 reports the final count and category split, and
-  the client site map is updated to match.
-- **News:** `/blog-left-sidebar/` and `/blog/` (plus `/blog/:slug*`) 301 to `/news/`. Any
-  other blog-archive or theme-demo URL the crawl finds with traffic or inbound links also
-  gets a 301. The rest are listed for retirement.
-- **State pages** use the full state name as the slug: `/our-partners/ohio/`.
+- **CMS: keep Sanity** for Pain Education, News, Case Studies, and partner hospitals.
+  Everything else is code.
+- **Routes follow Rev 2.0 exactly**, with `trailingSlash: true` to match WordPress.
+- **Pain Education: 36 articles** (7 Conditions, 25 Procedures, 4 Medications), every slug
+  exactly as live. Superion, live but missing from the old hub, is listed under Procedures.
+  The existing `/pain-education/genicular-nerve-ablation/` redirect stays.
+- **News:** `/blog/`, `/blog/:slug+`, `/blog-left-sidebar/`, and the WordPress category,
+  author, and date archives 301 to `/news/`. The 4 posts move to `/news/<same-slug>/`.
+- **State pages** use the full state name: `/our-partners/ohio/`.
+- **Theme demo pages: 410 Gone** for all 18 (plus their 12 pagination pages). If a Search
+  Console export arrives before launch, any page with real clicks switches to a 301.
+- **Analytics:** reuse GTM `GTM-KNQXQ7K` and GA4 `G-5JJ8KNE4RS`, add Microsoft Clarity
+  through GTM, no Meta Pixel. See `docs/analytics.md`: the container is currently empty.
+- **Review-build routes** 301 to their Rev 2.0 equivalents (table below).
+- **`/accessibility/`** stays as a footer utility page beside Privacy, Terms, and Site Map.
 
-## Review-build routes to 301 (Phase 2)
+### Guardrails for Phase 2 onward
 
-The client saw these on the review deployment. Each gets a permanent redirect to its
-Rev 2.0 equivalent. Rows marked "confirm" need a decision before Phase 2 ships.
+- **Partners:** never publish a guessed city or name. The 10 partners with no address on the
+  live site show name and state only until PMG confirms. Current names stay as they are,
+  including "Hosplital". Open questions are in `deliverables/partners-to-confirm.csv`.
+- **Article schema:** PMG (the Organization) is author and publisher. The Sanity `article`
+  type has an optional `medicalReviewer` field for when PMG names one.
+- **ViewMedica:** every existing embed is kept exactly as it is.
+- **Testimonials:** Patrick J. Martin's title stays blank.
+- **Jobs:** Open Opportunities is two links, to Indeed and CareerMD. Internal roles link to
+  careers@painmgmtgroup.com.
 
-| Review route | Rev 2.0 destination | Note |
-| --- | --- | --- |
-| `/partnership/operating-model` | `/partnership/how-it-works/` | |
-| `/partnership/quality-and-compliance` | `/partnership/balanced-pain-treatment/` | confirm: closest match |
-| `/our-partners/stories/:slug` | `/results/case-studies/` | samples only, no real stories yet |
-| `/locations`, `/locations/:path*` | `/our-partners/` | |
-| `/for-providers` | `/providers/` | |
-| `/for-providers/practice-model` | `/providers/why-pmg/` | |
-| `/careers`, `/careers/:slug` | `/providers/opportunities/` | |
-| `/resources`, `/resources/:slug` | `/news/` | |
-| `/about-us/leadership/sample-clinical-leader` | `/about-us/leadership/` | |
-| `/accessibility` | none in Rev 2.0 | confirm: keep as an unlisted footer page, or 301 |
-| `/review` | `/sitemap/` | internal inventory page, retired |
-| `/pain-education/<provisional-slug>` | the real live slug | mapped after the crawl; provisional slugs were derived from titles |
+## Review-build routes (301)
+
+| Review route | Rev 2.0 destination |
+| --- | --- |
+| `/partnership/operating-model/` | `/partnership/how-it-works/` |
+| `/partnership/quality-and-compliance/` | `/partnership/balanced-pain-treatment/` |
+| `/our-partners/stories/:slug*/` | `/results/case-studies/` |
+| `/locations/:path*/` | `/our-partners/` |
+| `/for-providers/` | `/providers/` |
+| `/for-providers/practice-model/` | `/providers/why-pmg/` |
+| `/careers/:path*/` | `/providers/opportunities/` |
+| `/resources/:path*/` | `/news/` |
+| `/about-us/leadership/sample-clinical-leader/` | `/about-us/leadership/` |
+| `/review/` | `/sitemap/` |
+| 8 provisional `/pain-education/` slugs | the real live slug (see `src/lib/redirects.ts`) |

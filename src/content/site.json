@@ -6,13 +6,13 @@
   "home": {
     "heroTitle": "You run the hospital.",
     "heroAccent": "We make pain management work.",
-    "heroDescription": "The experts in hospital-based pain management. We build and run high-performing pain programs with you — turning pain services into a quality win and a sustainable service line.",
+    "heroDescription": "The experts in hospital-based pain management. We build and run high-performing pain programs with you, turning pain services into a quality win and a sustainable service line.",
     "heroImage": {
       "url": "/assets/hero-1e.png",
       "alt": "PMG physician and hospital administrator"
     },
-    "statsTitle": "Two decades of hospital-based pain programs — measured, not estimated.",
-    "statsDescription": "We manage every partner program through data, with high visibility into performance. These are the numbers we lead with — and the ones rural communities feel most.",
+    "statsTitle": "Two decades of hospital-based pain programs, measured, not estimated.",
+    "statsDescription": "We manage every partner program through data, with high visibility into performance. These are the numbers we lead with, and the ones rural communities feel most.",
     "stats": [
       { "value": "40", "label": "hospital partnerships" },
       { "value": "187K", "label": "patient encounters in 2025" },
@@ -22,7 +22,7 @@
     "differentiators": [
       {
         "title": "Outcomes-driven",
-        "body": "We manage every program through data — quality outcomes, program performance, and financials, fully visible to our partners."
+        "body": "We manage every program through data: quality outcomes, program performance, and financials, fully visible to our partners."
       },
       {
         "title": "Physician-led",
@@ -40,19 +40,19 @@
       },
       {
         "title": "We build the program.",
-        "body": "Physician recruiting, care team training, workflows, and compliance — stood up inside your hospital, under your roof."
+        "body": "Physician recruiting, care team training, workflows, and compliance, stood up inside your hospital, under your roof."
       },
       {
         "title": "You keep control.",
-        "body": "Your brand, your governance, your community — with full transparency into operations and results."
+        "body": "Your brand, your governance, your community, with full transparency into operations and results."
       },
       {
         "title": "The program matures.",
-        "body": "Quality outcomes, volumes, and financial performance tracked in the open — so the program earns its place, year after year."
+        "body": "Quality outcomes, volumes, and financial performance tracked in the open, so the program earns its place, year after year."
       }
     ],
     "storyTitle": "Take pain services from missing to indispensable.",
-    "storyDescription": "Hear how partner hospitals turned pain management into one of their strongest service lines — clinically and financially.",
+    "storyDescription": "Hear how partner hospitals turned pain management into one of their strongest service lines, clinically and financially.",
     "storyImage": {
       "url": "/assets/1cvideo-tight.png",
       "alt": "Partner hospital story"
@@ -60,19 +60,19 @@
     "faqs": [
       {
         "question": "Why not just recruit a pain physician and do this ourselves?",
-        "answer": "Recruiting one physician isn't a program. We bring the clinical model, the operational playbook, and the bench strength to make a service line last — especially in small communities."
+        "answer": "Recruiting one physician isn't a program. We bring the clinical model, the operational playbook, and the bench strength to make a service line last, especially in small communities."
       },
       {
-        "question": "We don't want to share revenue — is the JV really worth it?",
+        "question": "We don't want to share revenue. Is the JV really worth it?",
         "answer": "In our joint-venture model, PMG only succeeds when the program succeeds. We'll walk through the economics, the path to profitability, and how startup investment is shared, in plain numbers."
       },
       {
         "question": "Are we giving up operating control?",
-        "answer": "No. Programs run inside your hospital, under your brand, with governance you help define — and full transparency into operations, compliance, and results."
+        "answer": "No. Programs run inside your hospital, under your brand, with governance you help define, and full transparency into operations, compliance, and results."
       },
       {
         "question": "Will the program actually last in a community our size?",
-        "answer": "20 years, 40 partnerships, 95% retention. Longevity is the metric we're proudest of — and the one rural communities need most. Board-certified, fellowship-trained physicians and a rigorous APP onboarding process are how we make it stick."
+        "answer": "20 years, 40 partnerships, 95% retention. Longevity is the metric we're proudest of, and the one rural communities need most. Board-certified, fellowship-trained physicians and a rigorous APP onboarding process are how we make it stick."
       }
     ],
     "locationsTitle": "40 hospitals and health systems, 68 care locations. Mostly rural. All hospital-based.",
@@ -112,7 +112,7 @@
       "slug": "partnership",
       "eyebrow": "For hospital leaders",
       "title": "A pain service line. An accountable partner.",
-      "description": "Physician recruiting, operations, compliance, and quality tracking — handled by a partner whose incentives match yours.",
+      "description": "Physician recruiting, operations, compliance, and quality tracking, handled by a partner whose incentives match yours.",
       "cards": [
         {
           "title": "Built inside your hospital",
@@ -166,7 +166,7 @@
       "slug": "contact",
       "eyebrow": "Let's talk",
       "title": "Thinking about pain services? Talk to the experts first.",
-      "description": "A 30-minute call. No commitments — just the model, the data, and the economics.",
+      "description": "A 30-minute call. No commitments, just the model, the data, and the economics.",
       "cards": []
     }
   ]

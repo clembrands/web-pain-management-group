@@ -43,19 +43,3 @@ export type Partner = {
   description?: string;
   website?: string;
 };
-export type Location = {
-  _id: string;
-  name: string;
-  city: string;
-  state: string;
-  address: string;
-  phone?: string;
-  website?: string;
-};
-export type Opportunity = {
-  _id: string;
-  title: string;
-  location: string;
-  description: string;
-  applicationUrl?: string;
-};

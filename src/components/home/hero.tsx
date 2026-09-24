@@ -1,13 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { HomeContent } from "@/content/types";
-export function Hero({
-  home,
-  schedulingUrl,
-}: {
-  home: HomeContent;
-  schedulingUrl?: string;
-}) {
+import { scheduleCallHref } from "@/lib/site";
+export function Hero({ home }: { home: HomeContent }) {
   return (
     <section className="bg-navy text-white">
       <div className="container-shell grid items-center gap-10 pb-16 pt-9 md:py-20 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
@@ -21,13 +16,10 @@ export function Hero({
             {home.heroDescription}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              href={schedulingUrl || "/contact"}
-              className="button button-primary"
-            >
+            <Link href={scheduleCallHref} className="button button-primary">
               Schedule a Call
             </Link>
-            <Link href="/our-partners" className="button button-dark-outline">
+            <Link href="/results/" className="button button-dark-outline">
               See Our Results
             </Link>
           </div>

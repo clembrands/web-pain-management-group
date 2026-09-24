@@ -1,10 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getPublishedPageSlugs } from "@/sanity/lib/content";
-import { siteUrl, isIndexable } from "@/lib/seo";
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+import { sitemapPaths } from "@/lib/routes";
+import { absoluteUrl, isIndexable } from "@/lib/seo";
+
+export default function sitemap(): MetadataRoute.Sitemap {
   return isIndexable
-    ? ["", "contact", ...(await getPublishedPageSlugs())].map((slug) => ({
-        url: `${siteUrl}/${slug}`,
-      }))
+    ? sitemapPaths().map((path) => ({ url: absoluteUrl(path) }))
     : [];
 }

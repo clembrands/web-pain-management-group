@@ -53,7 +53,7 @@ export function SocialProof({ partners }: { partners: Partner[] }) {
     <section className="container-shell py-14 text-center">
       <h2>Real results. Nothing to hide.</h2>
       <Link
-        href="/our-partners"
+        href="/results/"
         className="mt-4 inline-block text-sm font-semibold text-[#2d5d84] underline-offset-4 hover:underline"
       >
         See the outcomes behind our hospital partnerships →

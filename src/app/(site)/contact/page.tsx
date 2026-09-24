@@ -1,32 +1,29 @@
-import { getPage, getSettings } from "@/sanity/lib/content";
+import Link from "next/link";
+import { getPage } from "@/sanity/lib/content";
 import { submissionsReady } from "@/sanity/lib/submissions";
 import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
-import { pageMetadata } from "@/lib/seo";
-import { reviewMode } from "@/content/review/pages";
-import { DemoInquiry } from "@/components/demo-inquiry";
-import Link from "next/link";
-import { ReviewMediaFigure } from "@/components/review-media";
-import { reviewMedia } from "@/content/review/media";
+import { Breadcrumbs } from "@/components/page-shell";
+import { routeMetadata } from "@/lib/seo";
+import { organization } from "@/lib/site";
+
+// Interim contact page. Rebuilt as the Hospital Inquiry conversion page in Phase 8.
 export const dynamic = "force-dynamic";
-export async function generateMetadata() {
-  const page = (await getPage("contact"))!;
-  return pageMetadata(
-    page.seoTitle || page.title,
-    page.seoDescription || page.description,
-    "/contact",
-  );
-}
+export const metadata = routeMetadata("/contact/");
+
 export default async function ContactPage() {
-  const [page, settings, enabled] = await Promise.all([
+  const [page, enabled] = await Promise.all([
     getPage("contact"),
-    getSettings(),
-    reviewMode ? Promise.resolve(false) : submissionsReady().catch(() => false),
+    submissionsReady().catch(() => false),
   ]);
   return (
     <>
+      <Breadcrumbs path="/contact/" />
       <PageHero page={page!} />
-      <section className="container-shell section-space grid items-start gap-12 md:grid-cols-2">
+      <section
+        id="schedule-a-call"
+        className="container-shell section-space grid scroll-mt-8 items-start gap-12 md:grid-cols-2"
+      >
         <div>
           <p className="eyebrow">Pain Management Group</p>
           <h2>A conversation starts here.</h2>
@@ -34,55 +31,38 @@ export default async function ContactPage() {
             Tell us about your hospital, your community, or your interest in
             joining a physician-led team.
           </p>
-          {reviewMode && (
-            <div className="mt-8">
-              <ReviewMediaFigure media={reviewMedia("contact")!} />
-            </div>
-          )}
           <div className="mt-8 space-y-5">
-            {settings.phone && (
-              <p>
-                <span className="block text-xs text-muted">Phone</span>
-                <a
-                  className="text-lg text-brand underline"
-                  href={`tel:${settings.phone.replace(/[^+\d]/g, "")}`}
-                >
-                  {settings.phone}
-                </a>
-              </p>
-            )}
-            {settings.email && (
-              <p>
-                <span className="block text-xs text-muted">Email</span>
-                <a
-                  className="break-all text-lg text-brand underline"
-                  href={`mailto:${settings.email}`}
-                >
-                  {settings.email}
-                </a>
-              </p>
-            )}
-            {settings.schedulingUrl && (
+            <p>
+              <span className="block text-xs text-muted">Phone</span>
               <a
-                className="button button-primary"
-                href={settings.schedulingUrl}
+                className="text-lg text-brand underline"
+                href={`tel:${organization.phone.replace(/[^\d]/g, "")}`}
               >
-                Schedule a Call
+                {organization.phone}
               </a>
-            )}
+            </p>
+            <p>
+              <span className="block text-xs text-muted">Email</span>
+              <a
+                className="text-lg break-all text-brand underline"
+                href={`mailto:${organization.email}`}
+              >
+                {organization.email}
+              </a>
+            </p>
           </div>
         </div>
-        {reviewMode ? <DemoInquiry /> : <ContactForm enabled={enabled} />}
+        <ContactForm enabled={enabled} />
       </section>
       <section className="container-shell pb-16">
         <div className="rounded-2xl bg-mist p-8">
           <h2 className="text-2xl">Looking for patient care?</h2>
           <p className="mt-4 text-muted">
-            Appointments are handled by the local hospital or clinic. Find the
-            right contact through our location directory.
+            Appointments are made directly with the hospital pain center. Find a
+            PMG partner clinic in your state.
           </p>
-          <Link href="/locations" className="button button-outline mt-6">
-            Find a care location →
+          <Link href="/our-partners/" className="button button-outline mt-6">
+            Find a Clinic
           </Link>
         </div>
       </section>

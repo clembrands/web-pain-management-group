@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Card, Faq } from "@/content/types";
+import { scheduleCallHref } from "@/lib/site";
 export function Cards({ items }: { items: Card[] }) {
   return (
     <div className="grid gap-6 md:grid-cols-3">
@@ -36,7 +37,7 @@ export function Faqs({ items }: { items: Faq[] }) {
     </div>
   );
 }
-export function CtaBand({ schedulingUrl }: { schedulingUrl?: string }) {
+export function CtaBand() {
   return (
     <section className="bg-navy text-white">
       <div className="container-shell section-space flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
@@ -45,12 +46,12 @@ export function CtaBand({ schedulingUrl }: { schedulingUrl?: string }) {
             Thinking about pain services? Talk to the experts first.
           </h2>
           <p className="mt-4 text-[#b9c8d4]">
-            A 30-minute call. No commitments — just the model, the data, and the
+            A 30-minute call. No commitments, just the model, the data, and the
             economics.
           </p>
         </div>
         <Link
-          href={schedulingUrl || "/contact"}
+          href={scheduleCallHref}
           className="button shrink-0 bg-white text-navy hover:bg-[#dce6ee]"
         >
           Schedule a Call
