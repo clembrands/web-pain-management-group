@@ -1,9 +1,43 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { SectionsWithNav } from "@/components/editorial";
+import { MetricTiles } from "@/components/metrics";
+import { PageShell } from "@/components/page-shell";
+import { dashboardGroups } from "@/content/pages/results";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/results/dashboard/";
 export const metadata = routeMetadata(path);
 
-export default function Page() {
-  return <PlaceholderPage path={path} />;
+// Outcomes tracked in the open. Every tile shows its definition, source, and period.
+export default function DashboardPage() {
+  return (
+    <PageShell
+      path={path}
+      eyebrow="Results and Outcomes"
+      lede="The measures PMG tracks across its hospital partnerships, each with its definition, source, and reporting period."
+      contentId="page-content"
+      related={[
+        "/results/case-studies/",
+        "/results/testimonials/",
+        "/partnership/questions/",
+      ]}
+    >
+      <SectionsWithNav items={dashboardGroups}>
+        <p className="rounded-2xl border border-[#e7d6ac] bg-[#fbf6ea] p-5 text-sm text-[#6b4f10]">
+          Every figure on this page is awaiting confirmation by PMG. The set of
+          measures is a draft.
+        </p>
+        {dashboardGroups.map((g) => (
+          <section
+            key={g.id}
+            id={g.id}
+            className="scroll-mt-8 border-b border-line pb-10 last:border-0 last:pb-0"
+          >
+            <h2 className="text-2xl md:text-[30px]">{g.title}</h2>
+            <p className="mt-3 mb-6 text-muted">{g.intro}</p>
+            <MetricTiles metrics={g.metrics} detailed />
+          </section>
+        ))}
+      </SectionsWithNav>
+    </PageShell>
+  );
 }

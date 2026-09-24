@@ -12,9 +12,9 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 | --- | --- | --- |
 | 1 | Live-site inventory (`inventory/`) | Approved |
 | 2 | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | Approved |
-| 3 | Home and Partnership Model | In review |
-| 4 | Results and Outcomes | |
-| 5 | Our Partners and 10 state pages | |
+| 3 | Home and Partnership Model | Approved |
+| 4 | Results and Outcomes | In review |
+| 5 | Our Partners and 10 state pages | In review |
 | 6 | For Providers and APPs | |
 | 7 | Pain Education and 36 articles | |
 | 8 | About, News, Contact, utility pages | |
@@ -90,6 +90,13 @@ private `submissions` dataset. Studio is at `/studio/content`, inquiries at
 `/studio/submissions`. Content types: `article`, `newsPost`, `caseStudy`, `partner`, plus
 `siteSettings` and the contact `page`. Home copy lives in code (`src/content/pages/home.ts`). Imports from `inventory/` happen in each
 content type's build phase. The Editor token and seed are still pending approval.
+
+Partner hospitals: until `npm run import:partners` runs, the site reads the 40 partners
+migrated from the live site (`src/content/legacy/partners.ts`). The import never overwrites
+existing documents. Case studies render from Sanity only; with none published, the index
+shows an empty state and stays noindex and out of `sitemap.xml`.
+
+The partner map is static SVG generated from us-atlas by `npm run generate:us-map`.
 
 The inquiry form writes only to the private dataset and stays disabled until credentials are
 set. Its final destination is an open question (brief §10).

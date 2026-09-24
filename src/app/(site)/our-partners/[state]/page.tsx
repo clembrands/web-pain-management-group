@@ -1,6 +1,12 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
+import { PageShell } from "@/components/page-shell";
+import { PartnerMap } from "@/components/partner-map";
+import { PartnerCard } from "@/components/partner-list";
 import { partnerStates } from "@/content/legacy/states";
-import { routeMetadata } from "@/lib/seo";
+import { getPartnerHospitals } from "@/sanity/lib/content";
+import { absoluteUrl, routeMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ state: string }> };
 
@@ -13,6 +19,90 @@ export async function generateMetadata({ params }: Props) {
   return routeMetadata(`/our-partners/${(await params).state}/`);
 }
 
-export default async function Page({ params }: Props) {
-  return <PlaceholderPage path={`/our-partners/${(await params).state}/`} />;
+export default async function StatePage({ params }: Props) {
+  const slug = (await params).state;
+  const state = partnerStates.find((s) => s.slug === slug);
+  if (!state) notFound();
+  const path = `/our-partners/${slug}/`;
+  const partners = (await getPartnerHospitals()).filter(
+    (p) => p.state === slug,
+  );
+
+  // ItemList of the partner hospitals. Address fields appear only where the live site had them.
+  const itemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${state.name} Hospital Pain Management Partners`,
+    url: absoluteUrl(path),
+    numberOfItems: partners.length,
+    itemListElement: partners.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "MedicalClinic",
+        name: p.name,
+        ...(p.website ? { url: p.website } : {}),
+        ...(p.phone ? { telephone: p.phone } : {}),
+        address: {
+          "@type": "PostalAddress",
+          ...(p.city ? { addressLocality: p.city } : {}),
+          addressRegion: state.abbr,
+          addressCountry: "US",
+        },
+      },
+    })),
+  };
+
+  return (
+    <PageShell
+      path={path}
+      eyebrow="Our Partners"
+      lede={`Pain Management Group partners with the ${state.name} hospitals below to run hospital-based pain management centers. Patients make appointments directly with each hospital's pain center.`}
+      contentId="partner-hospitals"
+      related={["/partnership/", "/results/", "/partnership/questions/"]}
+    >
+      <JsonLd data={itemList} />
+      <section
+        id="partner-hospitals"
+        className="container-shell section-space grid scroll-mt-4 items-start gap-10 lg:grid-cols-[1.3fr_1fr]"
+      >
+        <div>
+          <h2>Partner hospitals in {state.name}</h2>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+            {partners.map((p) => (
+              <PartnerCard key={p.name} partner={p} />
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-8 lg:sticky lg:top-6">
+          <div className="rounded-[22px] border border-line bg-mist p-4">
+            <PartnerMap focus={slug} />
+          </div>
+          <nav aria-label="Other partner states">
+            <h2 className="text-xl">Partners in other states</h2>
+            <ul className="mt-4 flex flex-wrap gap-2">
+              {partnerStates
+                .filter((s) => s.slug !== slug)
+                .map((s) => (
+                  <li key={s.slug}>
+                    <Link
+                      href={`/our-partners/${s.slug}/`}
+                      className="block rounded-full border border-line bg-white px-4 py-2 text-sm hover:border-brand hover:text-brand"
+                    >
+                      {s.name}
+                    </Link>
+                  </li>
+                ))}
+            </ul>
+            <Link
+              href="/our-partners/"
+              className="mt-5 inline-block text-sm font-semibold text-brand underline underline-offset-4"
+            >
+              All partner hospitals and map
+            </Link>
+          </nav>
+        </div>
+      </section>
+    </PageShell>
+  );
 }

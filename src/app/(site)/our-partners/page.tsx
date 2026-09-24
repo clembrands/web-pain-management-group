@@ -1,9 +1,78 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import Link from "next/link";
+import { PageShell } from "@/components/page-shell";
+import { PartnerMap } from "@/components/partner-map";
+import { partnerLocation } from "@/components/partner-list";
+import { partnerStates } from "@/content/legacy/states";
+import { getPartnerHospitals } from "@/sanity/lib/content";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/our-partners/";
 export const metadata = routeMetadata(path);
 
-export default function Page() {
-  return <PlaceholderPage path={path} />;
+export default async function OurPartnersPage() {
+  const partners = await getPartnerHospitals();
+  return (
+    <PageShell
+      path={path}
+      eyebrow="Find a Clinic"
+      lede="PMG partner pain management centers are part of community hospitals and health systems. Choose a state to see every partner hospital there. Patients make appointments directly with the hospital's pain center."
+      contentId="partner-map"
+      related={["/partnership/", "/results/", "/partnership/questions/"]}
+    >
+      <section
+        id="partner-map"
+        className="container-shell section-space grid scroll-mt-4 items-center gap-10 lg:grid-cols-[1.4fr_1fr]"
+      >
+        <div className="rounded-[22px] border border-line bg-mist p-4 md:p-8">
+          <PartnerMap />
+        </div>
+        <nav aria-label="Partner states">
+          <h2 className="text-2xl">Partners by state</h2>
+          <ul className="mt-6 grid grid-cols-2 gap-3">
+            {partnerStates.map((s) => (
+              <li key={s.slug}>
+                <Link
+                  href={`/our-partners/${s.slug}/`}
+                  className="block rounded-xl border border-line bg-white px-4 py-3 text-sm font-semibold text-navy hover:border-brand hover:text-brand"
+                >
+                  {s.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </section>
+      <section className="border-t border-line bg-mist">
+        <div className="container-shell section-space">
+          <h2>Every partner hospital</h2>
+          <div className="mt-10 columns-1 gap-10 sm:columns-2 lg:columns-3">
+            {partnerStates.map((s) => (
+              <div key={s.slug} className="mb-8 break-inside-avoid">
+                <h3 className="text-lg">
+                  <Link
+                    href={`/our-partners/${s.slug}/`}
+                    className="hover:text-brand"
+                  >
+                    {s.name}
+                  </Link>
+                </h3>
+                <ul className="mt-3 space-y-2 text-sm">
+                  {partners
+                    .filter((p) => p.state === s.slug)
+                    .map((p) => (
+                      <li key={p.name}>
+                        <span className="text-ink">{p.name}</span>
+                        <span className="block text-xs text-muted">
+                          {partnerLocation(p)}
+                        </span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
 }

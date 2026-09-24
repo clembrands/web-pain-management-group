@@ -96,7 +96,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "why-pain",
         title: "Why pain management deserves its own service line",
         paragraphs: [
-          "More Americans live with pain than with diabetes, coronary heart disease, and cancer combined {{TBD: source for this statistic, carried over from the live site}}. Despite the need, many hospitals lack an efficient system for pain management.",
+          "An estimated 100 million U.S. adults live with chronic pain, more than heart disease, cancer, and diabetes combined, according to the Institute of Medicine's 2011 report [Relieving Pain in America](https://www.nationalacademies.org/publications/13172). Despite the need, many hospitals lack an efficient system for pain management.",
           "Without an organized program, the cost shows up across the hospital:",
         ],
         points: [
@@ -351,6 +351,14 @@ export const hospitalLeaderQuestions: Question[] = [
     answer: [
       "{{TBD: typical hospital startup investment and what it covers, confirmed by PMG}}.",
       "The amount depends on the space, equipment, and staffing your center needs, which are defined when the program is designed. [See the four phases](/partnership/how-it-works/).",
+    ],
+  },
+  {
+    id: "launch-time",
+    question: "How long does it take to launch a program?",
+    answer: [
+      "A new program typically takes {{TBD: time from signed agreement to first patient}} to launch.",
+      "That time covers the first three phases of a partnership: assessing the opportunity, designing the program, and building and launching the center. [See the four phases](/partnership/how-it-works/).",
     ],
   },
   {

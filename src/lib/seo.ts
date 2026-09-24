@@ -92,11 +92,11 @@ export function organizationJsonLd() {
   };
 }
 
-export function breadcrumbJsonLd(path: string) {
+export function breadcrumbJsonLd(path: string, current?: SiteRoute) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: breadcrumbTrail(path).map((r, i) => ({
+    itemListElement: breadcrumbTrail(path, current).map((r, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: r.path === "/" ? "Home" : (r.navLabel ?? r.title),

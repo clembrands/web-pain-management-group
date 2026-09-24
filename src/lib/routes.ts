@@ -97,7 +97,7 @@ export const sections: SiteRoute[] = [
       "PMG partnership results: partnerships, patient encounters, and retention, sourced and on the record.",
     audience: "hospital",
     phase: 4,
-    status: "placeholder",
+    status: "draft",
     children: [
       route({
         path: "/results/dashboard/",
@@ -106,7 +106,7 @@ export const sections: SiteRoute[] = [
           "Pain Management Group program outcomes, tracked in the open.",
         audience: "hospital",
         phase: 4,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -116,7 +116,7 @@ export const sections: SiteRoute[] = [
           "Hospital pain management partnership case studies from PMG partner programs.",
         audience: "hospital",
         phase: 4,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -126,7 +126,7 @@ export const sections: SiteRoute[] = [
           "What hospital leaders say about partnering with Pain Management Group.",
         audience: "hospital",
         phase: 4,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
     ],
@@ -136,10 +136,10 @@ export const sections: SiteRoute[] = [
     title: "Our Hospital Partners",
     navLabel: "Our Partners",
     description:
-      "Hospitals across 10 states partner with Pain Management Group. Find a partner pain management center near you.",
+      "Find a Pain Management Group partner hospital near you. Partner pain management centers are part of community hospitals and health systems in the Midwest, South, and Northeast.",
     audience: "hospital",
     phase: 5,
-    status: "placeholder",
+    status: "draft",
     children: partnerStates.map((state) =>
       route({
         path: `/our-partners/${state.slug}/`,
@@ -148,7 +148,7 @@ export const sections: SiteRoute[] = [
         description: `Pain Management Group's hospital pain management partners in ${state.name}.`,
         audience: "hospital",
         phase: 5,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
     ),
@@ -345,16 +345,17 @@ export function getRoute(path: string): SiteRoute {
   return found;
 }
 
-// Home, then each ancestor section, then the page itself.
-export function breadcrumbTrail(path: string): SiteRoute[] {
+// Home, then each ancestor section, then the page itself. Pages built from CMS records
+// (case studies) are not in the registry, so they pass themselves in as `current`.
+export function breadcrumbTrail(
+  path: string,
+  current?: SiteRoute,
+): SiteRoute[] {
   if (path === "/") return [home];
   const segments = path.split("/").filter(Boolean);
   const trail = segments
     .map((_, i) => byPath.get(`/${segments.slice(0, i + 1).join("/")}/`))
     .filter((r): r is SiteRoute => Boolean(r));
+  if (current && trail.at(-1)?.path !== current.path) trail.push(current);
   return [home, ...trail];
 }
-
-// Hospital-leader pages end with Schedule a Call; provider pages with View Opportunities.
-export const ctaFor = (audience: Audience) =>
-  audience === "provider" ? "opportunities" : "schedule";

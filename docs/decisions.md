@@ -47,6 +47,20 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - Home copy moved from Sanity (`homePage`) into code, in line with Sanity holding only
   articles, news, case studies, and partners.
 
+## 2026-09-24: Phase 3 approved, Phases 4 and 5
+
+- Pain statistic cited to the Institute of Medicine (2011), *Relieving Pain in America*, and
+  listed in `docs/open-questions.md` for verification.
+- 13th question added: "How long does it take to launch a program?" The opioid and exit
+  answers need PMG sign-off before launch.
+- "Joint venture" stays (Rev 2.0 term); PMG confirms deals are structured that way.
+- Every "Concept photography" caption must be gone by launch.
+- Results: every metric is a TBD tile with its definition, source, and period. No sample
+  case studies; the index is noindex until one is published. Testimonials have no photos.
+- Our Partners: names exactly as the live site, city only where the live site has it. A
+  static SVG map links to all 10 state pages. The overall partner and state counts are not
+  stated as figures anywhere; the dashboard's network counts are TBD.
+
 ## Review-build routes (301)
 
 | Review route | Rev 2.0 destination |

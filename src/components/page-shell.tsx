@@ -4,22 +4,24 @@ import { JsonLd } from "@/components/json-ld";
 import { EndCta } from "@/components/cta";
 import { RichText } from "@/components/rich-text";
 import type { Media } from "@/content/pages/partnership";
-import { breadcrumbTrail, getRoute } from "@/lib/routes";
+import { breadcrumbTrail, getRoute, type SiteRoute } from "@/lib/routes";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { scheduleCallHref } from "@/lib/site";
 
 export function Breadcrumbs({
   path,
+  current,
   tone = "light",
 }: {
   path: string;
+  current?: SiteRoute;
   tone?: "light" | "dark";
 }) {
-  const trail = breadcrumbTrail(path);
+  const trail = breadcrumbTrail(path, current);
   const dark = tone === "dark";
   return (
     <>
-      <JsonLd data={breadcrumbJsonLd(path)} />
+      <JsonLd data={breadcrumbJsonLd(path, current)} />
       <nav
         aria-label="Breadcrumb"
         className={
@@ -61,6 +63,7 @@ const primaryAction = {
 // CTA for the page's audience.
 export function PageShell({
   path,
+  route: routeOverride,
   eyebrow,
   lede,
   media,
@@ -69,6 +72,8 @@ export function PageShell({
   children,
 }: {
   path: string;
+  // For pages built from CMS records, which are not in the route registry.
+  route?: SiteRoute;
   eyebrow?: string;
   lede?: string;
   media?: Media;
@@ -77,20 +82,22 @@ export function PageShell({
   related?: string[];
   children?: React.ReactNode;
 }) {
-  const route = getRoute(path);
+  const route = routeOverride ?? getRoute(path);
   const action =
     route.audience === "utility" ? undefined : primaryAction[route.audience];
   return (
     <>
       <section className="bg-navy text-white">
         <div className="container-shell pt-6 pb-16 md:pb-20">
-          <Breadcrumbs path={path} tone="dark" />
+          <Breadcrumbs path={path} current={routeOverride} tone="dark" />
           <div
             className={`grid items-center gap-10 ${media ? "lg:grid-cols-[1.1fr_.9fr]" : ""}`}
           >
             <div>
               <p className="eyebrow text-sky">
-                {eyebrow ?? breadcrumbTrail(path).at(-2)?.navLabel ?? "PMG"}
+                {eyebrow ??
+                  breadcrumbTrail(path, routeOverride).at(-2)?.navLabel ??
+                  "PMG"}
               </p>
               <h1 className="max-w-4xl text-4xl leading-[1.15] font-bold tracking-tight md:text-5xl">
                 {route.title}
