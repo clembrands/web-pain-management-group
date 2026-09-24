@@ -1,0 +1,143 @@
+url,title,status,indexable,in_sitemap,proposed_destination,action,reason
+https://painmgmtgroup.com/,Pain Management Group – Balanced Pain Treatment Centers,200,yes,yes,/,keep,
+https://painmgmtgroup.com/2017/12/,December 2017 – Pain Management Group,200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2017/12/07/,"December 7, 2017 – Pain Management Group",200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2018/01/,January 2018 – Pain Management Group,200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2018/01/16/,"January 16, 2018 – Pain Management Group",200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2019/01/,January 2019 – Pain Management Group,200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2019/01/31/,"January 31, 2019 – Pain Management Group",200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2022/08/,August 2022 – Pain Management Group,200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/2022/08/29/,"August 29, 2022 – Pain Management Group",200,yes,no,/news/,301,"blog date archive, linked from every post sidebar"
+https://painmgmtgroup.com/about-us/,About Us – Pain Management Group,200,yes,yes,/about-us/,keep,
+https://painmgmtgroup.com/about/,,301,no,no,/about-us/,301,existing live redirect; preserve
+https://painmgmtgroup.com/author/pmg_admin/,pmg_admin – Pain Management Group,200,yes,yes,/news/,301,"blog author archive, in sitemap"
+https://painmgmtgroup.com/blog-left-2column/,Blog Left 2Column – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/blog-left-sidebar/,News – Pain Management Group,200,yes,yes,/news/,301,news hub; /blog-left-sidebar/ is the live nav's Blog link
+https://painmgmtgroup.com/blog-right-2column/,Blog Right 2Column – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/blog-right-sidebar/,Blog Right Sidebar – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/blog/,Blog – Pain Management Group,200,yes,yes,/news/,301,news hub; /blog-left-sidebar/ is the live nav's Blog link
+https://painmgmtgroup.com/category/corporate/,Corporate – Pain Management Group,200,yes,yes,/news/,301,"blog category archive, linked from every post sidebar"
+https://painmgmtgroup.com/category/stories/,Stories – Pain Management Group,200,yes,yes,/news/,301,"blog category archive, linked from every post sidebar"
+https://painmgmtgroup.com/category/uncategorized/,Uncategorized – Pain Management Group,200,yes,yes,/news/,301,"blog category archive, linked from every post sidebar"
+https://painmgmtgroup.com/contact,,301,no,no,/contact/,handled by trailingSlash,
+https://painmgmtgroup.com/contact/,Contact – Pain Management Group,200,yes,yes,/contact/,keep,
+https://painmgmtgroup.com/em_portfolios/acrmc-restorative-pain-care/,ACRMC Restorative Pain Care – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for ACRMC Restorative Pain Care
+https://painmgmtgroup.com/em_portfolios/allegan-pain-management-center/,Allegan Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/michigan/,301,partner page for Allegan Pain Management Center
+https://painmgmtgroup.com/em_portfolios/avita-pain-management-center-galion/,Avita Pain Management – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Avita Pain Management
+https://painmgmtgroup.com/em_portfolios/blanchard-valley-pain-management-center-findlay/,Blanchard Valley Pain Management Centers – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Blanchard Valley Pain Management Centers
+https://painmgmtgroup.com/em_portfolios/breckinridge-health-pain-management-center/,Breckinridge Health Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/kentucky/,301,partner page for Breckinridge Health Pain Management Center
+https://painmgmtgroup.com/em_portfolios/clinton-pain-management-center/,Clinton Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Clinton Pain Management Center
+https://painmgmtgroup.com/em_portfolios/columbus-regional/,Columbus Regional – Pain Management Group,200,yes,yes,/our-partners/north-carolina/,301,partner page for Columbus Regional
+https://painmgmtgroup.com/em_portfolios/community-hospitals-wellness-centers-pain-management-center/,Parkview Pain Management Clinic – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Parkview Pain Management Clinic
+https://painmgmtgroup.com/em_portfolios/crystal-clinic-pain-management-center/,Crystal Clinic Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Crystal Clinic Pain Management Center
+https://painmgmtgroup.com/em_portfolios/decatur-county-memorial-pain-management-center/,Decatur County Memorial Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/indiana/,301,partner page for Decatur County Memorial Pain Management Center
+https://painmgmtgroup.com/em_portfolios/edgerton-hospital-pain-spine-center/,Edgerton Hospital Pain & Spine Center – Pain Management Group,200,yes,yes,/our-partners/wisconsin/,301,partner page for Edgerton Hospital Pain & Spine Center
+https://painmgmtgroup.com/em_portfolios/edgewood-pain-management-center/,Edgewood Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/pennsylvania/,301,partner page for Edgewood Pain Management Center
+https://painmgmtgroup.com/em_portfolios/ferrell-pain-management-center/,Ferrell Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/illinois/,301,partner page for Ferrell Pain Management Center
+https://painmgmtgroup.com/em_portfolios/fisher-titus-pain-management-center-sandusky/,Fisher-Titus Pain Management Centers – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Fisher-Titus Pain Management Centers
+https://painmgmtgroup.com/em_portfolios/hancock-pain-management/,Hancock Pain Management – Pain Management Group,200,yes,yes,/our-partners/indiana/,301,partner page for Hancock Pain Management
+https://painmgmtgroup.com/em_portfolios/hardin-medical-center/,Hardin Medical Center – Pain Management Group,200,yes,yes,/our-partners/tennessee/,301,partner page for Hardin Medical Center
+https://painmgmtgroup.com/em_portfolios/harrison-memorial-pain-management/,Harrison Memorial Pain Management – Pain Management Group,200,yes,yes,/our-partners/kentucky/,301,partner page for Harrison Memorial Pain Management
+https://painmgmtgroup.com/em_portfolios/henry-county-pain-management-center/,Henry County Pain Management Center – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Henry County Pain Management Center
+https://painmgmtgroup.com/em_portfolios/houlton-regional-hospital/,Houlton Regional Hospital – Pain Management Group,200,yes,yes,/our-partners/maine/,301,partner page for Houlton Regional Hospital
+https://painmgmtgroup.com/em_portfolios/knox-center-for-pain-management/,Knox Center for Pain Management – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Knox Center for Pain Management
+https://painmgmtgroup.com/em_portfolios/madison-health-pain-management/,MADISON HEALTH PAIN MANAGEMENT – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for MADISON HEALTH PAIN MANAGEMENT
+https://painmgmtgroup.com/em_portfolios/magruder-pain-management-center/,MAGRUDER PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for MAGRUDER PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/marshall-browning/,Marshall Browning – Pain Management Group,200,yes,yes,/our-partners/illinois/,301,partner page for Marshall Browning
+https://painmgmtgroup.com/em_portfolios/massac-hospital/,MASSAC Hospital – Pain Management Group,200,yes,yes,/our-partners/illinois/,301,partner page for MASSAC Hospital
+https://painmgmtgroup.com/em_portfolios/meadowview-interventional-pain-management/,MEADOWVIEW INTERVENTIONAL PAIN MANAGEMENT – Pain Management Group,200,yes,yes,/our-partners/kentucky/,301,partner page for MEADOWVIEW INTERVENTIONAL PAIN MANAGEMENT
+https://painmgmtgroup.com/em_portfolios/memorial-pain-clinic/,MEMORIAL PAIN CLINIC – Pain Management Group,200,yes,yes,/our-partners/michigan/,301,partner page for MEMORIAL PAIN CLINIC
+https://painmgmtgroup.com/em_portfolios/memorial-pain-solutions/,MEMORIAL PAIN SOLUTIONS – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for MEMORIAL PAIN SOLUTIONS
+https://painmgmtgroup.com/em_portfolios/new-day-pain-management-center/,Grand Lake PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Grand Lake PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/northern-maine-medical-center/,Northern Maine Medical Center – Pain Management Group,200,yes,yes,/our-partners/maine/,301,partner page for Northern Maine Medical Center
+https://painmgmtgroup.com/em_portfolios/ohio-county-pain-care/,OHIO COUNTY PAIN CARE – Pain Management Group,200,yes,yes,/our-partners/kentucky/,301,partner page for OHIO COUNTY PAIN CARE
+https://painmgmtgroup.com/em_portfolios/paulding-county-pain-management/,PAULDING COUNTY PAIN MANAGEMENT – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for PAULDING COUNTY PAIN MANAGEMENT
+https://painmgmtgroup.com/em_portfolios/perry-county-memorial-hosplital/,Perry County Memorial Hosplital – Pain Management Group,200,yes,yes,/our-partners/indiana/,301,partner page for Perry County Memorial Hosplital
+https://painmgmtgroup.com/em_portfolios/putnam-county-hospital-pain-management-center/,PUTNAM COUNTY HOSPITAL PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/indiana/,301,partner page for PUTNAM COUNTY HOSPITAL PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/rhea-pain-management-center/,RHEA PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/tennessee/,301,partner page for RHEA PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/southeastern-pain-management/,Southeastern Pain Management – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for Southeastern Pain Management
+https://painmgmtgroup.com/em_portfolios/spine-and-pain-program-at-mymichigan-medical-center-west-branch/,SPINE AND PAIN PROGRAM AT MYMICHIGAN MEDICAL CENTER – Pain Management Group,200,yes,yes,/our-partners/michigan/,301,partner page for SPINE AND PAIN PROGRAM AT MYMICHIGAN MEDICAL CENTER
+https://painmgmtgroup.com/em_portfolios/twin-lakes-pain-management-center/,TWIN LAKES PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/kentucky/,301,partner page for TWIN LAKES PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/uh-samaritan-pain-clinic/,UH SAMARITAN PAIN CLINIC – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for UH SAMARITAN PAIN CLINIC
+https://painmgmtgroup.com/em_portfolios/van-wert-county-pain-management-center/,VAN WERT COUNTY PAIN MANAGEMENT CENTER – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for VAN WERT COUNTY PAIN MANAGEMENT CENTER
+https://painmgmtgroup.com/em_portfolios/wayne-health-pain-management/,WAYNE HEALTH PAIN MANAGEMENT – Pain Management Group,200,yes,yes,/our-partners/ohio/,301,partner page for WAYNE HEALTH PAIN MANAGEMENT
+https://painmgmtgroup.com/em_team/cristian-escobar/,Cristian Escobar – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/em_team/mr-miller/,Mr Miller – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/em_team/patrick-tomasso/,Patrick Tomasso – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/em_team/stephen-miller/,Stephen Miller – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/em_testimonial/bill-watkins/,Bill Watkins – Pain Management Group,200,yes,yes,/results/testimonials/,301,carries the 3 named testimonials
+https://painmgmtgroup.com/em_testimonial/mr-maldonado/,"William Kose, MD – Pain Management Group",200,yes,yes,/results/testimonials/,301,carries the 3 named testimonials
+https://painmgmtgroup.com/em_testimonial/patrick-j-martin/,Patrick J. Martin – Pain Management Group,200,yes,yes,/results/testimonials/,301,carries the 3 named testimonials
+https://painmgmtgroup.com/home-one-page/,Home One Page – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/home-video-page-2/,Home Video Page – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/internal-team-opportunities/,Internal Team Opportunities – Pain Management Group,200,yes,yes,/about-us/careers/,301,Rev 2.0 page for non-clinical roles; live page is lorem ipsum
+https://painmgmtgroup.com/our-clients/,Our Clients – Pain Management Group,200,yes,yes,/results/testimonials/,301,carries the 3 named testimonials
+https://painmgmtgroup.com/our-partners,,301,no,no,/our-partners/,handled by trailingSlash,
+https://painmgmtgroup.com/our-partners/,Our Partners – Pain Management Group,200,yes,yes,/our-partners/,keep,
+https://painmgmtgroup.com/pain-education/,Pain Education – Pain Management Group,200,yes,yes,/pain-education/,keep,
+https://painmgmtgroup.com/pain-education/basivertebral-nerve-ablation-bvn/,Basivertebral Nerve Ablation (BVN) – Pain Management Group,200,yes,yes,/pain-education/basivertebral-nerve-ablation-bvn/,keep,
+https://painmgmtgroup.com/pain-education/botox-injections-for-chronic-migraine/,BOTOX® Injections for Chronic Migraine – Pain Management Group,200,yes,yes,/pain-education/botox-injections-for-chronic-migraine/,keep,
+https://painmgmtgroup.com/pain-education/bursitis-of-the-hip-trochanteric-bursitis/,Bursitis of the Hip (Trochanteric Bursitis) – Pain Management Group,200,yes,yes,/pain-education/bursitis-of-the-hip-trochanteric-bursitis/,keep,
+https://painmgmtgroup.com/pain-education/caudal-epidural-steroid-injection/,Caudal Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/caudal-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/cervical-epidural-steroid-injection/,Cervical Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/cervical-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/cervical-facet-radiofrequency-neurotomy/,Cervical Facet Radiofrequency Neurotomy – Pain Management Group,200,yes,yes,/pain-education/cervical-facet-radiofrequency-neurotomy/,keep,
+https://painmgmtgroup.com/pain-education/cervical-radiculopathy/,Cervical Radiculopathy – Pain Management Group,200,yes,yes,/pain-education/cervical-radiculopathy/,keep,
+https://painmgmtgroup.com/pain-education/cervical-transforaminal-epidural-steroid-injection/,Cervical Transforaminal Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/cervical-transforaminal-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/complex-regional-pain-syndrome-crps/,Complex Regional Pain Syndrome (CRPS) – Pain Management Group,200,yes,yes,/pain-education/complex-regional-pain-syndrome-crps/,keep,
+https://painmgmtgroup.com/pain-education/genicular-nerve-ablation-rf-neurotomy/,Genicular Nerve Ablation (RF Neurotomy) – Pain Management Group,200,yes,yes,/pain-education/genicular-nerve-ablation-rf-neurotomy/,keep,
+https://painmgmtgroup.com/pain-education/genicular-nerve-ablation/,,301,no,no,/pain-education/genicular-nerve-ablation-rf-neurotomy/,301,existing live redirect; preserve
+https://painmgmtgroup.com/pain-education/joint-injection/,Hip Joint Injection – Pain Management Group,200,yes,yes,/pain-education/joint-injection/,keep,
+https://painmgmtgroup.com/pain-education/lumbar-epidural-steroid-injection/,Lumbar Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/lumbar-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/lumbar-radiculopathy-sciatica/,Lumbar Radiculopathy (Sciatica) – Pain Management Group,200,yes,yes,/pain-education/lumbar-radiculopathy-sciatica/,keep,
+https://painmgmtgroup.com/pain-education/lumbar-sympathetic-block/,Lumbar Sympathetic Block – Pain Management Group,200,yes,yes,/pain-education/lumbar-sympathetic-block/,keep,
+https://painmgmtgroup.com/pain-education/lumbar-transforaminal-epidural-steroid-injection/,Lumbar Transforaminal Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/lumbar-transforaminal-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/medial-branch-block/,Medial Branch Block – Pain Management Group,200,yes,yes,/pain-education/medial-branch-block/,keep,
+https://painmgmtgroup.com/pain-education/mild-procedure-vertos-medical/,Mild® Procedure (Vertos Medical) – Pain Management Group,200,yes,yes,/pain-education/mild-procedure-vertos-medical/,keep,
+https://painmgmtgroup.com/pain-education/opioid-misuse/,Opioid Misuse – Pain Management Group,200,yes,yes,/pain-education/opioid-misuse/,keep,
+https://painmgmtgroup.com/pain-education/opioids-and-chronic-pain-management/,Opioids and Chronic Pain Management – Pain Management Group,200,yes,yes,/pain-education/opioids-and-chronic-pain-management/,keep,
+https://painmgmtgroup.com/pain-education/post-laminectomy-syndrome/,Post-Laminectomy Syndrome – Pain Management Group,200,yes,yes,/pain-education/post-laminectomy-syndrome/,keep,
+https://painmgmtgroup.com/pain-education/radiofrequency-ablation-rfa-for-pain/,Radiofrequency Ablation (RFA) for Pain – Pain Management Group,200,yes,yes,/pain-education/radiofrequency-ablation-rfa-for-pain/,keep,
+https://painmgmtgroup.com/pain-education/radiofrequency-neurotomy-of-the-lumbar-facets/,Radiofrequency Neurotomy of the Lumbar Facets – Pain Management Group,200,yes,yes,/pain-education/radiofrequency-neurotomy-of-the-lumbar-facets/,keep,
+https://painmgmtgroup.com/pain-education/radiofrequency-neurotomy-of-the-thoracic-facets/,Radiofrequency Neurotomy of the Thoracic Facets – Pain Management Group,200,yes,yes,/pain-education/radiofrequency-neurotomy-of-the-thoracic-facets/,keep,
+https://painmgmtgroup.com/pain-education/sacroiliac-joint-steroid-injection/,Sacroiliac Joint Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/sacroiliac-joint-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/side-effects-of-long-term-opioid-use/,Side Effects of Long-Term Opioid Use – Pain Management Group,200,yes,yes,/pain-education/side-effects-of-long-term-opioid-use/,keep,
+https://painmgmtgroup.com/pain-education/soft-tissue-injection/,Steroid Injection for Shoulder Bursitis – Pain Management Group,200,yes,yes,/pain-education/soft-tissue-injection/,keep,
+https://painmgmtgroup.com/pain-education/spinal-cord-stimulator-implant-trial-procedure/,Spinal Cord Stimulator Implant (Trial Procedure) – Pain Management Group,200,yes,yes,/pain-education/spinal-cord-stimulator-implant-trial-procedure/,keep,
+https://painmgmtgroup.com/pain-education/spinal-cord-stimulator-implant/,Spinal Cord Stimulator Implant – Pain Management Group,200,yes,yes,/pain-education/spinal-cord-stimulator-implant/,keep,
+https://painmgmtgroup.com/pain-education/spinal-stenosis/,Spinal Stenosis – Pain Management Group,200,yes,yes,/pain-education/spinal-stenosis/,keep,
+https://painmgmtgroup.com/pain-education/spondylosis/,Spondylosis – Pain Management Group,200,yes,yes,/pain-education/spondylosis/,keep,
+https://painmgmtgroup.com/pain-education/stellate-ganglion-block/,Stellate Ganglion Block – Pain Management Group,200,yes,yes,/pain-education/stellate-ganglion-block/,keep,
+https://painmgmtgroup.com/pain-education/superion-interspinous-spacer-vertiflex/,Superion® InterSpinous Spacer (Vertiflex) – Pain Management Group,200,yes,yes,/pain-education/superion-interspinous-spacer-vertiflex/,keep,
+https://painmgmtgroup.com/pain-education/tapering-opioid-use-safely/,Tapering Opioid Use Safely – Pain Management Group,200,yes,yes,/pain-education/tapering-opioid-use-safely/,keep,
+https://painmgmtgroup.com/pain-education/thoracic-epidural-steroid-injection/,Thoracic Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/thoracic-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/thoracic-transforaminal-epidural-steroid-injection/,Thoracic Transforaminal Epidural Steroid Injection – Pain Management Group,200,yes,yes,/pain-education/thoracic-transforaminal-epidural-steroid-injection/,keep,
+https://painmgmtgroup.com/pain-education/trigger-point-injections/,Trigger Point Injections – Pain Management Group,200,yes,yes,/pain-education/trigger-point-injections/,keep,
+https://painmgmtgroup.com/pain-management-group-receives-spirit-award-from-the-partnership-for-excellence/,Pain Management Group Receives ‘Spirit Award’ From The Partnership For Excellence – Pain Management Group,200,yes,yes,/news/pain-management-group-receives-spirit-award-from-the-partnership-for-excellence/,301,news post 2019-01-31
+https://painmgmtgroup.com/pain-management-group-receives-the-partnership-for-excellence-silver-award-2022/,Pain Management Group Receives The Partnership For Excellence Silver Award 2022 – Pain Management Group,200,yes,yes,/news/pain-management-group-receives-the-partnership-for-excellence-silver-award-2022/,301,news post 2022-08-29
+https://painmgmtgroup.com/pmg-helping-in-houston/,PMG Helping In Houston – Pain Management Group,200,yes,yes,/news/pmg-helping-in-houston/,301,news post 2017-12-07
+https://painmgmtgroup.com/portfolio-3column/,Portfolio 3Column – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/2/,Portfolio 3Column – Page 2 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/3/,Portfolio 3Column – Page 3 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/4/,Portfolio 3Column – Page 4 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/5/,Portfolio 3Column – Page 5 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/6/,Portfolio 3Column – Page 6 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-3column/page/7/,Portfolio 3Column – Page 7 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/,Portfolio Full 3Column – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/2/,Portfolio Full 3Column – Page 2 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/3/,Portfolio Full 3Column – Page 3 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/4/,Portfolio Full 3Column – Page 4 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/5/,Portfolio Full 3Column – Page 5 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/6/,Portfolio Full 3Column – Page 6 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio-full-3column/page/7/,Portfolio Full 3Column – Page 7 – Pain Management Group,200,no,no,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/portfolio/,Portfolio – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/pricing-plan/,Pricing Plan – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/provider-opportunities/,Provider Opportunities – Pain Management Group,200,yes,yes,/providers/,301,Rev 2.0
+https://painmgmtgroup.com/sample-page/,Sample Page – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/service/,Careers – Pain Management Group,200,yes,yes,/providers/,301,Rev 2.0
+https://painmgmtgroup.com/slider/slider/,slider – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/slider/slider2-2/,slider2 – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/slider/slider3-2/,slider3 – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/thank-you-for-paying-it-forward/,Thank You For Paying It Forward – Pain Management Group,200,yes,yes,/news/thank-you-for-paying-it-forward/,301,news post 2018-01-16
+https://painmgmtgroup.com/type/gallery/,Gallery – Pain Management Group,200,yes,yes,,retire,theme demo content; no internal links from real pages
+https://painmgmtgroup.com/why-choose-us,,301,no,no,/why-choose-us/,handled by trailingSlash,
+https://painmgmtgroup.com/why-choose-us/,Why Choose Us – Pain Management Group,200,yes,yes,/partnership/how-it-works/,301,Rev 2.0

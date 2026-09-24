@@ -1,0 +1,69 @@
+from,to,reason
+/2017/12/,/news/,"blog date archive, linked from every post sidebar"
+/2017/12/07/,/news/,"blog date archive, linked from every post sidebar"
+/2018/01/,/news/,"blog date archive, linked from every post sidebar"
+/2018/01/16/,/news/,"blog date archive, linked from every post sidebar"
+/2019/01/,/news/,"blog date archive, linked from every post sidebar"
+/2019/01/31/,/news/,"blog date archive, linked from every post sidebar"
+/2022/08/,/news/,"blog date archive, linked from every post sidebar"
+/2022/08/29/,/news/,"blog date archive, linked from every post sidebar"
+/about/,/about-us/,existing live redirect; preserve
+/author/pmg_admin/,/news/,"blog author archive, in sitemap"
+/blog-left-sidebar/,/news/,news hub; /blog-left-sidebar/ is the live nav's Blog link
+/blog/,/news/,news hub; /blog-left-sidebar/ is the live nav's Blog link
+/category/corporate/,/news/,"blog category archive, linked from every post sidebar"
+/category/stories/,/news/,"blog category archive, linked from every post sidebar"
+/category/uncategorized/,/news/,"blog category archive, linked from every post sidebar"
+/em_portfolios/acrmc-restorative-pain-care/,/our-partners/ohio/,partner page for ACRMC Restorative Pain Care
+/em_portfolios/allegan-pain-management-center/,/our-partners/michigan/,partner page for Allegan Pain Management Center
+/em_portfolios/avita-pain-management-center-galion/,/our-partners/ohio/,partner page for Avita Pain Management
+/em_portfolios/blanchard-valley-pain-management-center-findlay/,/our-partners/ohio/,partner page for Blanchard Valley Pain Management Centers
+/em_portfolios/breckinridge-health-pain-management-center/,/our-partners/kentucky/,partner page for Breckinridge Health Pain Management Center
+/em_portfolios/clinton-pain-management-center/,/our-partners/ohio/,partner page for Clinton Pain Management Center
+/em_portfolios/columbus-regional/,/our-partners/north-carolina/,partner page for Columbus Regional
+/em_portfolios/community-hospitals-wellness-centers-pain-management-center/,/our-partners/ohio/,partner page for Parkview Pain Management Clinic
+/em_portfolios/crystal-clinic-pain-management-center/,/our-partners/ohio/,partner page for Crystal Clinic Pain Management Center
+/em_portfolios/decatur-county-memorial-pain-management-center/,/our-partners/indiana/,partner page for Decatur County Memorial Pain Management Center
+/em_portfolios/edgerton-hospital-pain-spine-center/,/our-partners/wisconsin/,partner page for Edgerton Hospital Pain & Spine Center
+/em_portfolios/edgewood-pain-management-center/,/our-partners/pennsylvania/,partner page for Edgewood Pain Management Center
+/em_portfolios/ferrell-pain-management-center/,/our-partners/illinois/,partner page for Ferrell Pain Management Center
+/em_portfolios/fisher-titus-pain-management-center-sandusky/,/our-partners/ohio/,partner page for Fisher-Titus Pain Management Centers
+/em_portfolios/hancock-pain-management/,/our-partners/indiana/,partner page for Hancock Pain Management
+/em_portfolios/hardin-medical-center/,/our-partners/tennessee/,partner page for Hardin Medical Center
+/em_portfolios/harrison-memorial-pain-management/,/our-partners/kentucky/,partner page for Harrison Memorial Pain Management
+/em_portfolios/henry-county-pain-management-center/,/our-partners/ohio/,partner page for Henry County Pain Management Center
+/em_portfolios/houlton-regional-hospital/,/our-partners/maine/,partner page for Houlton Regional Hospital
+/em_portfolios/knox-center-for-pain-management/,/our-partners/ohio/,partner page for Knox Center for Pain Management
+/em_portfolios/madison-health-pain-management/,/our-partners/ohio/,partner page for MADISON HEALTH PAIN MANAGEMENT
+/em_portfolios/magruder-pain-management-center/,/our-partners/ohio/,partner page for MAGRUDER PAIN MANAGEMENT CENTER
+/em_portfolios/marshall-browning/,/our-partners/illinois/,partner page for Marshall Browning
+/em_portfolios/massac-hospital/,/our-partners/illinois/,partner page for MASSAC Hospital
+/em_portfolios/meadowview-interventional-pain-management/,/our-partners/kentucky/,partner page for MEADOWVIEW INTERVENTIONAL PAIN MANAGEMENT
+/em_portfolios/memorial-pain-clinic/,/our-partners/michigan/,partner page for MEMORIAL PAIN CLINIC
+/em_portfolios/memorial-pain-solutions/,/our-partners/ohio/,partner page for MEMORIAL PAIN SOLUTIONS
+/em_portfolios/new-day-pain-management-center/,/our-partners/ohio/,partner page for Grand Lake PAIN MANAGEMENT CENTER
+/em_portfolios/northern-maine-medical-center/,/our-partners/maine/,partner page for Northern Maine Medical Center
+/em_portfolios/ohio-county-pain-care/,/our-partners/kentucky/,partner page for OHIO COUNTY PAIN CARE
+/em_portfolios/paulding-county-pain-management/,/our-partners/ohio/,partner page for PAULDING COUNTY PAIN MANAGEMENT
+/em_portfolios/perry-county-memorial-hosplital/,/our-partners/indiana/,partner page for Perry County Memorial Hosplital
+/em_portfolios/putnam-county-hospital-pain-management-center/,/our-partners/indiana/,partner page for PUTNAM COUNTY HOSPITAL PAIN MANAGEMENT CENTER
+/em_portfolios/rhea-pain-management-center/,/our-partners/tennessee/,partner page for RHEA PAIN MANAGEMENT CENTER
+/em_portfolios/southeastern-pain-management/,/our-partners/ohio/,partner page for Southeastern Pain Management
+/em_portfolios/spine-and-pain-program-at-mymichigan-medical-center-west-branch/,/our-partners/michigan/,partner page for SPINE AND PAIN PROGRAM AT MYMICHIGAN MEDICAL CENTER
+/em_portfolios/twin-lakes-pain-management-center/,/our-partners/kentucky/,partner page for TWIN LAKES PAIN MANAGEMENT CENTER
+/em_portfolios/uh-samaritan-pain-clinic/,/our-partners/ohio/,partner page for UH SAMARITAN PAIN CLINIC
+/em_portfolios/van-wert-county-pain-management-center/,/our-partners/ohio/,partner page for VAN WERT COUNTY PAIN MANAGEMENT CENTER
+/em_portfolios/wayne-health-pain-management/,/our-partners/ohio/,partner page for WAYNE HEALTH PAIN MANAGEMENT
+/em_testimonial/bill-watkins/,/results/testimonials/,carries the 3 named testimonials
+/em_testimonial/mr-maldonado/,/results/testimonials/,carries the 3 named testimonials
+/em_testimonial/patrick-j-martin/,/results/testimonials/,carries the 3 named testimonials
+/internal-team-opportunities/,/about-us/careers/,Rev 2.0 page for non-clinical roles; live page is lorem ipsum
+/our-clients/,/results/testimonials/,carries the 3 named testimonials
+/pain-education/genicular-nerve-ablation/,/pain-education/genicular-nerve-ablation-rf-neurotomy/,existing live redirect; preserve
+/pain-management-group-receives-spirit-award-from-the-partnership-for-excellence/,/news/pain-management-group-receives-spirit-award-from-the-partnership-for-excellence/,news post 2019-01-31
+/pain-management-group-receives-the-partnership-for-excellence-silver-award-2022/,/news/pain-management-group-receives-the-partnership-for-excellence-silver-award-2022/,news post 2022-08-29
+/pmg-helping-in-houston/,/news/pmg-helping-in-houston/,news post 2017-12-07
+/provider-opportunities/,/providers/,Rev 2.0
+/service/,/providers/,Rev 2.0
+/thank-you-for-paying-it-forward/,/news/thank-you-for-paying-it-forward/,news post 2018-01-16
+/why-choose-us/,/partnership/how-it-works/,Rev 2.0
