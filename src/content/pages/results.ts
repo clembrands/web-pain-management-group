@@ -1,8 +1,10 @@
 // Draft copy for Results and Outcomes (Phase 4). The partner and state counts are counted
-// from the published partner directory. Every other figure is a {{TBD: ...}} placeholder,
-// with its definition, source, and period, until PMG confirms it.
+// from the published partner directory. Every other figure is a {{SAMPLE: key}} from
+// src/content/sample-figures.ts, with its definition, source, and period, until PMG
+// confirms it.
 import type { EditorialContent } from "./partnership.ts";
 import type { DirectoryCounts } from "../../lib/partner-stats.ts";
+import type { SampleKey } from "../sample-figures.ts";
 
 export type Metric = {
   label: string;
@@ -20,10 +22,12 @@ export type MetricGroup = {
   metrics: Metric[];
 };
 
-const tbd = (label: string): Pick<Metric, "value" | "source" | "period"> => ({
-  value: `{{TBD: ${label}}}`,
-  source: "{{TBD: source}}",
-  period: "{{TBD: reporting period}}",
+const sample = (
+  key: SampleKey,
+): Pick<Metric, "value" | "source" | "period"> => ({
+  value: `{{SAMPLE: ${key}}}`,
+  source: "{{SAMPLE: source}}",
+  period: "{{SAMPLE: reportingPeriod}}",
 });
 
 // The draft set of measures. PMG confirms which it reports and how each is defined.
@@ -37,7 +41,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Care locations",
         definition:
           "Hospital-based pain management locations operating under a PMG partnership.",
-        ...tbd("number"),
+        ...sample("careLocations"),
       },
     ],
   },
@@ -50,19 +54,19 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Patient encounters",
         definition:
           "Visits and procedures across all partner centers in the reporting year.",
-        ...tbd("number"),
+        ...sample("patientEncounters"),
       },
       {
         label: "New patients",
         definition:
           "Patients seen at a partner center for the first time in the reporting year.",
-        ...tbd("number"),
+        ...sample("newPatients"),
       },
       {
         label: "Primary care referrals",
         definition:
           "Referrals from primary care physicians into partner centers.",
-        ...tbd("number"),
+        ...sample("pcpReferrals"),
       },
     ],
   },
@@ -75,17 +79,17 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Partner retention",
         definition:
           "Share of partnerships renewed at the end of their contract term.",
-        ...tbd("percent"),
+        ...sample("partnerRetention"),
       },
       {
         label: "Average partnership length",
         definition: "Mean years since launch across active partnerships.",
-        ...tbd("years"),
+        ...sample("avgPartnershipYears"),
       },
       {
         label: "Longest-running partnership",
         definition: "Years since the earliest active partnership launched.",
-        ...tbd("years"),
+        ...sample("longestPartnershipYears"),
       },
     ],
   },
@@ -97,18 +101,18 @@ export const dashboardGroups: MetricGroup[] = [
       {
         label: "Patient satisfaction",
         definition: "Patient experience score from PMG's survey.",
-        ...tbd("score"),
+        ...sample("patientSatisfaction"),
       },
       {
         label: "Patient-reported pain improvement",
         definition: "Share of patients reporting less pain after treatment.",
-        ...tbd("percent"),
+        ...sample("painImprovement"),
       },
       {
         label: "Emergency department visits for pain",
         definition:
           "Change in pain-related emergency visits among center patients.",
-        ...tbd("change"),
+        ...sample("edVisitChange"),
       },
     ],
   },

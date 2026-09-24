@@ -18,7 +18,8 @@
     "inventory:report": "node scripts/inventory/report.mjs",
     "import:content": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-content.ts",
     "generate:us-map": "node scripts/generate-us-map.mjs",
-    "audit:site": "node --experimental-strip-types scripts/audit-site.ts"
+    "audit:site": "node --experimental-strip-types scripts/audit-site.ts",
+    "sample-figures": "node --experimental-strip-types scripts/sample-figures.ts"
   },
   "overrides": {
     "@sanity/runtime-cli": {

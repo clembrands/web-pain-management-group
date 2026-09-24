@@ -1,11 +1,16 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { isSampleKey, sampleFigures } from "@/content/sample-figures";
 
-// Page copy is written as plain strings with two inline forms:
+// Page copy is written as plain strings with three inline forms:
 //   {{TBD: what is missing}}  a fact PMG has not confirmed yet. Rendered highlighted so it
 //                             cannot be mistaken for real copy; the launch check fails on it.
+//   {{SAMPLE: key}}           a sample figure from src/content/sample-figures.ts, shown as a
+//                             plain number for review. Marked data-sample in the HTML, so the
+//                             launch check fails on it too.
 //   [link text](/path/)       an internal or external link.
-const TOKEN = /\{\{TBD: ([^}]+)\}\}|\[([^\]]+)\]\(([^)]+)\)/g;
+const TOKEN =
+  /\{\{TBD: ([^}]+)\}\}|\{\{SAMPLE: ([a-zA-Z]+)\}\}|\[([^\]]+)\]\(([^)]+)\)/g;
 
 export function Tbd({ children }: { children: React.ReactNode }) {
   return (
@@ -19,23 +24,33 @@ export function Tbd({ children }: { children: React.ReactNode }) {
   );
 }
 
+export function Sample({ figure }: { figure: string }) {
+  if (!isSampleKey(figure)) return <Tbd>unknown sample figure {figure}</Tbd>;
+  return (
+    <span data-sample={figure} title="Sample figure, to be confirmed by PMG">
+      {sampleFigures[figure].value}
+    </span>
+  );
+}
+
 export function RichText({ text }: { text: string }) {
   const parts: React.ReactNode[] = [];
   let last = 0;
   for (const m of text.matchAll(TOKEN)) {
     parts.push(text.slice(last, m.index));
     if (m[1]) parts.push(<Tbd key={m.index}>{m[1]}</Tbd>);
+    else if (m[2]) parts.push(<Sample key={m.index} figure={m[2]} />);
     else {
       const className =
         "font-medium text-brand underline underline-offset-4 hover:text-[#2d5d84]";
       parts.push(
-        /^(https?:|mailto:|tel:)/.test(m[3]) ? (
-          <a key={m.index} href={m[3]} className={className}>
-            {m[2]}
+        /^(https?:|mailto:|tel:)/.test(m[4]) ? (
+          <a key={m.index} href={m[4]} className={className}>
+            {m[3]}
           </a>
         ) : (
-          <Link key={m.index} href={m[3]} className={className}>
-            {m[2]}
+          <Link key={m.index} href={m[4]} className={className}>
+            {m[3]}
           </Link>
         ),
       );
@@ -52,6 +67,15 @@ export function RichText({ text }: { text: string }) {
   );
 }
 
-// Plain text for metadata and JSON-LD: links keep their text, TBDs stay visible.
+// Plain text for metadata and JSON-LD: links keep their text, samples show their value,
+// TBDs stay visible.
 export const plainText = (text: string) =>
-  text.replace(TOKEN, (_, tbd, label) => (tbd ? `{{TBD: ${tbd}}}` : label));
+  text.replace(TOKEN, (_, tbd, sample, label) =>
+    tbd
+      ? `{{TBD: ${tbd}}}`
+      : sample
+        ? isSampleKey(sample)
+          ? sampleFigures[sample].value
+          : sample
+        : label,
+  );

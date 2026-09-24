@@ -5,6 +5,11 @@ We have not guessed at any of them: wherever the review site shows a marked plac
 ("to be confirmed"), it points to an item on this list, and nothing goes live with a
 placeholder still showing.
 
+**About the numbers on the review site:** where a figure is still unconfirmed (the Home page
+statistics, the Program Dashboard, launch and break-even timing, retention), the review site
+shows an illustrative sample so the pages read naturally. Those samples are not PMG data and
+will not go live. Your answers in sections 1, 2 and 5 replace them.
+
 **How to reply:** answer under each item, or mark it "remove" if you would rather the site not
 cover it. Items marked **Sign-off needed** need approval from the team named.
 

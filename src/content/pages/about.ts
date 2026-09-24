@@ -15,7 +15,7 @@ export const aboutPages: Record<string, EditorialContent> = {
         id: "who-we-are",
         title: "Who we are",
         paragraphs: [
-          "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment. PMG has been partnering with hospitals since {{TBD: first partnership year; the live site says 2009}}.",
+          "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment. PMG has been partnering with hospitals since {{SAMPLE: firstYear}}.",
           "Each partner receives the blueprint and ongoing program management to grow a high-quality, outpatient pain management service line.",
         ],
       },
@@ -53,7 +53,7 @@ export const aboutPages: Record<string, EditorialContent> = {
         title: "Why PMG exists",
         paragraphs: [
           "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment.",
-          "Since {{TBD: first partnership year; the live site says 2009}}, PMG has been partnering with hospitals to manage socially and medically responsible pain management centers.",
+          "Since {{SAMPLE: firstYear}}, PMG has been partnering with hospitals to manage socially and medically responsible pain management centers.",
         ],
       },
       {

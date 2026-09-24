@@ -66,6 +66,7 @@ npm run verify:urls -- http://localhost:3000   # every crawled URL, against a ru
 | `deliverables/PMG-items-to-confirm.md` | The one list of facts and approvals to send PMG |
 | `scripts/audit-site.ts` | SEO/GEO audit of a running build (`npm run audit:site`); see `docs/seo-audit.md` |
 | `docs/cutover.md` | DNS switch and the two weeks after |
+| `docs/sample-figures.md` | The 18 illustrative numbers on the review site, and what PMG must supply for each |
 
 ### URLs
 

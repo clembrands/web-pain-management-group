@@ -15,7 +15,8 @@ export const primaryNav: NavItem[] = sections.map((s) => ({
     .map((c) => ({ href: c.path, label: c.navLabel ?? c.title })),
 }));
 
-// Patients arrive looking for care, so Find a Clinic sits beside Contact in the utility bar.
+// Patients arrive looking for care, so Find a Clinic sits beside the header CTA; both links
+// appear in the mobile menu.
 export const utilityNav = [
   { href: "/our-partners/", label: "Find a Clinic" },
   { href: contact.path, label: "Contact" },

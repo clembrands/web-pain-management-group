@@ -1,6 +1,7 @@
 // Home page copy (Phase 3). The layout is the approved 1H concept; the copy is rewritten
 // from the live site. The partner hospital count is counted from the partner directory
-// ("directory"); every other figure is a {{TBD: ...}} placeholder until PMG confirms it.
+// ("directory"); every other figure is a {{SAMPLE: key}} from src/content/sample-figures.ts
+// until PMG confirms it.
 export const homeContent = {
   hero: {
     title: "You run the hospital.",
@@ -12,23 +13,26 @@ export const homeContent = {
       alt: "A physician and a hospital leader in a bright hospital lobby",
     },
     facts: [
-      "Partnering with hospitals since {{TBD: year}}",
+      "Partnering with hospitals since {{SAMPLE: firstYear}}",
       "directory:hospitals partner hospitals",
-      "{{TBD: number}} care locations",
+      "{{SAMPLE: careLocations}} care locations",
     ],
   },
   stats: {
     title: "Hospital-based pain programs, measured, not estimated.",
     description:
-      "Quantifiable outcomes and results are part of every PMG partnership. The partner hospital count comes from PMG's partner directory; the other figures will be confirmed by PMG before launch.",
+      "Quantifiable outcomes and results are part of every PMG partnership. The partner hospital count comes from PMG's partner directory; the other figures are illustrative until PMG confirms them.",
     items: [
       { value: "directory:hospitals", label: "partner hospitals" },
       {
-        value: "{{TBD: number}}",
-        label: "patient encounters in {{TBD: year}}",
+        value: "{{SAMPLE: patientEncounters}}",
+        label: "patient encounters in {{SAMPLE: reportingYear}}",
       },
-      { value: "{{TBD: percent}}", label: "partner retention" },
-      { value: "{{TBD: years}}", label: "of hospital-based pain management" },
+      { value: "{{SAMPLE: partnerRetention}}", label: "partner retention" },
+      {
+        value: "{{SAMPLE: yearsOperating}}",
+        label: "of hospital-based pain management",
+      },
     ],
   },
   locations: {

@@ -92,7 +92,7 @@ async function load(path: string): Promise<Page> {
       ),
     ].map((m) => JSON.parse(m[1])),
     links,
-    tbd: html.includes("{{TBD"),
+    tbd: html.includes("{{TBD") || html.includes("data-sample="),
   };
 }
 
@@ -147,7 +147,7 @@ for (const p of pages.values()) {
 
 const withTbd = [...pages.values()].filter((p) => p.tbd).map((p) => p.path);
 if (launch)
-  for (const path of withTbd) fail(`${path}: still shows a TBD placeholder`);
+  for (const path of withTbd) fail(`${path}: still shows a TBD placeholder or sample figure`);
 
 // Internal linking: breadth-first from Home over the indexable pages.
 const depth = new Map([["/", 0]]);
@@ -229,7 +229,7 @@ console.log(
 );
 if (withTbd.length && !launch)
   console.log(
-    `\n${withTbd.length} pages still show TBD placeholders (failures with --launch):\n  ${withTbd.join("\n  ")}`,
+    `\n${withTbd.length} pages still show TBD placeholders or sample figures (failures with --launch):\n  ${withTbd.join("\n  ")}`,
   );
 if (failures.length) {
   console.log(`\n${failures.length} problems:\n  ${failures.join("\n  ")}`);

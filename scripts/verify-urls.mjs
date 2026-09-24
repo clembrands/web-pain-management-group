@@ -14,7 +14,7 @@
 //   node scripts/verify-urls.mjs https://painmgmtgroup.com --launch
 //
 // --launch also fails any page that is still noindex (a placeholder, or indexing off), or
-// that still shows a {{TBD: ...}} placeholder or a concept photography caption. A kept URL
+// that still shows a {{TBD: ...}} placeholder, a sample figure, or a concept photography caption. A kept URL
 // that answers 200 but is noindex loses its search equity just the same.
 //
 // Exits non-zero if any URL fails, listing each failure.
@@ -73,7 +73,7 @@ const request = (path) =>
       status: res.status,
       location: location ? new URL(location, base).pathname : null,
       noindex,
-      tbd: body.includes("data-tbd"),
+      tbd: body.includes("data-tbd") || body.includes("data-sample"),
       concept: body.includes("Concept photography"),
     };
   });

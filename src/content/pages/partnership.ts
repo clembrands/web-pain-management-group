@@ -128,7 +128,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "track-record",
         title: "Hospitals that partner with PMG",
         paragraphs: [
-          "Hospitals have partnered with PMG since {{TBD: first partnership year; the live site says 2009}}. PMG manages {{TBD: number of current hospital partnerships}} partnerships today. [Find partner centers by state](/our-partners/).",
+          "Hospitals have partnered with PMG since {{SAMPLE: firstYear}}. PMG manages {{SAMPLE: partnerships}} partnerships today. [Find partner centers by state](/our-partners/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -150,7 +150,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "phases",
         title: "The four phases of a partnership",
         paragraphs: [
-          "Typical time from signed agreement to first patient: {{TBD: timeline, confirmed by PMG}}.",
+          "Typical time from signed agreement to first patient: {{SAMPLE: timeToFirstPatient}}.",
         ],
         steps: [
           {
@@ -191,7 +191,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "built-to-last",
         title: "Built to last beyond launch",
         paragraphs: [
-          "Program sustainability is one of the four elements of every PMG partnership. {{TBD: partner retention rate and average partnership length}}. Ask the rest of your questions on [What Hospital Leaders Ask](/partnership/questions/).",
+          "Program sustainability is one of the four elements of every PMG partnership. {{SAMPLE: partnerRetention}} of partner hospitals renew at the end of their contract term, and the average partnership has run {{SAMPLE: avgPartnershipYears}}. Ask the rest of your questions on [What Hospital Leaders Ask](/partnership/questions/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -298,7 +298,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "break-even",
         title: "When the program breaks even",
         paragraphs: [
-          "{{TBD: typical time to break-even across PMG partnerships}}. For any one hospital, the answer depends on primary care referral volume, payer mix, and staffing.",
+          "Across PMG partnerships, a new program typically breaks even {{SAMPLE: breakEven}} of opening. For any one hospital, the answer depends on primary care referral volume, payer mix, and staffing.",
         ],
       },
       {
@@ -357,7 +357,7 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "launch-time",
     question: "How long does it take to launch a program?",
     answer: [
-      "A new program typically takes {{TBD: time from signed agreement to first patient}} to launch.",
+      "A new program typically takes {{SAMPLE: timeToFirstPatient}} to launch.",
       "That time covers the first three phases of a partnership: assessing the opportunity, designing the program, and building and launching the center. [See the four phases](/partnership/how-it-works/).",
     ],
   },
@@ -365,7 +365,7 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "break-even",
     question: "How long until the program breaks even?",
     answer: [
-      "{{TBD: typical time to break-even across PMG partnerships}}.",
+      "A new program typically breaks even {{SAMPLE: breakEven}} of opening.",
       "The main drivers are primary care referral volume, payer mix, and how quickly clinic schedules fill.",
     ],
   },
@@ -422,7 +422,7 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "track-record",
     question: "How long has PMG been doing this, and do hospitals stay?",
     answer: [
-      "PMG has partnered with hospitals since {{TBD: first partnership year; the live site says 2009}}, and {{TBD: partner retention rate and average partnership length}}.",
+      "PMG has partnered with hospitals since {{SAMPLE: firstYear}}. {{SAMPLE: partnerRetention}} of partner hospitals renew at the end of their contract term, and the average partnership has run {{SAMPLE: avgPartnershipYears}}.",
       "Patrick J. Martin of Fisher-Titus Medical Center says the hospital started its program with PMG in 2009. [Read what partner leaders say](/results/testimonials/).",
     ],
   },

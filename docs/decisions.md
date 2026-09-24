@@ -109,6 +109,15 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   running build; `--launch` also fails on TBD placeholders. Results in `docs/seo-audit.md`.
 - Cutover runbook in `docs/cutover.md`.
 
+## 2026-09-24: Sample figures, header
+
+- Numeric placeholders now render as sample figures (`{{SAMPLE: key}}`, values and notes in
+  `src/content/sample-figures.ts`, list in `docs/sample-figures.md`) so review pages read
+  realistically. They are marked `data-sample` in the HTML and still fail both launch checks.
+  Prose placeholders (legal structure, protocols) stay as highlighted TBDs. PMG's confirmation
+  list says the numbers are illustrative.
+- Header: utility bar removed; Find a Clinic sits beside the CTA; logo enlarged.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

@@ -12,6 +12,7 @@ export function SiteHeader() {
   const close = () => setOpen(false);
   const isCurrent = (href: string) =>
     pathname === href || pathname.startsWith(href);
+  const findClinic = utilityNav[0];
   return (
     <header className="bg-navy text-white">
       <a
@@ -20,35 +21,23 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="border-b border-white/10">
-        <nav
-          aria-label="Utility"
-          className="container-shell flex flex-wrap justify-end gap-x-6 gap-y-2 py-3 text-xs text-[#c4d3df]"
+      <div className="container-shell flex min-h-28 items-center justify-between gap-6">
+        <Link
+          href="/"
+          onClick={close}
+          aria-label="Pain Management Group home"
+          className="shrink-0"
         >
-          {utilityNav.map((i) => (
-            <Link
-              href={i.href}
-              key={i.href}
-              onClick={close}
-              className="hover:text-white"
-            >
-              {i.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-      <div className="container-shell flex min-h-24 items-center justify-between gap-5">
-        <Link href="/" onClick={close} aria-label="Pain Management Group home">
           <Image
             src="/assets/pmg-logo.png"
             alt="Pain Management Group"
-            width={220}
-            height={44}
-            className="h-auto w-44 brightness-0 invert"
+            width={330}
+            height={38}
+            className="h-auto w-56 brightness-0 invert md:w-72"
             priority
           />
         </Link>
-        <nav aria-label="Main" className="hidden items-center gap-5 xl:flex">
+        <nav aria-label="Main" className="hidden items-center gap-4 xl:flex">
           {primaryNav.map((item) => (
             <div key={item.href} className="group relative">
               <Link
@@ -73,6 +62,12 @@ export function SiteHeader() {
               )}
             </div>
           ))}
+          <Link
+            href={findClinic.href}
+            className="text-[13px] text-[#c4d3df] hover:text-white"
+          >
+            {findClinic.label}
+          </Link>
           <Link
             href={scheduleCallHref}
             className="button button-primary px-5 text-xs"
@@ -120,6 +115,18 @@ export function SiteHeader() {
               ))}
             </div>
           ))}
+          <div className="flex flex-wrap gap-x-6 gap-y-2 border-t border-white/20 pt-4 text-sm text-[#c4d3df]">
+            {utilityNav.map((i) => (
+              <Link
+                href={i.href}
+                key={i.href}
+                onClick={close}
+                className="hover:text-white"
+              >
+                {i.label}
+              </Link>
+            ))}
+          </div>
           <Link
             href={scheduleCallHref}
             onClick={close}
