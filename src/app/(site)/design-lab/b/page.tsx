@@ -37,9 +37,10 @@ export default async function DirectionB() {
   const questions = homeQuestionIds.map((id) =>
     hospitalLeaderQuestions.find((q) => q.id === id)!,
   );
-  const facts = hero.facts.map((f) =>
-    f.replace("directory:hospitals", String(counts.hospitals)),
-  );
+  const figures = hero.figures.map((f) => ({
+    ...f,
+    value: f.value.replace("directory:hospitals", String(counts.hospitals)),
+  }));
 
   return (
     <>
@@ -55,7 +56,7 @@ export default async function DirectionB() {
           priority
           className="pointer-events-none absolute top-1/2 -right-[10%] w-[90%] -translate-y-1/2 opacity-70 md:w-[66%]"
         />
-        <div className="container-shell relative pt-16 pb-36 md:pt-24 md:pb-48">
+        <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
           <p className="label text-sky">
             Hospital pain management partnerships
           </p>
@@ -83,16 +84,19 @@ export default async function DirectionB() {
         </div>
       </section>
 
-      {/* 2. The problem; a navy panel pulls up into the hero */}
+      {/* 2. The problem; a white figures panel breaks the hero's bottom edge */}
       <section className="bg-white">
-        <div className="container-shell relative -mt-24 pb-24 md:-mt-32 md:pb-32">
-          <div className="grid gap-px bg-white md:grid-cols-3">
-            {facts.map((f) => (
-              <div key={f} className="bg-navy p-8 text-sm text-white">
-                <RichText text={f} />
+        <div className="container-shell relative -mt-20 pb-24 md:-mt-28 md:pb-32">
+          <dl className="grid divide-y divide-line bg-white shadow-[0_40px_80px_-40px_rgba(15,30,44,.55)] sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:-mx-12">
+            {figures.map((f) => (
+              <div key={f.label} className="px-6 py-8 md:px-10 md:py-12">
+                <dt className="label text-muted">{f.label}</dt>
+                <dd className="display-sans mt-4 text-5xl text-navy tabular-nums md:text-7xl">
+                  <RichText text={f.value} />
+                </dd>
               </div>
             ))}
-          </div>
+          </dl>
           <div className="mt-24 grid gap-12 md:mt-32 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
             <div>
               <p className="label text-brand">The problem</p>

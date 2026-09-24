@@ -17,6 +17,15 @@ export const homeContent = {
       "directory:hospitals partner hospitals",
       "{{SAMPLE: careLocations}} care locations",
     ],
+    // The same three facts as label and figure pairs, for number-led layouts.
+    figures: [
+      {
+        label: "Partnering with hospitals since",
+        value: "{{SAMPLE: firstYear}}",
+      },
+      { label: "Partner hospitals", value: "directory:hospitals" },
+      { label: "Care locations", value: "{{SAMPLE: careLocations}}" },
+    ],
   },
   stats: {
     title: "Hospital-based pain programs, measured, not estimated.",
