@@ -60,8 +60,8 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 ### Sanity (owner: Clembrands)
 
 - [ ] `SANITY_API_WRITE_TOKEN` (Editor) set locally and in Vercel Production, server-only.
-- [ ] `npm run import:content` run: 36 articles, 40 partners, and 4 news posts; records
-      checked in Studio.
+- [x] `npm run import:content` run (2026-09-24): 36 articles, 40 partners, and 4 news posts
+      created in `production`. Records to be spot-checked in Studio.
 - [ ] `submissions` dataset confirmed private (the form refuses to write to a public one).
 - [ ] Publishing webhook connected so new case studies, news, and partner edits go live.
 
