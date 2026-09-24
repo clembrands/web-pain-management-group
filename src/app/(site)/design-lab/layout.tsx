@@ -22,6 +22,7 @@ const cormorant = Cormorant_Garamond({
 const poppinsLight = Poppins({
   subsets: ["latin"],
   weight: ["200", "300"],
+  style: ["normal", "italic"],
   variable: "--font-poppins-light",
   display: "swap",
 });

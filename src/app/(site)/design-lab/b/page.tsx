@@ -55,17 +55,17 @@ export default async function DirectionB() {
           priority
           className="pointer-events-none absolute top-1/2 -right-[10%] w-[90%] -translate-y-1/2 opacity-70 md:w-[66%]"
         />
-        <div className="container-shell relative pt-20 pb-40 md:pt-28 md:pb-56">
+        <div className="container-shell relative pt-16 pb-36 md:pt-24 md:pb-48">
           <p className="label text-sky">
             Hospital pain management partnerships
           </p>
-          <h1 className="display display-sans mt-10 max-w-5xl">
+          <h1 className="display-md display-sans mt-10 max-w-3xl">
             {hero.title}
             <br />
             <span className="text-sky">{hero.accent}</span>
           </h1>
-          <div className="mt-14 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-            <p className="max-w-md text-[17px] text-[#c4d3df]">
+          <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <p className="max-w-sm text-[15px] text-[#c4d3df]">
               {hero.description}
             </p>
             <div className="flex flex-wrap gap-3">

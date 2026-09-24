@@ -166,7 +166,7 @@ export function Statement({
       <figure className="container-shell py-24 md:py-36">
         <p className="label text-sky">From our partners</p>
         <blockquote
-          className={`reveal mt-10 max-w-5xl text-[clamp(1.6rem,1rem+1.9vw,2.9rem)] leading-[1.25] ${face === "serif" ? "display-serif italic" : "font-light"}`}
+          className={`reveal mt-10 max-w-5xl text-[clamp(1.6rem,1rem+1.9vw,2.9rem)] leading-[1.25] ${face === "serif" ? "display-serif italic" : "font-light italic [font-family:var(--font-poppins-light,var(--font-poppins))]"}`}
         >
           {t.quote}
         </blockquote>
