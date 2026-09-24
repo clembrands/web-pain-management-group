@@ -5,8 +5,16 @@ const partnerSlugs = new Set<string>(partnerStates.map((s) => s.slug));
 
 // Map of PMG partner states. Each partner state is a link to its state page, so the map
 // works with a keyboard and without JavaScript. Pages always pair it with a text list.
-// With `focus`, the map zooms to that state and marks it as the current page.
-export function PartnerMap({ focus }: { focus?: string }) {
+// With `focus`, the map zooms to that state and marks it as the current page. `tone="dark"`
+// draws it for a navy background.
+export function PartnerMap({
+  focus,
+  tone = "light",
+}: {
+  focus?: string;
+  tone?: "light" | "dark";
+}) {
+  const dark = tone === "dark";
   const focused = stateShapes.find((s) => s.slug === focus);
   const viewBox = focused ? zoom(focused.box) : usMapViewBox;
   const label = focused
@@ -26,7 +34,11 @@ export function PartnerMap({ focus }: { focus?: string }) {
             <path
               key={s.slug}
               d={s.d}
-              className="fill-[#e1e9ef] stroke-white"
+              className={
+                dark
+                  ? "fill-[#243c52] stroke-[#16293a]"
+                  : "fill-[#e1e9ef] stroke-white"
+              }
               strokeWidth={focused ? 0.6 : 1}
             />
           );
@@ -43,7 +55,11 @@ export function PartnerMap({ focus }: { focus?: string }) {
             <path
               d={s.d}
               strokeWidth={focused ? 0.8 : 1.2}
-              className={`stroke-white transition-colors group-hover:fill-[#16437a] group-focus-visible:fill-[#16437a] group-focus-visible:stroke-[#f4c860] ${current ? "fill-navy" : "fill-brand"}`}
+              className={
+                dark
+                  ? `stroke-[#16293a] transition-colors group-hover:fill-white group-focus-visible:fill-white group-focus-visible:stroke-[#f4c860] ${current ? "fill-white" : "fill-sky"}`
+                  : `stroke-white transition-colors group-hover:fill-[#16437a] group-focus-visible:fill-[#16437a] group-focus-visible:stroke-[#f4c860] ${current ? "fill-navy" : "fill-brand"}`
+              }
             />
           </a>
         );

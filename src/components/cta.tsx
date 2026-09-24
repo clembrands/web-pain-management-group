@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Audience } from "@/lib/routes";
 import { scheduleCallHref } from "@/lib/site";
 
-const ctas = {
+export const ctas = {
   hospital: {
     title: "Talk with PMG about a pain management program for your hospital.",
     body: "A short call covers the partnership model, what it takes to launch, and whether it fits your community.",

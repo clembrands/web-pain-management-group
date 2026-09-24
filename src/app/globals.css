@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @theme inline {
   --font-sans: var(--font-poppins);
+  --color-deep: #0f1e2c;
   --color-navy: #16293a;
   --color-brand: #3f78a5;
   --color-sky: #7fb2d6;
@@ -68,11 +69,117 @@
     @apply mt-2 w-full rounded-xl border border-[#aabcc9] bg-white px-4 py-3 text-base;
   }
 }
+/* Design system utilities (design lab, then site-wide). */
+@layer components {
+  /* Small tracked uppercase label that sits beside large display type. */
+  .label {
+    @apply text-[11px] font-semibold tracking-[.22em] uppercase;
+  }
+  /* Display scale. Size comes from the viewport; weight and face from the direction. */
+  .display {
+    font-size: clamp(2.75rem, 1rem + 6.2vw, 6.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .display-md {
+    font-size: clamp(2rem, 1rem + 3.4vw, 4.25rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  .display-serif {
+    /* Resolved on the element, so a layout can supply the face for its own pages. */
+    font-family: var(--font-cormorant, Georgia, serif);
+    font-weight: 300;
+    letter-spacing: -0.005em;
+  }
+  .display-sans {
+    font-family: var(--font-poppins-light, var(--font-poppins));
+    font-weight: 200;
+  }
+  .numeral {
+    font-size: clamp(3.5rem, 2rem + 7vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+  }
+  .hairline {
+    @apply border-t border-line;
+  }
+  .hairline-dark {
+    @apply border-t border-white/15;
+  }
+  /* Navy duotone for the remaining concept photographs. */
+  .duotone {
+    filter: grayscale(1) contrast(1.05);
+  }
+  .duotone-wrap {
+    @apply relative overflow-hidden bg-navy;
+  }
+  .duotone-wrap::after {
+    content: "";
+    @apply pointer-events-none absolute inset-0 bg-navy mix-blend-color;
+  }
+}
+
+/* Subtle scroll reveals, CSS only. Browsers without scroll-driven animations show the
+   content in place; prefers-reduced-motion turns the motion off. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+    .reveal-line::before {
+      transform-origin: top;
+      animation: grow-y linear both;
+      animation-timeline: view();
+      animation-range: entry 30% exit 70%;
+    }
+    .reveal-dot {
+      animation: fill-dot linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@keyframes fill-dot {
+  from {
+    background-color: transparent;
+    color: var(--color-brand);
+  }
+  to {
+    background-color: var(--color-brand);
+    color: white;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     transition: none !important;
+    animation: none !important;
     scroll-behavior: auto !important;
   }
 }
