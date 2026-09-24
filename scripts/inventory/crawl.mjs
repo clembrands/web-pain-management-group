@@ -36,6 +36,7 @@ const KNOWN_301 = {
   "/provider-opportunities/": "/providers/",
   "/service/": "/providers/",
   "/blog/": "/news/",
+  "/blog-left-sidebar/": "/news/",
 };
 const KEEP_EXACT = new Set(["/", "/our-partners/", "/about-us/", "/contact/", "/pain-education/"]);
 
