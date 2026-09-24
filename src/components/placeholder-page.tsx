@@ -8,8 +8,8 @@ import { getRoute } from "@/lib/routes";
 export function PlaceholderPage({ path }: { path: string }) {
   const route = getRoute(path);
   return (
-    <PageShell path={path} lede={<p>{route.description}</p>}>
-      <section className="container-shell pb-16">
+    <PageShell path={path}>
+      <section className="container-shell section-space">
         <p className="rounded-2xl border border-dashed border-[#aabcc9] bg-mist p-6 text-sm text-muted">
           Page content is scheduled for build phase {route.phase}.
         </p>

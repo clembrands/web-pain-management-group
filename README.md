@@ -11,8 +11,8 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 | Phase | Scope | Status |
 | --- | --- | --- |
 | 1 | Live-site inventory (`inventory/`) | Approved |
-| 2 | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | In review |
-| 3 | Home and Partnership Model | |
+| 2 | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | Approved |
+| 3 | Home and Partnership Model | In review |
 | 4 | Results and Outcomes | |
 | 5 | Our Partners and 10 state pages | |
 | 6 | For Providers and APPs | |
@@ -54,7 +54,9 @@ npm run verify:urls -- http://localhost:3000   # every crawled URL, against a ru
 | `src/lib/seo.ts` | Metadata, canonical URLs, Organization and BreadcrumbList JSON-LD, crawler list |
 | `src/lib/site.ts` | PMG contact details, job board links, Schedule a Call target |
 | `src/content/legacy/` | URL contract from the crawl: 36 article slugs, 10 states, 4 news posts, 40 partner pages |
-| `src/components/page-shell.tsx` | Breadcrumbs, one H1, and the audience's closing CTA |
+| `src/components/page-shell.tsx` | Interior page layout from the review build: navy hero, breadcrumbs, one H1, related links, closing CTA |
+| `src/content/pages/` | Draft copy for code-owned pages. `{{TBD: ...}}` marks unconfirmed facts and fails the launch check. |
+| `docs/launch-checklist.md` | Everything that must happen before DNS cutover |
 | `src/sanity/schemas/content.ts` | Sanity types: articles, news, case studies, partner hospitals |
 | `inventory/` | Phase 1 crawl output. `README.md` there summarizes it. |
 | `scripts/inventory/` | Re-runs the crawl (`npm run inventory:crawl`) and report (`npm run inventory:report`) |
@@ -86,7 +88,7 @@ flag also fails any crawled URL that lands on a noindex page.
 Project **Pain Management Group** (`ac5zxyz7`, organization CLEM) with `production` and a
 private `submissions` dataset. Studio is at `/studio/content`, inquiries at
 `/studio/submissions`. Content types: `article`, `newsPost`, `caseStudy`, `partner`, plus
-`siteSettings`, `homePage`, and the contact `page`. Imports from `inventory/` happen in each
+`siteSettings` and the contact `page`. Home copy lives in code (`src/content/pages/home.ts`). Imports from `inventory/` happen in each
 content type's build phase. The Editor token and seed are still pending approval.
 
 The inquiry form writes only to the private dataset and stays disabled until credentials are

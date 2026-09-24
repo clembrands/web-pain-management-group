@@ -1,9 +1,10 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { EditorialPage } from "@/components/editorial";
+import { partnershipPages } from "@/content/pages/partnership";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/partnership/";
 export const metadata = routeMetadata(path);
 
 export default function Page() {
-  return <PlaceholderPage path={path} />;
+  return <EditorialPage path={path} content={partnershipPages[path]} />;
 }

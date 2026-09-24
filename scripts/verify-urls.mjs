@@ -13,8 +13,9 @@
 //   node scripts/verify-urls.mjs https://<preview>.vercel.app
 //   node scripts/verify-urls.mjs https://painmgmtgroup.com --launch
 //
-// --launch also fails any page that is still noindex (a placeholder, or indexing off).
-// A kept URL that answers 200 but is noindex loses its search equity just the same.
+// --launch also fails any page that is still noindex (a placeholder, or indexing off), and
+// any page still showing a {{TBD: ...}} placeholder. A kept URL that answers 200 but is
+// noindex loses its search equity just the same.
 //
 // Exits non-zero if any URL fails, listing each failure.
 
@@ -72,6 +73,7 @@ const request = (path) =>
       status: res.status,
       location: location ? new URL(location, base).pathname : null,
       noindex,
+      tbd: body.includes("data-tbd"),
     };
   });
 
@@ -86,6 +88,8 @@ async function check(row) {
     hops.push(await request(hops.at(-1).location));
   const final = hops.at(-1);
   const trail = hops.map((h) => h.status).join(" > ");
+  if (launch && final.status === 200 && final.tbd)
+    return `${hops.at(-2)?.location ?? path} still shows a TBD placeholder`;
   if (launch && final.status === 200 && final.noindex)
     return `${hops.at(-2)?.location ?? path} is noindex`;
 

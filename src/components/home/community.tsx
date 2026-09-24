@@ -1,43 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { HomeContent } from "@/content/types";
 import { Faqs } from "@/components/ui";
-export function PartnerStory({ home }: { home: HomeContent }) {
+import { TestimonialQuote } from "@/components/testimonial";
+import { homeContent } from "@/content/pages/home";
+import {
+  homeQuestionIds,
+  hospitalLeaderQuestions,
+} from "@/content/pages/partnership";
+
+// Proof: a named hospital leader, quoted verbatim from the live site.
+export function PartnerVoice() {
   return (
     <section className="bg-navy text-white">
-      <div className="container-shell section-space grid items-center gap-10 md:grid-cols-2 md:gap-16">
-        <div className="relative aspect-[1.5] overflow-hidden rounded-[20px]">
-          <Image
-            src={home.storyImage.url}
-            alt={home.storyImage.alt}
-            fill
-            sizes="(max-width: 767px) 100vw, 50vw"
-            className="object-cover"
-          />
-        </div>
+      <div className="container-shell section-space grid items-center gap-10 md:grid-cols-[.8fr_1.2fr] md:gap-16">
         <div>
-          <p className="eyebrow text-sky">Partner story</p>
-          <h2>{home.storyTitle}</h2>
-          <p className="mt-5 text-[#b9c8d4]">{home.storyDescription}</p>
+          <p className="eyebrow text-sky">From our partners</p>
+          <h2>In the words of hospital leaders.</h2>
           <div className="mt-7 flex flex-wrap gap-3">
-            {home.storyUrl && (
-              <a href={home.storyUrl} className="button button-primary">
-                Watch the Story
-              </a>
-            )}
             <Link
-              href="/results/case-studies/"
-              className="button button-dark-outline"
+              href="/results/testimonials/"
+              className="button button-primary"
             >
-              Explore Our Partnerships
+              Read the testimonials
+            </Link>
+            <Link href="/results/" className="button button-dark-outline">
+              See Results
             </Link>
           </div>
         </div>
+        <TestimonialQuote name="Patrick J. Martin" tone="dark" />
       </div>
     </section>
   );
 }
-export function HomeFaqs({ home }: { home: HomeContent }) {
+
+export function HomeFaqs() {
+  const items = homeQuestionIds.map((id) =>
+    hospitalLeaderQuestions.find((q) => q.id === id)!,
+  );
   return (
     <section className="container-shell section-space grid items-start gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
       <div>
@@ -47,35 +47,37 @@ export function HomeFaqs({ home }: { home: HomeContent }) {
           us
         </h2>
         <p className="mt-5 text-muted">
-          The four objections we hear most, and how the partnership answers
-          them.
+          The questions CEOs and CFOs raise before a partnership, answered
+          directly.
         </p>
         <Link
           href="/partnership/questions/"
           className="button button-outline mt-7"
         >
-          Talk it through with us
+          See every question
         </Link>
       </div>
-      <Faqs items={home.faqs} />
+      <Faqs items={items} />
     </section>
   );
 }
-export function LocationsPreview({ home }: { home: HomeContent }) {
+
+export function LocationsPreview() {
+  const locations = homeContent.locations;
   return (
     <section className="border-y border-line bg-mist">
       <div className="container-shell section-space grid items-center gap-10 md:grid-cols-[.9fr_1.1fr]">
         <div>
-          <h2>{home.locationsTitle}</h2>
-          <p className="mt-5 text-muted">{home.locationsDescription}</p>
+          <h2>{locations.title}</h2>
+          <p className="mt-5 text-muted">{locations.description}</p>
           <Link href="/our-partners/" className="button button-outline mt-7">
-            Find a location →
+            Find a Clinic →
           </Link>
         </div>
         <div className="relative aspect-[1.5] overflow-hidden rounded-[20px]">
           <Image
-            src={home.mapImage.url}
-            alt={home.mapImage.alt}
+            src={locations.image.src}
+            alt={locations.image.alt}
             fill
             sizes="(max-width: 767px) 100vw, 50vw"
             className="object-cover"
@@ -85,23 +87,24 @@ export function LocationsPreview({ home }: { home: HomeContent }) {
     </section>
   );
 }
+
 export function Pathways() {
   return (
     <section className="container-shell section-space grid gap-6 md:grid-cols-2">
       {[
         {
           eyebrow: "Hospital leaders",
-          title: "Add a pain service line without the startup risk",
-          body: "Physician recruiting, operations, compliance, and quality tracking, handled by a partner whose incentives match yours.",
+          title: "Add a pain management service line",
+          body: "An outpatient, hospital-based pain center, with PMG's blueprint and ongoing program management behind it.",
           href: "/partnership/",
-          label: "Explore the partnership →",
+          label: "Explore the Partnership Model →",
         },
         {
           eyebrow: "Physicians & APPs",
-          title: "A practice model built around the clinician",
-          body: "Clinical autonomy, real procedure support, predictable schedules, and a team built around responsible pain care.",
-          href: "/providers/",
-          label: "See opportunities →",
+          title: "Practice pain medicine at a hospital-based center",
+          body: "Learn about practice autonomy, procedure support, and schedules at PMG partner hospitals.",
+          href: "/providers/opportunities/",
+          label: "View Opportunities →",
         },
       ].map((path, i) => (
         <article key={path.href} className="card flex flex-col items-start">

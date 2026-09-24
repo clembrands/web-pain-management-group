@@ -63,11 +63,6 @@ console.log(
   `Seeding PMG concept content into ${projectId}/${dataset}. Existing documents are preserved.`,
 );
 await create("siteSettings", "siteSettings", seed.settings);
-await create("homePage", "homePage", seed.home, [
-  "heroImage",
-  "storyImage",
-  "mapImage",
-]);
 // Only the contact page still reads a "page" document. Partner hospitals, articles, and
 // news are imported from inventory/ in their own build phases, not from concept content.
 for (const page of seed.pages.filter((p) => p.slug === "contact"))

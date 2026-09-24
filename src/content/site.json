@@ -3,87 +3,14 @@
     "title": "Pain Management Group",
     "description": "Hospital-based pain management. PMG partners with hospitals to build and run sustainable pain programs."
   },
-  "home": {
-    "heroTitle": "You run the hospital.",
-    "heroAccent": "We make pain management work.",
-    "heroDescription": "The experts in hospital-based pain management. We build and run high-performing pain programs with you, turning pain services into a quality win and a sustainable service line.",
-    "heroImage": {
-      "url": "/assets/hero-1e.png",
-      "alt": "PMG physician and hospital administrator"
-    },
-    "statsTitle": "Two decades of hospital-based pain programs, measured, not estimated.",
-    "statsDescription": "We manage every partner program through data, with high visibility into performance. These are the numbers we lead with, and the ones rural communities feel most.",
-    "stats": [
-      { "value": "40", "label": "hospital partnerships" },
-      { "value": "187K", "label": "patient encounters in 2025" },
-      { "value": "95%", "label": "partner retention over two years" },
-      { "value": "20 yrs", "label": "of hospital-based pain management" }
-    ],
-    "differentiators": [
-      {
-        "title": "Outcomes-driven",
-        "body": "We manage every program through data: quality outcomes, program performance, and financials, fully visible to our partners."
-      },
-      {
-        "title": "Physician-led",
-        "body": "Every program is led by a board-certified, fellowship-trained pain physician, supported by rigorously trained APPs."
-      },
-      {
-        "title": "Truly aligned incentives",
-        "body": "In our joint-venture model, what's good for the patient is good for the hospital, the providers, and the community."
-      }
-    ],
-    "steps": [
-      {
-        "title": "We listen first.",
-        "body": "A conversation about your community's needs, your existing services, and whether a pain program makes sense."
-      },
-      {
-        "title": "We build the program.",
-        "body": "Physician recruiting, care team training, workflows, and compliance, stood up inside your hospital, under your roof."
-      },
-      {
-        "title": "You keep control.",
-        "body": "Your brand, your governance, your community, with full transparency into operations and results."
-      },
-      {
-        "title": "The program matures.",
-        "body": "Quality outcomes, volumes, and financial performance tracked in the open, so the program earns its place, year after year."
-      }
-    ],
-    "storyTitle": "Take pain services from missing to indispensable.",
-    "storyDescription": "Hear how partner hospitals turned pain management into one of their strongest service lines, clinically and financially.",
-    "storyImage": {
-      "url": "/assets/1cvideo-tight.png",
-      "alt": "Partner hospital story"
-    },
-    "faqs": [
-      {
-        "question": "Why not just recruit a pain physician and do this ourselves?",
-        "answer": "Recruiting one physician isn't a program. We bring the clinical model, the operational playbook, and the bench strength to make a service line last, especially in small communities."
-      },
-      {
-        "question": "We don't want to share revenue. Is the JV really worth it?",
-        "answer": "In our joint-venture model, PMG only succeeds when the program succeeds. We'll walk through the economics, the path to profitability, and how startup investment is shared, in plain numbers."
-      },
-      {
-        "question": "Are we giving up operating control?",
-        "answer": "No. Programs run inside your hospital, under your brand, with governance you help define, and full transparency into operations, compliance, and results."
-      },
-      {
-        "question": "Will the program actually last in a community our size?",
-        "answer": "20 years, 40 partnerships, 95% retention. Longevity is the metric we're proudest of, and the one rural communities need most. Board-certified, fellowship-trained physicians and a rigorous APP onboarding process are how we make it stick."
-      }
-    ],
-    "locationsTitle": "40 hospitals and health systems, 68 care locations. Mostly rural. All hospital-based.",
-    "locationsDescription": "Pain expertise shouldn't require a two-hour drive. We bring it to the hospitals communities already trust.",
-    "mapImage": { "url": "/assets/1amap.png", "alt": "PMG care locations map" }
-  },
   "partners": [
     {
       "_id": "partner-beacon",
       "name": "Beacon Health System",
-      "logo": { "url": "/assets/logo-1.jpg", "alt": "Beacon Health System" }
+      "logo": {
+        "url": "/assets/logo-1.jpg",
+        "alt": "Beacon Health System"
+      }
     },
     {
       "_id": "partner-blanchard",
@@ -104,7 +31,10 @@
     {
       "_id": "partner-paulding",
       "name": "Paulding County Hospital",
-      "logo": { "url": "/assets/logo-4.png", "alt": "Paulding County Hospital" }
+      "logo": {
+        "url": "/assets/logo-4.png",
+        "alt": "Paulding County Hospital"
+      }
     }
   ],
   "pages": [

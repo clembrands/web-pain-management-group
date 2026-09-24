@@ -45,16 +45,16 @@ export const sections: SiteRoute[] = [
       "How Pain Management Group partners with hospitals to build a pain management service line, from launch through long-term operation.",
     audience: "hospital",
     phase: 3,
-    status: "placeholder",
+    status: "draft",
     children: [
       route({
         path: "/partnership/how-it-works/",
         title: "How the Partnership Works",
         description:
-          "The four phases of a PMG hospital partnership, from assessment and recruiting to launch and ongoing program management.",
+          "The four phases of a PMG hospital partnership: assess, design, build and launch, then manage and grow.",
         audience: "hospital",
         phase: 3,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -64,7 +64,7 @@ export const sections: SiteRoute[] = [
           "PMG's Balanced Pain Treatment model: pain care that is medically, socially, and financially responsible for patients, communities, and hospitals.",
         audience: "hospital",
         phase: 3,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -74,7 +74,7 @@ export const sections: SiteRoute[] = [
           "How PMG's joint-venture pain management partnerships are structured and funded, explained plainly for hospital CEOs and CFOs.",
         audience: "hospital",
         phase: 3,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -84,7 +84,7 @@ export const sections: SiteRoute[] = [
           "Direct answers to the questions hospital executives ask before starting a pain management partnership with PMG.",
         audience: "hospital",
         phase: 3,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
     ],

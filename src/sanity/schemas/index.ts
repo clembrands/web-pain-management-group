@@ -11,14 +11,6 @@ const url = (name: string) =>
     type: "url",
     validation: (r) => r.uri({ scheme: ["https"] }),
   });
-const media = (name: string) =>
-  defineField({
-    name,
-    type: "image",
-    options: { hotspot: true },
-    fields: [text("alt", "Alternative text")],
-    validation: (r) => r.required(),
-  });
 const cards = (name: string) =>
   defineField({
     name,
@@ -41,42 +33,6 @@ export const schemaTypes: SchemaTypeDefinition[] = [
       }),
       defineField({ name: "phone", type: "string" }),
       url("schedulingUrl"),
-    ],
-  }),
-  defineType({
-    name: "homePage",
-    title: "Homepage",
-    type: "document",
-    fields: [
-      text("heroTitle"),
-      text("heroAccent"),
-      paragraph("heroDescription"),
-      media("heroImage"),
-      text("statsTitle"),
-      paragraph("statsDescription"),
-      defineField({
-        name: "stats",
-        type: "array",
-        of: [{ type: "object", fields: [text("value"), text("label")] }],
-        validation: (r) => r.required().length(4),
-      }),
-      cards("differentiators"),
-      cards("steps"),
-      text("storyTitle"),
-      paragraph("storyDescription"),
-      media("storyImage"),
-      url("storyUrl"),
-      defineField({
-        name: "faqs",
-        title: "Frequently asked questions",
-        type: "array",
-        of: [
-          { type: "object", fields: [text("question"), paragraph("answer")] },
-        ],
-      }),
-      text("locationsTitle"),
-      paragraph("locationsDescription"),
-      media("mapImage"),
     ],
   }),
   defineType({

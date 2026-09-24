@@ -3,12 +3,7 @@ import { cache } from "react";
 import { createClient } from "next-sanity";
 import { projectId, dataset, apiVersion } from "../env";
 import seed from "@/content/site.json";
-import type {
-  HomeContent,
-  Settings,
-  PageContent,
-  Partner,
-} from "@/content/types";
+import type { Settings, PageContent, Partner } from "@/content/types";
 
 const client = projectId
   ? createClient({
@@ -34,21 +29,6 @@ const image = (name: string) => `"${name}": ${name}{"url": asset->url, alt}`;
 export const getSettings = cache(() =>
   fetchContent<Settings>('*[_id == "siteSettings"][0]', seed.settings),
 );
-export const getHome = cache(async () => {
-  const home = await fetchContent<Partial<HomeContent>>(
-    `*[_id == "homePage"][0]{...,${image("heroImage")},${image("storyImage")},${image("mapImage")}}`,
-    {},
-  );
-  const result = {
-    ...seed.home,
-    ...Object.fromEntries(
-      Object.entries(home).filter(([, value]) => value != null),
-    ),
-  } as HomeContent;
-  for (const key of ["heroImage", "storyImage", "mapImage"] as const)
-    if (!result[key]?.url) result[key] = seed.home[key];
-  return result;
-});
 export const getPage = cache(async (slug: string) => {
   const fallback = seed.pages.find((page) => page.slug === slug);
   if (!fallback) return null;

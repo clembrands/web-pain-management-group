@@ -34,6 +34,19 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - **Jobs:** Open Opportunities is two links, to Indeed and CareerMD. Internal roles link to
   careers@painmgmtgroup.com.
 
+## 2026-09-24: Phase 2 approved, Phase 3 guidance
+
+- GTM setup is a launch blocker, tracked in `docs/launch-checklist.md`.
+- Both GA4 properties (`G-5JJ8KNE4RS`, `G-BY22K2YH53`) fire through GTM at launch; PMG
+  then picks one.
+- 308 redirects and the two-hop redirects for slash-less URLs are acceptable.
+- Keep the review build's visual design. Draft copy comes from the live site, Rev 2.0, and
+  the brief, written for hospital executives.
+- No invented numbers, outcomes, or claims. Every figure on Home, including partnership
+  counts, is a `{{TBD: ...}}` placeholder until PMG confirms it.
+- Home copy moved from Sanity (`homePage`) into code, in line with Sanity holding only
+  articles, news, case studies, and partners.
+
 ## Review-build routes (301)
 
 | Review route | Rev 2.0 destination |
