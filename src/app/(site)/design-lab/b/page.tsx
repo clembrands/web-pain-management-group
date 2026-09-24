@@ -20,7 +20,6 @@ import {
 } from "@/content/pages/partnership";
 import { directoryCounts } from "@/lib/partner-stats";
 import { getPartnerHospitals, getPartners } from "@/sanity/lib/content";
-import { scheduleCallHref } from "@/lib/site";
 
 // Direction B, "Monument": ultra-light sans display type at large scale, dark-first, panels
 // offset from the grid and overlapping section edges, the partner map as the hero graphic.
@@ -57,30 +56,14 @@ export default async function DirectionB() {
           className="pointer-events-none absolute top-1/2 -right-[10%] w-[90%] -translate-y-1/2 opacity-70 md:w-[66%]"
         />
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
-          <p className="label text-sky">
-            Hospital pain management partnerships
-          </p>
-          <h1 className="display-md display-sans mt-10 max-w-3xl">
+          <h1 className="display-md display-sans max-w-3xl">
             {hero.title}
             <br />
             <span className="text-sky">{hero.accent}</span>
           </h1>
-          <div className="mt-10 grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
-            <p className="max-w-sm text-[15px] text-[#c4d3df]">
-              {hero.description}
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/partnership/" className="button button-primary">
-                Explore the Partnership Model
-              </Link>
-              <Link
-                href={scheduleCallHref}
-                className="button button-dark-outline"
-              >
-                Schedule a Call
-              </Link>
-            </div>
-          </div>
+          <p className="mt-10 max-w-sm text-[15px] text-[#c4d3df]">
+            {hero.description}
+          </p>
         </div>
       </section>
 
