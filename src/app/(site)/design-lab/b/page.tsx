@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/lab/balanced-mark";
 import {
   LabCta,
-  LogoBand,
+  LogoMarquee,
   RuleFaqs,
   Statement,
   Timeline,
@@ -208,12 +208,12 @@ export default async function DirectionB() {
           </div>
         </div>
       </section>
-      <div className="bg-white pt-20 md:pt-28">
-        <LogoBand partners={partners} title="Hospitals that partner with PMG" />
+      <div className="bg-navy pt-20 md:pt-28">
+        <LogoMarquee partners={partners} title="Our partners" />
       </div>
 
       {/* 6. Testimonial as a statement */}
-      <Statement name="Patrick J. Martin" face="sans" tone="navy" />
+      <Statement name="Patrick J. Martin" face="sans" tone="deep" />
 
       {/* 7. Questions */}
       <section className="bg-mist">

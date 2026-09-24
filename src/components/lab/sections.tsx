@@ -140,6 +140,57 @@ export function LogoBand({
   );
 }
 
+// Partner logos as a slow, continuous scroll on navy, each on a white tile so any logo file
+// works. The list is repeated so the loop has no gap at any viewport width; the second track
+// is a copy hidden from assistive technology. Under prefers-reduced-motion the copy is
+// hidden and the row stands still.
+export function LogoMarquee({
+  partners,
+  title,
+}: {
+  partners: Partner[];
+  title: string;
+}) {
+  const logos = partners.filter((p) => p.logo?.url);
+  const repeated = [0, 1, 2].flatMap((n) =>
+    logos.map((p) => ({ ...p, key: `${p._id}-${n}` })),
+  );
+  const track = (hidden: boolean) => (
+    <ul
+      aria-hidden={hidden || undefined}
+      className="marquee-track flex shrink-0 items-center gap-6 pr-6 md:gap-8 md:pr-8"
+    >
+      {repeated.map((partner) => (
+        <li
+          key={partner.key}
+          className="flex h-20 w-52 shrink-0 items-center justify-center bg-white px-6 md:h-24 md:w-60"
+        >
+          <span className="relative block h-10 w-full md:h-12">
+            <Image
+              src={partner.logo.url}
+              alt={hidden ? "" : partner.logo.alt || partner.name}
+              fill
+              sizes="200px"
+              className="object-contain"
+            />
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+  return (
+    <section className="overflow-hidden bg-navy py-14 text-white md:py-16">
+      <div className="container-shell">
+        <h2 className="label text-sky">{title}</h2>
+      </div>
+      <div className="marquee mt-10 flex">
+        {track(false)}
+        {track(true)}
+      </div>
+    </section>
+  );
+}
+
 // The Martin testimonial as a large-type statement across a full dark section.
 export function Statement({
   name,

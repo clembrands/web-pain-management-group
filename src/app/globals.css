@@ -145,6 +145,27 @@
     }
   }
 }
+/* Logo marquee: one track width per loop, so two identical tracks read as continuous. */
+.marquee-track {
+  animation: marquee 45s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    @apply flex-wrap justify-center;
+  }
+  .marquee-track[aria-hidden] {
+    display: none;
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @keyframes reveal {
   from {
     opacity: 0;
