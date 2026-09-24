@@ -17,7 +17,6 @@ export default async function DashboardPage() {
       path={path}
       eyebrow="Results and Outcomes"
       lede="The measures PMG tracks across its hospital partnerships, each with its definition, source, and reporting period."
-      contentId="page-content"
       related={[
         "/results/case-studies/",
         "/results/testimonials/",

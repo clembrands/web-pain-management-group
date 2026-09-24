@@ -58,6 +58,25 @@ const primaryAction = {
   patient: { label: "Find a Clinic", href: "/our-partners/" },
 } as const;
 
+export type HeroLink = { label: string; href: string };
+
+// The hero's second button: the next most useful page for the audience, skipping the page
+// the reader is already on.
+const secondaryOptions: Record<
+  "hospital" | "provider" | "patient",
+  HeroLink[]
+> = {
+  hospital: [
+    { label: "What Hospital Leaders Ask", href: "/partnership/questions/" },
+    { label: "See Results", href: "/results/" },
+  ],
+  provider: [
+    { label: "Why Practice With PMG", href: "/providers/why-pmg/" },
+    { label: "About PMG", href: "/about-us/" },
+  ],
+  patient: [{ label: "All Pain Education", href: "/pain-education/" }],
+};
+
 // Interior page, following the layout of the review build: a navy hero with breadcrumbs,
 // one H1, and an optional photo; then the page content, related links, and the closing
 // CTA for the page's audience.
@@ -67,7 +86,7 @@ export function PageShell({
   eyebrow,
   lede,
   media,
-  contentId,
+  secondary: secondaryOverride,
   related = [],
   children,
 }: {
@@ -77,14 +96,21 @@ export function PageShell({
   eyebrow?: string;
   lede?: string;
   media?: Media;
-  // When set, the hero offers a jump link to the element with this id.
-  contentId?: string;
+  // The hero's second button. Defaults to the audience's next page; null hides it.
+  secondary?: HeroLink | null;
   related?: string[];
   children?: React.ReactNode;
 }) {
   const route = routeOverride ?? getRoute(path);
   const action =
     route.audience === "utility" ? undefined : primaryAction[route.audience];
+  const secondary =
+    secondaryOverride !== undefined
+      ? secondaryOverride
+      : route.audience === "utility"
+        ? null
+        : (secondaryOptions[route.audience].find((o) => o.href !== path) ??
+          null);
   return (
     <>
       <section className="bg-navy text-white">
@@ -102,23 +128,25 @@ export function PageShell({
               <h1 className="max-w-4xl text-4xl leading-[1.15] font-bold tracking-tight md:text-5xl">
                 {route.title}
               </h1>
-              <p className="mt-6 max-w-2xl text-base text-[#c4d3df] md:text-lg">
+              <p
+                className={`mt-6 text-base text-[#c4d3df] md:text-lg ${media ? "max-w-2xl" : "max-w-3xl"}`}
+              >
                 <RichText text={lede ?? route.description} />
               </p>
-              {(action || contentId) && (
+              {(action || secondary) && (
                 <div className="mt-8 flex flex-wrap gap-3">
                   {action && (
                     <Link href={action.href} className="button button-primary">
                       {action.label}
                     </Link>
                   )}
-                  {contentId && (
-                    <a
-                      href={`#${contentId}`}
+                  {secondary && (
+                    <Link
+                      href={secondary.href}
                       className="button button-dark-outline"
                     >
-                      Explore this page ↓
-                    </a>
+                      {secondary.label}
+                    </Link>
                   )}
                 </div>
               )}

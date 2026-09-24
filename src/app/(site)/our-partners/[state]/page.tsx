@@ -59,7 +59,7 @@ export default async function StatePage({ params }: Props) {
       path={path}
       eyebrow="Our Partners"
       lede={`Every PMG partner hospital in ${state.name}, with contact details for each pain program.`}
-      contentId="partner-hospitals"
+      secondary={{ label: "All Partner States", href: "/our-partners/" }}
       related={["/partnership/", "/results/", "/partnership/questions/"]}
     >
       <JsonLd data={itemList} />
@@ -67,18 +67,20 @@ export default async function StatePage({ params }: Props) {
         id="partner-hospitals"
         className="container-shell section-space grid scroll-mt-4 items-start gap-10 lg:grid-cols-[1.3fr_1fr]"
       >
+        {/* The clinic list comes first: it is what patients arrive for. */}
         <div>
-          <div className="max-w-2xl space-y-4 text-muted">
-            {stateIntros[slug].map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
-          <h2 className="mt-12">Partner hospitals in {state.name}</h2>
+          <h2>Partner hospitals in {state.name}</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {partners.map((p) => (
               <PartnerCard key={p.name} partner={p} />
             ))}
           </ul>
+          <h2 className="mt-14 text-2xl">PMG in {state.name}</h2>
+          <div className="mt-5 max-w-2xl space-y-4 text-muted">
+            {stateIntros[slug].map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
         </div>
         <div className="space-y-8 lg:sticky lg:top-6">
           <div className="rounded-[22px] border border-line bg-mist p-4">

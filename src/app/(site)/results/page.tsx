@@ -17,7 +17,6 @@ export default async function ResultsPage() {
       path={path}
       eyebrow={resultsHub.eyebrow}
       lede={resultsHub.lede}
-      contentId="headline-figures"
       related={resultsHub.related}
     >
       <section

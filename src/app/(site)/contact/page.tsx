@@ -19,7 +19,7 @@ export default async function ContactPage() {
       path="/contact/"
       eyebrow="Contact"
       lede="Schedule a call with Pain Management Group about a pain management program for your hospital. Looking for pain care? Find a partner clinic in your state."
-      contentId="schedule-a-call"
+      secondary={{ label: "Find a Clinic", href: "/our-partners/" }}
     >
       <section
         id="schedule-a-call"

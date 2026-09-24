@@ -4,6 +4,16 @@ import { primaryNav } from "@/lib/navigation";
 import { contact, utilityPages } from "@/lib/routes";
 import { organization, scheduleCallHref } from "@/lib/site";
 
+// State pages would crowd the footer; they are listed on the Our Partners hub and site map.
+const footerChildren = (section: (typeof primaryNav)[number]) =>
+  section.href === "/our-partners/" ? [] : section.children;
+const withLinks = primaryNav
+  .map((section) => ({ ...section, children: footerChildren(section) }))
+  .filter((section) => section.children.length > 0);
+const standalone = primaryNav.filter(
+  (section) => footerChildren(section).length === 0,
+);
+
 export function SiteFooter() {
   const a = organization.address;
   return (
@@ -49,9 +59,9 @@ export function SiteFooter() {
           </div>
           <nav
             aria-label="Footer"
-            className="grid gap-8 sm:grid-cols-2 md:grid-cols-4"
+            className="grid gap-8 sm:grid-cols-2 md:grid-cols-3"
           >
-            {primaryNav.map((section) => (
+            {withLinks.map((section) => (
               <div key={section.href}>
                 <Link
                   href={section.href}
@@ -59,21 +69,32 @@ export function SiteFooter() {
                 >
                   {section.label}
                 </Link>
-                {/* State pages are listed on the Our Partners hub and the site map; ten links would crowd the footer. */}
-                {section.href !== "/our-partners/" &&
-                  section.children.length > 0 && (
-                    <ul className="mt-3 space-y-2 text-sm text-muted">
-                      {section.children.map((child) => (
-                        <li key={child.href}>
-                          <Link href={child.href} className="hover:text-brand">
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                <ul className="mt-3 space-y-2 text-sm text-muted">
+                  {section.children.map((child) => (
+                    <li key={child.href}>
+                      <Link href={child.href} className="hover:text-brand">
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
+            {/* Sections with no footer sub-links (Our Partners lists its states on the hub;
+                Pain Education and News list articles) are grouped here, so no column is
+                a heading on its own. */}
+            <div>
+              <p className="text-sm font-semibold text-navy">More from PMG</p>
+              <ul className="mt-3 space-y-2 text-sm text-muted">
+                {standalone.map((section) => (
+                  <li key={section.href}>
+                    <Link href={section.href} className="hover:text-brand">
+                      {section.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div>
               <Link
                 href={contact.path}

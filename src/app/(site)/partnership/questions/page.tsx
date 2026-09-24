@@ -29,7 +29,6 @@ export default function QuestionsPage() {
       path={path}
       eyebrow="Partnership Model"
       lede="Direct answers to the questions hospital CEOs and CFOs ask before starting a pain management partnership with PMG."
-      contentId="page-content"
       related={[
         "/partnership/financial-model/",
         "/partnership/how-it-works/",

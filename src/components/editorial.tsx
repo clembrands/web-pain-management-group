@@ -76,7 +76,7 @@ export function EditorialSection({ section }: { section: Section }) {
               </span>
               <div>
                 <h3 className="text-lg">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted">
+                <p className="mt-2 text-[15px] text-muted">
                   <RichText text={step.body} />
                 </p>
               </div>
@@ -106,7 +106,6 @@ export function EditorialPage({
       eyebrow={content.eyebrow}
       lede={content.lede}
       media={content.media}
-      contentId="page-content"
       related={content.related}
     >
       <SectionsWithNav items={content.sections}>

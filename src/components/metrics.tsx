@@ -18,11 +18,11 @@ export function MetricTiles({
           className="flex flex-col-reverse rounded-[18px] border border-line bg-white p-6 shadow-[0_10px_30px_rgba(30,42,50,.05)]"
         >
           <dt className="mt-3">
-            <span className="block text-sm font-semibold text-navy">
+            <span className="block text-base font-semibold text-navy">
               {m.label}
             </span>
             {detailed && (
-              <span className="mt-2 block space-y-1 text-xs text-muted">
+              <span className="mt-2 block space-y-1 text-sm text-muted">
                 <span className="block">{m.definition}</span>
                 <span className="block">
                   Source: <RichText text={m.source} />

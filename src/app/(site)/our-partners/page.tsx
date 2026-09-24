@@ -18,7 +18,7 @@ export default async function OurPartnersPage() {
       path={path}
       eyebrow="Find a Clinic"
       lede={`PMG has ${counts.hospitals} partner hospitals in ${counts.states} states. Each partner pain management center is part of a community hospital or health system. Choose a state to see every partner hospital there. Patients make appointments directly with the hospital's pain center.`}
-      contentId="partner-map"
+      secondary={{ label: "Find a Clinic by State", href: "#partner-map" }}
       related={["/partnership/", "/results/", "/partnership/questions/"]}
     >
       <section
@@ -64,9 +64,11 @@ export default async function OurPartnersPage() {
                     .map((p) => (
                       <li key={p.name}>
                         <span className="text-ink">{p.name}</span>
-                        <span className="block text-xs text-muted">
-                          {partnerLocation(p)}
-                        </span>
+                        {partnerLocation(p) && (
+                          <span className="block text-xs text-muted">
+                            {partnerLocation(p)}
+                          </span>
+                        )}
                       </li>
                     ))}
                 </ul>

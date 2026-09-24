@@ -21,12 +21,7 @@ const intro = {
 // the old hub, is listed under Procedures.
 export default function PainEducationPage() {
   return (
-    <PageShell
-      path={path}
-      eyebrow="For patients and families"
-      lede={hubIntro}
-      contentId="conditions"
-    >
+    <PageShell path={path} eyebrow="For patients and families" lede={hubIntro}>
       <nav aria-label="Categories" className="container-shell pt-12">
         <ul className="flex flex-wrap gap-3">
           {educationCategories.map((c) => (

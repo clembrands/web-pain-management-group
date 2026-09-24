@@ -77,20 +77,17 @@ export function PartnershipSteps() {
       <p className="mt-3 text-center text-sm text-muted">
         Four phases · one accountable partner
       </p>
-      <ol className="relative mx-auto mt-12 max-w-5xl before:absolute before:top-5 before:bottom-5 before:left-5 before:w-px before:bg-[#bfdcec] md:before:left-1/2">
+      {/* Four short phases read left to right on desktop, stacked on mobile. The line behind
+          the numbers joins them on wide screens. */}
+      <ol className="relative mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4 lg:before:absolute lg:before:top-5 lg:before:right-[12.5%] lg:before:left-[12.5%] lg:before:h-px lg:before:bg-[#bfdcec]">
         {phases.map((step, i) => (
-          <li
-            key={step.title}
-            className="relative mb-8 grid grid-cols-[40px_1fr] items-center gap-5 last:mb-0 md:grid-cols-[1fr_72px_1fr]"
-          >
+          <li key={step.title} className="relative flex flex-col">
             <span
-              className={`z-10 flex size-10 items-center justify-center rounded-full bg-brand font-bold text-white ring-6 ring-white md:col-start-2 md:row-start-1 md:mx-auto ${i % 2 ? "bg-[#16437a]" : ""}`}
+              className={`z-10 flex size-10 items-center justify-center rounded-full font-bold text-white ring-6 ring-white lg:mx-auto ${i % 2 ? "bg-[#16437a]" : "bg-brand"}`}
             >
               {i + 1}
             </span>
-            <article
-              className={`rounded-2xl bg-white p-6 shadow-[0_10px_26px_rgba(30,42,50,.08)] md:row-start-1 md:p-8 ${i % 2 ? "md:col-start-3" : "md:col-start-1"}`}
-            >
+            <article className="mt-5 flex-1 rounded-2xl bg-white p-6 shadow-[0_10px_26px_rgba(30,42,50,.08)]">
               <h3 className="text-lg">{step.title}</h3>
               <p className="mt-3 text-sm text-muted">{step.body}</p>
             </article>
