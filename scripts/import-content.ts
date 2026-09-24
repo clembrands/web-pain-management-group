@@ -1,13 +1,15 @@
-// Imports the 40 partner hospitals migrated from the live site into Sanity.
+// Imports the content migrated from the live site into Sanity: the 40 partner hospitals
+// and the 4 news posts (with their images).
 //
-//   npm run import:partners
+//   npm run import:content
 //
 // Needs NEXT_PUBLIC_SANITY_PROJECT_ID and SANITY_API_WRITE_TOKEN in .env.local. Existing
 // documents are never overwritten, so editor changes in Studio are kept. Open questions
-// from deliverables/partners-to-confirm.csv are copied into each record's "toConfirm" note.
+// from deliverables/partners-to-confirm.csv are copied into each partner's "toConfirm" note.
 import { readFileSync } from "node:fs";
 import { createClient } from "next-sanity";
 import { partnerHospitals } from "../src/content/legacy/partners.ts";
+import { legacyNewsBodies } from "../src/content/legacy/news-posts.ts";
 
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
 const token = process.env.SANITY_API_WRITE_TOKEN;
@@ -25,7 +27,7 @@ const client = createClient({
   useCdn: false,
 });
 
-// name -> issues, from the confirmation list (last column).
+// Partner name -> open questions, from the confirmation list (last column).
 const issues = new Map(
   readFileSync(
     new URL("../deliverables/partners-to-confirm.csv", import.meta.url),
@@ -44,12 +46,50 @@ const issues = new Map(
 
 for (const p of partnerHospitals) {
   const id = `partner-${p.legacyUrl?.split("/")[2] ?? p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
-  const doc = {
+  await client.createIfNotExists({
     _id: id,
     _type: "partner",
     ...p,
     ...(issues.get(p.name) ? { toConfirm: issues.get(p.name) } : {}),
-  };
-  await client.createIfNotExists(doc);
+  });
   console.log(`${id} (created, or already present and left unchanged)`);
+}
+
+for (const post of legacyNewsBodies) {
+  const id = `news-${post.slug}`;
+  if (await client.getDocument(id)) {
+    console.log(`${id} (already present, left unchanged)`);
+    continue;
+  }
+  // Upload migrated images from public/ and reference them as Sanity image assets.
+  const body = [];
+  for (const block of post.body) {
+    if (block._type !== "image") {
+      body.push(block);
+      continue;
+    }
+    const file = readFileSync(
+      new URL(`../public${block.src}`, import.meta.url),
+    );
+    const asset = await client.assets.upload("image", file, {
+      filename: block.src.split("/").pop(),
+    });
+    body.push({
+      _type: "image",
+      _key: block._key,
+      alt: block.alt,
+      asset: { _type: "reference", _ref: asset._id },
+    });
+  }
+  await client.createIfNotExists({
+    _id: id,
+    _type: "newsPost",
+    title: post.title,
+    slug: post.slug,
+    publishedAt: post.date,
+    kind: /award/i.test(post.title) ? "Award" : "Company news",
+    body,
+    legacyUrl: `/${post.slug}/`,
+  });
+  console.log(`${id} (created)`);
 }

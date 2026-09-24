@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { PortableText } from "@portabletext/react";
 import { PageShell } from "@/components/page-shell";
+import { PortableBody } from "@/components/portable-body";
 import { getCaseStudy, type CaseStudy } from "@/sanity/lib/content";
 import type { SiteRoute } from "@/lib/routes";
 import { routeMetadata } from "@/lib/seo";
@@ -64,11 +64,7 @@ export default async function CaseStudyPage({ params }: Props) {
             ))}
           </dl>
         )}
-        {study.body && (
-          <div className="space-y-5 text-muted [&_h2]:mt-10 [&_h2]:text-2xl [&_h2]:text-navy [&_h3]:mt-8 [&_h3]:text-navy">
-            <PortableText value={study.body} />
-          </div>
-        )}
+        {study.body && <PortableBody value={study.body} />}
       </article>
     </PageShell>
   );

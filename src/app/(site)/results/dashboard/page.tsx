@@ -1,14 +1,17 @@
 import { SectionsWithNav } from "@/components/editorial";
 import { MetricTiles } from "@/components/metrics";
 import { PageShell } from "@/components/page-shell";
-import { dashboardGroups } from "@/content/pages/results";
+import { dashboardGroups, directoryMetrics } from "@/content/pages/results";
+import { directoryCounts } from "@/lib/partner-stats";
+import { getPartnerHospitals } from "@/sanity/lib/content";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/results/dashboard/";
 export const metadata = routeMetadata(path);
 
 // Outcomes tracked in the open. Every tile shows its definition, source, and period.
-export default function DashboardPage() {
+export default async function DashboardPage() {
+  const counts = directoryCounts(await getPartnerHospitals());
   return (
     <PageShell
       path={path}
@@ -23,8 +26,9 @@ export default function DashboardPage() {
     >
       <SectionsWithNav items={dashboardGroups}>
         <p className="rounded-2xl border border-[#e7d6ac] bg-[#fbf6ea] p-5 text-sm text-[#6b4f10]">
-          Every figure on this page is awaiting confirmation by PMG. The set of
-          measures is a draft.
+          The partner and state counts come from the partner directory. Every
+          other figure is awaiting confirmation by PMG, and the set of measures
+          is a draft.
         </p>
         {dashboardGroups.map((g) => (
           <section
@@ -34,7 +38,14 @@ export default function DashboardPage() {
           >
             <h2 className="text-2xl md:text-[30px]">{g.title}</h2>
             <p className="mt-3 mb-6 text-muted">{g.intro}</p>
-            <MetricTiles metrics={g.metrics} detailed />
+            <MetricTiles
+              metrics={
+                g.id === "network"
+                  ? [...directoryMetrics(counts), ...g.metrics]
+                  : g.metrics
+              }
+              detailed
+            />
           </section>
         ))}
       </SectionsWithNav>

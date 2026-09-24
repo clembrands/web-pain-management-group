@@ -4,11 +4,14 @@ import { MetricTiles } from "@/components/metrics";
 import { PageShell } from "@/components/page-shell";
 import { headlineMetrics, resultsHub } from "@/content/pages/results";
 import { routeMetadata } from "@/lib/seo";
+import { directoryCounts } from "@/lib/partner-stats";
+import { getPartnerHospitals } from "@/sanity/lib/content";
 
 const path = "/results/";
 export const metadata = routeMetadata(path);
 
-export default function ResultsPage() {
+export default async function ResultsPage() {
+  const counts = directoryCounts(await getPartnerHospitals());
   return (
     <PageShell
       path={path}
@@ -24,7 +27,7 @@ export default function ResultsPage() {
         <p className="eyebrow">PMG by the numbers</p>
         <h2>Headline figures</h2>
         <div className="mt-8">
-          <MetricTiles metrics={headlineMetrics} />
+          <MetricTiles metrics={headlineMetrics(counts)} />
         </div>
         <Link href="/results/dashboard/" className="button button-outline mt-8">
           See every measure on the Program Dashboard

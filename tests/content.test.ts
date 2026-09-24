@@ -12,6 +12,8 @@ import {
   pillars,
 } from "../src/content/pages/partnership.ts";
 import { dashboardGroups, resultsHub } from "../src/content/pages/results.ts";
+import { aboutPages } from "../src/content/pages/about.ts";
+import { providerPages, lifeAtPmg } from "../src/content/pages/providers.ts";
 import { allRoutes } from "../src/lib/routes.ts";
 
 // Every copy string, skipping image paths.
@@ -32,6 +34,9 @@ const copy = strings({
   patientPath,
   resultsHub,
   dashboardGroups,
+  providerPages,
+  lifeAtPmg,
+  aboutPages,
 });
 
 const TBD = /\{\{TBD: [^{}]+\}\}/g;
@@ -65,11 +70,13 @@ test("every internal link in the copy resolves to a route", () => {
   const paths = new Set(allRoutes.map((r) => r.path));
   for (const text of copy)
     for (const [, , href] of text.matchAll(LINK))
-      if (!href.startsWith("https://"))
+      if (!/^(https?:|mailto:|tel:)/.test(href))
         assert.ok(paths.has(href), `${href} in: ${text}`);
   for (const [path, page] of Object.entries({
     ...partnershipPages,
     "/results/": resultsHub,
+    ...providerPages,
+    ...aboutPages,
   })) {
     assert.ok(paths.has(path), path);
     for (const r of page.related) assert.ok(paths.has(r), r);

@@ -13,11 +13,11 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 | 1 | Live-site inventory (`inventory/`) | Approved |
 | 2 | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | Approved |
 | 3 | Home and Partnership Model | Approved |
-| 4 | Results and Outcomes | In review |
-| 5 | Our Partners and 10 state pages | In review |
-| 6 | For Providers and APPs | |
+| 4 | Results and Outcomes | Approved |
+| 5 | Our Partners and 10 state pages | Approved |
+| 6 | For Providers and APPs | In review |
 | 7 | Pain Education and 36 articles | |
-| 8 | About, News, Contact, utility pages | |
+| 8 | About, News, Contact, utility pages | In review |
 | 9 | SEO/GEO pass | |
 
 Every Rev 2.0 route exists now. Pages whose content arrives in a later phase render a
@@ -88,18 +88,21 @@ flag also fails any crawled URL that lands on a noindex page.
 Project **Pain Management Group** (`ac5zxyz7`, organization CLEM) with `production` and a
 private `submissions` dataset. Studio is at `/studio/content`, inquiries at
 `/studio/submissions`. Content types: `article`, `newsPost`, `caseStudy`, `partner`, plus
-`siteSettings` and the contact `page`. Home copy lives in code (`src/content/pages/home.ts`). Imports from `inventory/` happen in each
-content type's build phase. The Editor token and seed are still pending approval.
+the private `inquiry` type. All other page copy lives in code (`src/content/pages/`).
 
-Partner hospitals: until `npm run import:partners` runs, the site reads the 40 partners
-migrated from the live site (`src/content/legacy/partners.ts`). The import never overwrites
-existing documents. Case studies render from Sanity only; with none published, the index
+Partners and news: until `npm run import:content` runs, the site reads the 40 partners and
+4 news posts migrated from the live site (`src/content/legacy/`). The import never
+overwrites existing documents. It needs `SANITY_API_WRITE_TOKEN` (an Editor token).
+
+Case studies render from Sanity only; with none published, the index
 shows an empty state and stays noindex and out of `sitemap.xml`.
 
 The partner map is static SVG generated from us-atlas by `npm run generate:us-map`.
 
-The inquiry form writes only to the private dataset and stays disabled until credentials are
-set. Its final destination is an open question (brief §10).
+The Hospital Inquiry Form (`/contact/`) saves each submission to the private `submissions`
+dataset and emails a notification through Resend (`RESEND_API_KEY`, `INQUIRY_NOTIFY_TO`,
+`INQUIRY_NOTIFY_FROM`). Both live in `src/lib/inquiry-delivery.ts`. The form is offered only
+when at least one destination is configured.
 
 Publishing webhook: `https://<host>/api/revalidate/` (note the trailing slash), triggered on
 create, update, and delete in `production`, secret `SANITY_REVALIDATE_SECRET`.

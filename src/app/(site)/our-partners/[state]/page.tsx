@@ -5,6 +5,7 @@ import { PageShell } from "@/components/page-shell";
 import { PartnerMap } from "@/components/partner-map";
 import { PartnerCard } from "@/components/partner-list";
 import { partnerStates } from "@/content/legacy/states";
+import { stateIntros } from "@/content/pages/partner-states";
 import { getPartnerHospitals } from "@/sanity/lib/content";
 import { absoluteUrl, routeMetadata } from "@/lib/seo";
 
@@ -57,7 +58,7 @@ export default async function StatePage({ params }: Props) {
     <PageShell
       path={path}
       eyebrow="Our Partners"
-      lede={`Pain Management Group partners with the ${state.name} hospitals below to run hospital-based pain management centers. Patients make appointments directly with each hospital's pain center.`}
+      lede={`Every PMG partner hospital in ${state.name}, with contact details for each pain program.`}
       contentId="partner-hospitals"
       related={["/partnership/", "/results/", "/partnership/questions/"]}
     >
@@ -67,7 +68,12 @@ export default async function StatePage({ params }: Props) {
         className="container-shell section-space grid scroll-mt-4 items-start gap-10 lg:grid-cols-[1.3fr_1fr]"
       >
         <div>
-          <h2>Partner hospitals in {state.name}</h2>
+          <div className="max-w-2xl space-y-4 text-muted">
+            {stateIntros[slug].map((p) => (
+              <p key={p}>{p}</p>
+            ))}
+          </div>
+          <h2 className="mt-12">Partner hospitals in {state.name}</h2>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {partners.map((p) => (
               <PartnerCard key={p.name} partner={p} />

@@ -29,7 +29,7 @@ export function RichText({ text }: { text: string }) {
       const className =
         "font-medium text-brand underline underline-offset-4 hover:text-[#2d5d84]";
       parts.push(
-        m[3].startsWith("https://") ? (
+        /^(https?:|mailto:|tel:)/.test(m[3]) ? (
           <a key={m.index} href={m[3]} className={className}>
             {m[2]}
           </a>

@@ -12,12 +12,11 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "seed:sanity": "node --env-file-if-exists=.env.local scripts/seed-sanity.mjs",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
     "verify:urls": "node scripts/verify-urls.mjs",
     "inventory:crawl": "NODE_USE_ENV_PROXY=1 node scripts/inventory/crawl.mjs",
     "inventory:report": "node scripts/inventory/report.mjs",
-    "import:partners": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-partners.ts",
+    "import:content": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-content.ts",
     "generate:us-map": "node scripts/generate-us-map.mjs"
   },
   "overrides": {

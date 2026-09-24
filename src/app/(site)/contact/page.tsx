@@ -1,60 +1,84 @@
 import Link from "next/link";
-import { getPage } from "@/sanity/lib/content";
-import { submissionsReady } from "@/sanity/lib/submissions";
-import { PageHero } from "@/components/page-hero";
 import { ContactForm } from "@/components/contact-form";
-import { Breadcrumbs } from "@/components/page-shell";
+import { PageShell } from "@/components/page-shell";
+import { formServedAt, inquiryDeliveryAvailable } from "@/lib/inquiry-delivery";
 import { routeMetadata } from "@/lib/seo";
 import { organization } from "@/lib/site";
 
-// Interim contact page. Rebuilt as the Hospital Inquiry conversion page in Phase 8.
+// Rendered per request: the form is offered only when a delivery destination is
+// configured, and each render stamps the time for the spam check.
 export const dynamic = "force-dynamic";
 export const metadata = routeMetadata("/contact/");
 
 export default async function ContactPage() {
-  const [page, enabled] = await Promise.all([
-    getPage("contact"),
-    submissionsReady().catch(() => false),
-  ]);
+  const enabled = await inquiryDeliveryAvailable();
+  const startedAt = formServedAt();
+  const a = organization.address;
   return (
-    <>
-      <Breadcrumbs path="/contact/" />
-      <PageHero page={page!} />
+    <PageShell
+      path="/contact/"
+      eyebrow="Contact"
+      lede="Schedule a call with Pain Management Group about a pain management program for your hospital. Looking for pain care? Find a partner clinic in your state."
+      contentId="schedule-a-call"
+    >
       <section
         id="schedule-a-call"
-        className="container-shell section-space grid scroll-mt-8 items-start gap-12 md:grid-cols-2"
+        className="container-shell section-space grid scroll-mt-4 items-start gap-12 md:grid-cols-[1fr_1.2fr]"
       >
         <div>
-          <p className="eyebrow">Pain Management Group</p>
-          <h2>A conversation starts here.</h2>
+          <p className="eyebrow">For hospital leaders</p>
+          <h2>Start with a conversation.</h2>
           <p className="mt-5 text-muted">
-            Tell us about your hospital, your community, or your interest in
-            joining a physician-led team.
+            A call covers the partnership model, what it takes to launch, and
+            whether it fits your community.{" "}
+            <Link
+              href="/partnership/questions/"
+              className="text-brand underline"
+            >
+              See what hospital leaders ask
+            </Link>
+            .
           </p>
-          <div className="mt-8 space-y-5">
-            <p>
-              <span className="block text-xs text-muted">Phone</span>
-              <a
-                className="text-lg text-brand underline"
-                href={`tel:${organization.phone.replace(/[^\d]/g, "")}`}
-              >
-                {organization.phone}
-              </a>
-            </p>
-            <p>
-              <span className="block text-xs text-muted">Email</span>
-              <a
-                className="text-lg break-all text-brand underline"
-                href={`mailto:${organization.email}`}
-              >
-                {organization.email}
-              </a>
-            </p>
-          </div>
+          <dl className="mt-8 space-y-5">
+            <div>
+              <dt className="text-xs text-muted">Phone</dt>
+              <dd>
+                <a
+                  className="text-lg text-brand underline"
+                  href={`tel:${organization.phone.replace(/[^\d]/g, "")}`}
+                >
+                  {organization.phone}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs text-muted">Email</dt>
+              <dd>
+                <a
+                  className="text-lg break-all text-brand underline"
+                  href={`mailto:${organization.email}`}
+                >
+                  {organization.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="text-xs text-muted">Office</dt>
+              <dd className="not-italic">
+                {a.street}
+                <br />
+                {a.city}, {a.region} {a.postalCode}
+              </dd>
+            </div>
+          </dl>
         </div>
-        <ContactForm enabled={enabled} />
+        <ContactForm
+          enabled={enabled}
+          startedAt={startedAt}
+          fallbackEmail={organization.email}
+        />
       </section>
-      <section className="container-shell pb-16">
+      <section id="find-a-clinic" className="container-shell pb-16">
         <div className="rounded-2xl bg-mist p-8">
           <h2 className="text-2xl">Looking for patient care?</h2>
           <p className="mt-4 text-muted">
@@ -66,6 +90,6 @@ export default async function ContactPage() {
           </Link>
         </div>
       </section>
-    </>
+    </PageShell>
   );
 }

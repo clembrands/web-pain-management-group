@@ -1,6 +1,8 @@
-// Draft copy for Results and Outcomes (Phase 4). No figure appears until PMG confirms it:
-// every value is a {{TBD: ...}} placeholder with its definition, source, and period.
+// Draft copy for Results and Outcomes (Phase 4). The partner and state counts are counted
+// from the published partner directory. Every other figure is a {{TBD: ...}} placeholder,
+// with its definition, source, and period, until PMG confirms it.
 import type { EditorialContent } from "./partnership.ts";
+import type { DirectoryCounts } from "../../lib/partner-stats.ts";
 
 export type Metric = {
   label: string;
@@ -31,12 +33,6 @@ export const dashboardGroups: MetricGroup[] = [
     title: "Partnership network",
     intro: "How many hospitals partner with PMG, and where.",
     metrics: [
-      {
-        label: "Hospital partnerships",
-        definition:
-          "Hospitals and health systems with an active PMG partnership.",
-        ...tbd("number"),
-      },
       {
         label: "Care locations",
         definition:
@@ -118,9 +114,28 @@ export const dashboardGroups: MetricGroup[] = [
   },
 ];
 
+// Counted from the partner directory at build time. Factual counts of what the site
+// publishes, not metrics awaiting confirmation.
+export const directoryMetrics = (c: DirectoryCounts): Metric[] => [
+  {
+    label: "Partner hospitals",
+    value: String(c.hospitals),
+    definition: "Hospitals listed in PMG's partner directory on this site.",
+    source: "[PMG partner directory](/our-partners/)",
+    period: "Current",
+  },
+  {
+    label: "States",
+    value: String(c.states),
+    definition: "States with at least one hospital in the partner directory.",
+    source: "[PMG partner directory](/our-partners/)",
+    period: "Current",
+  },
+];
+
 // The four headline figures on the Results hub.
-export const headlineMetrics: Metric[] = [
-  dashboardGroups[0].metrics[0],
+export const headlineMetrics = (c: DirectoryCounts): Metric[] => [
+  directoryMetrics(c)[0],
   dashboardGroups[1].metrics[0],
   dashboardGroups[2].metrics[0],
   dashboardGroups[2].metrics[1],

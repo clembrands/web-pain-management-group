@@ -4,12 +4,24 @@
 import { educationArticles } from "../content/legacy/education.ts";
 import { legacyNewsPosts } from "../content/legacy/news.ts";
 import { partnerStates } from "../content/legacy/states.ts";
+import { partnerHospitals } from "../content/legacy/partners.ts";
+import { directoryCounts } from "./partner-stats.ts";
+import { legacyNewsBodies } from "../content/legacy/news-posts.ts";
+import { excerpt } from "./excerpt.ts";
+
+const directory = directoryCounts(partnerHospitals);
 
 export type Audience = "hospital" | "provider" | "patient" | "utility";
 
 // placeholder: route exists so links resolve, content arrives in its build phase.
+// pending: page is built but waits on content PMG must supply (legal text, leadership
+// profiles, provider testimonials). Like a placeholder, it is noindex and out of sitemap.xml.
 // draft: real content, still in review. live: approved and listed in sitemap.xml.
-export type RouteStatus = "placeholder" | "draft" | "live";
+export type RouteStatus = "placeholder" | "pending" | "draft" | "live";
+
+// Pages kept out of search until their content exists.
+export const isHidden = (status: RouteStatus) =>
+  status === "placeholder" || status === "pending";
 
 export type SiteRoute = {
   path: string;
@@ -135,8 +147,7 @@ export const sections: SiteRoute[] = [
     path: "/our-partners/",
     title: "Our Hospital Partners",
     navLabel: "Our Partners",
-    description:
-      "Find a Pain Management Group partner hospital near you. Partner pain management centers are part of community hospitals and health systems in the Midwest, South, and Northeast.",
+    description: `Find a Pain Management Group partner near you: ${directory.hospitals} partner hospitals in ${directory.states} states, each with a hospital-based pain management center.`,
     audience: "hospital",
     phase: 5,
     status: "draft",
@@ -161,7 +172,7 @@ export const sections: SiteRoute[] = [
       "Pain management physician and advanced practice provider careers with Pain Management Group's hospital partner programs.",
     audience: "provider",
     phase: 6,
-    status: "placeholder",
+    status: "draft",
     children: [
       route({
         path: "/providers/why-pmg/",
@@ -170,7 +181,7 @@ export const sections: SiteRoute[] = [
           "Practice autonomy, procedure support, and predictable schedules for pain management physicians and APPs at PMG partner hospitals.",
         audience: "provider",
         phase: 6,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -180,7 +191,7 @@ export const sections: SiteRoute[] = [
           "Current pain management physician and APP openings with Pain Management Group.",
         audience: "provider",
         phase: 6,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -190,7 +201,7 @@ export const sections: SiteRoute[] = [
           "Culture and provider perspectives from Pain Management Group partner programs.",
         audience: "provider",
         phase: 6,
-        status: "placeholder",
+        status: "pending",
         inMenu: true,
       }),
     ],
@@ -222,7 +233,7 @@ export const sections: SiteRoute[] = [
       "Pain Management Group builds and manages hospital-based pain management programs. Based in Findlay, Ohio.",
     audience: "hospital",
     phase: 8,
-    status: "placeholder",
+    status: "draft",
     children: [
       route({
         path: "/about-us/mission/",
@@ -230,7 +241,7 @@ export const sections: SiteRoute[] = [
         description: "Pain Management Group's mission and history.",
         audience: "hospital",
         phase: 8,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
       route({
@@ -239,7 +250,7 @@ export const sections: SiteRoute[] = [
         description: "The people who lead Pain Management Group.",
         audience: "hospital",
         phase: 8,
-        status: "placeholder",
+        status: "pending",
         inMenu: true,
       }),
       route({
@@ -249,7 +260,7 @@ export const sections: SiteRoute[] = [
           "Non-clinical careers on Pain Management Group's internal team.",
         audience: "utility",
         phase: 8,
-        status: "placeholder",
+        status: "draft",
         inMenu: true,
       }),
     ],
@@ -260,15 +271,17 @@ export const sections: SiteRoute[] = [
     description: "Pain Management Group news, awards, and press.",
     audience: "hospital",
     phase: 8,
-    status: "placeholder",
+    status: "draft",
     children: legacyNewsPosts.map((post) =>
       route({
         path: `/news/${post.slug}/`,
         title: post.title,
-        description: `${post.title}. Pain Management Group news.`,
+        description: excerpt(
+          legacyNewsBodies.find((b) => b.slug === post.slug)?.body ?? [],
+        ),
         audience: "hospital",
         phase: 8,
-        status: "placeholder",
+        status: "draft",
       }),
     ),
   }),
@@ -293,7 +306,7 @@ export const utilityPages: SiteRoute[] = [
       "How Pain Management Group handles information collected through this website.",
     audience: "utility",
     phase: 8,
-    status: "placeholder",
+    status: "pending",
   }),
   route({
     path: "/terms/",
@@ -301,7 +314,7 @@ export const utilityPages: SiteRoute[] = [
     description: "Terms of use for the Pain Management Group website.",
     audience: "utility",
     phase: 8,
-    status: "placeholder",
+    status: "pending",
   }),
   route({
     path: "/accessibility/",
@@ -310,7 +323,7 @@ export const utilityPages: SiteRoute[] = [
       "Pain Management Group's commitment to an accessible website, and how to report a problem.",
     audience: "utility",
     phase: 8,
-    status: "placeholder",
+    status: "pending",
   }),
   route({
     path: "/sitemap/",
@@ -335,7 +348,7 @@ export const allRoutes: SiteRoute[] = [
 // sitemap.xml lists every route with real content. Placeholders join automatically when
 // their phase sets them to draft or live. Paths keep their trailing slash.
 export const sitemapPaths = () =>
-  allRoutes.filter((r) => r.status !== "placeholder").map((r) => r.path);
+  allRoutes.filter((r) => !isHidden(r.status)).map((r) => r.path);
 
 const byPath = new Map(allRoutes.map((r) => [r.path, r]));
 

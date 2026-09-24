@@ -57,9 +57,22 @@ Two lists: facts for Clembrands to verify, and the confirmation list to send to 
       reporting period.
 - [ ] Case studies: which partners, approved figures, and permission to publish.
 
+### Providers and About (Phases 6 and 8)
+
+- [ ] Why Practice With PMG: clinical autonomy, procedure support, schedules and call,
+      compensation approach, onboarding, and APP training.
+- [ ] Leadership: names, titles, credentials, headshots, bios. The 2022 Silver Award post
+      names John Bookmyer (CEO) and Mark Ozimek (President); confirm they are current.
+- [ ] Provider testimonials for Life at PMG, with permission.
+- [ ] PMG's founding story for Our Mission and Story.
+- [ ] Legal text: Privacy Policy, Terms of Service, Accessibility statement.
+- [ ] Inquiry form destination and notification recipient.
+- [ ] Newsletter provider.
+
 ### Partners (Phase 5)
 
-- [ ] Names, cities, and open issues in `deliverables/partners-to-confirm.csv` (26 partners).
+- [ ] Names, cities, and open issues in `deliverables/partners-to-confirm.csv` (26 partners,
+      including Meadowview's city: the live site says Marysville, KY; its ZIP is Maysville).
 - [ ] Permission to show partner hospital logos. Home currently shows four logos from the
       approved 1H concept.
 

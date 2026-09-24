@@ -1,9 +1,10 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { EditorialPage } from "@/components/editorial";
+import { providerPages } from "@/content/pages/providers";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/providers/why-pmg/";
 export const metadata = routeMetadata(path);
 
 export default function Page() {
-  return <PlaceholderPage path={path} />;
+  return <EditorialPage path={path} content={providerPages[path]} />;
 }

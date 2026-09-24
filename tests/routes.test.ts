@@ -7,6 +7,7 @@ import {
   breadcrumbTrail,
   home,
   sections,
+  isHidden,
   sitemapPaths,
 } from "../src/lib/routes.ts";
 
@@ -61,7 +62,7 @@ test("breadcrumbs run from Home through each ancestor", () => {
 test("sitemap.xml lists only pages with content", () => {
   const listed = new Set(sitemapPaths());
   for (const r of allRoutes)
-    assert.equal(listed.has(r.path), r.status !== "placeholder", r.path);
+    assert.equal(listed.has(r.path), !isHidden(r.status), r.path);
 });
 
 test("site copy contains no em dashes", () => {

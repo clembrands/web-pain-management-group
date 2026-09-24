@@ -5,17 +5,19 @@ import { partnerLocation } from "@/components/partner-list";
 import { partnerStates } from "@/content/legacy/states";
 import { getPartnerHospitals } from "@/sanity/lib/content";
 import { routeMetadata } from "@/lib/seo";
+import { directoryCounts } from "@/lib/partner-stats";
 
 const path = "/our-partners/";
 export const metadata = routeMetadata(path);
 
 export default async function OurPartnersPage() {
   const partners = await getPartnerHospitals();
+  const counts = directoryCounts(partners);
   return (
     <PageShell
       path={path}
       eyebrow="Find a Clinic"
-      lede="PMG partner pain management centers are part of community hospitals and health systems. Choose a state to see every partner hospital there. Patients make appointments directly with the hospital's pain center."
+      lede={`PMG has ${counts.hospitals} partner hospitals in ${counts.states} states. Each partner pain management center is part of a community hospital or health system. Choose a state to see every partner hospital there. Patients make appointments directly with the hospital's pain center.`}
       contentId="partner-map"
       related={["/partnership/", "/results/", "/partnership/questions/"]}
     >

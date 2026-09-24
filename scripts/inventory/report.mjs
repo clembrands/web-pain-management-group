@@ -193,8 +193,17 @@ partners.sort(
     a.name.localeCompare(b.name, "en", { sensitivity: "base" }),
 );
 // Everything PMG must confirm before a partner's name or city is published.
+// Live-site cities that disagree with their own ZIP codes. Published as the live site
+// shows them until PMG confirms.
+const CITY_CHECKS = {
+  "meadowview-interventional-pain-management":
+    'Live site gives the city as "Marysville, KY", but ZIP 41056 is Maysville, KY. Shown as Marysville until confirmed.',
+};
+
 const partnersToConfirm = partners.flatMap((p) => {
   const issues = [];
+  const cityCheck = CITY_CHECKS[p.legacy_url.split("/")[2]];
+  if (cityCheck) issues.push(cityCheck);
   if (!p.city)
     issues.push(
       `No address on the live site. Shown as name and state only until confirmed. Suggested city: ${p.suggested_city || "none"}.`,

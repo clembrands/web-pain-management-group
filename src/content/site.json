@@ -1,8 +1,4 @@
 {
-  "settings": {
-    "title": "Pain Management Group",
-    "description": "Hospital-based pain management. PMG partners with hospitals to build and run sustainable pain programs."
-  },
   "partners": [
     {
       "_id": "partner-beacon",
@@ -35,69 +31,6 @@
         "url": "/assets/logo-4.png",
         "alt": "Paulding County Hospital"
       }
-    }
-  ],
-  "pages": [
-    {
-      "slug": "partnership",
-      "eyebrow": "For hospital leaders",
-      "title": "A pain service line. An accountable partner.",
-      "description": "Physician recruiting, operations, compliance, and quality tracking, handled by a partner whose incentives match yours.",
-      "cards": [
-        {
-          "title": "Built inside your hospital",
-          "body": "A hospital-based program designed around your community, existing services, and clinical needs."
-        },
-        {
-          "title": "Your brand. Your governance.",
-          "body": "You keep a voice in how the program operates, with visibility into quality, operations, and performance."
-        },
-        {
-          "title": "Support beyond recruiting",
-          "body": "Physician leadership, care team training, workflows, and ongoing program management, together."
-        }
-      ]
-    },
-    {
-      "slug": "our-partners",
-      "eyebrow": "Our partners",
-      "title": "Hospital partnerships built to last.",
-      "description": "We work alongside hospitals and health systems to bring responsible pain care closer to the communities they serve.",
-      "cards": []
-    },
-    {
-      "slug": "locations",
-      "eyebrow": "Hospital-based care",
-      "title": "Expertise, closer to home.",
-      "description": "Pain expertise shouldn't require a two-hour drive. We bring it to the hospitals communities already trust.",
-      "cards": []
-    },
-    {
-      "slug": "for-providers",
-      "eyebrow": "Physicians & APPs",
-      "title": "A practice model built around the clinician.",
-      "description": "Clinical autonomy, real procedure support, predictable schedules, and a team built around responsible pain care.",
-      "cards": [
-        {
-          "title": "Physician-led care",
-          "body": "Practice alongside a team focused on hospital-based pain management and responsible care."
-        },
-        {
-          "title": "A supported practice",
-          "body": "Clinical workflows, trained care teams, and operational support let you focus on your patients."
-        },
-        {
-          "title": "Community impact",
-          "body": "Bring pain expertise to hospital partners and the communities that depend on them."
-        }
-      ]
-    },
-    {
-      "slug": "contact",
-      "eyebrow": "Let's talk",
-      "title": "Thinking about pain services? Talk to the experts first.",
-      "description": "A 30-minute call. No commitments, just the model, the data, and the economics.",
-      "cards": []
     }
   ]
 }

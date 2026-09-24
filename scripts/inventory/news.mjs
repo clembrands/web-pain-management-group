@@ -1,0 +1,182 @@
+#!/usr/bin/env node
+// Migrates the 4 WordPress news posts, verbatim, from the Phase 1 crawl (inventory/html/).
+//
+//   node scripts/inventory/news.mjs
+//
+// Writes src/content/legacy/news-posts.ts with each post body as Portable Text (the format
+// Sanity stores), and copies post images that still exist on the live site into
+// public/news/<slug>/. Wording is untouched. The only text change is repairing characters
+// the WordPress database stored double-encoded (for example "â€™" back to "’").
+
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+
+const ROOT = process.cwd();
+const posts = [
+  "pmg-helping-in-houston",
+  "thank-you-for-paying-it-forward",
+  "pain-management-group-receives-spirit-award-from-the-partnership-for-excellence",
+  "pain-management-group-receives-the-partnership-for-excellence-silver-award-2022",
+];
+const dates = Object.fromEntries(
+  (await readFile(join(ROOT, "inventory/news.csv"), "utf8"))
+    .trim()
+    .split("\n")
+    .slice(1)
+    .map((l) => {
+      const [date] = l.split(",");
+      const path = l.match(/,(\/[a-z0-9-]+\/),/)[1];
+      return [path.replace(/\//g, ""), date];
+    }),
+);
+
+const MOJIBAKE = {
+  "â€œ": "“",
+  "â€\u009d": "”",
+  "â€¦": "…",
+  "â€™": "’",
+  "â€“": "–",
+};
+const decode = (s) =>
+  Object.entries(MOJIBAKE)
+    .reduce((t, [bad, good]) => t.split(bad).join(good), s)
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">");
+
+let keyCounter = 0;
+const key = () => `k${(keyCounter++).toString(36)}`;
+
+// One <p> into a Portable Text block: text spans with bold/italic marks and links.
+function paragraph(html) {
+  const markDefs = [];
+  const children = [];
+  const marks = [];
+  for (const part of html.split(/(<[^>]+>)/)) {
+    if (!part) continue;
+    const tag = part.match(/^<(\/?)(\w+)([^>]*)>$/);
+    if (!tag) {
+      const text = decode(part);
+      if (text)
+        children.push({ _type: "span", _key: key(), text, marks: [...marks] });
+      continue;
+    }
+    const [, closing, name, attrs] = tag;
+    const mark = { strong: "strong", b: "strong", em: "em", i: "em" }[name];
+    if (mark && closing) marks.splice(marks.lastIndexOf(mark), 1);
+    else if (mark) marks.push(mark);
+    if (name === "a" && !closing) {
+      const href = decode(attrs.match(/href="([^"]+)"/)?.[1] ?? "");
+      const def = { _type: "link", _key: key(), href };
+      markDefs.push(def);
+      marks.push(def._key);
+    } else if (name === "a" && closing) {
+      const last = [...marks]
+        .reverse()
+        .find((m) => markDefs.some((d) => d._key === m));
+      if (last) marks.splice(marks.lastIndexOf(last), 1);
+    }
+  }
+  // Keep the text exactly, but drop a block that is only whitespace (e.g. an empty link).
+  if (!children.some((c) => c.text.trim())) return null;
+  const used = new Set(children.flatMap((c) => c.marks));
+  return {
+    _type: "block",
+    _key: key(),
+    style: "normal",
+    markDefs: markDefs.filter((d) => used.has(d._key)),
+    children,
+  };
+}
+
+const missing = [];
+async function image(slug, src, alt, width, height) {
+  const url = src.replace(/^http:/, "https:");
+  const res = await fetch(url);
+  if (!res.ok) {
+    missing.push(`${slug}: ${url} (${res.status} on the live site)`);
+    return null;
+  }
+  const file = url.split("/").pop();
+  const dir = join(ROOT, "public/news", slug);
+  await mkdir(dir, { recursive: true });
+  await writeFile(join(dir, file), Buffer.from(await res.arrayBuffer()));
+  return {
+    _type: "image",
+    _key: key(),
+    src: `/news/${slug}/${file}`,
+    alt: decode(alt),
+    width,
+    height,
+  };
+}
+
+const out = [];
+for (const slug of posts) {
+  const html = await readFile(
+    join(ROOT, "inventory/html", `${slug}.html`),
+    "utf8",
+  );
+  const title = decode(
+    html.match(/<title>(.*?) &#8211; Pain Management Group<\/title>/)[1],
+  );
+  const start = html.indexOf('<div class="single-blog-content">');
+  const end = html.indexOf('<div class="page-list-single">', start);
+  const content = html
+    .slice(start, end)
+    .replace(/<style[\s\S]*?<\/style>/g, "")
+    .replace(/<!--[\s\S]*?-->/g, "");
+  const body = [];
+  for (const m of content.matchAll(/<p[^>]*>([\s\S]*?)<\/p>|<img\b([^>]*)>/g)) {
+    if (m[1] !== undefined) {
+      const block = paragraph(m[1]);
+      if (block) body.push(block);
+    } else {
+      const src = m[2].match(/\ssrc="([^"]+)"/)?.[1];
+      const alt = m[2].match(/\salt="([^"]*)"/)?.[1] ?? "";
+      const width = Number(m[2].match(/\swidth="(\d+)"/)?.[1] ?? 1024);
+      const height = Number(m[2].match(/\sheight="(\d+)"/)?.[1] ?? 683);
+      const img = src && (await image(slug, src, alt, width, height));
+      if (img) body.push(img);
+    }
+  }
+  out.push({ slug, title, date: dates[slug], body });
+}
+
+const file = `// Generated by scripts/inventory/news.mjs from the Phase 1 crawl. Do not edit by hand.
+// The 4 WordPress news posts, verbatim, as Portable Text. Sanity holds news once imported
+// (scripts/import-content.ts); until then the site reads this list.
+// Images already missing on the live site were not migrated:
+${missing.map((m) => `//   ${m}`).join("\n")}
+
+export type LegacyImage = {
+  _type: "image";
+  _key: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+export type LegacyBlock = {
+  _type: "block";
+  _key: string;
+  style: string;
+  markDefs: { _type: "link"; _key: string; href: string }[];
+  children: { _type: "span"; _key: string; text: string; marks: string[] }[];
+};
+export type LegacyNewsPost = {
+  slug: string;
+  title: string;
+  date: string;
+  body: (LegacyBlock | LegacyImage)[];
+};
+
+export const legacyNewsBodies: LegacyNewsPost[] = ${JSON.stringify(out, null, 1)};
+`;
+await writeFile(join(ROOT, "src/content/legacy/news-posts.ts"), file);
+console.log(out.map((p) => `${p.slug}: ${p.body.length} blocks`).join("\n"));
+console.log(`missing images: ${missing.length}`);

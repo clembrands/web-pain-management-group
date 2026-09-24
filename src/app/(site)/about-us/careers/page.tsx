@@ -1,9 +1,10 @@
-import { PlaceholderPage } from "@/components/placeholder-page";
+import { EditorialPage } from "@/components/editorial";
+import { aboutPages } from "@/content/pages/about";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/about-us/careers/";
 export const metadata = routeMetadata(path);
 
 export default function Page() {
-  return <PlaceholderPage path={path} />;
+  return <EditorialPage path={path} content={aboutPages[path]} />;
 }

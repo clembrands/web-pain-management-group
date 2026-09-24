@@ -4,11 +4,15 @@ import { createClient } from "next-sanity";
 import { projectId, dataset, apiVersion } from "../env";
 import seed from "@/content/site.json";
 import type { PortableTextBlock } from "next-sanity";
-import type { Settings, PageContent, Partner } from "@/content/types";
+import type { Partner } from "@/content/types";
 import {
   partnerHospitals,
   type PartnerHospital,
 } from "@/content/legacy/partners";
+import {
+  legacyNewsBodies,
+  type LegacyNewsPost,
+} from "@/content/legacy/news-posts";
 
 const client = projectId
   ? createClient({
@@ -31,23 +35,6 @@ async function fetchContent<T>(query: string, fallback: T): Promise<T> {
   );
 }
 const image = (name: string) => `"${name}": ${name}{"url": asset->url, alt}`;
-export const getSettings = cache(() =>
-  fetchContent<Settings>('*[_id == "siteSettings"][0]', seed.settings),
-);
-export const getPage = cache(async (slug: string) => {
-  const fallback = seed.pages.find((page) => page.slug === slug);
-  if (!fallback) return null;
-  const content = await fetchContent<Partial<PageContent>>(
-    `*[_type == "page" && slug == ${JSON.stringify(slug)}] | order(_updatedAt desc)[0]`,
-    {},
-  );
-  return {
-    ...fallback,
-    ...Object.fromEntries(
-      Object.entries(content).filter(([, value]) => value != null),
-    ),
-  } as PageContent;
-});
 export const getPartners = cache(() =>
   fetchContent<Partner[]>(
     `*[_type == "partner"] | order(name asc){_id,name,description,website,${image("logo")}}`,
@@ -105,4 +92,33 @@ export const getCaseStudy = cache(
       { next: { revalidate: 60, tags: ["site-content"] } },
     );
   },
+);
+
+export type NewsPost = {
+  slug: string;
+  title: string;
+  date: string;
+  body: LegacyNewsPost["body"];
+};
+
+const newsFields = `"slug": slug, title, "date": publishedAt, body[]{..., _type == "image" => {..., "src": asset->url, "width": asset->metadata.dimensions.width, "height": asset->metadata.dimensions.height}}`;
+
+// News posts, newest first. Falls back to the 4 posts migrated from WordPress until news
+// is imported into Sanity (scripts/import-content.ts).
+export const getNewsPosts = cache(async (): Promise<NewsPost[]> => {
+  const legacy = [...legacyNewsBodies].sort((a, b) =>
+    b.date.localeCompare(a.date),
+  );
+  if (!client) return legacy;
+  const posts = await client.fetch<NewsPost[]>(
+    `*[_type == "newsPost" && defined(slug)] | order(publishedAt desc){${newsFields}}`,
+    {},
+    { next: { revalidate: 60, tags: ["site-content"] } },
+  );
+  return posts.length ? posts : legacy;
+});
+
+export const getNewsPost = cache(
+  async (slug: string): Promise<NewsPost | null> =>
+    (await getNewsPosts()).find((p) => p.slug === slug) ?? null,
 );

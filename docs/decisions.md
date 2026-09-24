@@ -61,6 +61,22 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   static SVG map links to all 10 state pages. The overall partner and state counts are not
   stated as figures anywhere; the dashboard's network counts are TBD.
 
+## 2026-09-24: Phases 4 and 5 approved, Phases 6 and 8
+
+- Partner and state counts are derived from the partner directory and shown on the Our
+  Partners hub, its meta description, and the dashboard's network tiles. Every other
+  dashboard value stays TBD. Home's "hospital partnerships" stat stays TBD.
+- Each state page has a unique 100 to 200 word intro built from the partner data.
+- New route status `pending`: built pages that wait on PMG content (Life at PMG, Leadership,
+  Privacy, Terms, Accessibility). Noindex and out of sitemap.xml.
+- News: the 4 posts are migrated verbatim as Portable Text; images still on the live site
+  are copied into `public/news/`. Two images already 404 on the live site and are omitted.
+- Inquiry form: saves to the private Sanity dataset and emails a notification through
+  Resend. Honeypot, minimum fill time, and a per-instance rate limit; a Vercel Firewall
+  rule is the hard limit at launch.
+- Newsletter signup is stubbed behind `src/lib/newsletter.ts`; the form shows "coming soon".
+- Legal pages carry a "Legal text pending PMG review" placeholder; no legal text written.
+
 ## Review-build routes (301)
 
 | Review route | Rev 2.0 destination |

@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { breadcrumbTrail, getRoute, type SiteRoute } from "@/lib/routes";
+import {
+  breadcrumbTrail,
+  getRoute,
+  isHidden,
+  type SiteRoute,
+} from "@/lib/routes";
 import { organization } from "@/lib/site";
 
 export const siteUrl = (
@@ -60,10 +65,8 @@ export function routeMetadata(route: SiteRoute | string): Metadata {
       title: socialTitle,
       description: r.description,
     },
-    // Placeholders stay out of search even after launch indexing is switched on.
-    ...(r.status === "placeholder"
-      ? { robots: { index: false, follow: true } }
-      : {}),
+    // Placeholders and pending pages stay out of search even after launch indexing is on.
+    ...(isHidden(r.status) ? { robots: { index: false, follow: true } } : {}),
   };
 }
 

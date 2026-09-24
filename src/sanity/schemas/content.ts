@@ -57,7 +57,8 @@ const body = defineField({
           name: "alt",
           title: "Alternative text",
           type: "string",
-          validation: (r) => r.required(),
+          description:
+            "Describe the image. Leave empty only for decorative images (some migrated posts have none).",
         }),
       ],
     }),
