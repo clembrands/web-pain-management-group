@@ -5,7 +5,7 @@
 //
 // Needs NEXT_PUBLIC_SANITY_PROJECT_ID and SANITY_API_WRITE_TOKEN in .env.local. Existing
 // documents are never overwritten, so editor changes in Studio are kept. Open questions
-// from deliverables/partners-to-confirm.csv are copied into each partner's "toConfirm" note.
+// from inventory/partners-to-confirm.csv are copied into each partner's "toConfirm" note.
 import { readFileSync } from "node:fs";
 import { createClient } from "next-sanity";
 import { partnerHospitals } from "../src/content/legacy/partners.ts";
@@ -32,7 +32,7 @@ const client = createClient({
 // Partner name -> open questions, from the confirmation list (last column).
 const issues = new Map(
   readFileSync(
-    new URL("../deliverables/partners-to-confirm.csv", import.meta.url),
+    new URL("../inventory/partners-to-confirm.csv", import.meta.url),
     "utf8",
   )
     .trim()

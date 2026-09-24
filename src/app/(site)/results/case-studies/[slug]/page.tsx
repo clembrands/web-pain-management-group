@@ -12,7 +12,8 @@ type Props = { params: Promise<{ slug: string }> };
 // refreshed by the Sanity publishing webhook.
 const toRoute = (study: CaseStudy): SiteRoute => ({
   path: `/results/case-studies/${study.slug}/`,
-  title: study.seoTitle ?? study.title,
+  title: study.title,
+  seoTitle: study.seoTitle ?? undefined,
   description: study.seoDescription ?? study.summary,
   audience: "hospital",
   phase: 4,
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: Props) {
 export default async function CaseStudyPage({ params }: Props) {
   const study = await getCaseStudy((await params).slug);
   if (!study) notFound();
-  const route = { ...toRoute(study), title: study.title };
+  const route = toRoute(study);
   const state = partnerStates.find((s) => s.slug === study.partner?.state);
   return (
     <PageShell

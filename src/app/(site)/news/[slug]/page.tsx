@@ -6,7 +6,12 @@ import { legacyNewsPosts } from "@/content/legacy/news";
 import { formatDate } from "@/lib/dates";
 import { excerpt } from "@/lib/excerpt";
 import { allRoutes, type SiteRoute } from "@/lib/routes";
-import { absoluteUrl, organizationRef, routeMetadata } from "@/lib/seo";
+import {
+  absoluteUrl,
+  defaultSocialImage,
+  organizationRef,
+  routeMetadata,
+} from "@/lib/seo";
 import { getNewsPost, type NewsPost } from "@/sanity/lib/content";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -54,13 +59,12 @@ export default async function NewsPostPage({ params }: Props) {
     headline: post.title,
     datePublished: post.date,
     mainEntityOfPage: absoluteUrl(route.path),
-    ...(image
-      ? {
-          image: image.src.startsWith("http")
-            ? image.src
-            : absoluteUrl(image.src),
-        }
-      : {}),
+    // Posts without a photo use the site's default sharing image.
+    image: image
+      ? image.src.startsWith("http")
+        ? image.src
+        : absoluteUrl(image.src)
+      : absoluteUrl(defaultSocialImage.url),
     author: organizationRef(),
     publisher: organizationRef(),
   };

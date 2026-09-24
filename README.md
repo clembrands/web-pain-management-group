@@ -16,9 +16,9 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 | 4 | Results and Outcomes | Approved |
 | 5 | Our Partners and 10 state pages | Approved |
 | 6 | For Providers and APPs | Approved |
-| 7 | Pain Education and 36 articles | In review |
+| 7 | Pain Education and 36 articles | Approved |
 | 8 | About, News, Contact, utility pages | Approved |
-| 9 | SEO/GEO pass | |
+| 9 | SEO/GEO pass | In review |
 
 Every Rev 2.0 route has content. Pages waiting on PMG material (legal text, leadership,
 provider testimonials) have route status `pending`: noindex and left out of `sitemap.xml`.
@@ -41,6 +41,7 @@ npm run typecheck
 npm test                     # redirect map and routes checked against inventory/
 npm run build
 npm run start
+npm run audit:site -- http://localhost:3000    # metadata, schema, links, crawl rules (see docs/seo-audit.md)
 npm run verify:urls -- http://localhost:3000   # every crawled URL, against a running server
 ```
 
@@ -61,7 +62,10 @@ npm run verify:urls -- http://localhost:3000   # every crawled URL, against a ru
 | `inventory/` | Phase 1 crawl output. `README.md` there summarizes it. |
 | `scripts/inventory/` | Re-runs the crawl (`npm run inventory:crawl`) and report (`npm run inventory:report`) |
 | `scripts/verify-urls.mjs` | Post-deploy check of every crawled URL |
-| `deliverables/partners-to-confirm.csv` | Partner names and cities for PMG to confirm |
+| `inventory/partners-to-confirm.csv` | Partner issues as data; the import copies them into Sanity notes |
+| `deliverables/PMG-items-to-confirm.md` | The one list of facts and approvals to send PMG |
+| `scripts/audit-site.ts` | SEO/GEO audit of a running build (`npm run audit:site`); see `docs/seo-audit.md` |
+| `docs/cutover.md` | DNS switch and the two weeks after |
 
 ### URLs
 

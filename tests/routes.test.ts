@@ -10,6 +10,7 @@ import {
   isHidden,
   sitemapPaths,
 } from "../src/lib/routes.ts";
+import { pageTitle } from "../src/lib/page-title.ts";
 
 test("every route is unique and uses a trailing slash", () => {
   const paths = allRoutes.map((r) => r.path);
@@ -80,4 +81,21 @@ test("site copy contains no em dashes", () => {
     (f) => !f.includes("/sanity/") && readFileSync(f, "utf8").includes("—"),
   );
   assert.deepEqual(offenders, []);
+});
+
+test("indexable pages have search titles of 60 characters or less", () => {
+  for (const r of allRoutes.filter((r) => !isHidden(r.status)))
+    assert.ok(pageTitle(r).length <= 60, `${r.path}: ${pageTitle(r)}`);
+});
+
+test("indexable pages have meta descriptions of 120 to 160 characters", () => {
+  for (const r of allRoutes.filter((r) => !isHidden(r.status))) {
+    const n = r.description.length;
+    assert.ok(n >= 120 && n <= 160, `${r.path}: ${n} characters`);
+  }
+});
+
+test("no em dashes in titles or meta descriptions", () => {
+  for (const r of allRoutes)
+    assert.doesNotMatch(`${pageTitle(r)} ${r.description}`, /—/, r.path);
 });

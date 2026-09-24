@@ -1,6 +1,6 @@
 // Generated from inventory/partners.csv: the 40 partner hospitals behind the live
 // /our-partners/ state filter. Names are exactly as the live site shows them, including
-// "Hosplital", until PMG confirms (deliverables/partners-to-confirm.csv). City and phone
+// "Hosplital", until PMG confirms (inventory/partners-to-confirm.csv). City and phone
 // appear only where the live site has them; guessed cities are never included.
 //
 // Sanity holds partner data once imported (scripts/import-partners.ts). Until then, and

@@ -31,15 +31,19 @@ const seo = [
   defineField({
     name: "seoTitle",
     title: "SEO title",
+    description:
+      "The full title shown in search results, 60 characters or less. Leave empty to use the page title.",
     type: "string",
-    validation: (r) => r.max(70),
+    validation: (r) => r.max(60),
   }),
   defineField({
     name: "seoDescription",
     title: "Meta description",
+    description:
+      "Shown under the title in search results, 120 to 160 characters.",
     type: "text",
     rows: 3,
-    validation: (r) => r.max(170),
+    validation: (r) => r.min(120).max(160),
   }),
 ];
 
@@ -291,7 +295,7 @@ export const contentTypes = [
         type: "text",
         rows: 2,
         description:
-          "Internal. From deliverables/partners-to-confirm.csv. Clear once PMG answers.",
+          "Internal. From inventory/partners-to-confirm.csv. Clear once PMG answers.",
       }),
       legacyUrl,
     ],

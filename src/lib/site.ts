@@ -14,7 +14,8 @@ export const organization = {
     postalCode: "45840",
     country: "US",
   },
-  logo: "/assets/pmg-logo.png",
+  // Square version for search engines (Google asks for at least 112 by 112 pixels).
+  logo: "/assets/pmg-logo-square.png",
   sameAs: ["https://www.linkedin.com/company/pain-management-group"],
 } as const;
 

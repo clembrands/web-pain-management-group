@@ -48,7 +48,7 @@ The hub grid shows only a logo and an outbound link. Names, addresses, and phone
 - 30 partners have a full address and phone on the live site.
 - 10 have no address anywhere on the site. Their `city` is blank; a guess sits in
   `suggested_city` for PMG to confirm, and is never published. Every open question is in
-  `deliverables/partners-to-confirm.csv`.
+  `inventory/partners-to-confirm.csv`.
 - Some live names disagree with their slugs (`new-day-...` is Grand Lake,
   `community-hospitals-...` is Parkview) and one title has a typo ("Hosplital"). The
   legacy URL keeps the old slug; the display name needs PMG's approval.

@@ -26,7 +26,7 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 
 - **Partners:** never publish a guessed city or name. The 10 partners with no address on the
   live site show name and state only until PMG confirms. Current names stay as they are,
-  including "Hosplital". Open questions are in `deliverables/partners-to-confirm.csv`.
+  including "Hosplital". Open questions are in `inventory/partners-to-confirm.csv`.
 - **Article schema:** PMG (the Organization) is author and publisher. The Sanity `article`
   type has an optional `medicalReviewer` field for when PMG names one.
 - **ViewMedica:** every existing embed is kept exactly as it is.
@@ -49,8 +49,8 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 
 ## 2026-09-24: Phase 3 approved, Phases 4 and 5
 
-- Pain statistic cited to the Institute of Medicine (2011), *Relieving Pain in America*, and
-  listed in `docs/open-questions.md` for verification.
+- Pain statistic cited to the Institute of Medicine (2011), _Relieving Pain in America_, and
+  listed for Clembrands to verify (now in `docs/launch-checklist.md`).
 - 13th question added: "How long does it take to launch a program?" The opioid and exit
   answers need PMG sign-off before launch.
 - "Joint venture" stays (Rev 2.0 term); PMG confirms deals are structured that way.
@@ -93,18 +93,34 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - Each article has breadcrumbs, 3 or 4 related articles from its category, a disclaimer
   pending PMG review, and the Find a Clinic CTA.
 
+## 2026-09-24: Phase 7 approved, Phase 9 (SEO/GEO)
+
+- Search titles: `<title> | Pain Management Group`, then `<title> | PMG`, then the title
+  alone, whichever first fits in 60 characters. A route or Sanity record can set a full
+  `seoTitle` instead. Descriptions are 120 to 160 characters; tests enforce both.
+- Default share image and a square logo for structured data, both generated from the
+  existing logo (`scripts/generate-brand-images.mjs`), plus favicon and app icons from its
+  "P" mark. A vector logo from PMG would replace them.
+- `docs/open-questions.md` and the partner confirmation list merged into
+  `deliverables/PMG-items-to-confirm.md`, written for PMG. The partner CSV moved to
+  `inventory/` because the Sanity import reads it; the pain statistic check (Clembrands)
+  moved to the launch checklist.
+- `npm run audit:site` checks metadata, structured data, linking, and crawl rules on a
+  running build; `--launch` also fails on TBD placeholders. Results in `docs/seo-audit.md`.
+- Cutover runbook in `docs/cutover.md`.
+
 ## Review-build routes (301)
 
-| Review route | Rev 2.0 destination |
-| --- | --- |
-| `/partnership/operating-model/` | `/partnership/how-it-works/` |
-| `/partnership/quality-and-compliance/` | `/partnership/balanced-pain-treatment/` |
-| `/our-partners/stories/:slug*/` | `/results/case-studies/` |
-| `/locations/:path*/` | `/our-partners/` |
-| `/for-providers/` | `/providers/` |
-| `/for-providers/practice-model/` | `/providers/why-pmg/` |
-| `/careers/:path*/` | `/providers/opportunities/` |
-| `/resources/:path*/` | `/news/` |
-| `/about-us/leadership/sample-clinical-leader/` | `/about-us/leadership/` |
-| `/review/` | `/sitemap/` |
-| 8 provisional `/pain-education/` slugs | the real live slug (see `src/lib/redirects.ts`) |
+| Review route                                   | Rev 2.0 destination                             |
+| ---------------------------------------------- | ----------------------------------------------- |
+| `/partnership/operating-model/`                | `/partnership/how-it-works/`                    |
+| `/partnership/quality-and-compliance/`         | `/partnership/balanced-pain-treatment/`         |
+| `/our-partners/stories/:slug*/`                | `/results/case-studies/`                        |
+| `/locations/:path*/`                           | `/our-partners/`                                |
+| `/for-providers/`                              | `/providers/`                                   |
+| `/for-providers/practice-model/`               | `/providers/why-pmg/`                           |
+| `/careers/:path*/`                             | `/providers/opportunities/`                     |
+| `/resources/:path*/`                           | `/news/`                                        |
+| `/about-us/leadership/sample-clinical-leader/` | `/about-us/leadership/`                         |
+| `/review/`                                     | `/sitemap/`                                     |
+| 8 provisional `/pain-education/` slugs         | the real live slug (see `src/lib/redirects.ts`) |

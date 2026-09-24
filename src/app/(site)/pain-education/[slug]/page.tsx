@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
   const route = getRoute(`/pain-education/${slug}/`);
   return routeMetadata({
     ...route,
-    ...(article?.seoTitle ? { title: article.seoTitle } : {}),
+    ...(article?.seoTitle ? { seoTitle: article.seoTitle } : {}),
     ...(article?.seoDescription ? { description: article.seoDescription } : {}),
   });
 }

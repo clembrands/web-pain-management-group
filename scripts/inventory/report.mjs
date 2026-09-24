@@ -527,7 +527,7 @@ await write("education.csv", education, [
 ]);
 await write("partners.csv", partners);
 await writeFile(
-  join(process.cwd(), "deliverables", "partners-to-confirm.csv"),
+  join(process.cwd(), "inventory", "partners-to-confirm.csv"),
   [
     [
       "state",

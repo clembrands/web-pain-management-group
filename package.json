@@ -17,7 +17,8 @@
     "inventory:crawl": "NODE_USE_ENV_PROXY=1 node scripts/inventory/crawl.mjs",
     "inventory:report": "node scripts/inventory/report.mjs",
     "import:content": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-content.ts",
-    "generate:us-map": "node scripts/generate-us-map.mjs"
+    "generate:us-map": "node scripts/generate-us-map.mjs",
+    "audit:site": "node --experimental-strip-types scripts/audit-site.ts"
   },
   "overrides": {
     "@sanity/runtime-cli": {

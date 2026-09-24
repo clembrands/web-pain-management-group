@@ -16,12 +16,19 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 
 - [ ] Every `{{TBD: ...}}` placeholder is replaced with a PMG-confirmed fact or removed.
       `npm run verify:urls -- <url> --launch` fails while any crawled page still shows one.
-- [ ] Every item in `docs/open-questions.md` is closed, including the pain statistic that
-      Clembrands verifies against the IOM report.
+- [ ] Every item in `deliverables/PMG-items-to-confirm.md` is closed. That file is the one
+      list sent to PMG; every `{{TBD: ...}}` on the site maps to an item in it.
+- [ ] Clembrands verifies the pain statistic on `/partnership/`: "An estimated 100 million U.S.
+      adults live with chronic pain, more than heart disease, cancer, and diabetes combined,"
+      cited to the Institute of Medicine (2011), _Relieving Pain in America_,
+      https://www.nationalacademies.org/publications/13172. Check the figure and the
+      comparison against the report.
 - [ ] PMG signs off on two answers on `/partnership/questions/`: "How do you keep pain care,
       including opioid prescribing, responsible?" (clinical team) and "What happens if the
       partnership isn't working?" (contract terms).
-- [ ] Partner names and cities confirmed (`deliverables/partners-to-confirm.csv`).
+- [ ] Partner names and cities confirmed (section 7 of `deliverables/PMG-items-to-confirm.md`).
+      Update `src/content/legacy/partners.ts` and `inventory/partners-to-confirm.csv`, then
+      re-run `npm run import:content`.
 - [ ] Permission to show partner hospital logos.
 
 ### Photography
@@ -37,6 +44,15 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
       page.
 - [ ] Production environment: `NEXT_PUBLIC_SITE_URL=https://painmgmtgroup.com` and
       `NEXT_PUBLIC_INDEXABLE=true`. Preview environments keep indexing off.
+- [ ] The production Vercel project has every variable it needs (see `.env.example`):
+      `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET`,
+      `NEXT_PUBLIC_SANITY_SUBMISSIONS_DATASET`, `SANITY_API_WRITE_TOKEN`,
+      `SANITY_REVALIDATE_SECRET`, `RESEND_API_KEY`, `INQUIRY_NOTIFY_TO`,
+      `INQUIRY_NOTIFY_FROM`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_INDEXABLE`, and
+      `NEXT_PUBLIC_GTM_ID`. Secrets are server-only (no `NEXT_PUBLIC_` prefix).
+- [ ] `npm run audit:site -- <url> --validate --launch` passes against a production build:
+      titles, descriptions, one H1, canonical and Open Graph tags, structured data, internal
+      links, crawl rules, and no TBD placeholder. See `docs/seo-audit.md`.
 - [ ] `robots.txt` on production allows the listed crawlers; `sitemap.xml` lists every page.
 - [ ] Search Console: re-check the 18 retired demo pages against a clicks export. Any page
       with real clicks moves from 410 to a 301.
@@ -90,6 +106,8 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 - [ ] DNS owner and cutover plan agreed (brief §10, question 5).
 
 ## After cutover
+
+Step by step in `docs/cutover.md`.
 
 - [ ] Run `npm run verify:urls -- https://painmgmtgroup.com --launch` against production.
 - [ ] Submit `https://painmgmtgroup.com/sitemap.xml` in Search Console and Bing Webmaster Tools.

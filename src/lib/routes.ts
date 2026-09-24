@@ -12,6 +12,26 @@ import { excerpt } from "./excerpt.ts";
 
 const directory = directoryCounts(partnerHospitals);
 
+// Built from the directory count for the state, so each state page's description differs.
+function stateDescription(name: string, slug: string) {
+  const n = partnerHospitals.filter((p) => p.state === slug).length;
+  const lead =
+    n === 1
+      ? `Pain Management Group's partner hospital in ${name}`
+      : n === 2
+        ? `Both Pain Management Group partner hospitals in ${name}`
+        : `All ${n} Pain Management Group partner hospitals in ${name}`;
+  return `${lead}, with city, phone number, and website for each hospital-based pain management center where available.`;
+}
+
+// Award post titles run long even without a suffix.
+const newsSeoTitles: Record<string, string> = {
+  "pain-management-group-receives-spirit-award-from-the-partnership-for-excellence":
+    "PMG Receives Partnership For Excellence Spirit Award",
+  "pain-management-group-receives-the-partnership-for-excellence-silver-award-2022":
+    "PMG Receives 2022 Partnership For Excellence Silver Award",
+};
+
 export type Audience = "hospital" | "provider" | "patient" | "utility";
 
 // placeholder: route exists so links resolve, content arrives in its build phase.
@@ -27,6 +47,9 @@ export const isHidden = (status: RouteStatus) =>
 export type SiteRoute = {
   path: string;
   title: string;
+  // Search title when "<title> | Pain Management Group" and "<title> | PMG" both run past
+  // 60 characters (see routeMetadata).
+  seoTitle?: string;
   navLabel?: string;
   description: string;
   audience: Audience;
@@ -42,6 +65,7 @@ const route = (r: SiteRoute) => r;
 export const home = route({
   path: "/",
   title: "Hospital Pain Management Partnerships",
+  seoTitle: "Pain Management Group | Hospital Pain Management Partners",
   description:
     "Pain Management Group partners with hospitals to build and run physician-led pain management programs that are medically, socially, and financially responsible.",
   audience: "hospital",
@@ -64,7 +88,7 @@ export const sections: SiteRoute[] = [
         path: "/partnership/how-it-works/",
         title: "How the Partnership Works",
         description:
-          "The four phases of a PMG hospital partnership: assess, design, build and launch, then manage and grow.",
+          "The four phases of a PMG hospital partnership: assess, design, build and launch, then manage and grow, with what PMG and the hospital each own in every phase.",
         audience: "hospital",
         phase: 3,
         status: "draft",
@@ -94,7 +118,7 @@ export const sections: SiteRoute[] = [
         path: "/partnership/questions/",
         title: "What Hospital Leaders Ask",
         description:
-          "Direct answers to the questions hospital executives ask before starting a pain management partnership with PMG.",
+          "Direct answers to the questions hospital CEOs, CFOs, and boards ask before starting a pain management partnership with Pain Management Group.",
         audience: "hospital",
         phase: 3,
         status: "draft",
@@ -107,7 +131,7 @@ export const sections: SiteRoute[] = [
     title: "Results and Outcomes",
     navLabel: "Results",
     description:
-      "PMG partnership results: partnerships, patient encounters, and retention, sourced and on the record.",
+      "Pain Management Group partnership results for hospital leaders: the program dashboard, partner case studies, and what hospital executives say about PMG.",
     audience: "hospital",
     phase: 4,
     status: "draft",
@@ -116,7 +140,7 @@ export const sections: SiteRoute[] = [
         path: "/results/dashboard/",
         title: "Program Dashboard",
         description:
-          "Pain Management Group program outcomes, tracked in the open.",
+          "The Pain Management Group program dashboard: partner network size, patient encounters, and program retention across PMG hospital partner programs.",
         audience: "hospital",
         phase: 4,
         status: "draft",
@@ -126,7 +150,7 @@ export const sections: SiteRoute[] = [
         path: "/results/case-studies/",
         title: "Case Studies",
         description:
-          "Hospital pain management partnership case studies from PMG partner programs.",
+          "Case studies from Pain Management Group partner hospitals: how each pain management program was planned, launched, and run, and what it delivered.",
         audience: "hospital",
         phase: 4,
         status: "draft",
@@ -136,7 +160,7 @@ export const sections: SiteRoute[] = [
         path: "/results/testimonials/",
         title: "Testimonials",
         description:
-          "What hospital leaders say about partnering with Pain Management Group.",
+          "What hospital CEOs and administrators say about partnering with Pain Management Group to build and run a hospital-based pain management program.",
         audience: "hospital",
         phase: 4,
         status: "draft",
@@ -157,7 +181,7 @@ export const sections: SiteRoute[] = [
         path: `/our-partners/${state.slug}/`,
         title: `${state.name} Hospital Pain Management Partners`,
         navLabel: state.name,
-        description: `Pain Management Group's hospital pain management partners in ${state.name}.`,
+        description: stateDescription(state.name, state.slug),
         audience: "hospital",
         phase: 5,
         status: "draft",
@@ -189,7 +213,7 @@ export const sections: SiteRoute[] = [
         path: "/providers/opportunities/",
         title: "Open Opportunities",
         description:
-          "Current pain management physician and APP openings with Pain Management Group.",
+          "Current pain management physician and advanced practice provider openings with Pain Management Group, posted on Indeed and CareerMD.",
         audience: "provider",
         phase: 6,
         status: "draft",
@@ -211,7 +235,7 @@ export const sections: SiteRoute[] = [
     path: "/pain-education/",
     title: "Pain Education",
     description:
-      "Patient education on pain conditions, interventional procedures, and pain medications from Pain Management Group.",
+      "Patient education from Pain Management Group: pain conditions, interventional pain procedures, and pain medications, with videos for many procedures.",
     audience: "patient",
     phase: 7,
     status: "draft",
@@ -233,9 +257,10 @@ export const sections: SiteRoute[] = [
   route({
     path: "/about-us/",
     title: "About Pain Management Group",
+    seoTitle: "About Pain Management Group",
     navLabel: "About",
     description:
-      "Pain Management Group builds and manages hospital-based pain management programs. Based in Findlay, Ohio.",
+      "Pain Management Group builds and manages hospital-based pain management programs with partner hospitals. Learn our mission, story, and team in Findlay, Ohio.",
     audience: "hospital",
     phase: 8,
     status: "draft",
@@ -243,7 +268,8 @@ export const sections: SiteRoute[] = [
       route({
         path: "/about-us/mission/",
         title: "Our Mission and Story",
-        description: "Pain Management Group's mission and history.",
+        description:
+          "Pain Management Group's mission and story: why PMG partners with hospitals to deliver pain care that is medically, socially, and financially responsible.",
         audience: "hospital",
         phase: 8,
         status: "draft",
@@ -262,7 +288,7 @@ export const sections: SiteRoute[] = [
         path: "/about-us/careers/",
         title: "Internal Team Opportunities",
         description:
-          "Non-clinical careers on Pain Management Group's internal team.",
+          "Non-clinical careers on Pain Management Group's internal team, supporting the hospital partner programs PMG builds and manages, and how to apply.",
         audience: "utility",
         phase: 8,
         status: "draft",
@@ -273,7 +299,8 @@ export const sections: SiteRoute[] = [
   route({
     path: "/news/",
     title: "News",
-    description: "Pain Management Group news, awards, and press.",
+    description:
+      "Pain Management Group news: awards, community work, and announcements from PMG and the hospital partner programs it builds and manages.",
     audience: "hospital",
     phase: 8,
     status: "draft",
@@ -281,6 +308,7 @@ export const sections: SiteRoute[] = [
       route({
         path: `/news/${post.slug}/`,
         title: post.title,
+        seoTitle: newsSeoTitles[post.slug],
         description: excerpt(
           legacyNewsBodies.find((b) => b.slug === post.slug)?.body ?? [],
         ),
@@ -295,9 +323,10 @@ export const sections: SiteRoute[] = [
 export const contact = route({
   path: "/contact/",
   title: "Contact Pain Management Group",
+  seoTitle: "Contact Pain Management Group",
   navLabel: "Contact",
   description:
-    "Schedule a call with Pain Management Group about a hospital pain management partnership, or find a partner clinic.",
+    "Schedule a call with Pain Management Group about a hospital pain management partnership, or find a partner clinic near you. Offices in Findlay, Ohio.",
   audience: "hospital",
   phase: 8,
   status: "draft",
@@ -333,7 +362,8 @@ export const utilityPages: SiteRoute[] = [
   route({
     path: "/sitemap/",
     title: "Site Map",
-    description: "Every page on the Pain Management Group website.",
+    description:
+      "Every page on the Pain Management Group website: the partnership model, results, partner hospitals by state, provider careers, and pain education.",
     audience: "utility",
     phase: 2,
     status: "draft",

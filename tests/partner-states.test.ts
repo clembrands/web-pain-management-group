@@ -13,7 +13,7 @@ const sentences = (slug: string) =>
     .filter(Boolean);
 
 // Cities suggested for partners the live site gives no address for. They must never be
-// published (deliverables/partners-to-confirm.csv).
+// published (inventory/partners-to-confirm.csv).
 const suggestedCities = [
   "Eldorado",
   "Du Quoin",

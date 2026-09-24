@@ -20,7 +20,7 @@ export function PartnerCard({ partner }: { partner: PartnerHospital }) {
           {partner.phone && (
             <a
               href={`tel:${partner.phone.replace(/[^\d]/g, "")}`}
-              className="font-medium text-brand underline underline-offset-4"
+              className="inline-flex min-h-6 items-center font-medium text-brand underline underline-offset-4"
             >
               {partner.phone}
             </a>
@@ -28,7 +28,7 @@ export function PartnerCard({ partner }: { partner: PartnerHospital }) {
           {partner.website && (
             <a
               href={partner.website}
-              className="font-medium text-brand underline underline-offset-4"
+              className="inline-flex min-h-6 items-center font-medium text-brand underline underline-offset-4"
             >
               Hospital website
               <span className="sr-only"> for {partner.name}</span>
