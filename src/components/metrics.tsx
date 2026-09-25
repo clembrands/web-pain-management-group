@@ -1,8 +1,9 @@
 import { RichText } from "@/components/rich-text";
 import type { Metric } from "@/content/pages/results";
 
-// Results tiles, styled after the Home stats band. A value that is still a placeholder
-// renders at text size, so it can never pass for a real figure.
+// Results figures as a hairline grid: light display numerals over small tracked labels.
+// A value that is still a placeholder renders at text size, so it can never pass for a
+// real figure.
 export function MetricTiles({
   metrics,
   detailed = false,
@@ -11,18 +12,16 @@ export function MetricTiles({
   detailed?: boolean;
 }) {
   return (
-    <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <dl className="grid divide-y divide-line border-t border-line sm:grid-cols-2 sm:divide-x lg:grid-cols-3">
       {metrics.map((m) => (
         <div
           key={m.label}
-          className="flex flex-col-reverse rounded-[18px] border border-line bg-white p-6 shadow-[0_10px_30px_rgba(30,42,50,.05)]"
+          className="flex flex-col-reverse py-8 sm:px-8 sm:nth-[2n+1]:pl-0 lg:nth-[2n+1]:pl-8 lg:nth-[3n+1]:pl-0"
         >
-          <dt className="mt-3">
-            <span className="block text-base font-semibold text-navy">
-              {m.label}
-            </span>
+          <dt className="mt-4">
+            <span className="label block text-muted">{m.label}</span>
             {detailed && (
-              <span className="mt-2 block space-y-1 text-sm text-muted">
+              <span className="mt-3 block space-y-1 text-sm text-muted">
                 <span className="block">{m.definition}</span>
                 <span className="block">
                   Source: <RichText text={m.source} />
@@ -36,8 +35,8 @@ export function MetricTiles({
           <dd
             className={
               m.value.startsWith("{{TBD")
-                ? "text-base leading-tight font-bold text-navy"
-                : "text-[38px] leading-none font-bold text-navy"
+                ? "text-base leading-tight font-medium text-navy"
+                : "display-sans text-5xl leading-none text-navy tabular-nums"
             }
           >
             <RichText text={m.value} />

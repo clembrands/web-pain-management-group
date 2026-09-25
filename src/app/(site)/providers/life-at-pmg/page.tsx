@@ -30,7 +30,7 @@ export default function LifeAtPmgPage() {
           {Array.from({ length: lifeAtPmg.testimonialSlots }, (_, i) => (
             <li
               key={i}
-              className="rounded-[18px] border border-dashed border-[#aabcc9] bg-mist p-6 text-sm"
+              className="border border-dashed border-[#aabcc9] p-6 text-sm"
             >
               <p>
                 <Tbd>provider testimonial, quoted with permission</Tbd>

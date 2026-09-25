@@ -25,17 +25,17 @@ export default async function OurPartnersPage() {
         id="partner-map"
         className="container-shell section-space grid scroll-mt-4 items-center gap-10 lg:grid-cols-[1.4fr_1fr]"
       >
-        <div className="rounded-[22px] border border-line bg-mist p-4 md:p-8">
+        <div>
           <PartnerMap />
         </div>
         <nav aria-label="Partner states">
           <h2 className="text-2xl">Partners by state</h2>
-          <ul className="mt-6 grid grid-cols-2 gap-3">
+          <ul className="mt-6 grid grid-cols-2 gap-x-8 border-t border-line">
             {partnerStates.map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`/our-partners/${s.slug}/`}
-                  className="block rounded-xl border border-line bg-white px-4 py-3 text-sm font-semibold text-navy hover:border-brand hover:text-brand"
+                  className="block border-b border-line py-3 text-sm font-medium text-navy hover:text-brand"
                 >
                   {s.name}
                 </Link>

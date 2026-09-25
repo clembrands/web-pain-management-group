@@ -19,10 +19,7 @@ export default function LeadershipPage() {
       <section className="container-shell section-space">
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {Array.from({ length: leadershipSlots }, (_, i) => (
-            <li
-              key={i}
-              className="overflow-hidden rounded-[22px] border border-line bg-white"
-            >
+            <li key={i} className="overflow-hidden border border-line bg-white">
               <div
                 role="img"
                 aria-label="Headshot to come"

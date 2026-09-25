@@ -118,6 +118,23 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   list says the numbers are illustrative.
 - Header: utility bar removed; Find a Clinic sits beside the CTA; logo enlarged.
 
+## 2026-09-25: Design system (Direction B, "Monument")
+
+- Two Home directions were built at a noindex `/design-lab/`; Direction B was chosen and
+  applied to Home, then to the interior template, and the lab removed.
+- The system: light Poppins display type (weights 200 and 300, loaded separately) for
+  headings, small tracked uppercase labels, hairline rules and open layouts instead of
+  rounded cards, a deep navy hero with an optional photograph in navy duotone dissolving
+  into the background, the Balanced three-square mark as a recurring device, the partner
+  map full-bleed and dark as the Home centerpiece, a centered closing CTA.
+- Motion is CSS only (scroll-driven animations, off under prefers-reduced-motion): reveals,
+  figures that count up, a slow hero drift, timeline steps that slide in, a logo scroll.
+- Concept photographs of people were replaced by two concept photographs without faces
+  (`concept-corridor.jpg`, `concept-exam-room.jpg`), uncaptioned; both are on the launch
+  checklist for replacement with PMG photography.
+- Header: six items, hamburger below 1440px, News under About, Find a Clinic under Pain
+  Education.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

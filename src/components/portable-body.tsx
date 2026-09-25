@@ -20,7 +20,7 @@ const makeComponents = (title: string): PortableTextComponents => ({
     // Migrated images carry a local src; Sanity images get theirs from the query.
     image: ({ value }: { value: BodyImage }) =>
       value.src ? (
-        <figure className="my-8 overflow-hidden rounded-[18px]">
+        <figure className="my-8 overflow-hidden">
           <Image
             src={value.src}
             alt={value.alt ?? ""}

@@ -50,12 +50,12 @@ export function SiteHeader() {
                 {item.label}
               </Link>
               {item.children.length > 0 && (
-                <div className="invisible absolute top-full left-0 z-30 w-64 rounded-xl border border-line bg-white p-3 text-navy opacity-0 shadow-xl group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <div className="invisible absolute top-full left-0 z-30 w-64 border border-line bg-white p-3 text-navy opacity-0 shadow-xl group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                   {item.children.map((child) => (
                     <Link
                       key={child.href}
                       href={child.href}
-                      className="block rounded-lg px-3 py-2.5 text-sm hover:bg-mist"
+                      className="block px-3 py-2.5 text-sm hover:bg-mist"
                     >
                       {child.label}
                     </Link>
@@ -76,7 +76,7 @@ export function SiteHeader() {
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
-          className="rounded-lg border border-[#587186] px-4 py-2 min-[1440px]:hidden"
+          className="border border-[#587186] px-4 py-2 min-[1440px]:hidden"
         >
           {open ? "Close" : "Menu"}
         </button>

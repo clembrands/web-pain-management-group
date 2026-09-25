@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ctas } from "@/components/cta";
 import { RichText } from "@/components/rich-text";
 import type { Question, Step } from "@/content/pages/partnership";
 import type { Partner } from "@/content/types";
 import { testimonials } from "@/content/testimonials";
 
-// Section building blocks shared by the design-lab directions. Every word comes from the
-// existing content files; these components only lay it out.
+// Section building blocks of the design system, used by Home and the interior template.
+// Every word comes from the content files; these components only lay it out.
 
 // Questions as a hairline list instead of cards.
 export function RuleFaqs({
@@ -93,7 +92,7 @@ export function Timeline({
             <p
               className={`mt-3 max-w-md text-[15px] ${dark ? "text-[#c4d3df]" : "text-muted"}`}
             >
-              {step.body}
+              <RichText text={step.body} />
             </p>
           </div>
         </li>
@@ -223,41 +222,6 @@ export function Statement({
         </blockquote>
         <figcaption className="label mt-8 text-[#c4d3df]">{byline}</figcaption>
       </figure>
-    </section>
-  );
-}
-
-// Closing call to action for hospital leaders, centered, in display type.
-export function LabCta({ face }: { face: "serif" | "sans" }) {
-  const cta = ctas.hospital;
-  return (
-    <section className="bg-deep text-white">
-      <div className="container-shell flex flex-col items-center py-20 text-center md:py-28">
-        <p className="label text-sky">Next step</p>
-        <h2
-          className={`mt-6 max-w-4xl ${face === "serif" ? "display-md display-serif" : "display-md display-sans"}`}
-        >
-          {cta.title}
-        </h2>
-        <p className="mt-6 max-w-xl text-[#b9c8d4]">{cta.body}</p>
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          <Link
-            href={cta.href}
-            className="button bg-white text-navy hover:bg-[#dce6ee]"
-          >
-            {cta.label}
-          </Link>
-          {cta.secondary.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="button button-dark-outline"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }

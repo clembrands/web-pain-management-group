@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/design/balanced-mark";
 import { CountUp } from "@/components/design/count-up";
+import { EndCta } from "@/components/cta";
 import {
-  LabCta,
   LogoMarquee,
   RuleFaqs,
   Statement,
@@ -260,7 +260,7 @@ export async function HomeNarrative() {
       </section>
 
       {/* 8. Closing CTA */}
-      <LabCta face="sans" />
+      <EndCta audience="hospital" />
     </>
   );
 }

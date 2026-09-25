@@ -9,15 +9,16 @@ export const stateBySlug = (slug: string) =>
 export const partnerLocation = (p: PartnerHospital) =>
   p.city ? `${p.city}, ${stateBySlug(p.state)?.abbr}` : undefined;
 
+// One partner hospital as a hairline row.
 export function PartnerCard({ partner }: { partner: PartnerHospital }) {
   return (
-    <li className="rounded-[18px] border border-line bg-white p-6 shadow-[0_10px_30px_rgba(30,42,50,.05)]">
-      <h3 className="text-lg">{partner.name}</h3>
+    <li className="border-t border-line py-6">
+      <h3 className="text-lg font-medium text-navy">{partner.name}</h3>
       {partnerLocation(partner) && (
         <p className="mt-1 text-sm text-muted">{partnerLocation(partner)}</p>
       )}
       {(partner.phone || partner.website) && (
-        <p className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+        <p className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           {partner.phone && (
             <a
               href={`tel:${partner.phone.replace(/[^\d]/g, "")}`}

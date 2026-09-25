@@ -10,8 +10,8 @@ export const providerPages: Record<string, EditorialContent> = {
     eyebrow: "For physicians and APPs",
     lede: "Pain Management Group is looking for pain management physicians and qualified advanced practice clinicians to join its partner programs: hospital-based pain centers in community hospitals and health systems.",
     media: {
-      src: "/assets/1chero.png",
-      alt: "A clinician listening to a patient during a consultation",
+      src: "/assets/concept-exam-room.jpg",
+      alt: "An empty consultation room in a community hospital clinic, lit by a window",
       caption: concept,
     },
     sections: [
@@ -50,8 +50,8 @@ export const providerPages: Record<string, EditorialContent> = {
     eyebrow: "For Providers and APPs",
     lede: "What practicing at a PMG partner center looks like: how much clinical autonomy you have, what support comes with procedures, and how schedules work.",
     media: {
-      src: "/assets/1ahero.png",
-      alt: "A physician and a hospital administrator standing together in a hospital corridor",
+      src: "/assets/concept-corridor.jpg",
+      alt: "A physician walking through the corridor of a community hospital outpatient clinic",
       caption: concept,
     },
     sections: [

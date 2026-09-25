@@ -20,10 +20,10 @@ export default async function NewsPage() {
       related={["/about-us/", "/results/", "/partnership/"]}
     >
       <section className="container-shell section-space grid items-start gap-12 lg:grid-cols-[1.6fr_1fr]">
-        <ol className="space-y-6">
+        <ol className="divide-y divide-line border-t border-line">
           {posts.map((post) => (
             <li key={post.slug}>
-              <article className="card">
+              <article className="py-8">
                 <p className="eyebrow">
                   <time dateTime={post.date}>{formatDate(post.date)}</time>
                 </p>

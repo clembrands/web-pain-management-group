@@ -70,7 +70,7 @@ export default async function StatePage({ params }: Props) {
         {/* The clinic list comes first: it is what patients arrive for. */}
         <div>
           <h2>Partner hospitals in {state.name}</h2>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+          <ul className="mt-8 grid border-b border-line sm:grid-cols-2 sm:gap-x-10">
             {partners.map((p) => (
               <PartnerCard key={p.name} partner={p} />
             ))}
@@ -83,19 +83,19 @@ export default async function StatePage({ params }: Props) {
           </div>
         </div>
         <div className="space-y-8 lg:sticky lg:top-6">
-          <div className="rounded-[22px] border border-line bg-mist p-4">
+          <div>
             <PartnerMap focus={slug} />
           </div>
           <nav aria-label="Other partner states">
             <h2 className="text-xl">Partners in other states</h2>
-            <ul className="mt-4 flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-3">
               {partnerStates
                 .filter((s) => s.slug !== slug)
                 .map((s) => (
                   <li key={s.slug}>
                     <Link
                       href={`/our-partners/${s.slug}/`}
-                      className="block rounded-full border border-line bg-white px-4 py-2 text-sm hover:border-brand hover:text-brand"
+                      className="inline-flex min-h-11 items-center border border-line px-4 text-sm hover:border-brand hover:text-brand"
                     >
                       {s.name}
                     </Link>

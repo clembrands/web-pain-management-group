@@ -6,7 +6,7 @@ export function LegalPending({ path }: { path: string }) {
   return (
     <PageShell path={path} eyebrow="Pain Management Group">
       <section className="container-shell section-space">
-        <div className="max-w-2xl rounded-[22px] border border-[#e7d6ac] bg-[#fbf6ea] p-8 text-[#6b4f10]">
+        <div className="max-w-2xl border-l-2 border-[#e7d6ac] bg-[#fbf6ea] p-8 text-[#6b4f10]">
           <h2 className="text-2xl text-[#6b4f10]">
             Legal text pending PMG review.
           </h2>

@@ -45,7 +45,7 @@ export default async function CaseStudiesPage() {
             ))}
           </ul>
         ) : (
-          <div className="mx-auto max-w-2xl rounded-[22px] border border-line bg-mist p-10 text-center">
+          <div className="mx-auto max-w-2xl border-t border-line pt-10 text-center">
             <h2 className="text-2xl">Partner stories coming soon.</h2>
             <p className="mt-4 text-muted">
               Case studies from partner hospitals are being prepared. In the

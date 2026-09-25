@@ -19,11 +19,14 @@
   h3 {
     text-wrap: balance;
   }
+  /* Headings are light display type; the display face is the light Poppins weights. */
   h2 {
-    @apply text-3xl leading-tight font-bold tracking-tight md:text-[34px];
+    @apply text-3xl leading-[1.1] tracking-[-0.01em] md:text-[40px];
+    font-family: var(--font-poppins-light, var(--font-poppins));
+    font-weight: 300;
   }
   h3 {
-    @apply text-xl leading-snug font-semibold;
+    @apply text-xl leading-snug font-medium;
   }
   p {
     @apply leading-relaxed;
@@ -48,7 +51,7 @@
     @apply py-14 md:py-20;
   }
   .eyebrow {
-    @apply mb-4 text-xs font-bold tracking-[.14em] uppercase text-brand;
+    @apply mb-4 text-[11px] font-semibold tracking-[.22em] uppercase text-brand;
   }
   .button {
     @apply inline-flex min-h-12 items-center justify-center rounded-full px-7 py-3 text-center text-sm font-semibold transition-colors;
@@ -62,11 +65,12 @@
   .button-dark-outline {
     @apply border border-[#587186] text-[#dce6ee] hover:bg-[#243e54];
   }
+  /* A bordered panel with square corners; hairline lists are preferred where a list fits. */
   .card {
-    @apply rounded-[20px] border border-line bg-white p-7 shadow-[0_10px_30px_rgba(30,42,50,.05)] md:p-9;
+    @apply border border-line bg-white p-7 md:p-9;
   }
   .field {
-    @apply mt-2 w-full rounded-xl border border-[#aabcc9] bg-white px-4 py-3 text-base;
+    @apply mt-2 w-full border border-[#aabcc9] bg-white px-4 py-3 text-base;
   }
 }
 /* Design system utilities (design lab, then site-wide). */

@@ -62,7 +62,7 @@ export function ContactForm({
   const [state, action, pending] = useActionState(submitInquiry, initialState);
   if (!enabled)
     return (
-      <div className="rounded-2xl border border-line bg-mist p-8">
+      <div className="border-t border-line pt-8">
         <h2 className="text-xl">Online inquiries are opening soon.</h2>
         <p className="mt-4 text-sm text-muted">
           In the meantime, email{" "}
@@ -75,7 +75,7 @@ export function ContactForm({
     );
   if (state.status === "success")
     return (
-      <div role="status" className="rounded-2xl border border-line bg-mist p-8">
+      <div role="status" className="border-t border-line pt-8">
         <h2 className="text-2xl">Inquiry received</h2>
         <p className="mt-4">{state.message}</p>
       </div>
@@ -89,7 +89,7 @@ export function ContactForm({
       <p className="text-sm text-muted">
         Tell us about your hospital and we will set up a time to talk.
       </p>
-      <p className="rounded-xl bg-[#fbf6ea] px-4 py-3 text-sm text-[#6b4f10]">
+      <p className="border-l-2 border-[#e7d6ac] bg-[#fbf6ea] px-4 py-3 text-sm text-[#6b4f10]">
         Please don&apos;t include patient or medical information in this form.
       </p>
       <fieldset disabled={pending} className="space-y-5 disabled:opacity-60">

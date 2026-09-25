@@ -80,7 +80,7 @@ export default async function ArticlePage({ params }: Props) {
       <JsonLd data={jsonLd} />
       <article className="container-shell section-space max-w-3xl">
         <PortableBody value={article.body} title={article.title} />
-        <aside className="mt-12 rounded-2xl border border-line bg-mist p-6 text-sm text-muted">
+        <aside className="mt-12 border-t border-line pt-6 text-sm text-muted">
           {educationDisclaimer}
         </aside>
       </article>

@@ -23,12 +23,12 @@ export default function PainEducationPage() {
   return (
     <PageShell path={path} eyebrow="For patients and families" lede={hubIntro}>
       <nav aria-label="Categories" className="container-shell pt-12">
-        <ul className="flex flex-wrap gap-3">
+        <ul className="flex flex-wrap gap-8 border-t border-line pt-6">
           {educationCategories.map((c) => (
             <li key={c}>
               <a
                 href={`#${c.toLowerCase()}`}
-                className="block rounded-full border border-line bg-white px-5 py-2 text-sm font-semibold text-navy hover:border-brand hover:text-brand"
+                className="label block border-b border-transparent pb-1 text-navy hover:border-brand hover:text-brand"
               >
                 {c}
               </a>
@@ -44,14 +44,14 @@ export default function PainEducationPage() {
         >
           <h2>{category}</h2>
           <p className="mt-3 text-muted">{intro[category]}</p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {educationArticles
               .filter((a) => a.category === category)
               .map((a) => (
                 <li key={a.slug}>
                   <Link
                     href={`/pain-education/${a.slug}/`}
-                    className="block h-full rounded-xl border border-line bg-white px-5 py-4 font-medium text-navy hover:border-brand hover:text-brand"
+                    className="block h-full border-b border-line py-4 pr-6 font-medium text-navy hover:text-brand"
                   >
                     {a.title}
                   </Link>

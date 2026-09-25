@@ -79,7 +79,7 @@ export default async function ContactPage() {
         />
       </section>
       <section id="find-a-clinic" className="container-shell pb-16">
-        <div className="rounded-2xl bg-mist p-8">
+        <div className="border-t border-line pt-8">
           <h2 className="text-2xl">Looking for patient care?</h2>
           <p className="mt-4 text-muted">
             Appointments are made directly with the hospital pain center. Find a

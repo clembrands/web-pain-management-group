@@ -8,17 +8,17 @@ Next.js (App Router), TypeScript, Tailwind CSS 4, Sanity, deployed on Vercel.
 
 ## Build status
 
-| Phase | Scope | Status |
-| --- | --- | --- |
-| 1 | Live-site inventory (`inventory/`) | Approved |
-| 2 | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | Approved |
-| 3 | Home and Partnership Model | Approved |
-| 4 | Results and Outcomes | Approved |
-| 5 | Our Partners and 10 state pages | Approved |
-| 6 | For Providers and APPs | Approved |
-| 7 | Pain Education and 36 articles | Approved |
-| 8 | About, News, Contact, utility pages | Approved |
-| 9 | SEO/GEO pass | In review |
+| Phase | Scope                                                                         | Status    |
+| ----- | ----------------------------------------------------------------------------- | --------- |
+| 1     | Live-site inventory (`inventory/`)                                            | Approved  |
+| 2     | Foundation: layout, nav, footer, tokens, redirects, analytics, robots/sitemap | Approved  |
+| 3     | Home and Partnership Model                                                    | Approved  |
+| 4     | Results and Outcomes                                                          | Approved  |
+| 5     | Our Partners and 10 state pages                                               | Approved  |
+| 6     | For Providers and APPs                                                        | Approved  |
+| 7     | Pain Education and 36 articles                                                | Approved  |
+| 8     | About, News, Contact, utility pages                                           | Approved  |
+| 9     | SEO/GEO pass                                                                  | In review |
 
 Every Rev 2.0 route has content. Pages waiting on PMG material (legal text, leadership,
 provider testimonials) have route status `pending`: noindex and left out of `sitemap.xml`.
@@ -47,26 +47,28 @@ npm run verify:urls -- http://localhost:3000   # every crawled URL, against a ru
 
 ## Where things live
 
-| Path | Purpose |
-| --- | --- |
-| `src/lib/routes.ts` | The Rev 2.0 route tree. Nav, footer, breadcrumbs, `sitemap.xml`, and `/sitemap/` read from it. |
-| `src/lib/redirects.ts` | Every 301 (live WordPress URLs and review-build routes) and every 410 |
-| `src/proxy.ts` | Serves 410 Gone for retired theme demo pages |
-| `src/lib/seo.ts` | Metadata, canonical URLs, Organization and BreadcrumbList JSON-LD, crawler list |
-| `src/lib/site.ts` | PMG contact details, job board links, Schedule a Call target |
-| `src/content/legacy/` | URL contract from the crawl: 36 article slugs, 10 states, 4 news posts, 40 partner pages |
-| `src/components/page-shell.tsx` | Interior page layout from the review build: navy hero, breadcrumbs, one H1, related links, closing CTA |
-| `src/content/pages/` | Draft copy for code-owned pages. `{{TBD: ...}}` marks unconfirmed facts and fails the launch check. |
-| `docs/launch-checklist.md` | Everything that must happen before DNS cutover |
-| `src/sanity/schemas/content.ts` | Sanity types: articles, news, case studies, partner hospitals |
-| `inventory/` | Phase 1 crawl output. `README.md` there summarizes it. |
-| `scripts/inventory/` | Re-runs the crawl (`npm run inventory:crawl`) and report (`npm run inventory:report`) |
-| `scripts/verify-urls.mjs` | Post-deploy check of every crawled URL |
-| `inventory/partners-to-confirm.csv` | Partner issues as data; the import copies them into Sanity notes |
-| `deliverables/PMG-items-to-confirm.md` | The one list of facts and approvals to send PMG |
-| `scripts/audit-site.ts` | SEO/GEO audit of a running build (`npm run audit:site`); see `docs/seo-audit.md` |
-| `docs/cutover.md` | DNS switch and the two weeks after |
-| `docs/sample-figures.md` | The 18 illustrative numbers on the review site, and what PMG must supply for each |
+| Path                                   | Purpose                                                                                                                |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `src/lib/routes.ts`                    | The Rev 2.0 route tree. Nav, footer, breadcrumbs, `sitemap.xml`, and `/sitemap/` read from it.                         |
+| `src/lib/redirects.ts`                 | Every 301 (live WordPress URLs and review-build routes) and every 410                                                  |
+| `src/proxy.ts`                         | Serves 410 Gone for retired theme demo pages                                                                           |
+| `src/lib/seo.ts`                       | Metadata, canonical URLs, Organization and BreadcrumbList JSON-LD, crawler list                                        |
+| `src/lib/site.ts`                      | PMG contact details, job board links, Schedule a Call target                                                           |
+| `src/content/legacy/`                  | URL contract from the crawl: 36 article slugs, 10 states, 4 news posts, 40 partner pages                               |
+| `src/components/page-shell.tsx`        | Interior page layout: deep navy hero with duotone photo slot, breadcrumbs, one H1, hairline related links, closing CTA |
+| `src/components/design/`               | Design-system pieces: Balanced mark, timeline, rule FAQs, logo scroll, compact statement, count-up figures             |
+| `src/components/home/narrative.tsx`    | Home as an eight-part narrative for hospital leaders                                                                   |
+| `src/content/pages/`                   | Draft copy for code-owned pages. `{{TBD: ...}}` marks unconfirmed facts and fails the launch check.                    |
+| `docs/launch-checklist.md`             | Everything that must happen before DNS cutover                                                                         |
+| `src/sanity/schemas/content.ts`        | Sanity types: articles, news, case studies, partner hospitals                                                          |
+| `inventory/`                           | Phase 1 crawl output. `README.md` there summarizes it.                                                                 |
+| `scripts/inventory/`                   | Re-runs the crawl (`npm run inventory:crawl`) and report (`npm run inventory:report`)                                  |
+| `scripts/verify-urls.mjs`              | Post-deploy check of every crawled URL                                                                                 |
+| `inventory/partners-to-confirm.csv`    | Partner issues as data; the import copies them into Sanity notes                                                       |
+| `deliverables/PMG-items-to-confirm.md` | The one list of facts and approvals to send PMG                                                                        |
+| `scripts/audit-site.ts`                | SEO/GEO audit of a running build (`npm run audit:site`); see `docs/seo-audit.md`                                       |
+| `docs/cutover.md`                      | DNS switch and the two weeks after                                                                                     |
+| `docs/sample-figures.md`               | The 18 illustrative numbers on the review site, and what PMG must supply for each                                      |
 
 ### URLs
 

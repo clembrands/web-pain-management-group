@@ -29,8 +29,8 @@ export type EditorialContent = {
 
 const concept = "Concept photography · final PMG imagery to follow";
 const leadershipPhoto: Media = {
-  src: "/assets/1ahero.png",
-  alt: "A physician and a hospital administrator standing together in a hospital corridor",
+  src: "/assets/concept-corridor.jpg",
+  alt: "A physician walking through the corridor of a community hospital outpatient clinic",
   caption: concept,
 };
 
@@ -87,8 +87,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
     eyebrow: "For hospital leaders",
     lede: "Pain Management Group partners with health systems and independent hospitals to build and manage hospital-based outpatient pain management centers. Your hospital gets PMG's blueprint and ongoing program management. Your community gets safe, responsible pain care close to home.",
     media: {
-      src: "/assets/hero-1e.png",
-      alt: "A physician and a hospital leader in a bright hospital lobby",
+      src: "/assets/concept-corridor.jpg",
+      alt: "A physician walking through the corridor of a community hospital outpatient clinic",
       caption: concept,
     },
     sections: [
@@ -207,8 +207,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
     eyebrow: "Partnership Model",
     lede: "Balanced Pain Treatment is PMG's model for pain care that is medically responsible for patients, socially responsible for communities, and financially responsible for the hospitals that provide it. PMG's partner centers are Balanced Pain Treatment Centers.",
     media: {
-      src: "/assets/1chero.png",
-      alt: "A clinician listening to a patient during a consultation",
+      src: "/assets/concept-exam-room.jpg",
+      alt: "An empty consultation room in a community hospital clinic, lit by a window",
       caption: concept,
     },
     sections: [

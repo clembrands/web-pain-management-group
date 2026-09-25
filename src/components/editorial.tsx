@@ -1,9 +1,11 @@
+import { Timeline } from "@/components/design/sections";
 import { RichText } from "@/components/rich-text";
 import { TestimonialQuote } from "@/components/testimonial";
 import { PageShell } from "@/components/page-shell";
 import type { EditorialContent, Section } from "@/content/pages/partnership";
 
-// Page body from the review build: a sticky "On this page" list beside the sections.
+// Page body: a sticky "On this page" list beside the sections, as plain type with a
+// hairline, no box.
 export function SectionsWithNav({
   items,
   children,
@@ -14,23 +16,23 @@ export function SectionsWithNav({
   return (
     <div
       id="page-content"
-      className="container-shell section-space grid scroll-mt-4 items-start gap-10 lg:grid-cols-[240px_1fr]"
+      className="container-shell section-space grid scroll-mt-4 items-start gap-12 lg:grid-cols-[240px_1fr] lg:gap-20"
     >
-      <aside className="rounded-2xl border border-line bg-mist p-6 lg:sticky lg:top-6">
-        <p className="eyebrow">On this page</p>
-        <nav aria-label="On this page" className="space-y-4">
+      <aside className="border-t border-line pt-5 lg:sticky lg:top-8">
+        <p className="label text-brand">On this page</p>
+        <nav aria-label="On this page" className="mt-5 space-y-3">
           {items.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="block text-sm leading-relaxed text-muted hover:text-brand"
+              className="block text-sm leading-snug text-muted hover:text-brand"
             >
               {s.title}
             </a>
           ))}
         </nav>
       </aside>
-      <div className="max-w-3xl space-y-12">{children}</div>
+      <div className="max-w-3xl space-y-16">{children}</div>
     </div>
   );
 }
@@ -39,53 +41,38 @@ export function EditorialSection({ section }: { section: Section }) {
   return (
     <section
       id={section.id}
-      className="scroll-mt-8 border-b border-line pb-10 last:border-0 last:pb-0"
+      className="scroll-mt-8 border-t border-line pt-10 first:border-0 first:pt-0"
     >
-      <h2 className="text-2xl md:text-[30px]">{section.title}</h2>
+      <h2>{section.title}</h2>
       {section.paragraphs?.map((p) => (
         <p key={p} className="mt-5 text-muted">
           <RichText text={p} />
         </p>
       ))}
       {section.points && (
-        <ul className="mt-6 grid gap-3">
-          {section.points.map((point) => (
+        <ol className="mt-8">
+          {section.points.map((point, i) => (
             <li
               key={point}
-              className="flex items-start gap-3 rounded-xl bg-mist p-4 text-sm"
+              className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px] text-ink"
             >
-              <span aria-hidden="true" className="font-bold text-brand">
-                ✓
+              <span className="label text-brand">
+                {String(i + 1).padStart(2, "0")}
               </span>
               <span>
                 <RichText text={point} />
               </span>
             </li>
           ))}
-        </ul>
-      )}
-      {section.steps && (
-        <ol className="mt-6 grid gap-4">
-          {section.steps.map((step, i) => (
-            <li
-              key={step.title}
-              className="grid grid-cols-[40px_1fr] gap-4 rounded-2xl border border-line bg-white p-5 shadow-[0_10px_26px_rgba(30,42,50,.05)]"
-            >
-              <span className="flex size-10 items-center justify-center rounded-full bg-brand font-bold text-white">
-                {i + 1}
-              </span>
-              <div>
-                <h3 className="text-lg">{step.title}</h3>
-                <p className="mt-2 text-[15px] text-muted">
-                  <RichText text={step.body} />
-                </p>
-              </div>
-            </li>
-          ))}
         </ol>
       )}
+      {section.steps && (
+        <div className="mt-10">
+          <Timeline steps={section.steps} />
+        </div>
+      )}
       {section.quote && (
-        <div className="mt-8">
+        <div className="mt-10">
           <TestimonialQuote name={section.quote} />
         </div>
       )}

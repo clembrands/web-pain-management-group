@@ -17,7 +17,7 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 - [ ] Every `{{TBD: ...}}` placeholder and every sample figure (`docs/sample-figures.md`,
       18 illustrative numbers shown for review) is replaced with a PMG-confirmed fact or
       removed. `npm run verify:urls -- <url> --launch` and `npm run audit:site -- <url>
-    --launch` fail while any page still shows one.
+  --launch` fail while any page still shows one.
 - [ ] Every item in `deliverables/PMG-items-to-confirm.md` is closed. That file is the one
       list sent to PMG; every `{{TBD: ...}}` on the site maps to an item in it.
 - [ ] Clembrands verifies the pain statistic on `/partnership/`: "An estimated 100 million U.S.

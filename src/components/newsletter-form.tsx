@@ -10,10 +10,7 @@ const initial: NewsletterState = { status: "idle", message: "" };
 export function NewsletterForm({ ready }: { ready: boolean }) {
   const [state, action, pending] = useActionState(signUpForNewsletter, initial);
   return (
-    <form
-      action={action}
-      className="rounded-[22px] border border-line bg-mist p-7"
-    >
+    <form action={action} className="border-t border-line pt-7">
       <h2 className="text-2xl">Get PMG news by email</h2>
       <p className="mt-3 text-sm text-muted">
         {ready

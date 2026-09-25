@@ -36,15 +36,15 @@ export default function OpportunitiesPage() {
     >
       <section className="container-shell section-space">
         <h2>Open positions</h2>
-        <ul className="mt-8 grid gap-5 md:grid-cols-2">
+        <ul className="mt-8 grid border-t border-line md:grid-cols-2 md:divide-x md:divide-line">
           {boards.map((b) => (
             <li key={b.board}>
               <a
                 href={b.href}
-                className="card group flex h-full flex-col hover:border-brand"
+                className="group flex h-full flex-col border-b border-line py-8 md:pr-8 md:[li+li_&]:pl-8"
               >
                 <span className="eyebrow">On {b.board}</span>
-                <span className="text-2xl font-semibold text-navy group-hover:text-brand">
+                <span className="text-2xl font-medium text-navy group-hover:text-brand">
                   {b.title}
                 </span>
                 <span className="mt-3 text-sm text-muted">{b.body}</span>
@@ -55,7 +55,7 @@ export default function OpportunitiesPage() {
             </li>
           ))}
         </ul>
-        <div className="mt-10 rounded-2xl bg-mist p-7">
+        <div className="mt-12 max-w-2xl border-t border-line pt-8">
           <h2 className="text-xl">Don&apos;t see a position for you?</h2>
           <p className="mt-3 text-muted">
             Interested in PMG but don&apos;t see a position listed for you?

@@ -1,6 +1,7 @@
 import { testimonials } from "@/content/testimonials";
 
-// A named hospital-leader quote, verbatim from the live site.
+// A named hospital-leader quote, verbatim from the live site, set light and italic behind
+// a hairline.
 export function TestimonialQuote({
   name,
   tone = "light",
@@ -20,21 +21,17 @@ export function TestimonialQuote({
     .join(" · ");
   return (
     <figure
-      className={`rounded-[22px] p-7 md:p-9 ${dark ? "bg-[#1f3a50]" : "border border-line bg-mist"}`}
+      className={`border-l pl-6 md:pl-8 ${dark ? "border-sky/60" : "border-brand/50"}`}
     >
-      <span
-        aria-hidden="true"
-        className={`block text-5xl leading-none font-bold ${dark ? "text-sky" : "text-brand"}`}
-      >
-        “
-      </span>
       <blockquote
-        className={`mt-2 text-lg leading-relaxed ${dark ? "text-white" : "text-ink"}`}
+        className={`display-sans text-xl leading-relaxed font-light italic md:text-2xl ${dark ? "text-white" : "text-navy"}`}
       >
+        {"“"}
         {t.quote}
+        {"”"}
       </blockquote>
       <figcaption
-        className={`mt-6 text-sm font-semibold ${dark ? "text-[#c4d3df]" : "text-navy"}`}
+        className={`label mt-6 ${dark ? "text-[#c4d3df]" : "text-muted"}`}
       >
         {byline}
       </figcaption>
