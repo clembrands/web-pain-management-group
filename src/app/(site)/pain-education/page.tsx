@@ -5,17 +5,11 @@ import {
   educationCategories,
 } from "@/content/legacy/education";
 import { hubIntro } from "@/content/pages/education";
+import { categoryIntros } from "@/content/pages/education-links";
 import { routeMetadata } from "@/lib/seo";
 
 const path = "/pain-education/";
 export const metadata = routeMetadata(path);
-
-const intro = {
-  Conditions: "Pain conditions, explained for patients and families.",
-  Procedures:
-    "Interventional pain procedures, explained for patients and families.",
-  Medications: "Opioids and chronic pain, explained for patients and families.",
-};
 
 // The live library, grouped the way its hub groups it. Superion, live but missing from
 // the old hub, is listed under Procedures.
@@ -43,7 +37,9 @@ export default function PainEducationPage() {
           className="container-shell scroll-mt-4 pt-12"
         >
           <h2>{category}</h2>
-          <p className="mt-3 text-muted">{intro[category]}</p>
+          <p className="mt-3 max-w-2xl text-muted">
+            {categoryIntros[category]}
+          </p>
           <ul className="mt-8 grid border-t border-line sm:grid-cols-2 lg:grid-cols-3">
             {educationArticles
               .filter((a) => a.category === category)

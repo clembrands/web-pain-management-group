@@ -25,6 +25,10 @@ export type EditorialContent = {
   media?: Media;
   sections: Section[];
   related: string[];
+  // Questions from the objections library answered on this page (ids), shown with FAQPage schema.
+  faqs?: string[];
+  // Glossary term ids used on this page (src/content/glossary.ts).
+  terms?: string[];
 };
 
 const concept = "Concept photography · final PMG imagery to follow";
@@ -91,6 +95,13 @@ export const partnershipPages: Record<string, EditorialContent> = {
       alt: "A physician walking through the corridor of a community hospital outpatient clinic",
       caption: concept,
     },
+    faqs: ["why-not-recruit", "community-hospitals", "track-record"],
+    terms: [
+      "service-line",
+      "hospital-based",
+      "referral-pathway",
+      "program-management",
+    ],
     sections: [
       {
         id: "why-pain",
@@ -145,6 +156,13 @@ export const partnershipPages: Record<string, EditorialContent> = {
     eyebrow: "Partnership Model",
     lede: "A PMG partnership moves through four phases, from the first conversation about your community's needs to a hospital-based pain center that PMG helps manage for the long term.",
     media: leadershipPhoto,
+    faqs: ["launch-time", "staffing", "measurement"],
+    terms: [
+      "program-management",
+      "credentialing",
+      "referral-pathway",
+      "primary-care",
+    ],
     sections: [
       {
         id: "phases",
@@ -211,6 +229,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
       alt: "An empty consultation room in a community hospital clinic, lit by a window",
       caption: concept,
     },
+    faqs: ["responsible-care", "measurement"],
+    terms: ["multimodal", "interventional-pain", "fellowship-trained", "app"],
     sections: [
       {
         id: "medically",
@@ -263,6 +283,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
     eyebrow: "Partnership Model",
     lede: "PMG partnerships are structured as joint ventures between the hospital and PMG. This page explains the structure in plain terms. Numbers for your hospital come from a conversation with your team.",
     media: leadershipPhoto,
+    faqs: ["structure", "investment", "revenue", "break-even", "exit"],
+    terms: ["joint-venture", "break-even", "payer-mix", "encounter"],
     sections: [
       {
         id: "structure",

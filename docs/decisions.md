@@ -135,6 +135,23 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - Header: six items, hamburger below 1440px, News under About, Find a Clinic under Pain
   Education.
 
+## 2026-09-25: Content phase, step 1 (no PMG input needed)
+
+- Page FAQs with FAQPage schema: the objections-library questions each Partnership page
+  and the Results hub answers (`faqs` on EditorialContent), patient questions on the ten
+  state pages, the four Home questions, and every article's own question headings and
+  answers. FAQ schema is on 50 of 70 pages, from 1.
+- Plain-language definitions (`src/content/glossary.ts`, DefinedTermSet schema) as "Terms
+  used on this page" blocks. A glossary page waits on approval, being outside Rev 2.0.
+- Pain Education framing around the unchanged articles: procedures the article itself
+  names (a hand-reviewed map), where care is offered, the referral model, MedicalCondition
+  or MedicalProcedure as the page's main entity described by its opening paragraph, and
+  longer category introductions on the hub.
+- Organization schema now carries the ten partner states as areaServed, a contact point,
+  and knowsAbout topics.
+- All new copy is general or restates facts already on the site; it is listed for PMG's
+  clinician on the launch checklist.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

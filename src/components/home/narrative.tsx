@@ -3,6 +3,8 @@ import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/design/balanced-mark";
 import { CountUp } from "@/components/design/count-up";
 import { EndCta } from "@/components/cta";
+import { JsonLd } from "@/components/json-ld";
+import { faqJsonLd } from "@/lib/faq-schema";
 import {
   LogoMarquee,
   RuleFaqs,
@@ -257,6 +259,7 @@ export async function HomeNarrative() {
           </div>
           <RuleFaqs items={questions} />
         </div>
+        <JsonLd data={faqJsonLd(questions)} />
       </section>
 
       {/* 8. Closing CTA */}

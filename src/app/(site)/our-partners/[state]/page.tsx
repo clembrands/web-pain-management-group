@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { PageShell } from "@/components/page-shell";
+import { PageFaqs } from "@/components/page-faqs";
+import { fillState, stateFaqs } from "@/content/pages/patient-faqs";
 import { PartnerMap } from "@/components/partner-map";
 import { PartnerCard } from "@/components/partner-list";
 import { partnerStates } from "@/content/legacy/states";
@@ -111,6 +113,11 @@ export default async function StatePage({ params }: Props) {
           </nav>
         </div>
       </section>
+      <PageFaqs
+        eyebrow="For patients and families"
+        title={`Visiting a partner center in ${state.name}`}
+        questions={stateFaqs.map((q) => fillState(q, state.name))}
+      />
     </PageShell>
   );
 }

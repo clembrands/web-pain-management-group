@@ -2,7 +2,20 @@ import { Timeline } from "@/components/design/sections";
 import { RichText } from "@/components/rich-text";
 import { TestimonialQuote } from "@/components/testimonial";
 import { PageShell } from "@/components/page-shell";
-import type { EditorialContent, Section } from "@/content/pages/partnership";
+import { PageFaqs, TermsBlock } from "@/components/page-faqs";
+import {
+  hospitalLeaderQuestions,
+  type EditorialContent,
+  type Section,
+} from "@/content/pages/partnership";
+
+// The objections-library questions a page lists, in the page's order.
+export const pageQuestions = (ids: string[] = []) =>
+  ids.map((id) => {
+    const q = hospitalLeaderQuestions.find((x) => x.id === id);
+    if (!q) throw new Error(`No question ${id}`);
+    return q;
+  });
 
 // Page body: a sticky "On this page" list beside the sections, as plain type with a
 // hairline, no box.
@@ -100,6 +113,8 @@ export function EditorialPage({
           <EditorialSection key={s.id} section={s} />
         ))}
       </SectionsWithNav>
+      {content.terms && <TermsBlock ids={content.terms} />}
+      {content.faqs && <PageFaqs questions={pageQuestions(content.faqs)} />}
     </PageShell>
   );
 }

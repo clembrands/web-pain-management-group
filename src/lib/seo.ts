@@ -6,6 +6,7 @@ import {
   type SiteRoute,
 } from "@/lib/routes";
 import { organization } from "@/lib/site";
+import { partnerStates } from "@/content/legacy/states";
 import { pageTitle } from "@/lib/page-title";
 export { pageTitle };
 export { allowedCrawlers } from "@/lib/crawlers";
@@ -82,6 +83,24 @@ export function organizationJsonLd() {
       addressCountry: a.country,
     },
     sameAs: [...organization.sameAs],
+    // Where PMG partner centers operate, from the partner directory.
+    areaServed: partnerStates.map((s) => ({
+      "@type": "State",
+      name: s.name,
+    })),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: organization.phone,
+      email: organization.email,
+      areaServed: "US",
+      availableLanguage: "en",
+    },
+    knowsAbout: [
+      "Hospital-based pain management",
+      "Interventional pain management",
+      "Pain management service line development",
+    ],
   };
 }
 

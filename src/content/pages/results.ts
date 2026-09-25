@@ -148,6 +148,8 @@ export const headlineMetrics = (c: DirectoryCounts): Metric[] => [
 export const resultsHub: EditorialContent = {
   eyebrow: "For hospital leaders",
   lede: "Results from PMG's hospital partnerships: how many hospitals partner with PMG, how many patients their centers see, and whether partnerships last. Every figure is sourced and on the record.",
+  faqs: ["measurement", "track-record"],
+  terms: ["encounter", "retention"],
   sections: [
     {
       id: "how-we-report",

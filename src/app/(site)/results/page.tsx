@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { EditorialSection, SectionsWithNav } from "@/components/editorial";
+import {
+  EditorialSection,
+  pageQuestions,
+  SectionsWithNav,
+} from "@/components/editorial";
+import { PageFaqs, TermsBlock } from "@/components/page-faqs";
 import { MetricTiles } from "@/components/metrics";
 import { PageShell } from "@/components/page-shell";
 import { headlineMetrics, resultsHub } from "@/content/pages/results";
@@ -37,6 +42,10 @@ export default async function ResultsPage() {
           <EditorialSection key={s.id} section={s} />
         ))}
       </SectionsWithNav>
+      {resultsHub.terms && <TermsBlock ids={resultsHub.terms} />}
+      {resultsHub.faqs && (
+        <PageFaqs questions={pageQuestions(resultsHub.faqs)} />
+      )}
     </PageShell>
   );
 }

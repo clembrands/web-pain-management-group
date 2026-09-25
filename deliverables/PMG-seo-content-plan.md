@@ -131,9 +131,12 @@ the interviews are the efficient way to close it.
 
 ## 5. Order of work
 
-1. **Now, no PMG needed:** FAQ blocks and schema on every P1 page using existing copy;
-   Pain Education framing and schema upgrade; state-page FAQs on appointments and
-   referrals; condition-to-procedure links; the glossary if approved.
+1. **Now, no PMG needed (done):** FAQ blocks and schema on the Partnership pages, Results,
+   Home, the ten state pages and all 36 articles; plain-language term blocks on the
+   Partnership and Results pages; Pain Education framing (procedures the article names,
+   where care is offered, the referral model), MedicalCondition and MedicalProcedure
+   entities, longer hub introductions; Organization schema detail. The glossary page waits
+   on approval; its definitions are already in use.
 2. **After Interview 1:** Partnership pages to full depth; Home figures confirmed.
 3. **After Interview 2:** How It Works, Providers, state pages with per-hospital paragraphs.
 4. **After Interview 3:** Balanced Pain Treatment, Results and Dashboard, article review.
