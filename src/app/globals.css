@@ -145,6 +145,69 @@
     }
   }
 }
+/* Counting figures. --n is an integer so the browser can interpolate it; the counter draws
+   it. Without scroll-driven animations the counter shows the target immediately. */
+@property --n {
+  syntax: "<integer>";
+  inherits: false;
+  initial-value: 0;
+}
+.count {
+  --n: var(--target);
+  counter-reset: n var(--n);
+  font-variant-numeric: tabular-nums;
+}
+.count::before {
+  content: counter(n);
+}
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .count {
+      animation: count-up linear both;
+      animation-timeline: view();
+      /* From entering at the bottom to a quarter of the way up the viewport. */
+      animation-range: cover 0% cover 25%;
+    }
+    /* The hero photograph scrolls a little slower than the page. */
+    .drift {
+      animation: drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+    .reveal-x {
+      animation: reveal-x linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 45%;
+    }
+  }
+}
+@keyframes count-up {
+  from {
+    --n: var(--start, 0);
+  }
+  to {
+    --n: var(--target);
+  }
+}
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(14%);
+  }
+}
+@keyframes reveal-x {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Logo marquee: one track width per loop, so two identical tracks read as continuous. */
 .marquee-track {
   animation: marquee 45s linear infinite;

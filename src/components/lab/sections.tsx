@@ -77,7 +77,7 @@ export function Timeline({
             aria-hidden="true"
             className={`reveal-dot mt-1.5 flex size-6 items-center justify-center rounded-full border text-[10px] font-bold ${dark ? "border-sky bg-navy" : "border-brand bg-white"}`}
           />
-          <div className="reveal">
+          <div className="reveal-x">
             {markers === "numerals" && (
               <p
                 className={`display-sans text-6xl leading-none tabular-nums md:text-7xl ${dark ? "text-sky" : "text-brand"}`}

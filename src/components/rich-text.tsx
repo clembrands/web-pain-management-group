@@ -67,6 +67,11 @@ export function RichText({ text }: { text: string }) {
   );
 }
 
+// The sample-figure key in a string, if it holds one, for components that render a value
+// themselves and must keep the data-sample marker the launch checks look for.
+export const sampleKeyOf = (text: string) =>
+  text.match(/\{\{SAMPLE: ([a-zA-Z]+)\}\}/)?.[1];
+
 // Plain text for metadata and JSON-LD: links keep their text, samples show their value,
 // TBDs stay visible.
 export const plainText = (text: string) =>

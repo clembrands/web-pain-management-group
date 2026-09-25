@@ -38,9 +38,10 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 - [ ] No "Concept photography" caption remains anywhere on the site. Each concept image is
       either replaced with a real PMG photo or kept without the caption once PMG approves it.
       Check with `grep -r "Concept photography" src/`.
-- [ ] The uncaptioned concept photograph `public/assets/concept-corridor.jpg` (design lab hero,
-      then Home if Direction B is chosen) is replaced with a real PMG photograph. It carries
-      no caption, so the grep above does not find it.
+- [ ] The uncaptioned concept photographs `public/assets/concept-corridor.jpg` and
+      `public/assets/concept-exam-room.jpg` (design lab, then Home if Direction B is chosen)
+      are replaced with real PMG photographs. They carry no caption, so the grep above does
+      not find them.
 
 ### URLs and indexing
 
