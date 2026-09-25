@@ -189,7 +189,7 @@ export function LogoMarquee({
   );
 }
 
-// The Martin testimonial as a large-type statement across a full dark section.
+// The Martin testimonial, centered and in quotation marks, on a compact dark section.
 export function Statement({
   name,
   face,
@@ -212,14 +212,16 @@ export function Statement({
     <section
       className={tone === "deep" ? "bg-deep text-white" : "bg-navy text-white"}
     >
-      <figure className="container-shell py-24 md:py-36">
+      <figure className="container-shell flex flex-col items-center py-16 text-center md:py-20">
         <p className="label text-sky">From our partners</p>
         <blockquote
-          className={`reveal mt-10 max-w-5xl text-[clamp(1.6rem,1rem+1.9vw,2.9rem)] leading-[1.25] ${face === "serif" ? "display-serif italic" : "font-light italic [font-family:var(--font-poppins-light,var(--font-poppins))]"}`}
+          className={`reveal mt-8 max-w-3xl text-[clamp(1.125rem,1rem+0.6vw,1.5rem)] leading-relaxed ${face === "serif" ? "display-serif italic text-[clamp(1.35rem,1rem+0.9vw,1.9rem)]" : "font-light italic [font-family:var(--font-poppins-light,var(--font-poppins))]"}`}
         >
+          {"\u201c"}
           {t.quote}
+          {"\u201d"}
         </blockquote>
-        <figcaption className="label mt-12 text-[#c4d3df]">{byline}</figcaption>
+        <figcaption className="label mt-8 text-[#c4d3df]">{byline}</figcaption>
       </figure>
     </section>
   );
