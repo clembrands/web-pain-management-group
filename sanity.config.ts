@@ -14,50 +14,12 @@ const config = defineConfig([
     projectId,
     dataset,
     plugins: [
-      structureTool({
-        structure: (S) =>
-          S.list()
-            .title("Website")
-            .items([
-              S.listItem()
-                .title("Site settings")
-                .child(
-                  S.document()
-                    .schemaType("siteSettings")
-                    .documentId("siteSettings"),
-                ),
-              S.listItem()
-                .title("Homepage")
-                .child(
-                  S.document().schemaType("homePage").documentId("homePage"),
-                ),
-              S.divider(),
-              ...S.documentTypeListItems().filter(
-                (item) =>
-                  !["siteSettings", "homePage"].includes(item.getId() || ""),
-              ),
-            ]),
-      }),
+      structureTool(),
       ...(process.env.NODE_ENV === "development"
         ? [visionTool({ defaultApiVersion: apiVersion })]
         : []),
     ],
     schema: { types: schemaTypes },
-    document: {
-      newDocumentOptions: (options) =>
-        options.filter(
-          (option) => !["siteSettings", "homePage"].includes(option.templateId),
-        ),
-      actions: (actions, context) =>
-        ["siteSettings", "homePage"].includes(context.schemaType)
-          ? actions.filter(
-              (action) =>
-                !["delete", "duplicate", "unpublish"].includes(
-                  action.action || "",
-                ),
-            )
-          : actions,
-    },
   },
   {
     name: "submissions",

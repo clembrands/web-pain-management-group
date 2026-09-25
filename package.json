@@ -12,8 +12,15 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "seed:sanity": "node --env-file-if-exists=.env.local scripts/seed-sanity.mjs",
-    "test": "node --experimental-strip-types --test tests/*.test.ts"
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "verify:urls": "node scripts/verify-urls.mjs",
+    "inventory:crawl": "NODE_USE_ENV_PROXY=1 node scripts/inventory/crawl.mjs",
+    "inventory:report": "node scripts/inventory/report.mjs",
+    "import:content": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-content.ts",
+    "generate:us-map": "node scripts/generate-us-map.mjs",
+    "audit:site": "node --experimental-strip-types scripts/audit-site.ts",
+    "sample-figures": "node --experimental-strip-types scripts/sample-figures.ts",
+    "audit:content": "node --experimental-strip-types scripts/content-audit.ts"
   },
   "overrides": {
     "@sanity/runtime-cli": {
@@ -27,10 +34,10 @@
     }
   },
   "dependencies": {
+    "@next/third-parties": "16.3.4",
     "@portabletext/react": "8.0.1",
     "@sanity/image-url": "2.1.1",
     "@sanity/vision": "5.31.2",
-    "@vercel/analytics": "2.0.1",
     "next": "16.3.4",
     "next-sanity": "13.3.4",
     "react": "19.2.8",
@@ -45,10 +52,14 @@
     "@types/node": "22.20.1",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.7",
+    "d3-geo": "3.1.1",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.4",
     "prettier": "3.9.6",
     "tailwindcss": "4.3.3",
-    "typescript": "5.9.3"
+    "topojson-client": "3.1.0",
+    "topojson-simplify": "3.0.3",
+    "typescript": "5.9.3",
+    "us-atlas": "3.0.1"
   }
 }

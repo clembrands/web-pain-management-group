@@ -1,10 +1,20 @@
 import type { MetadataRoute } from "next";
-import { siteUrl, isIndexable } from "@/lib/seo";
+import { allowedCrawlers, isIndexable, siteUrl } from "@/lib/seo";
+
+// Nothing public is disallowed. Studio and API routes are not pages.
+const privatePaths = ["/studio/", "/api/"];
+
 export default function robots(): MetadataRoute.Robots {
-  return isIndexable
-    ? {
-        rules: { userAgent: "*", allow: "/", disallow: ["/studio/", "/api/"] },
-        sitemap: `${siteUrl}/sitemap.xml`,
-      }
-    : { rules: { userAgent: "*", disallow: "/" } };
+  if (!isIndexable) return { rules: { userAgent: "*", disallow: "/" } };
+  return {
+    rules: [
+      ...allowedCrawlers.map((userAgent) => ({
+        userAgent,
+        allow: "/",
+        disallow: privatePaths,
+      })),
+      { userAgent: "*", allow: "/", disallow: privatePaths },
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+  };
 }
