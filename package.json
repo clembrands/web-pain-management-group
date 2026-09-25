@@ -19,7 +19,8 @@
     "import:content": "node --env-file-if-exists=.env.local --experimental-strip-types scripts/import-content.ts",
     "generate:us-map": "node scripts/generate-us-map.mjs",
     "audit:site": "node --experimental-strip-types scripts/audit-site.ts",
-    "sample-figures": "node --experimental-strip-types scripts/sample-figures.ts"
+    "sample-figures": "node --experimental-strip-types scripts/sample-figures.ts",
+    "audit:content": "node --experimental-strip-types scripts/content-audit.ts"
   },
   "overrides": {
     "@sanity/runtime-cli": {
