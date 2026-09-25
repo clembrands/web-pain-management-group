@@ -108,7 +108,7 @@ export async function HomeNarrative() {
                   </p>
                 ))}
               </div>
-              <ol className="mt-10 lg:-mr-24">
+              <ol className="mt-10 min-[1440px]:-mr-24">
                 {problem.cards?.map((card, i) => (
                   <li
                     key={card.title}
@@ -204,8 +204,8 @@ export async function HomeNarrative() {
           <PartnerMap tone="dark" />
         </div>
         <div className="mt-10 bg-white">
-          <div className="container-shell grid divide-y divide-line md:grid-cols-[1.2fr_1fr_1fr_1fr] md:divide-x md:divide-y-0">
-            <div className="py-10 text-navy md:pr-10 md:pl-0">
+          <div className="container-shell grid divide-y divide-line lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:divide-x lg:divide-y-0">
+            <div className="py-10 text-navy lg:pr-6 lg:pl-0 xl:pr-10">
               <p className="numeral display-sans text-navy">
                 <CountUp text={String(counts.hospitals)} />
               </p>
@@ -214,14 +214,14 @@ export async function HomeNarrative() {
               </p>
               <Link
                 href="/our-partners/"
-                className="label mt-6 inline-block text-brand underline-offset-4 hover:underline"
+                className="label mt-5 inline-block py-1.5 text-brand underline-offset-4 hover:underline"
               >
                 Find a partner center by state →
               </Link>
             </div>
             {homeContent.stats.items.slice(1).map((s) => (
-              <div key={s.label} className="py-10 text-navy md:px-10">
-                <p className="display-sans text-4xl whitespace-nowrap md:text-5xl">
+              <div key={s.label} className="py-10 text-navy lg:px-6 xl:px-10">
+                <p className="display-sans text-4xl whitespace-nowrap md:text-5xl lg:text-4xl xl:text-5xl">
                   <CountUp text={s.value} />
                 </p>
                 <p className="label mt-3 text-muted">

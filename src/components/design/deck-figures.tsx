@@ -121,9 +121,9 @@ function Stage({
   );
 }
 
-function Connector() {
+function Connector({ className = "" }: { className?: string }) {
   return (
-    <div aria-hidden="true" className="flex justify-center py-1">
+    <div aria-hidden="true" className={`flex justify-center py-1 ${className}`}>
       <span className="h-8 w-px bg-brand/60" />
     </div>
   );
@@ -149,7 +149,8 @@ function ReferralPathway() {
           </li>
         ))}
         <li>
-          <div aria-hidden="true" className="relative h-10">
+          <Connector className="sm:hidden" />
+          <div aria-hidden="true" className="relative hidden h-10 sm:block">
             <span className="absolute top-0 left-1/2 h-5 w-px bg-brand/60" />
             <span className="absolute top-5 right-1/4 left-1/4 h-px bg-brand/60" />
             <span className="absolute top-5 left-1/4 h-5 w-px bg-brand/60" />
@@ -168,12 +169,13 @@ function ReferralPathway() {
           </div>
         </li>
       </ol>
-      <figcaption className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line pt-5 text-sm font-medium text-navy">
+      <figcaption className="mt-6 flex flex-col gap-2 border-t border-line pt-5 text-sm font-medium text-navy sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-3">
         {summary.map((s, i) => (
           <span key={s} className="flex items-center gap-3">
             {i > 0 && (
               <span aria-hidden="true" className="text-brand">
-                →
+                <span className="sm:hidden">↓</span>
+                <span className="hidden sm:inline">→</span>
               </span>
             )}
             {s}

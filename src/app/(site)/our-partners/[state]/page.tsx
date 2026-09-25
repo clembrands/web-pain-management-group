@@ -106,7 +106,7 @@ export default async function StatePage({ params }: Props) {
             </ul>
             <Link
               href="/our-partners/"
-              className="mt-5 inline-block text-sm font-semibold text-brand underline underline-offset-4"
+              className="mt-5 inline-block py-0.5 text-sm font-semibold text-brand underline underline-offset-4"
             >
               All partner hospitals and map
             </Link>

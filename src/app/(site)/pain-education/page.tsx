@@ -22,7 +22,7 @@ export default function PainEducationPage() {
             <li key={c}>
               <a
                 href={`#${c.toLowerCase()}`}
-                className="label block border-b border-transparent pb-1 text-navy hover:border-brand hover:text-brand"
+                className="label block border-b border-transparent py-1.5 text-navy hover:border-brand hover:text-brand"
               >
                 {c}
               </a>

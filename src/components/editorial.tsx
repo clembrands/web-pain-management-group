@@ -34,12 +34,12 @@ export function SectionsWithNav({
     >
       <aside className="border-t border-line pt-5 lg:sticky lg:top-8">
         <p className="label text-brand">On this page</p>
-        <nav aria-label="On this page" className="mt-5 space-y-3">
+        <nav aria-label="On this page" className="mt-5 space-y-1">
           {items.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="block text-sm leading-snug text-muted hover:text-brand"
+              className="block py-1 text-sm leading-snug text-muted hover:text-brand"
             >
               {s.title}
             </a>

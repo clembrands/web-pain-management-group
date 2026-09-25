@@ -20,19 +20,19 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <div className="container-shell flex min-h-28 items-center justify-between gap-6">
+      <div className="container-shell flex min-h-28 items-center justify-between gap-4">
         <Link
           href="/"
           onClick={close}
           aria-label="Pain Management Group home"
-          className="shrink-0"
+          className="shrink-0 py-2"
         >
           <Image
             src="/assets/pmg-logo.png"
             alt="Pain Management Group"
             width={330}
             height={38}
-            className="h-auto w-56 brightness-0 invert md:w-72"
+            className="h-auto w-48 brightness-0 invert min-[375px]:w-56 md:w-72"
             priority
           />
         </Link>

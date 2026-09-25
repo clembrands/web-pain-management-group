@@ -21,7 +21,11 @@ export function SiteFooter() {
       <div className="container-shell py-12">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_3fr]">
           <div>
-            <Link href="/" aria-label="Pain Management Group home">
+            <Link
+              href="/"
+              aria-label="Pain Management Group home"
+              className="inline-block py-1"
+            >
               <Image
                 src="/assets/pmg-logo.png"
                 alt="Pain Management Group"
@@ -37,14 +41,14 @@ export function SiteFooter() {
               {a.city}, {a.region} {a.postalCode}
               <br />
               <a
-                className="hover:text-brand"
+                className="inline-block py-0.5 hover:text-brand"
                 href={`tel:${organization.phone.replace(/[^\d]/g, "")}`}
               >
                 {organization.phone}
               </a>
               <br />
               <a
-                className="hover:text-brand"
+                className="inline-block py-0.5 hover:text-brand"
                 href={`mailto:${organization.email}`}
               >
                 {organization.email}
@@ -65,14 +69,17 @@ export function SiteFooter() {
               <div key={section.href}>
                 <Link
                   href={section.href}
-                  className="text-sm font-semibold text-navy hover:text-brand"
+                  className="inline-block py-0.5 text-sm font-semibold text-navy hover:text-brand"
                 >
                   {section.label}
                 </Link>
-                <ul className="mt-3 space-y-2 text-sm text-muted">
+                <ul className="mt-2 space-y-1 text-sm text-muted">
                   {section.children.map((child) => (
                     <li key={child.href}>
-                      <Link href={child.href} className="hover:text-brand">
+                      <Link
+                        href={child.href}
+                        className="inline-block py-0.5 hover:text-brand"
+                      >
                         {child.label}
                       </Link>
                     </li>
@@ -85,10 +92,13 @@ export function SiteFooter() {
                 a heading on its own. */}
             <div>
               <p className="text-sm font-semibold text-navy">More from PMG</p>
-              <ul className="mt-3 space-y-2 text-sm text-muted">
+              <ul className="mt-2 space-y-1 text-sm text-muted">
                 {standalone.map((section) => (
                   <li key={section.href}>
-                    <Link href={section.href} className="hover:text-brand">
+                    <Link
+                      href={section.href}
+                      className="inline-block py-0.5 hover:text-brand"
+                    >
                       {section.label}
                     </Link>
                   </li>
@@ -98,18 +108,24 @@ export function SiteFooter() {
             <div>
               <Link
                 href={contact.path}
-                className="text-sm font-semibold text-navy hover:text-brand"
+                className="inline-block py-0.5 text-sm font-semibold text-navy hover:text-brand"
               >
                 Contact
               </Link>
-              <ul className="mt-3 space-y-2 text-sm text-muted">
+              <ul className="mt-2 space-y-1 text-sm text-muted">
                 <li>
-                  <Link href="/our-partners/" className="hover:text-brand">
+                  <Link
+                    href="/our-partners/"
+                    className="inline-block py-0.5 hover:text-brand"
+                  >
                     Find a Clinic
                   </Link>
                 </li>
                 <li>
-                  <a href={organization.sameAs[0]} className="hover:text-brand">
+                  <a
+                    href={organization.sameAs[0]}
+                    className="inline-block py-0.5 hover:text-brand"
+                  >
                     LinkedIn
                   </a>
                 </li>
@@ -121,12 +137,15 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {organization.name}. {a.city}, Ohio.
           </p>
-          <nav aria-label="Legal and utility" className="flex flex-wrap gap-5">
+          <nav
+            aria-label="Legal and utility"
+            className="flex flex-wrap gap-x-5 gap-y-1"
+          >
             {utilityPages.map((page) => (
               <Link
                 key={page.path}
                 href={page.path}
-                className="hover:text-brand"
+                className="inline-block py-1 hover:text-brand"
               >
                 {page.title}
               </Link>

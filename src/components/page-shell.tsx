@@ -40,7 +40,7 @@ export function Breadcrumbs({
               ) : (
                 <Link
                   href={r.path}
-                  className={dark ? "hover:text-white" : "hover:text-brand"}
+                  className={`-my-1 inline-block py-1 ${dark ? "hover:text-white" : "hover:text-brand"}`}
                 >
                   {r.path === "/" ? "Home" : (r.navLabel ?? r.title)}
                 </Link>
