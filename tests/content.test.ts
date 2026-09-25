@@ -18,6 +18,7 @@ import { dashboardGroups, resultsHub } from "../src/content/pages/results.ts";
 import { aboutPages } from "../src/content/pages/about.ts";
 import { providerPages, lifeAtPmg } from "../src/content/pages/providers.ts";
 import { allRoutes } from "../src/lib/routes.ts";
+import * as deck from "../src/content/pmg-deck.ts";
 
 // Every copy string, skipping image paths.
 function strings(value: unknown, key = ""): string[] {
@@ -40,6 +41,7 @@ const copy = strings({
   providerPages,
   lifeAtPmg,
   aboutPages,
+  deck,
 });
 
 const TBD = /\{\{TBD: [^{}]+\}\}/g;
@@ -51,9 +53,12 @@ const LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
 const allowedNumbers = [
   // Patrick J. Martin's verbatim testimonial on the live site.
   "started its program with PMG in 2009",
-  // Cited source: Institute of Medicine, Relieving Pain in America (2011).
-  "An estimated 100 million U.S. adults",
-  "Institute of Medicine's 2011 report",
+  // Cited source: CDC, MMWR 67(36), 2018, 2016 data (PMG's deck, slide 3).
+  "50 million",
+  "19.6 million",
+  "Morbidity and Mortality Weekly Report, 2018",
+  "2016 data",
+  "mm6736a2",
   // Source line and periods of the figures PMG stated in writing.
   pmgSource,
   ...Object.values(pmgFigures).map((f) => f.period),
@@ -109,7 +114,7 @@ test("every internal link in the copy resolves to a route", () => {
   for (const text of copy)
     for (const [, , href] of text.matchAll(LINK))
       if (!/^(https?:|mailto:|tel:)/.test(href))
-        assert.ok(paths.has(href), `${href} in: ${text}`);
+        assert.ok(paths.has(href.split("#")[0]), `${href} in: ${text}`);
   for (const [path, page] of Object.entries({
     ...partnershipPages,
     "/results/": resultsHub,

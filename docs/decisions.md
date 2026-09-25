@@ -168,6 +168,31 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   a possible iStats "Clinic Summary Grid" sync for locations, no cookie banners or pop-ups,
   care with medication and opioid language.
 
+## PMG partnership deck (September 2026)
+
+- Source: PMG's 40-slide Canva deck "Pain Management Partnership Proposal" (John Bookmyer,
+  Chairman; Brad Hecker, EVP). Its content is in `src/content/pmg-deck.ts`; a record of what
+  was used and why is `deliverables/PMG-deck-notes.md`.
+- The deck's diagrams are rebuilt as native components (`src/components/design/deck-figures.tsx`)
+  instead of pasted as images: Canva blocks export on the shared link, the previews are
+  596 px wide, the photos are stock of unknown license, and real text is readable by search
+  and AI engines. Rebuilt: the referral pathway, the care network, the three pillars, the
+  quarterly scorecard; the rest as card grids.
+- Program data in the deck (the KPI scorecards for four programs, chart audits, financial
+  benchmarks) is not published. Only the names of the measures are used.
+- The deck's closing template slides (33 to 40, "illustrative data") are not used: no
+  "7 to 14 day access goal", no +74%, no sample scorecard values.
+- "50+ partner locations" in the deck conflicts with the homework (40 partnerships, about 68
+  locations); the site keeps the homework figures and asks PMG.
+- The pain statistic moves from the Institute of Medicine's 100 million to the deck's CDC
+  figures (50 million, 19.6 million high-impact; MMWR 2018, 2016 data), checked against
+  the report. The U.S. Pain Foundation 53% figure is not used until its source is found.
+- Mission and vision now use the deck's wording; the live site's mission sentence stays on
+  the Mission page. Five values added.
+- TBDs answered from the deck: reporting cadence and measures, what the hospital provides,
+  procedure support, how PMG works with other service lines, responsible prescribing
+  (chart audits), sizing for smaller hospitals. Remaining TBDs narrowed.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

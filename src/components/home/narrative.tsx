@@ -15,6 +15,7 @@ import {
 import { PartnerMap } from "@/components/partner-map";
 import { RichText } from "@/components/rich-text";
 import { homeContent } from "@/content/pages/home";
+import { painBurden } from "@/content/pmg-deck";
 import {
   homeQuestionIds,
   hospitalLeaderQuestions,
@@ -89,10 +90,11 @@ export async function HomeNarrative() {
             <div>
               <p className="label text-brand">The problem</p>
               <p className="numeral display-sans mt-8 text-navy">
-                <CountUp text="100 million" />
+                <CountUp text={painBurden.chronic} />
               </p>
-              <p className="label mt-4 text-muted">
-                U.S. adults living with chronic pain
+              <p className="label mt-4 text-muted">{painBurden.chronicLabel}</p>
+              <p className="mt-3 text-xs text-muted [&_a]:underline [&_a]:underline-offset-2">
+                <RichText text={painBurden.source} />
               </p>
               <h2 className="display-md display-sans mt-14 text-navy">
                 {problem.title}
@@ -107,13 +109,16 @@ export async function HomeNarrative() {
                 ))}
               </div>
               <ol className="mt-10 lg:-mr-24">
-                {problem.points?.map((point, i) => (
+                {problem.cards?.map((card, i) => (
                   <li
-                    key={point}
-                    className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px] text-ink"
+                    key={card.title}
+                    className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px]"
                   >
                     <span className="label text-brand">0{i + 1}</span>
-                    {point}
+                    <span>
+                      <span className="font-medium text-ink">{card.title}</span>
+                      <span className="text-muted">. {card.body}</span>
+                    </span>
                   </li>
                 ))}
               </ol>

@@ -1,4 +1,5 @@
 import { Timeline } from "@/components/design/sections";
+import { CardGrid, DeckFigure } from "@/components/design/deck-figures";
 import { RichText } from "@/components/rich-text";
 import { TestimonialQuote } from "@/components/testimonial";
 import { PageShell } from "@/components/page-shell";
@@ -84,6 +85,25 @@ export function EditorialSection({ section }: { section: Section }) {
           <Timeline steps={section.steps} />
         </div>
       )}
+      {section.figure && (
+        <div className="mt-10">
+          <DeckFigure id={section.figure} />
+        </div>
+      )}
+      {section.cards && (
+        <div className="mt-10">
+          <CardGrid
+            cards={section.cards}
+            columns={section.cardColumns}
+            numbered={section.numberedCards}
+          />
+        </div>
+      )}
+      {section.after?.map((p) => (
+        <p key={p} className="mt-6 text-muted">
+          <RichText text={p} />
+        </p>
+      ))}
       {section.quote && (
         <div className="mt-10">
           <TestimonialQuote name={section.quote} />

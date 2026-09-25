@@ -92,47 +92,42 @@ facts, only clinician review.
 
 ## 4. What only PMG can supply
 
-PMG's onboarding homework (July 2026, `deliverables/PMG-Website-Onboarding-Homework-7.1.26.docx`)
-already answers the headline figures (40 partnerships, 187,000 encounters in 2025, 95%
-retention over two years, about 68 care locations, 20 years in operation), the objections
-hospital leaders raise, what sets PMG apart, and the provider selling points. What is left
-fits one 20-minute call with the CEO or COO, plus two short follow-ups by email.
+PMG's onboarding homework (July 2026) answers the headline figures, the objections hospital
+leaders raise, what sets PMG apart, and the provider selling points. PMG's partnership deck
+(September 2026, `deliverables/PMG-deck-notes.md`) answers what a hospital provides, what
+PMG reports and how often, the referral model, and how prescribing is audited. What is left
+fits five questions, by call or text, to the CEO or COO.
 
-**The call: eight questions, in priority order** (CEO or COO; record it)
-Feeds `/partnership/`, `/partnership/financial-model/`, `/partnership/how-it-works/`,
-`/partnership/questions/`, Home. Five answered is enough to write the Partnership pages.
+**Five questions**
+Feeds `/partnership/financial-model/`, `/partnership/questions/`, Home.
 
-1. How is a partnership structured legally? Who owns what, and who decides what?
-2. What does a hospital typically put in to start, and what does PMG bring?
-3. How is the money handled: who bills, how is revenue shared, how is PMG paid?
-4. From a signed agreement, how long to the first patient, and roughly how long to break
-   even? What moves those numbers?
-5. The site says PMG has partnered with hospitals since 2009; your homework says 20 years
-   of operation. Which year should the site use?
-6. What happens if a partnership isn't working: term, review, exit?
-7. How do you answer the three objections from your own list that the site does not yet
-   answer: taking business from orthopedics or primary care, compliance (Stark, opioids,
-   billing), and "not the right time"?
-8. What do you report to a partner hospital, and how often?
+1. How is a partnership set up legally: who owns what, and who makes which decisions?
+2. How does the money work: who bills, how is revenue shared, and how is PMG paid?
+3. From a signed agreement, how long until the first patient, and roughly how long until
+   the program breaks even?
+4. The site says PMG has partnered with hospitals since 2009; the homework says 20 years in
+   operation. Which year should the site use?
+5. If a partnership isn't working, what happens: contract length, reviews, and how either
+   side can exit?
 
-**Follow-up by email, clinical lead** (five minutes of their time)
-Feeds `/partnership/balanced-pain-treatment/` and the Pain Education framing.
+If there's time: answers to three objections from PMG's own list (taking business from
+orthopedics or primary care, compliance including Stark, "not the right time"), and which
+location count to use (the deck's "50+" or the homework's 40 partnerships and about 68
+locations).
 
-- What a balanced treatment plan includes, and how prescribing is kept responsible. This is
-  the answer that needs their sign-off, given the homework's caution on opioid language.
-- A look at the disclaimer and the short sections added around the articles.
+**Follow-up by email, clinical lead**
+Sign-off on the Balanced Pain Treatment page and the responsible-prescribing answer, both
+now written from the deck, and on the Pain Education disclaimer and framing.
 
 **Follow-up by email, whoever holds the numbers**
-Feeds `/results/*`.
+New patients, primary care referrals, average and longest partnership length, patient
+satisfaction, pain improvement, and emergency visits, each with a source and year, or a note
+on which PMG will not publish, so the tile comes off the dashboard. The deck shows PMG
+tracks all of these per program; the question is only what can be shown publicly.
 
-- New patients, primary care referrals, average and longest partnership length, patient
-  satisfaction, pain improvement, and emergency visits, each with a source and year; or a
-  note on which of these PMG does not track, so the tile can come off the dashboard.
-
-**Later, when convenient** (operations; no meeting needed to start)
-Per-hospital detail for the state pages (services, when each center opened, who refers in)
-and the provider practice model (autonomy, procedure support, schedules, compensation).
-The homework's provider list already sets the outline for those pages.
+**Later, when convenient**
+Per-hospital detail for the state pages; compensation, schedules, call, and APP training
+for the provider pages; credentials, bios, and headshots for Leadership.
 
 Every item is also on `deliverables/PMG-items-to-confirm.md`.
 
@@ -144,10 +139,12 @@ Every item is also on `deliverables/PMG-items-to-confirm.md`.
    where care is offered, the referral model), MedicalCondition and MedicalProcedure
    entities, longer hub introductions; Organization schema detail. The glossary page waits
    on approval; its definitions are already in use.
-2. **From the onboarding homework (done):** PMG's figures on Home, Results and the
+2. **From the onboarding homework and the partnership deck (done):** PMG's figures on Home, Results and the
    dashboard; "What makes PMG different" on the Partnership Model page; three new questions
-   from PMG's objections list.
-3. **After the 20-minute call:** Partnership pages to full depth; remaining TBDs on What
+   from PMG's objections list; from the deck, mission, vision, and values, the referral
+   pathway, care network, three pillars, program needs, quarterly scorecard and reports,
+   chart and time-out audits, provider resources, and leadership names.
+3. **After the five questions:** Partnership pages to full depth; remaining TBDs on What
    Hospital Leaders Ask.
 4. **After the email follow-ups:** Balanced Pain Treatment, Results and Dashboard, article
    review.

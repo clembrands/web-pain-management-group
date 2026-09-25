@@ -2,6 +2,7 @@
 // (/service/), the Rev 2.0 notes (autonomy, procedure support, schedules), and facts already
 // on the site. Anything PMG has not confirmed is a {{TBD: ...}} placeholder.
 import type { EditorialContent } from "./partnership.ts";
+import { providerResources } from "../pmg-deck.ts";
 
 export const providerPages: Record<string, EditorialContent> = {
   "/providers/": {
@@ -55,9 +56,17 @@ export const providerPages: Record<string, EditorialContent> = {
         id: "procedure-support",
         title: "Procedure support",
         paragraphs: [
-          "{{TBD: procedure support at partner centers, such as procedure space, equipment, and clinical staff}}",
+          "Every partner center has a procedure room for interventional procedures, with a C-arm and a fluoroscopy-compatible procedure table, radiofrequency ablation equipment, and other equipment based on the procedures offered. The hospital provides anesthesia support for select procedures, sterile processing, and clinical supplies.",
           "PMG's [Pain Education library](/pain-education/) covers interventional procedures including epidural steroid injections, radiofrequency ablation, and spinal cord stimulation.",
         ],
+      },
+      {
+        id: "resources",
+        title: "Resources behind every provider",
+        paragraphs: [
+          "Providers at partner centers work with iStats, PMG's program data system, and the resources PMG shares across its network:",
+        ],
+        cards: providerResources,
       },
       {
         id: "schedules",
