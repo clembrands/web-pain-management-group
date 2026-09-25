@@ -26,8 +26,8 @@ export default async function DashboardPage() {
       <SectionsWithNav items={dashboardGroups}>
         <p className="rounded-2xl border border-[#e7d6ac] bg-[#fbf6ea] p-5 text-sm text-[#6b4f10]">
           The partner and state counts come from the partner directory. The
-          other figures are illustrative until PMG confirms them, and the set
-          of measures is a draft.
+          other figures are illustrative until PMG confirms them, and the set of
+          measures is a draft.
         </p>
         {dashboardGroups.map((g) => (
           <section

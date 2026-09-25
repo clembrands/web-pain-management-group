@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { BalancedMark, balancedLines } from "@/components/lab/balanced-mark";
+import { BalancedMark, balancedLines } from "@/components/design/balanced-mark";
 import {
   LabCta,
   LogoBand,
   RuleFaqs,
   Statement,
   Timeline,
-} from "@/components/lab/sections";
+} from "@/components/design/sections";
 import { PartnerMap } from "@/components/partner-map";
 import { RichText } from "@/components/rich-text";
 import { homeContent } from "@/content/pages/home";

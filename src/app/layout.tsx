@@ -9,8 +9,17 @@ import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
+  display: "swap",
+});
+
+// Display face: the light weights, loaded separately so only large headings pay for them.
+const poppinsLight = Poppins({
+  subsets: ["latin"],
+  weight: ["200", "300"],
+  style: ["normal", "italic"],
+  variable: "--font-poppins-light",
   display: "swap",
 });
 
@@ -30,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={`${poppins.variable} ${poppinsLight.variable}`}>
       <Analytics />
       <body className="font-sans">
         <JsonLd data={organizationJsonLd()} />
