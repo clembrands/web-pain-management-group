@@ -152,6 +152,22 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
 - All new copy is general or restates facts already on the site; it is listed for PMG's
   clinician on the launch checklist.
 
+## 2026-09-25: PMG onboarding homework (July 2026)
+
+- The homework (`deliverables/PMG-Website-Onboarding-Homework-7.1.26.docx`) is PMG's own
+  written answers, so its figures are shown as PMG figures (`{{PMG: key}}`,
+  `src/content/pmg-figures.ts`), sourced and not blocking launch: 40 partnerships, 187,000
+  encounters in 2025, 95% retention over two years, about 68 care locations, 20 years in
+  operation. The first-partnership year stays a sample because 2009 (live site) and 20
+  years (homework) conflict.
+- "What makes PMG different" added to the Partnership Model page in PMG's words; "better
+  than anyone" softened pending PMG approval.
+- Three questions added from PMG's objections list (other service lines, compliance,
+  timing), answers TBD; the library allows up to 16.
+- Noted for scoping: HubSpot for hospital executives, LinkedIn for APP and corporate jobs,
+  a possible iStats "Clinic Summary Grid" sync for locations, no cookie banners or pop-ups,
+  care with medication and opioid language.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

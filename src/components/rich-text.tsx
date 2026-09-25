@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment } from "react";
+import { isPmgKey, pmgFigures } from "@/content/pmg-figures";
 import { isSampleKey, sampleFigures } from "@/content/sample-figures";
 
 // Page copy is written as plain strings with three inline forms:
@@ -8,9 +9,11 @@ import { isSampleKey, sampleFigures } from "@/content/sample-figures";
 //   {{SAMPLE: key}}           a sample figure from src/content/sample-figures.ts, shown as a
 //                             plain number for review. Marked data-sample in the HTML, so the
 //                             launch check fails on it too.
+//   {{PMG: key}}              a figure PMG stated in writing (src/content/pmg-figures.ts),
+//                             shown as a plain number and marked data-pmg.
 //   [link text](/path/)       an internal or external link.
 const TOKEN =
-  /\{\{TBD: ([^}]+)\}\}|\{\{SAMPLE: ([a-zA-Z]+)\}\}|\[([^\]]+)\]\(([^)]+)\)/g;
+  /\{\{TBD: ([^}]+)\}\}|\{\{SAMPLE: ([a-zA-Z]+)\}\}|\{\{PMG: ([a-zA-Z]+)\}\}|\[([^\]]+)\]\(([^)]+)\)/g;
 
 export function Tbd({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +36,11 @@ export function Sample({ figure }: { figure: string }) {
   );
 }
 
+export function Pmg({ figure }: { figure: string }) {
+  if (!isPmgKey(figure)) return <Tbd>unknown PMG figure {figure}</Tbd>;
+  return <span data-pmg={figure}>{pmgFigures[figure].value}</span>;
+}
+
 export function RichText({ text }: { text: string }) {
   const parts: React.ReactNode[] = [];
   let last = 0;
@@ -40,17 +48,18 @@ export function RichText({ text }: { text: string }) {
     parts.push(text.slice(last, m.index));
     if (m[1]) parts.push(<Tbd key={m.index}>{m[1]}</Tbd>);
     else if (m[2]) parts.push(<Sample key={m.index} figure={m[2]} />);
+    else if (m[3]) parts.push(<Pmg key={m.index} figure={m[3]} />);
     else {
       const className =
         "font-medium text-brand underline underline-offset-4 hover:text-[#2d5d84]";
       parts.push(
-        /^(https?:|mailto:|tel:)/.test(m[4]) ? (
-          <a key={m.index} href={m[4]} className={className}>
-            {m[3]}
+        /^(https?:|mailto:|tel:)/.test(m[5]) ? (
+          <a key={m.index} href={m[5]} className={className}>
+            {m[4]}
           </a>
         ) : (
-          <Link key={m.index} href={m[4]} className={className}>
-            {m[3]}
+          <Link key={m.index} href={m[5]} className={className}>
+            {m[4]}
           </Link>
         ),
       );
@@ -71,16 +80,22 @@ export function RichText({ text }: { text: string }) {
 // themselves and must keep the data-sample marker the launch checks look for.
 export const sampleKeyOf = (text: string) =>
   text.match(/\{\{SAMPLE: ([a-zA-Z]+)\}\}/)?.[1];
+export const pmgKeyOf = (text: string) =>
+  text.match(/\{\{PMG: ([a-zA-Z]+)\}\}/)?.[1];
 
 // Plain text for metadata and JSON-LD: links keep their text, samples show their value,
 // TBDs stay visible.
 export const plainText = (text: string) =>
-  text.replace(TOKEN, (_, tbd, sample, label) =>
+  text.replace(TOKEN, (_, tbd, sample, pmg, label) =>
     tbd
       ? `{{TBD: ${tbd}}}`
       : sample
         ? isSampleKey(sample)
           ? sampleFigures[sample].value
           : sample
-        : label,
+        : pmg
+          ? isPmgKey(pmg)
+            ? pmgFigures[pmg].value
+            : pmg
+          : label,
   );

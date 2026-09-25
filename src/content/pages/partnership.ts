@@ -83,7 +83,12 @@ export const partnershipPages: Record<string, EditorialContent> = {
   "/partnership/": {
     eyebrow: "For hospital leaders",
     lede: "Pain Management Group partners with health systems and independent hospitals to build and manage hospital-based outpatient pain management centers. Your hospital gets PMG's blueprint and ongoing program management. Your community gets safe, responsible pain care close to home.",
-    faqs: ["why-not-recruit", "community-hospitals", "track-record"],
+    faqs: [
+      "why-not-recruit",
+      "other-service-lines",
+      "community-hospitals",
+      "track-record",
+    ],
     terms: [
       "service-line",
       "hospital-based",
@@ -116,6 +121,20 @@ export const partnershipPages: Record<string, EditorialContent> = {
         steps: pillars,
       },
       {
+        id: "what-makes-pmg-different",
+        title: "What makes PMG different",
+        paragraphs: [
+          "PMG describes five things that set its partnerships apart from other pain management companies and from programs hospitals build on their own:",
+        ],
+        points: [
+          "Programs are managed through data, with close visibility into how each one performs.",
+          "PMG tracks quality outcomes, not just procedure volume. The goal is better results for patients.",
+          "PMG works only with hospitals, providing pain services to rural communities, and speaks the language of hospital finance and compliance.",
+          "Every partner program is led by a board-certified, fellowship-trained pain physician, and advanced practice providers go through a structured education, training, and onboarding process.",
+          "The joint venture aligns incentives: what is good for patients is good for the hospital, its providers, the community, and PMG.",
+        ],
+      },
+      {
         id: "patient-path",
         title: "How patients move through the program",
         paragraphs: [
@@ -127,7 +146,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "track-record",
         title: "Hospitals that partner with PMG",
         paragraphs: [
-          "Hospitals have partnered with PMG since {{SAMPLE: firstYear}}. PMG manages {{SAMPLE: partnerships}} partnerships today. [Find partner centers by state](/our-partners/).",
+          "Hospitals have partnered with PMG since {{SAMPLE: firstYear}}. PMG has {{PMG: partnerships}} hospital partnerships today. [Find partner centers by state](/our-partners/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -143,7 +162,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
   "/partnership/how-it-works/": {
     eyebrow: "Partnership Model",
     lede: "A PMG partnership moves through four phases, from the first conversation about your community's needs to a hospital-based pain center that PMG helps manage for the long term.",
-    faqs: ["launch-time", "staffing", "measurement"],
+    faqs: ["launch-time", "timing", "staffing", "measurement"],
     terms: [
       "program-management",
       "credentialing",
@@ -196,7 +215,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "built-to-last",
         title: "Built to last beyond launch",
         paragraphs: [
-          "Program sustainability is one of the four elements of every PMG partnership. {{SAMPLE: partnerRetention}} of partner hospitals renew at the end of their contract term, and the average partnership has run {{SAMPLE: avgPartnershipYears}}. Ask the rest of your questions on [What Hospital Leaders Ask](/partnership/questions/).",
+          "Program sustainability is one of the four elements of every PMG partnership. PMG reports {{PMG: partnerRetention}} partner retention over the past two years, and the average partnership has run {{SAMPLE: avgPartnershipYears}}. Ask the rest of your questions on [What Hospital Leaders Ask](/partnership/questions/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -211,7 +230,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
   "/partnership/balanced-pain-treatment/": {
     eyebrow: "Partnership Model",
     lede: "Balanced Pain Treatment is PMG's model for pain care that is medically responsible for patients, socially responsible for communities, and financially responsible for the hospitals that provide it. PMG's partner centers are Balanced Pain Treatment Centers.",
-    faqs: ["responsible-care", "measurement"],
+    faqs: ["responsible-care", "compliance", "measurement"],
     terms: ["multimodal", "interventional-pain", "fellowship-trained", "app"],
     sections: [
       {
@@ -425,8 +444,35 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "track-record",
     question: "How long has PMG been doing this, and do hospitals stay?",
     answer: [
-      "PMG has partnered with hospitals since {{SAMPLE: firstYear}}. {{SAMPLE: partnerRetention}} of partner hospitals renew at the end of their contract term, and the average partnership has run {{SAMPLE: avgPartnershipYears}}.",
+      "PMG has partnered with hospitals since {{SAMPLE: firstYear}} and reports {{PMG: partnerRetention}} partner retention over the past two years. The average partnership has run {{SAMPLE: avgPartnershipYears}}.",
       "Patrick J. Martin of Fisher-Titus Medical Center says the hospital started its program with PMG in 2009. [Read what partner leaders say](/results/testimonials/).",
+    ],
+  },
+  {
+    id: "other-service-lines",
+    question:
+      "Will a pain program take business from our orthopedics or primary care physicians?",
+    answer: [
+      "{{TBD: how a PMG program works alongside orthopedics, spine, and primary care, and what happens to referrals between them}}.",
+      "In the PMG model, primary care physicians refer patients into the hospital's own pain center, and patients stay within your hospital from referral through treatment. [See how patients move through the program](/partnership/).",
+    ],
+  },
+  {
+    id: "compliance",
+    question:
+      "How does the partnership handle compliance, including Stark law, opioid scrutiny, and billing?",
+    answer: [
+      "{{TBD: how the joint venture is structured for Stark and anti-kickback compliance, how prescribing is monitored, and how documentation and billing are reviewed}}.",
+      "PMG works only with hospitals and knows the compliance questions hospital leaders ask. [Read how PMG keeps pain care responsible](/partnership/balanced-pain-treatment/).",
+    ],
+  },
+  {
+    id: "timing",
+    question:
+      "We have other priorities right now. When does it make sense to start?",
+    answer: [
+      "{{TBD: how PMG fits the first phase around a hospital's other priorities, and what a first assessment asks of the hospital's team}}.",
+      "A partnership starts with an assessment of your community's need and where pain patients go today, which tells you whether a program makes sense before anything is committed. [See the four phases](/partnership/how-it-works/).",
     ],
   },
   {

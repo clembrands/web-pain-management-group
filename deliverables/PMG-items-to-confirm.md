@@ -19,15 +19,21 @@ cover it. Items marked **Sign-off needed** need approval from the team named.
 
 Used on the Home page, About, Results, and in answers to hospital leaders.
 
-- [ ] **Year PMG began partnering with hospitals.** The current site says 2009; onboarding
-      notes mention about 20 years. Which is right?
-- [ ] **Number of current hospital partnerships**, and how PMG counts one (a hospital, a
-      health system, a contract).
-- [ ] **Number of care locations**, and how PMG counts one. The current site says "over 50."
-- [ ] **Partner retention rate** and **average partnership length**.
-- [ ] **Longest-running partnership**, in years.
-- [ ] **Patient encounters** for the most recent full year, and which year that is.
-- [ ] **Years of hospital-based pain management experience**, for the Home page figures.
+From your onboarding homework, the site now shows these as your figures. Please confirm the
+wording is right to publish:
+
+- [ ] **40 hospital partnerships.**
+- [ ] **187,000 patient encounters in 2025.**
+- [ ] **95% partner retention over the past two years.**
+- [ ] **68 care locations** (the homework says "approximately 68").
+- [ ] **20 years in operation.**
+
+Still open:
+
+- [ ] **Year PMG began partnering with hospitals.** The current site says 2009, which would be
+      17 years, while the homework says 20 years of operation. Did PMG operate before its
+      first hospital partnership, or should the site say a different year?
+- [ ] **Average partnership length** and **longest-running partnership**, in years.
 
 The Home page and Our Partners already show **40 partner hospitals in 10 states**. Those numbers
 are counted from the partner directory itself (section 7), so they change automatically when
@@ -56,6 +62,14 @@ confirmed answers matter more than polish.
 - [ ] The **full split of responsibilities** between the hospital and PMG: space and equipment,
       physician recruiting, staffing, credentialing, billing, marketing, and compliance.
 - [ ] **Governance:** whose name the program carries, and which decisions the hospital controls.
+- [ ] **Three new questions** added from your homework's objections list, with answers to
+      write together: taking business from orthopedics or primary care; compliance,
+      including Stark law, opioid scrutiny, and billing; and "we have other priorities right
+      now."
+- [ ] **What makes PMG different** appears on The PMG Partnership Model in your homework's
+      words, with "we track quality outcomes better than anyone" softened to "PMG tracks
+      quality outcomes, not just procedure volume." Keep the stronger wording if you can
+      stand behind it publicly.
 - [ ] The **four phase names** we drafted: Assess the opportunity, Design the program, Build
       and launch, Manage and grow. Keep, or rename?
 - [ ] What the **assessment phase** includes, and what the hospital provides for it.
@@ -207,4 +221,11 @@ All 36 articles moved over word for word, at the same addresses.
       day.
 - [ ] **Google Analytics:** PMG has two GA4 properties. Both will record from launch; after a
       few weeks, choose one to keep.
+- [ ] **HubSpot:** your homework asks for HubSpot for hospital executives, including sending
+      them linked documents to track engagement. Is HubSpot already in use, and should the
+      Schedule a Call form send inquiries into it?
+- [ ] **Job postings:** the homework mentions LinkedIn for APP and corporate openings. The site
+      links CareerMD and Indeed today. Add LinkedIn, or replace Indeed with it?
+- [ ] **Locations sync:** the homework asks about syncing the partner map with your iStats
+      "Clinic Summary Grid." Can iStats export that grid (a spreadsheet or a link)?
 - [ ] **Domain:** who manages DNS for painmgmtgroup.com, and a launch window that suits PMG.

@@ -5,6 +5,7 @@
 import type { EditorialContent } from "./partnership.ts";
 import type { DirectoryCounts } from "../../lib/partner-stats.ts";
 import type { SampleKey } from "../sample-figures.ts";
+import { pmgFigures, pmgSource, type PmgKey } from "../pmg-figures.ts";
 
 export type Metric = {
   label: string;
@@ -30,6 +31,13 @@ const sample = (
   period: "{{SAMPLE: reportingPeriod}}",
 });
 
+// A figure PMG stated in writing, with its source and period.
+const pmg = (key: PmgKey): Pick<Metric, "value" | "source" | "period"> => ({
+  value: `{{PMG: ${key}}}`,
+  source: pmgSource,
+  period: pmgFigures[key].period,
+});
+
 // The draft set of measures. PMG confirms which it reports and how each is defined.
 export const dashboardGroups: MetricGroup[] = [
   {
@@ -41,7 +49,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Care locations",
         definition:
           "Hospital-based pain management locations operating under a PMG partnership.",
-        ...sample("careLocations"),
+        ...pmg("careLocations"),
       },
     ],
   },
@@ -54,7 +62,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Patient encounters",
         definition:
           "Visits and procedures across all partner centers in the reporting year.",
-        ...sample("patientEncounters"),
+        ...pmg("patientEncounters"),
       },
       {
         label: "New patients",
@@ -79,7 +87,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Partner retention",
         definition:
           "Share of partnerships renewed at the end of their contract term.",
-        ...sample("partnerRetention"),
+        ...pmg("partnerRetention"),
       },
       {
         label: "Average partnership length",

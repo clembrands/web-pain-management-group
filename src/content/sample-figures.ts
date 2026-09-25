@@ -13,23 +13,7 @@ export type SampleFigure = {
 export const sampleFigures = {
   firstYear: {
     value: "2009",
-    note: "First partnership year. The live site and Patrick J. Martin's testimonial both say 2009; PMG confirms.",
-  },
-  yearsOperating: {
-    value: "17 years",
-    note: "Years of hospital-based pain management, counted from the 2009 sample first year to 2026.",
-  },
-  partnerships: {
-    value: "40",
-    note: "Current hospital partnerships. Set to the partner directory count; PMG confirms how it counts one.",
-  },
-  careLocations: {
-    value: "50+",
-    note: "Care locations. The live site says 'over 50'; PMG confirms the count and definition.",
-  },
-  patientEncounters: {
-    value: "48,000",
-    note: "Patient encounters in the reporting year. Illustrative round number; PMG supplies the real figure.",
+    note: "First partnership year. The live site says 2009; PMG's onboarding homework says 20 years of operation (about 2006). PMG confirms which is right.",
   },
   newPatients: {
     value: "12,500",
@@ -39,17 +23,13 @@ export const sampleFigures = {
     value: "9,800",
     note: "Primary care referrals in the reporting year. Illustrative; PMG supplies the real figure.",
   },
-  partnerRetention: {
-    value: "95%",
-    note: "Share of partnerships renewed at contract end. Illustrative; PMG supplies the real rate.",
-  },
   avgPartnershipYears: {
     value: "8 years",
     note: "Average partnership length. Illustrative; PMG supplies the real figure.",
   },
   longestPartnershipYears: {
     value: "17 years",
-    note: "Longest-running partnership, counted from the 2009 sample first year. PMG confirms.",
+    note: "Longest-running partnership, counted from the 2009 first year on the live site. PMG confirms.",
   },
   patientSatisfaction: {
     value: "4.7 / 5",
@@ -70,10 +50,6 @@ export const sampleFigures = {
   breakEven: {
     value: "within 18 months",
     note: "Typical time to break-even. Illustrative; PMG confirms.",
-  },
-  reportingYear: {
-    value: "2025",
-    note: "Reporting year for the volume figures. PMG confirms which year the real figures cover.",
   },
   reportingPeriod: {
     value: "Calendar 2025",

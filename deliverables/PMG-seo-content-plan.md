@@ -92,42 +92,49 @@ facts, only clinician review.
 
 ## 4. What only PMG can supply
 
-65 of the 70 pages need something from PMG, but almost all of it comes from the same
-handful of conversations. Proposal: three one-hour recorded interviews, transcribed, which
-I turn into drafts PMG reviews. Each maps to a group of pages.
+PMG's onboarding homework (July 2026, `deliverables/PMG-Website-Onboarding-Homework-7.1.26.docx`)
+already answers the headline figures (40 partnerships, 187,000 encounters in 2025, 95%
+retention over two years, about 68 care locations, 20 years in operation), the objections
+hospital leaders raise, what sets PMG apart, and the provider selling points. What is left
+fits one 20-minute call with the CEO or COO, plus two short follow-ups by email.
 
-**Interview 1: the partnership and the money** (CEO or COO, and finance)
-Feeds `/partnership/`, `/partnership/financial-model/`, `/partnership/questions/`, Home.
+**The call: eight questions, in priority order** (CEO or COO; record it)
+Feeds `/partnership/`, `/partnership/financial-model/`, `/partnership/how-it-works/`,
+`/partnership/questions/`, Home. Five answered is enough to write the Partnership pages.
 
-- How a partnership is structured legally, who owns what, who decides what.
-- What a hospital invests to start, and what PMG brings.
-- How services are billed, how revenue is shared, how PMG is paid.
-- Typical time to first patient and to break-even, and what moves those numbers.
-- The number of partnerships today and how PMG counts one; the first partnership year.
-- What happens when a partnership ends.
+1. How is a partnership structured legally? Who owns what, and who decides what?
+2. What does a hospital typically put in to start, and what does PMG bring?
+3. How is the money handled: who bills, how is revenue shared, how is PMG paid?
+4. From a signed agreement, how long to the first patient, and roughly how long to break
+   even? What moves those numbers?
+5. The site says PMG has partnered with hospitals since 2009; your homework says 20 years
+   of operation. Which year should the site use?
+6. What happens if a partnership isn't working: term, review, exit?
+7. How do you answer the three objections from your own list that the site does not yet
+   answer: taking business from orthopedics or primary care, compliance (Stark, opioids,
+   billing), and "not the right time"?
+8. What do you report to a partner hospital, and how often?
 
-**Interview 2: how a program is built and run** (operations lead)
-Feeds `/partnership/how-it-works/`, `/providers/*`, state pages.
+**Follow-up by email, clinical lead** (five minutes of their time)
+Feeds `/partnership/balanced-pain-treatment/` and the Pain Education framing.
 
-- What each of the four phases involves, who does what, how long each takes.
-- Who recruits, employs and credentials physicians and APPs; how the care team is trained.
-- What PMG reports to partners, how often, in what meeting.
-- Per-hospital detail for the directory: services at each center, when it opened, who
-  refers into it, hours.
-- How PMG sizes a program for a smaller hospital.
-- The provider practice model: autonomy, procedure support, schedules, compensation approach.
+- What a balanced treatment plan includes, and how prescribing is kept responsible. This is
+  the answer that needs their sign-off, given the homework's caution on opioid language.
+- A look at the disclaimer and the short sections added around the articles.
 
-**Interview 3: clinical approach and results** (clinical lead, and whoever owns the data)
-Feeds `/partnership/balanced-pain-treatment/`, `/results/*`, Pain Education framing.
+**Follow-up by email, whoever holds the numbers**
+Feeds `/results/*`.
 
-- What a balanced treatment plan includes; how medication, including opioids, is managed.
-- The prescribing and monitoring protocols behind "responsible."
-- Which measures PMG tracks, current values, sources and periods.
-- Review of the disclaimer and of the framing sections added around the articles.
-- Whether a named medical reviewer will stand behind the articles.
+- New patients, primary care referrals, average and longest partnership length, patient
+  satisfaction, pain improvement, and emergency visits, each with a source and year; or a
+  note on which of these PMG does not track, so the tile can come off the dashboard.
 
-Everything in these lists is already an item on `deliverables/PMG-items-to-confirm.md`;
-the interviews are the efficient way to close it.
+**Later, when convenient** (operations; no meeting needed to start)
+Per-hospital detail for the state pages (services, when each center opened, who refers in)
+and the provider practice model (autonomy, procedure support, schedules, compensation).
+The homework's provider list already sets the outline for those pages.
+
+Every item is also on `deliverables/PMG-items-to-confirm.md`.
 
 ## 5. Order of work
 
@@ -137,10 +144,15 @@ the interviews are the efficient way to close it.
    where care is offered, the referral model), MedicalCondition and MedicalProcedure
    entities, longer hub introductions; Organization schema detail. The glossary page waits
    on approval; its definitions are already in use.
-2. **After Interview 1:** Partnership pages to full depth; Home figures confirmed.
-3. **After Interview 2:** How It Works, Providers, state pages with per-hospital paragraphs.
-4. **After Interview 3:** Balanced Pain Treatment, Results and Dashboard, article review.
-5. **Ongoing:** one News post per new partner, award or milestone.
+2. **From the onboarding homework (done):** PMG's figures on Home, Results and the
+   dashboard; "What makes PMG different" on the Partnership Model page; three new questions
+   from PMG's objections list.
+3. **After the 20-minute call:** Partnership pages to full depth; remaining TBDs on What
+   Hospital Leaders Ask.
+4. **After the email follow-ups:** Balanced Pain Treatment, Results and Dashboard, article
+   review.
+5. **When operations can help:** state pages with per-hospital paragraphs; Providers.
+6. **Ongoing:** one News post per new partner, award or milestone.
 
 ## 6. Measuring it
 
