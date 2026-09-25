@@ -140,10 +140,10 @@ export function LogoBand({
   );
 }
 
-// Partner logos as a slow, continuous scroll on navy, each on a white tile so any logo file
-// works. The list is repeated so the loop has no gap at any viewport width; the second track
-// is a copy hidden from assistive technology. Under prefers-reduced-motion the copy is
-// hidden and the row stands still.
+// Partner logos as a slow, continuous scroll on white, in their own colours. The list is
+// repeated so the loop has no gap at any viewport width; the second track is a copy hidden
+// from assistive technology. Under prefers-reduced-motion the copy is hidden and the row
+// stands still.
 export function LogoMarquee({
   partners,
   title,
@@ -158,30 +158,28 @@ export function LogoMarquee({
   const track = (hidden: boolean) => (
     <ul
       aria-hidden={hidden || undefined}
-      className="marquee-track flex shrink-0 items-center gap-6 pr-6 md:gap-8 md:pr-8"
+      className="marquee-track flex shrink-0 items-center gap-20 pr-20 md:gap-28 md:pr-28"
     >
       {repeated.map((partner) => (
         <li
           key={partner.key}
-          className="flex h-20 w-52 shrink-0 items-center justify-center bg-white px-6 md:h-24 md:w-60"
+          className="relative h-10 w-40 shrink-0 md:h-12 md:w-48"
         >
-          <span className="relative block h-10 w-full md:h-12">
-            <Image
-              src={partner.logo.url}
-              alt={hidden ? "" : partner.logo.alt || partner.name}
-              fill
-              sizes="200px"
-              className="object-contain"
-            />
-          </span>
+          <Image
+            src={partner.logo.url}
+            alt={hidden ? "" : partner.logo.alt || partner.name}
+            fill
+            sizes="192px"
+            className="object-contain"
+          />
         </li>
       ))}
     </ul>
   );
   return (
-    <section className="overflow-hidden bg-navy py-14 text-white md:py-16">
+    <section className="hairline overflow-hidden bg-white py-12 md:py-14">
       <div className="container-shell">
-        <h2 className="label text-sky">{title}</h2>
+        <h2 className="label text-brand">{title}</h2>
       </div>
       <div className="marquee mt-10 flex">
         {track(false)}

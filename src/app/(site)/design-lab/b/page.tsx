@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/lab/balanced-mark";
+import { HeroGraphic } from "@/components/lab/hero-graphic";
 import {
   LabCta,
   LogoMarquee,
@@ -43,18 +43,10 @@ export default async function DirectionB() {
 
   return (
     <>
-      {/* 1. Map-led hero */}
+      {/* 1. Typographic hero with the Balanced planes */}
       <section className="relative overflow-hidden bg-deep text-white">
-        {/* Decorative: the same map as a static image, so the page inlines the SVG once. */}
-        <Image
-          src="/partner-map-dark.svg"
-          alt=""
-          width={975}
-          height={610}
-          unoptimized
-          priority
-          className="pointer-events-none absolute top-1/2 -right-[10%] w-[90%] -translate-y-1/2 opacity-70 md:w-[66%]"
-        />
+        {/* On phones the planes sit low and to the right, behind nothing but the intro line. */}
+        <HeroGraphic className="pointer-events-none absolute -right-[35%] bottom-0 h-[62%] w-auto opacity-60 md:top-0 md:-right-[4%] md:h-full md:opacity-90" />
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
           <h1 className="display-md display-sans max-w-3xl">
             {hero.title}
@@ -179,9 +171,9 @@ export default async function DirectionB() {
         <div className="relative mx-auto mt-10 max-w-7xl px-6 md:px-12">
           <PartnerMap tone="dark" />
         </div>
-        <div className="container-shell relative -mb-20 md:-mb-28">
-          <div className="grid gap-px bg-line md:grid-cols-[1.2fr_1fr_1fr_1fr] md:-ml-12">
-            <div className="bg-white p-8 text-navy md:p-10">
+        <div className="mt-10 bg-white">
+          <div className="container-shell grid divide-y divide-line md:grid-cols-[1.2fr_1fr_1fr_1fr] md:divide-x md:divide-y-0">
+            <div className="py-10 text-navy md:pr-10 md:pl-0">
               <p className="numeral display-sans text-navy">
                 {counts.hospitals}
               </p>
@@ -196,7 +188,7 @@ export default async function DirectionB() {
               </Link>
             </div>
             {homeContent.stats.items.slice(1).map((s) => (
-              <div key={s.label} className="bg-white p-8 text-navy md:p-10">
+              <div key={s.label} className="py-10 text-navy md:px-10">
                 <p className="display-sans text-4xl whitespace-nowrap md:text-5xl">
                   <RichText text={s.value} />
                 </p>
@@ -208,9 +200,7 @@ export default async function DirectionB() {
           </div>
         </div>
       </section>
-      <div className="bg-navy pt-20 md:pt-28">
-        <LogoMarquee partners={partners} title="Our partners" />
-      </div>
+      <LogoMarquee partners={partners} title="Our partners" />
 
       {/* 6. Testimonial as a statement */}
       <Statement name="Patrick J. Martin" face="sans" tone="deep" />
