@@ -178,7 +178,7 @@ export function LogoMarquee({
   );
   return (
     <section className="hairline overflow-hidden bg-white py-12 md:py-14">
-      <div className="container-shell">
+      <div className="container-shell text-center">
         <h2 className="label text-brand">{title}</h2>
       </div>
       <div className="marquee mt-10 flex">

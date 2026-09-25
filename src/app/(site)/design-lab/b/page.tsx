@@ -46,7 +46,7 @@ export default async function DirectionB() {
       {/* 1. Photographic hero: duotone concept image, headline on the dark left */}
       <section className="relative overflow-hidden bg-deep text-white">
         {/* Concept photograph in navy duotone, dissolving into the background on its left and
-            bottom edges. Replaced by PMG's own photograph before launch. */}
+            bottom edges. Replaced by PMG's own photograph before launch (launch checklist). */}
         <figure className="duotone-wrap pointer-events-none absolute inset-0 md:left-[28%]">
           <Image
             src="/assets/concept-corridor.jpg"
@@ -64,9 +64,6 @@ export default async function DirectionB() {
             aria-hidden="true"
             className="absolute inset-0 bg-linear-to-t from-deep via-transparent to-transparent"
           />
-          <figcaption className="label absolute top-5 right-6 z-10 hidden text-[#7f96aa] md:right-12 md:block">
-            Concept photography · final PMG imagery to follow
-          </figcaption>
         </figure>
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
           <h1 className="display-md display-sans max-w-3xl">
