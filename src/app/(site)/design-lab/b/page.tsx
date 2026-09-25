@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/lab/balanced-mark";
-import { HeroGraphic } from "@/components/lab/hero-graphic";
 import {
   LabCta,
   LogoMarquee,
@@ -43,10 +43,31 @@ export default async function DirectionB() {
 
   return (
     <>
-      {/* 1. Typographic hero with the Balanced planes */}
+      {/* 1. Photographic hero: duotone concept image, headline on the dark left */}
       <section className="relative overflow-hidden bg-deep text-white">
-        {/* On phones the planes sit low and to the right, behind nothing but the intro line. */}
-        <HeroGraphic className="pointer-events-none absolute -right-[35%] bottom-0 h-[62%] w-auto opacity-60 md:top-0 md:-right-[4%] md:h-full md:opacity-90" />
+        {/* Concept photograph in navy duotone, dissolving into the background on its left and
+            bottom edges. Replaced by PMG's own photograph before launch. */}
+        <figure className="duotone-wrap pointer-events-none absolute inset-0 md:left-[28%]">
+          <Image
+            src="/assets/concept-corridor.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 767px) 100vw, 62vw"
+            className="duotone object-cover object-[70%_center] opacity-50 md:opacity-90"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-r from-deep from-5% via-deep/60 via-40% to-transparent"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-linear-to-t from-deep via-transparent to-transparent"
+          />
+          <figcaption className="label absolute top-5 right-6 z-10 hidden text-[#7f96aa] md:right-12 md:block">
+            Concept photography · final PMG imagery to follow
+          </figcaption>
+        </figure>
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
           <h1 className="display-md display-sans max-w-3xl">
             {hero.title}
