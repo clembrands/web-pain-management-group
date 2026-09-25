@@ -227,39 +227,35 @@ export function Statement({
   );
 }
 
-// Closing call to action for hospital leaders, in display type.
+// Closing call to action for hospital leaders, centered, in display type.
 export function LabCta({ face }: { face: "serif" | "sans" }) {
   const cta = ctas.hospital;
   return (
     <section className="bg-deep text-white">
-      <div className="container-shell grid gap-10 py-24 md:grid-cols-[1.4fr_1fr] md:items-end md:py-32">
-        <div>
-          <p className="label text-sky">Next step</p>
-          <h2
-            className={`mt-6 ${face === "serif" ? "display-md display-serif" : "display-md display-sans"}`}
+      <div className="container-shell flex flex-col items-center py-20 text-center md:py-28">
+        <p className="label text-sky">Next step</p>
+        <h2
+          className={`mt-6 max-w-4xl ${face === "serif" ? "display-md display-serif" : "display-md display-sans"}`}
+        >
+          {cta.title}
+        </h2>
+        <p className="mt-6 max-w-xl text-[#b9c8d4]">{cta.body}</p>
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <Link
+            href={cta.href}
+            className="button bg-white text-navy hover:bg-[#dce6ee]"
           >
-            {cta.title}
-          </h2>
-        </div>
-        <div>
-          <p className="text-[#b9c8d4]">{cta.body}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+            {cta.label}
+          </Link>
+          {cta.secondary.map((link) => (
             <Link
-              href={cta.href}
-              className="button bg-white text-navy hover:bg-[#dce6ee]"
+              key={link.href}
+              href={link.href}
+              className="button button-dark-outline"
             >
-              {cta.label}
+              {link.label}
             </Link>
-            {cta.secondary.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="button button-dark-outline"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>
