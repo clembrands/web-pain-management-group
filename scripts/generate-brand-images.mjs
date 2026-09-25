@@ -2,7 +2,7 @@
 // Generates images from PMG's existing logo (public/assets/pmg-logo.png, 495 x 57):
 //   public/assets/pmg-logo-square.png  600 x 600, for Organization JSON-LD (Google asks
 //                                       for a logo of at least 112 x 112)
-//   public/og-default.png              1200 x 630, the default social share image
+//   (public/og-default.png, the social share image, is rendered by generate-og-image.mjs)
 //   src/app/favicon.ico, icon.png,     browser and home-screen icons: the logo's "P" mark
 //   apple-icon.png                     (its left 64 pixels) on white
 // The logo itself is not altered, only placed on a canvas.
@@ -13,7 +13,6 @@ import { writeFileSync } from "node:fs";
 import sharp from "sharp";
 
 const logo = "public/assets/pmg-logo.png";
-const navy = "#16293a";
 
 const square = await sharp(logo).resize({ width: 520 }).toBuffer();
 await sharp({
@@ -23,21 +22,6 @@ await sharp({
   .png()
   .toFile("public/assets/pmg-logo-square.png");
 
-const wide = await sharp(logo).resize({ width: 860 }).toBuffer();
-const band =
-  Buffer.from(`<svg width="1200" height="170" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="170" fill="${navy}"/>
-  <text x="600" y="100" font-family="DejaVu Sans, Arial, sans-serif" font-size="40" fill="#ffffff" text-anchor="middle" letter-spacing="1">Balanced Pain Treatment Centers</text>
-</svg>`);
-await sharp({
-  create: { width: 1200, height: 630, channels: 4, background: "#ffffff" },
-})
-  .composite([
-    { input: wide, top: 175, left: 170 },
-    { input: band, top: 460, left: 0 },
-  ])
-  .png()
-  .toFile("public/og-default.png");
 // The mark, centered on a white square with a small margin.
 const mark = await sharp(logo)
   .extract({ left: 0, top: 0, width: 64, height: 57 })

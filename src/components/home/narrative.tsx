@@ -62,7 +62,7 @@ export async function HomeNarrative() {
           ]}
         />
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
-          <h1 className="display-md display-sans max-w-3xl">
+          <h1 className="display-md display-sans hero-title max-w-3xl">
             {hero.title}
             <br />
             <span className="text-sky">{hero.accent}</span>

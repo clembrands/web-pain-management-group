@@ -147,7 +147,9 @@ export function PageShell({
                 breadcrumbTrail(path, routeOverride).at(-2)?.navLabel ??
                 "PMG"}
             </p>
-            <h1 className="display-md display-sans mt-6">{route.title}</h1>
+            <h1 className="display-md display-sans hero-title mt-6">
+              {route.title}
+            </h1>
             <p className="mt-8 max-w-xl text-base text-[#c4d3df] md:text-lg">
               <RichText text={lede ?? route.description} />
             </p>
