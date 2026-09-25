@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { BalancedMark, balancedLines } from "@/components/design/balanced-mark";
 import { CountUp } from "@/components/design/count-up";
+import { HeroVideo } from "@/components/design/hero-video";
 import { EndCta } from "@/components/cta";
 import { JsonLd } from "@/components/json-ld";
 import { faqJsonLd } from "@/lib/faq-schema";
@@ -50,26 +51,15 @@ export async function HomeNarrative() {
     <>
       {/* 1. Photographic hero: duotone concept image, headline on the dark left */}
       <section className="relative overflow-hidden bg-deep text-white">
-        {/* Concept photograph in navy duotone, dissolving into the background on its left and
-            bottom edges. Replaced by PMG's own photograph before launch (launch checklist). */}
-        <figure className="duotone-wrap pointer-events-none absolute inset-0 md:left-[28%]">
-          <Image
-            src="/assets/concept-corridor.jpg"
-            alt=""
-            fill
-            priority
-            sizes="(max-width: 767px) 100vw, 62vw"
-            className="duotone drift scale-110 object-cover object-[70%_center] opacity-50 md:opacity-90"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-r from-deep from-5% via-deep/60 via-40% to-transparent"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-linear-to-t from-deep via-transparent to-transparent"
-          />
-        </figure>
+        {/* Concept footage in navy duotone (a still first, the video on wider screens),
+            dissolving into the background. Replaced by PMG's own before launch. */}
+        <HeroVideo
+          poster="/video/hero-corridor-poster.jpg"
+          sources={[
+            { src: "/video/hero-corridor.webm", type: "video/webm" },
+            { src: "/video/hero-corridor.mp4", type: "video/mp4" },
+          ]}
+        />
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
           <h1 className="display-md display-sans max-w-3xl">
             {hero.title}
