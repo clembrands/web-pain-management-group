@@ -5,6 +5,13 @@
 import type { EditorialContent } from "./partnership.ts";
 import type { DirectoryCounts } from "../../lib/partner-stats.ts";
 import type { SampleKey } from "../sample-figures.ts";
+import { pmgFigures, pmgSource, type PmgKey } from "../pmg-figures.ts";
+import {
+  istatsAreas,
+  istatsIntro,
+  reports,
+  scorecardIntro,
+} from "../pmg-deck.ts";
 
 export type Metric = {
   label: string;
@@ -30,6 +37,13 @@ const sample = (
   period: "{{SAMPLE: reportingPeriod}}",
 });
 
+// A figure PMG stated in writing, with its source and period.
+const pmg = (key: PmgKey): Pick<Metric, "value" | "source" | "period"> => ({
+  value: `{{PMG: ${key}}}`,
+  source: pmgSource,
+  period: pmgFigures[key].period,
+});
+
 // The draft set of measures. PMG confirms which it reports and how each is defined.
 export const dashboardGroups: MetricGroup[] = [
   {
@@ -41,7 +55,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Care locations",
         definition:
           "Hospital-based pain management locations operating under a PMG partnership.",
-        ...sample("careLocations"),
+        ...pmg("careLocations"),
       },
     ],
   },
@@ -54,7 +68,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Patient encounters",
         definition:
           "Visits and procedures across all partner centers in the reporting year.",
-        ...sample("patientEncounters"),
+        ...pmg("patientEncounters"),
       },
       {
         label: "New patients",
@@ -79,7 +93,7 @@ export const dashboardGroups: MetricGroup[] = [
         label: "Partner retention",
         definition:
           "Share of partnerships renewed at the end of their contract term.",
-        ...sample("partnerRetention"),
+        ...pmg("partnerRetention"),
       },
       {
         label: "Average partnership length",
@@ -147,17 +161,27 @@ export const headlineMetrics = (c: DirectoryCounts): Metric[] => [
 
 export const resultsHub: EditorialContent = {
   eyebrow: "For hospital leaders",
-  lede: "Results from PMG's hospital partnerships: how many hospitals partner with PMG, how many patients their centers see, and whether partnerships last. Every figure is sourced and on the record.",
+  lede: "Results from PMG's hospital partnerships: how many hospitals partner with PMG, how many patients their centers see, whether partnerships last, and what every partner hospital sees about its own program each quarter.",
   faqs: ["measurement", "track-record"],
-  terms: ["encounter", "retention"],
+  terms: ["encounter", "retention", "market-capture", "referral-conversion"],
   sections: [
     {
       id: "how-we-report",
       title: "How PMG reports results",
       paragraphs: [
         "Quantifiable outcomes and results are one of the four elements of every PMG partnership. Each figure on these pages shows what it counts, where it comes from, and the period it covers.",
-        "{{TBD: how PMG collects program data, who reviews it, and how often the figures are updated}}",
+        istatsIntro,
       ],
+      cards: istatsAreas,
+      numberedCards: true,
+    },
+    {
+      id: "what-partners-see",
+      title: "What partner hospitals see every quarter",
+      paragraphs: [
+        `${scorecardIntro} [See the scorecard's measures](/results/dashboard/#scorecard). Behind the scorecard, each partner receives these reports:`,
+      ],
+      cards: reports,
     },
     {
       id: "in-their-words",

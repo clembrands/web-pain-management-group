@@ -15,6 +15,7 @@ import {
 import { PartnerMap } from "@/components/partner-map";
 import { RichText } from "@/components/rich-text";
 import { homeContent } from "@/content/pages/home";
+import { painBurden } from "@/content/pmg-deck";
 import {
   homeQuestionIds,
   hospitalLeaderQuestions,
@@ -61,7 +62,7 @@ export async function HomeNarrative() {
           ]}
         />
         <div className="container-shell relative pt-16 pb-32 md:pt-24 md:pb-40">
-          <h1 className="display-md display-sans max-w-3xl">
+          <h1 className="display-md display-sans hero-title max-w-3xl">
             {hero.title}
             <br />
             <span className="text-sky">{hero.accent}</span>
@@ -89,10 +90,11 @@ export async function HomeNarrative() {
             <div>
               <p className="label text-brand">The problem</p>
               <p className="numeral display-sans mt-8 text-navy">
-                <CountUp text="100 million" />
+                <CountUp text={painBurden.chronic} />
               </p>
-              <p className="label mt-4 text-muted">
-                U.S. adults living with chronic pain
+              <p className="label mt-4 text-muted">{painBurden.chronicLabel}</p>
+              <p className="mt-3 text-xs text-muted [&_a]:underline [&_a]:underline-offset-2">
+                <RichText text={painBurden.source} />
               </p>
               <h2 className="display-md display-sans mt-14 text-navy">
                 {problem.title}
@@ -106,14 +108,17 @@ export async function HomeNarrative() {
                   </p>
                 ))}
               </div>
-              <ol className="mt-10 lg:-mr-24">
-                {problem.points?.map((point, i) => (
+              <ol className="mt-10 min-[1440px]:-mr-24">
+                {problem.cards?.map((card, i) => (
                   <li
-                    key={point}
-                    className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px] text-ink"
+                    key={card.title}
+                    className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px]"
                   >
                     <span className="label text-brand">0{i + 1}</span>
-                    {point}
+                    <span>
+                      <span className="font-medium text-ink">{card.title}</span>
+                      <span className="text-muted">. {card.body}</span>
+                    </span>
                   </li>
                 ))}
               </ol>
@@ -132,7 +137,7 @@ export async function HomeNarrative() {
           {/* Concept photograph, replaced by PMG's own before launch (launch checklist). */}
           <figure className="duotone-wrap relative aspect-[3/4] max-h-[720px] w-full lg:aspect-auto lg:h-auto lg:min-h-[640px]">
             <Image
-              src="/assets/concept-exam-room.jpg"
+              src="/assets/hero/balanced-pain-treatment.jpg"
               alt=""
               fill
               sizes="(max-width: 1023px) 100vw, 40vw"
@@ -199,8 +204,8 @@ export async function HomeNarrative() {
           <PartnerMap tone="dark" />
         </div>
         <div className="mt-10 bg-white">
-          <div className="container-shell grid divide-y divide-line md:grid-cols-[1.2fr_1fr_1fr_1fr] md:divide-x md:divide-y-0">
-            <div className="py-10 text-navy md:pr-10 md:pl-0">
+          <div className="container-shell grid divide-y divide-line lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:divide-x lg:divide-y-0">
+            <div className="py-10 text-navy lg:pr-6 lg:pl-0 xl:pr-10">
               <p className="numeral display-sans text-navy">
                 <CountUp text={String(counts.hospitals)} />
               </p>
@@ -209,14 +214,14 @@ export async function HomeNarrative() {
               </p>
               <Link
                 href="/our-partners/"
-                className="label mt-6 inline-block text-brand underline-offset-4 hover:underline"
+                className="label mt-5 inline-block py-1.5 text-brand underline-offset-4 hover:underline"
               >
                 Find a partner center by state →
               </Link>
             </div>
             {homeContent.stats.items.slice(1).map((s) => (
-              <div key={s.label} className="py-10 text-navy md:px-10">
-                <p className="display-sans text-4xl whitespace-nowrap md:text-5xl">
+              <div key={s.label} className="py-10 text-navy lg:px-6 xl:px-10">
+                <p className="display-sans text-4xl whitespace-nowrap md:text-5xl lg:text-4xl xl:text-5xl">
                   <CountUp text={s.value} />
                 </p>
                 <p className="label mt-3 text-muted">

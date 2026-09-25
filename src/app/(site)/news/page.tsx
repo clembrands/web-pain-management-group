@@ -38,7 +38,7 @@ export default async function NewsPage() {
                 <p className="mt-4 text-muted">{excerpt(post.body, 220)}</p>
                 <Link
                   href={`/news/${post.slug}/`}
-                  className="mt-5 inline-block text-sm font-semibold text-brand"
+                  className="mt-5 inline-block py-0.5 text-sm font-semibold text-brand"
                 >
                   Read more<span className="sr-only">: {post.title}</span> →
                 </Link>

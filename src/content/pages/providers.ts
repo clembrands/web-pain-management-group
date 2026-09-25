@@ -2,18 +2,12 @@
 // (/service/), the Rev 2.0 notes (autonomy, procedure support, schedules), and facts already
 // on the site. Anything PMG has not confirmed is a {{TBD: ...}} placeholder.
 import type { EditorialContent } from "./partnership.ts";
-
-const concept = "Concept photography · final PMG imagery to follow";
+import { providerResources } from "../pmg-deck.ts";
 
 export const providerPages: Record<string, EditorialContent> = {
   "/providers/": {
     eyebrow: "For physicians and APPs",
     lede: "Pain Management Group is looking for pain management physicians and qualified advanced practice clinicians to join its partner programs: hospital-based pain centers in community hospitals and health systems.",
-    media: {
-      src: "/assets/concept-exam-room.jpg",
-      alt: "An empty consultation room in a community hospital clinic, lit by a window",
-      caption: concept,
-    },
     sections: [
       {
         id: "where-you-practice",
@@ -49,11 +43,6 @@ export const providerPages: Record<string, EditorialContent> = {
   "/providers/why-pmg/": {
     eyebrow: "For Providers and APPs",
     lede: "What practicing at a PMG partner center looks like: how much clinical autonomy you have, what support comes with procedures, and how schedules work.",
-    media: {
-      src: "/assets/concept-corridor.jpg",
-      alt: "A physician walking through the corridor of a community hospital outpatient clinic",
-      caption: concept,
-    },
     sections: [
       {
         id: "autonomy",
@@ -67,9 +56,17 @@ export const providerPages: Record<string, EditorialContent> = {
         id: "procedure-support",
         title: "Procedure support",
         paragraphs: [
-          "{{TBD: procedure support at partner centers, such as procedure space, equipment, and clinical staff}}",
+          "Every partner center has a procedure room for interventional procedures, with a C-arm and a fluoroscopy-compatible procedure table, radiofrequency ablation equipment, and other equipment based on the procedures offered. The hospital provides anesthesia support for select procedures, sterile processing, and clinical supplies.",
           "PMG's [Pain Education library](/pain-education/) covers interventional procedures including epidural steroid injections, radiofrequency ablation, and spinal cord stimulation.",
         ],
+      },
+      {
+        id: "resources",
+        title: "Resources behind every provider",
+        paragraphs: [
+          "Providers at partner centers work with iStats, PMG's program data system, and the resources PMG shares across its network:",
+        ],
+        cards: providerResources,
       },
       {
         id: "schedules",

@@ -102,6 +102,12 @@
     font-family: var(--font-poppins-light, var(--font-poppins));
     font-weight: 200;
   }
+  /* Hero headlines read a step stronger on phones, where the extra-light weight thins out. */
+  @media (width < 48rem) {
+    .hero-title {
+      font-weight: 300;
+    }
+  }
   .numeral {
     font-size: clamp(3.5rem, 2rem + 7vw, 9rem);
     line-height: 0.9;

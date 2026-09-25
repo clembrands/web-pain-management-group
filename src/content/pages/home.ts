@@ -1,7 +1,7 @@
 // Home page copy (Phase 3). The layout is the approved 1H concept; the copy is rewritten
 // from the live site. The partner hospital count is counted from the partner directory
-// ("directory"); every other figure is a {{SAMPLE: key}} from src/content/sample-figures.ts
-// until PMG confirms it.
+// ("directory"); other figures are PMG's own ({{PMG: key}}, src/content/pmg-figures.ts) or,
+// where PMG has not given one, a {{SAMPLE: key}} from src/content/sample-figures.ts.
 export const homeContent = {
   hero: {
     title: "You run the hospital.",
@@ -11,7 +11,7 @@ export const homeContent = {
     facts: [
       "Partnering with hospitals since {{SAMPLE: firstYear}}",
       "directory:hospitals partner hospitals",
-      "{{SAMPLE: careLocations}} care locations",
+      "{{PMG: careLocations}} care locations",
     ],
     // The same three facts as label and figure pairs, for number-led layouts.
     figures: [
@@ -20,23 +20,26 @@ export const homeContent = {
         value: "{{SAMPLE: firstYear}}",
       },
       { label: "Partner hospitals", value: "directory:hospitals" },
-      { label: "Care locations", value: "{{SAMPLE: careLocations}}" },
+      { label: "Care locations", value: "{{PMG: careLocations}}" },
     ],
   },
   stats: {
     title: "Hospital-based pain programs, measured, not estimated.",
     description:
-      "Quantifiable outcomes and results are part of every PMG partnership. The partner hospital count comes from PMG's partner directory; the other figures are illustrative until PMG confirms them.",
+      "Quantifiable outcomes and results are part of every PMG partnership. The partner hospital count comes from PMG's partner directory; the other figures are as PMG reports them.",
     items: [
       { value: "directory:hospitals", label: "partner hospitals" },
       {
-        value: "{{SAMPLE: patientEncounters}}",
-        label: "patient encounters in {{SAMPLE: reportingYear}}",
+        value: "{{PMG: patientEncounters}}",
+        label: "patient encounters in {{PMG: reportingYear}}",
       },
-      { value: "{{SAMPLE: partnerRetention}}", label: "partner retention" },
       {
-        value: "{{SAMPLE: yearsOperating}}",
-        label: "of hospital-based pain management",
+        value: "{{PMG: partnerRetention}}",
+        label: "partner retention, past two years",
+      },
+      {
+        value: "{{PMG: yearsOperating}}",
+        label: "in operation",
       },
     ],
   },

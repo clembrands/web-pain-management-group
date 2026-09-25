@@ -1,4 +1,7 @@
 import { SectionsWithNav } from "@/components/editorial";
+import { DeckFigure } from "@/components/design/deck-figures";
+import { RichText } from "@/components/rich-text";
+import { scorecardIntro } from "@/content/pmg-deck";
 import { MetricTiles } from "@/components/metrics";
 import { PageShell } from "@/components/page-shell";
 import { dashboardGroups, directoryMetrics } from "@/content/pages/results";
@@ -23,11 +26,29 @@ export default async function DashboardPage() {
         "/partnership/questions/",
       ]}
     >
-      <SectionsWithNav items={dashboardGroups}>
+      <SectionsWithNav
+        items={[
+          { id: "scorecard", title: "The quarterly partner scorecard" },
+          ...dashboardGroups,
+        ]}
+      >
+        <section
+          id="scorecard"
+          className="scroll-mt-8 border-b border-line pb-10"
+        >
+          <h2 className="text-2xl md:text-[30px]">
+            The quarterly partner scorecard
+          </h2>
+          <p className="mt-3 mb-6 text-muted">
+            <RichText text={scorecardIntro} />
+          </p>
+          <DeckFigure id="scorecard" />
+        </section>
         <p className="border-l-2 border-[#e7d6ac] bg-[#fbf6ea] p-5 text-sm text-[#6b4f10]">
-          The partner and state counts come from the partner directory. The
-          other figures are illustrative until PMG confirms them, and the set of
-          measures is a draft.
+          Partner and state counts come from the partner directory. Figures
+          sourced to the PMG onboarding homework are PMG&apos;s own; the rest
+          are illustrative until PMG confirms them. The set of measures is a
+          draft.
         </p>
         {dashboardGroups.map((g) => (
           <section

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { EndCta } from "@/components/cta";
 import { RichText } from "@/components/rich-text";
+import { heroImageFor } from "@/content/hero-images";
 import type { Media } from "@/content/pages/partnership";
 import { breadcrumbTrail, getRoute, type SiteRoute } from "@/lib/routes";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -39,7 +40,7 @@ export function Breadcrumbs({
               ) : (
                 <Link
                   href={r.path}
-                  className={dark ? "hover:text-white" : "hover:text-brand"}
+                  className={`-my-1 inline-block py-1 ${dark ? "hover:text-white" : "hover:text-brand"}`}
                 >
                   {r.path === "/" ? "Home" : (r.navLabel ?? r.title)}
                 </Link>
@@ -86,7 +87,7 @@ export function PageShell({
   route: routeOverride,
   eyebrow,
   lede,
-  media,
+  media: mediaOverride,
   secondary: secondaryOverride,
   related = [],
   children,
@@ -103,6 +104,7 @@ export function PageShell({
   children?: React.ReactNode;
 }) {
   const route = routeOverride ?? getRoute(path);
+  const media = mediaOverride ?? heroImageFor(path);
   const action =
     route.audience === "utility" ? undefined : primaryAction[route.audience];
   const secondary =
@@ -145,7 +147,9 @@ export function PageShell({
                 breadcrumbTrail(path, routeOverride).at(-2)?.navLabel ??
                 "PMG"}
             </p>
-            <h1 className="display-md display-sans mt-6">{route.title}</h1>
+            <h1 className="display-md display-sans hero-title mt-6">
+              {route.title}
+            </h1>
             <p className="mt-8 max-w-xl text-base text-[#c4d3df] md:text-lg">
               <RichText text={lede ?? route.description} />
             </p>

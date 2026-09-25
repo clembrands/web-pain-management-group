@@ -1,4 +1,5 @@
 import { Timeline } from "@/components/design/sections";
+import { CardGrid, DeckFigure } from "@/components/design/deck-figures";
 import { RichText } from "@/components/rich-text";
 import { TestimonialQuote } from "@/components/testimonial";
 import { PageShell } from "@/components/page-shell";
@@ -33,12 +34,12 @@ export function SectionsWithNav({
     >
       <aside className="border-t border-line pt-5 lg:sticky lg:top-8">
         <p className="label text-brand">On this page</p>
-        <nav aria-label="On this page" className="mt-5 space-y-3">
+        <nav aria-label="On this page" className="mt-5 space-y-1">
           {items.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="block text-sm leading-snug text-muted hover:text-brand"
+              className="block py-1 text-sm leading-snug text-muted hover:text-brand"
             >
               {s.title}
             </a>
@@ -84,6 +85,25 @@ export function EditorialSection({ section }: { section: Section }) {
           <Timeline steps={section.steps} />
         </div>
       )}
+      {section.figure && (
+        <div className="mt-10">
+          <DeckFigure id={section.figure} />
+        </div>
+      )}
+      {section.cards && (
+        <div className="mt-10">
+          <CardGrid
+            cards={section.cards}
+            columns={section.cardColumns}
+            numbered={section.numberedCards}
+          />
+        </div>
+      )}
+      {section.after?.map((p) => (
+        <p key={p} className="mt-6 text-muted">
+          <RichText text={p} />
+        </p>
+      ))}
       {section.quote && (
         <div className="mt-10">
           <TestimonialQuote name={section.quote} />

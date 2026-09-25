@@ -1,8 +1,13 @@
 // Draft copy for About PMG (Phase 8). The mission language is taken from the live About
 // page; unconfirmed facts are {{TBD: ...}} placeholders.
 import type { EditorialContent } from "./partnership.ts";
+import { leaders, mission, values, vision } from "../pmg-deck.ts";
 
-// Verbatim from the live About page.
+// Verbatim from the live About page. PMG's deck now states the mission as `mission`
+// (src/content/pmg-deck.ts); this line stays as the "how we work" sentence.
+// "To provide ..." as it reads mid-sentence.
+const lower = (s: string) => s.charAt(0).toLowerCase() + s.slice(1);
+
 export const missionStatement =
   "Together we manage socially and medically responsible pain management programs.";
 
@@ -15,22 +20,22 @@ export const aboutPages: Record<string, EditorialContent> = {
         id: "who-we-are",
         title: "Who we are",
         paragraphs: [
-          "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment. PMG has been partnering with hospitals since {{SAMPLE: firstYear}}.",
+          "PMG is a mission-driven organization. It exists to help hospitals better serve their communities by providing safe and responsible pain treatment, and has been partnering with hospitals since {{SAMPLE: firstYear}}.",
           "Each partner receives the blueprint and ongoing program management to grow a high-quality, outpatient pain management service line.",
         ],
       },
       {
         id: "mission",
-        title: "Our mission",
+        title: "Our mission and vision",
         paragraphs: [
-          `${missionStatement} [Read our mission and story](/about-us/mission/).`,
+          `Our mission is ${lower(mission)} Our vision is ${lower(vision)} [Read our mission, vision, and values](/about-us/mission/).`,
         ],
       },
       {
         id: "people",
         title: "The people behind PMG",
         paragraphs: [
-          "Meet the [Leadership Team](/about-us/leadership/). For non-clinical roles on PMG's internal team, see [Internal Team Opportunities](/about-us/careers/).",
+          `PMG is led by ${leaders.map((l) => `${l.name}, ${l.title}`).join(", and ")}. Meet the [Leadership Team](/about-us/leadership/). For non-clinical roles on PMG's internal team, see [Internal Team Opportunities](/about-us/careers/).`,
         ],
       },
       {
@@ -46,8 +51,23 @@ export const aboutPages: Record<string, EditorialContent> = {
 
   "/about-us/mission/": {
     eyebrow: "About PMG",
-    lede: missionStatement,
+    lede: mission,
     sections: [
+      {
+        id: "mission-vision",
+        title: "Our mission and vision",
+        paragraphs: [
+          `Our mission is ${lower(mission)}`,
+          `Our vision is ${lower(vision)}`,
+          `${missionStatement} PMG's partner centers carry that mission into their communities as Balanced Pain Treatment Centers.`,
+        ],
+      },
+      {
+        id: "values",
+        title: "Our values",
+        cards: values,
+        cardColumns: 3,
+      },
       {
         id: "why-pmg-exists",
         title: "Why PMG exists",
@@ -113,6 +133,8 @@ export const aboutPages: Record<string, EditorialContent> = {
   },
 };
 
-// Leadership waits on names, titles, credentials, and headshots from PMG. The page is built
-// with TBD profiles and stays noindex until they arrive. Person schema is added then.
-export const leadershipSlots = 3;
+// Leadership: names and titles from PMG's partnership deck. Credentials, biographies, and
+// headshots wait on PMG; the page stays noindex until they arrive, and Person schema is
+// added then. Raise the slot count to add placeholder profiles for more leaders.
+export { leaders };
+export const leadershipSlots = 0;

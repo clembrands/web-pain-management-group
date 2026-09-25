@@ -94,6 +94,18 @@ export const glossary: GlossaryTerm[] = [
     definition:
       "The share of partner hospitals that continue a partnership when its term ends.",
   },
+  {
+    id: "market-capture",
+    term: "Market capture",
+    definition:
+      "The share of the pain care needed in a hospital's service area that its own pain center provides, often measured by ZIP code.",
+  },
+  {
+    id: "referral-conversion",
+    term: "Referral conversion",
+    definition:
+      "The share of referrals to a clinic that become a scheduled appointment.",
+  },
 ];
 
 export const glossaryTerm = (id: string) => {

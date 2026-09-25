@@ -20,11 +20,15 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 --launch` fail while any page still shows one.
 - [ ] Every item in `deliverables/PMG-items-to-confirm.md` is closed. That file is the one
       list sent to PMG; every `{{TBD: ...}}` on the site maps to an item in it.
-- [ ] Clembrands verifies the pain statistic on `/partnership/`: "An estimated 100 million U.S.
-      adults live with chronic pain, more than heart disease, cancer, and diabetes combined,"
-      cited to the Institute of Medicine (2011), _Relieving Pain in America_,
-      https://www.nationalacademies.org/publications/13172. Check the figure and the
-      comparison against the report.
+- [x] Pain statistics on Home and `/partnership/` (from PMG's deck): 50 million U.S. adults
+      with chronic pain, 19.6 million with high-impact chronic pain, cited to CDC, MMWR
+      67(36), September 2018, 2016 data,
+      https://www.cdc.gov/mmwr/volumes/67/wr/mm6736a2.htm. Checked against the report in
+      September 2026. (They replace the Institute of Medicine's 100 million, which counts
+      differently, so the two are not shown side by side.)
+- [ ] PMG's clinical team reviews the copy written from the partnership deck on
+      `/partnership/balanced-pain-treatment/` (treatment plan, care network, chart and
+      time-out audits) and the answer on responsible prescribing.
 - [ ] PMG signs off on two answers on `/partnership/questions/`: "How do you keep pain care,
       including opioid prescribing, responsible?" (clinical team) and "What happens if the
       partnership isn't working?" (contract terms).
@@ -40,10 +44,11 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
       Check with `grep -r "Concept photography" src/`.
 - [ ] The concept hero video `public/video/hero-corridor.*` (Home) is replaced with PMG
       footage or approved by PMG as concept footage.
-- [ ] The uncaptioned concept photographs `public/assets/concept-corridor.jpg` and
-      `public/assets/concept-exam-room.jpg` (design lab, then Home if Direction B is chosen)
-      are replaced with real PMG photographs. They carry no caption, so the grep above does
-      not find them.
+- [ ] Every concept hero photograph is replaced with PMG photography or approved by PMG:
+      the 15 images in `public/assets/hero/` (mapped to pages in
+      `src/content/hero-images.ts`).
+      Their captions are hidden from view but still carry "Concept photography", so the grep
+      above finds every page that uses one.
 
 ### URLs and indexing
 

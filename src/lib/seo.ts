@@ -11,11 +11,17 @@ import { pageTitle } from "@/lib/page-title";
 export { pageTitle };
 export { allowedCrawlers } from "@/lib/crawlers";
 
+// On Vercel production without NEXT_PUBLIC_SITE_URL, use the project's production domain,
+// not the per-deployment URL: deployment URLs sit behind Deployment Protection, so share
+// images and canonicals pointing there fail for crawlers and link previews.
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ||
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000")
+  (process.env.VERCEL_ENV === "production" &&
+  process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000")
 ).replace(/\/$/, "");
 
 // Indexing is opt-in: only the production deployment with NEXT_PUBLIC_INDEXABLE=true.
