@@ -132,7 +132,7 @@ export async function HomeNarrative() {
           {/* Concept photograph, replaced by PMG's own before launch (launch checklist). */}
           <figure className="duotone-wrap relative aspect-[3/4] max-h-[720px] w-full lg:aspect-auto lg:h-auto lg:min-h-[640px]">
             <Image
-              src="/assets/concept-exam-room.jpg"
+              src="/assets/hero/balanced-pain-treatment.jpg"
               alt=""
               fill
               sizes="(max-width: 1023px) 100vw, 40vw"

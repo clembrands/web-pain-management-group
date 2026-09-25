@@ -40,10 +40,11 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
       Check with `grep -r "Concept photography" src/`.
 - [ ] The concept hero video `public/video/hero-corridor.*` (Home) is replaced with PMG
       footage or approved by PMG as concept footage.
-- [ ] The uncaptioned concept photographs `public/assets/concept-corridor.jpg` and
-      `public/assets/concept-exam-room.jpg` (design lab, then Home if Direction B is chosen)
-      are replaced with real PMG photographs. They carry no caption, so the grep above does
-      not find them.
+- [ ] Every concept hero photograph is replaced with PMG photography or approved by PMG:
+      the 15 images in `public/assets/hero/` (mapped to pages in
+      `src/content/hero-images.ts`).
+      Their captions are hidden from view but still carry "Concept photography", so the grep
+      above finds every page that uses one.
 
 ### URLs and indexing
 

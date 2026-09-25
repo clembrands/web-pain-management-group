@@ -3,6 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { EndCta } from "@/components/cta";
 import { RichText } from "@/components/rich-text";
+import { heroImageFor } from "@/content/hero-images";
 import type { Media } from "@/content/pages/partnership";
 import { breadcrumbTrail, getRoute, type SiteRoute } from "@/lib/routes";
 import { breadcrumbJsonLd } from "@/lib/seo";
@@ -86,7 +87,7 @@ export function PageShell({
   route: routeOverride,
   eyebrow,
   lede,
-  media,
+  media: mediaOverride,
   secondary: secondaryOverride,
   related = [],
   children,
@@ -103,6 +104,7 @@ export function PageShell({
   children?: React.ReactNode;
 }) {
   const route = routeOverride ?? getRoute(path);
+  const media = mediaOverride ?? heroImageFor(path);
   const action =
     route.audience === "utility" ? undefined : primaryAction[route.audience];
   const secondary =
