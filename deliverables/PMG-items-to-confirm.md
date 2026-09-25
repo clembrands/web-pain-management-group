@@ -158,8 +158,10 @@ The directory powers Our Partners, the ten state pages, and the partner counts. 
 name exactly as it appears on the current site, and we never publish a city we are not sure of.
 
 - [ ] Is the directory **complete and current**? Any partners to add or remove?
-- [ ] **Permission to show partner hospital logos.** The Home page shows four logos from the
-      approved design concept.
+- [ ] **Permission to show partner hospital logos.** The Home page now shows all 40 logos
+      you supplied, in a band directly under the headline figures. Please confirm each
+      hospital is comfortable being shown, and tell us the full names behind "HMC" and
+      "PCMH" for the image descriptions.
 
 ### Partners with no address on the current site
 

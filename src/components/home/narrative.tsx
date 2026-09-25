@@ -16,6 +16,7 @@ import { PartnerMap } from "@/components/partner-map";
 import { RichText } from "@/components/rich-text";
 import { homeContent } from "@/content/pages/home";
 import { painBurden } from "@/content/pmg-deck";
+import partnerLogos from "@/content/partner-logos.json";
 import {
   homeQuestionIds,
   hospitalLeaderQuestions,
@@ -24,7 +25,7 @@ import {
   pillars,
 } from "@/content/pages/partnership";
 import { directoryCounts } from "@/lib/partner-stats";
-import { getPartnerHospitals, getPartners } from "@/sanity/lib/content";
+import { getPartnerHospitals } from "@/sanity/lib/content";
 
 // Home as a narrative for hospital leaders (the chosen "Monument" direction): ultra-light
 // display type at large scale, dark-first, panels that break the grid, duotone concept
@@ -32,10 +33,7 @@ import { getPartnerHospitals, getPartners } from "@/sanity/lib/content";
 // phases as a timeline, proof (map and directory count), the Martin testimonial, questions,
 // closing CTA. Copy comes from src/content; motion is CSS only (globals.css).
 export async function HomeNarrative() {
-  const [partners, hospitals] = await Promise.all([
-    getPartners(),
-    getPartnerHospitals(),
-  ]);
+  const hospitals = await getPartnerHospitals();
   const counts = directoryCounts(hospitals);
   const hero = homeContent.hero;
   const problem = partnershipPages["/partnership/"].sections[0];
@@ -75,7 +73,7 @@ export async function HomeNarrative() {
 
       {/* 2. The problem; a white figures panel breaks the hero's bottom edge */}
       <section className="bg-white">
-        <div className="container-shell relative -mt-20 pb-24 md:-mt-28 md:pb-32">
+        <div className="container-shell relative -mt-20 md:-mt-28">
           <dl className="grid divide-y divide-line bg-white shadow-[0_40px_80px_-40px_rgba(15,30,44,.55)] sm:grid-cols-3 sm:divide-x sm:divide-y-0 md:-mx-12">
             {figures.map((f) => (
               <div key={f.label} className="px-6 py-8 md:px-10 md:py-12">
@@ -86,7 +84,14 @@ export async function HomeNarrative() {
               </div>
             ))}
           </dl>
-          <div className="mt-24 grid gap-12 md:mt-32 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
+        </div>
+        {/* Partner logos directly under the figures: the fastest proof for a hospital leader. */}
+        <LogoMarquee
+          logos={partnerLogos}
+          title={`Trusted by ${counts.hospitals} hospitals and health systems in ${counts.states} states`}
+        />
+        <div className="container-shell pb-24 md:pb-32">
+          <div className="grid gap-12 pt-16 md:pt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
             <div>
               <p className="label text-brand">The problem</p>
               <p className="numeral display-sans mt-8 text-navy">
@@ -232,7 +237,6 @@ export async function HomeNarrative() {
           </div>
         </div>
       </section>
-      <LogoMarquee partners={partners} title="Our partners" />
 
       {/* 6. Testimonial as a statement */}
       <Statement name="Patrick J. Martin" face="sans" tone="deep" />

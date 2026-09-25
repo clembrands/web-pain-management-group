@@ -139,48 +139,57 @@ export function LogoBand({
   );
 }
 
-// Partner logos as a slow, continuous scroll on white, in their own colours. The list is
-// repeated so the loop has no gap at any viewport width; the second track is a copy hidden
-// from assistive technology. Under prefers-reduced-motion the copy is hidden and the row
-// stands still.
+// Partner logos as a slow, continuous scroll on white, in grey until hovered. A short list
+// is repeated so the loop has no gap at any viewport width; the second track is a copy
+// hidden from assistive technology. The speed scales with the number of logos. Under
+// prefers-reduced-motion the copy is hidden and the logos wrap as a still grid.
+export type Logo = { src: string; alt: string; width: number; height: number };
+
 export function LogoMarquee({
-  partners,
+  logos,
   title,
 }: {
-  partners: Partner[];
+  logos: Logo[];
   title: string;
 }) {
-  const logos = partners.filter((p) => p.logo?.url);
-  const repeated = [0, 1, 2].flatMap((n) =>
-    logos.map((p) => ({ ...p, key: `${p._id}-${n}` })),
-  );
+  // Enough copies to fill a wide screen; a short set repeats, the full set does not.
+  const copies = logos.length < 12 ? 3 : 1;
+  const repeated = Array.from({ length: copies }, (_, n) =>
+    logos.map((logo) => ({ ...logo, key: `${logo.src}-${n}` })),
+  ).flat();
   const track = (hidden: boolean) => (
     <ul
       aria-hidden={hidden || undefined}
-      className="marquee-track flex shrink-0 items-center gap-20 pr-20 md:gap-28 md:pr-28"
+      className="marquee-track flex shrink-0 items-center gap-14 pr-14 md:gap-20 md:pr-20"
     >
-      {repeated.map((partner) => (
-        <li
-          key={partner.key}
-          className="relative h-10 w-40 shrink-0 md:h-12 md:w-48"
-        >
+      {repeated.map((logo) => (
+        <li key={logo.key} className="shrink-0">
           <Image
-            src={partner.logo.url}
-            alt={hidden ? "" : partner.logo.alt || partner.name}
-            fill
-            sizes="192px"
-            className="object-contain"
+            src={logo.src}
+            alt={hidden ? "" : logo.alt}
+            width={logo.width}
+            height={logo.height}
+            sizes={`${logo.width}px`}
+            className="logo-mono"
+            style={{ width: logo.width, height: logo.height }}
           />
         </li>
       ))}
     </ul>
   );
   return (
-    <section className="hairline overflow-hidden bg-white py-12 md:py-14">
+    <section className="overflow-hidden pt-16 pb-4 md:pt-20">
       <div className="container-shell text-center">
-        <h2 className="label text-brand">{title}</h2>
+        <h2 className="label text-muted">{title}</h2>
       </div>
-      <div className="marquee mt-10 flex">
+      <div
+        className="marquee mt-10 flex [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
+        style={
+          {
+            "--marquee-duration": `${repeated.length * 3}s`,
+          } as React.CSSProperties
+        }
+      >
         {track(false)}
         {track(true)}
       </div>
