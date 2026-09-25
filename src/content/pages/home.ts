@@ -43,6 +43,10 @@ export const homeContent = {
       },
     ],
   },
+  // Home's problem section shows the two CDC figures above this, so its text starts here
+  // rather than repeating them.
+  problemLead:
+    "Despite the need, many hospitals lack an organized system for pain management.",
   locations: {
     title: "Hospital-based pain care, close to home.",
     description:

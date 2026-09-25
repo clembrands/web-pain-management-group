@@ -90,44 +90,57 @@ export async function HomeNarrative() {
           logos={partnerLogos}
           title={`Trusted by ${counts.hospitals} hospitals and health systems in ${counts.states} states`}
         />
-        <div className="container-shell pb-24 md:pb-32">
-          <div className="grid gap-12 pt-16 md:pt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
-            <div>
-              <p className="label text-brand">The problem</p>
-              <p className="numeral display-sans mt-8 text-navy">
-                <CountUp text={painBurden.chronic} />
-              </p>
-              <p className="label mt-4 text-muted">{painBurden.chronicLabel}</p>
-              <p className="mt-3 text-xs text-muted [&_a]:underline [&_a]:underline-offset-2">
-                <RichText text={painBurden.source} />
-              </p>
-              <h2 className="display-md display-sans mt-14 text-navy">
-                {problem.title}
-              </h2>
+      </section>
+
+      {/* The problem, on its own tinted band so it doesn't read as part of the logos. */}
+      <section className="bg-haze">
+        <div className="container-shell grid gap-12 py-24 md:py-32 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
+          <div>
+            <p className="label text-[#2d5d84]">The problem</p>
+            <dl className="mt-8 grid gap-8 border-t sm:grid-cols-2 border-[#cfdbe5] pt-8">
+              {[
+                [painBurden.chronic, painBurden.chronicLabel],
+                [painBurden.highImpact, painBurden.highImpactLabel],
+              ].map(([value, label]) => (
+                <div key={label}>
+                  <dt className="sr-only">{label}</dt>
+                  <dd className="display-sans text-4xl whitespace-nowrap text-navy tabular-nums md:text-5xl">
+                    <CountUp text={value} />
+                  </dd>
+                  <dd className="mt-3 text-sm text-muted">{label}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-6 text-xs text-muted [&_a]:underline [&_a]:underline-offset-2">
+              <RichText text={painBurden.source} />
+            </p>
+            <h2 className="display-md display-sans mt-14 text-navy">
+              {problem.title}
+            </h2>
+          </div>
+          <div className="reveal lg:pt-10">
+            <div className="max-w-lg space-y-5 text-muted">
+              <p>{homeContent.problemLead}</p>
+              {problem.paragraphs?.slice(1).map((p) => (
+                <p key={p}>
+                  <RichText text={p} />
+                </p>
+              ))}
             </div>
-            <div className="reveal lg:pt-28">
-              <div className="max-w-lg space-y-5 text-muted">
-                {problem.paragraphs?.map((p) => (
-                  <p key={p}>
-                    <RichText text={p} />
-                  </p>
-                ))}
-              </div>
-              <ol className="mt-10 min-[1440px]:-mr-24">
-                {problem.cards?.map((card, i) => (
-                  <li
-                    key={card.title}
-                    className="grid grid-cols-[3rem_1fr] items-baseline border-t border-line py-4 text-[15px]"
-                  >
-                    <span className="label text-brand">0{i + 1}</span>
-                    <span>
-                      <span className="font-medium text-ink">{card.title}</span>
-                      <span className="text-muted">. {card.body}</span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
+            <ol className="mt-10 min-[1440px]:-mr-24">
+              {problem.cards?.map((card, i) => (
+                <li
+                  key={card.title}
+                  className="grid grid-cols-[3rem_1fr] items-baseline border-t border-[#cfdbe5] py-4 text-[15px]"
+                >
+                  <span className="label text-[#2d5d84]">0{i + 1}</span>
+                  <span>
+                    <span className="font-medium text-ink">{card.title}</span>
+                    <span className="text-muted">. {card.body}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
           </div>
         </div>
       </section>

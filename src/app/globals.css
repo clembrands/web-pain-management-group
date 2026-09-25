@@ -9,6 +9,7 @@
   --color-muted: #55626d;
   --color-line: #e1e9ef;
   --color-mist: #f7fafc;
+  --color-haze: #ebf1f6;
 }
 @layer base {
   body {

@@ -178,7 +178,7 @@ export function LogoMarquee({
     </ul>
   );
   return (
-    <section className="overflow-hidden pt-16 pb-4 md:pt-20">
+    <section className="overflow-hidden pt-16 pb-16 md:pt-20 md:pb-20">
       <div className="container-shell text-center">
         <h2 className="label text-muted">{title}</h2>
       </div>
