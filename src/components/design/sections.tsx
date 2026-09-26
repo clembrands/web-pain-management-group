@@ -141,8 +141,9 @@ export function LogoBand({
 
 // Partner logos as a slow, continuous scroll on white, in grey until hovered. A short list
 // is repeated so the loop has no gap at any viewport width; the second track is a copy
-// hidden from assistive technology. The speed scales with the number of logos. Under
-// prefers-reduced-motion the copy is hidden and the logos wrap as a still grid.
+// hidden from assistive technology. The speed scales with the number of logos; hover or
+// keyboard focus pauses it. Under prefers-reduced-motion it stands still as one row the
+// reader swipes or scrolls through.
 export type Logo = { src: string; alt: string; width: number; height: number };
 
 export function LogoMarquee({
@@ -183,7 +184,10 @@ export function LogoMarquee({
         <h2 className="label text-muted">{title}</h2>
       </div>
       <div
-        className="marquee mt-10 flex [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
+        role="region"
+        aria-label="Partner hospital logos"
+        tabIndex={0}
+        className="marquee mt-10 flex focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
         style={
           {
             "--marquee-duration": `${repeated.length * 3}s`,

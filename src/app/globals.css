@@ -235,16 +235,27 @@
   filter: none;
   opacity: 1;
 }
-.marquee:hover .marquee-track {
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
   animation-play-state: paused;
 }
+/* Reduced motion: the band stands still as one row the reader swipes or scrolls through. */
 @media (prefers-reduced-motion: reduce) {
   .marquee {
-    @apply flex-wrap justify-center;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  .marquee::-webkit-scrollbar {
+    display: none;
   }
   .marquee-track {
-    @apply shrink flex-wrap justify-center gap-y-8;
     animation: none;
+    padding-inline: max(1.5rem, calc((100vw - 80rem) / 2 + 1.5rem));
+  }
+  .marquee-track > li {
+    scroll-snap-align: center;
   }
   .marquee-track[aria-hidden] {
     display: none;
