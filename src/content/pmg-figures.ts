@@ -1,7 +1,8 @@
 // Figures PMG has stated in writing, shown as plain figures. Unlike sample figures they are
 // PMG's own numbers, so they do not fail the launch check; they are still listed on PMG's
 // confirmation list for final sign-off of the wording and period.
-// Source: PMG Website Onboarding Homework, 7.1.26 (deliverables/), section 2.
+// Sources: PMG Website Onboarding Homework, 7.1.26 (deliverables/), section 2; and Cole
+// McMath's written answers to the website questions, September 25, 2026 (marked below).
 export type PmgFigure = {
   value: string;
   // What PMG wrote, word for word where it matters.
@@ -10,6 +11,8 @@ export type PmgFigure = {
 };
 
 export const pmgSource = "PMG onboarding homework, July 2026";
+export const pmgAnswersSource =
+  "Cole McMath, PMG, answers to website questions, September 25, 2026";
 
 export const pmgFigures = {
   partnerships: {
@@ -38,8 +41,47 @@ export const pmgFigures = {
     period: "Current",
   },
   yearsOperating: {
-    value: "20 years",
-    stated: "20 years of operation",
+    value: "20+ years",
+    stated:
+      "20 years of operation (homework); first hospital partnership in 2004 (Cole McMath)",
+    period: "Current",
+  },
+  // From Cole McMath's answers (pmgAnswersSource).
+  firstPartnership: {
+    value: "2004",
+    stated: "First hospital partnership was in 2004.",
+    period: "Current",
+  },
+  established: {
+    value: "2009",
+    stated: "Next hospitals didn't come online and PMG established in 2009.",
+    period: "Current",
+  },
+  hospitalEquity: {
+    value: "51%",
+    stated: "Hospital owns 51% equity",
+    period: "Current",
+  },
+  pmgEquity: {
+    value: "49%",
+    stated: "PMG owns 49% equity",
+    period: "Current",
+  },
+  timeToFirstPatient: {
+    value: "six months or less",
+    stated:
+      "From signed agreement to first patient is typically 6 months or less.",
+    period: "Current",
+  },
+  enrollmentDays: {
+    value: "about 120 days",
+    stated: "a 120 day full insurance enrollment process",
+    period: "Current",
+  },
+  locationAddDays: {
+    value: "about 90 days",
+    stated:
+      "or 90 days for a location add for existing providers already practicing on the PMG tax Id",
     period: "Current",
   },
 } satisfies Record<string, PmgFigure>;

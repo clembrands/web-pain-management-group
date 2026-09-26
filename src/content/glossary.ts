@@ -95,6 +95,12 @@ export const glossary: GlossaryTerm[] = [
       "The share of partner hospitals that continue a partnership when its term ends.",
   },
   {
+    id: "split-bill",
+    term: "Split billing",
+    definition:
+      "A billing model in which the hospital bills the facility fee for a visit or procedure and a separate group bills the professional fee for the clinician's services.",
+  },
+  {
     id: "market-capture",
     term: "Market capture",
     definition:

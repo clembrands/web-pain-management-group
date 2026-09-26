@@ -20,7 +20,7 @@ export const aboutPages: Record<string, EditorialContent> = {
         id: "who-we-are",
         title: "Who we are",
         paragraphs: [
-          "PMG is a mission-driven organization. It exists to help hospitals better serve their communities by providing safe and responsible pain treatment, and has been partnering with hospitals since {{SAMPLE: firstYear}}.",
+          "PMG is a mission-driven organization. It exists to help hospitals better serve their communities by providing safe and responsible pain treatment, and has been partnering with hospitals since its first partnership in {{PMG: firstPartnership}}. The company was established in {{PMG: established}}.",
           "Each partner receives the blueprint and ongoing program management to grow a high-quality, outpatient pain management service line.",
         ],
       },
@@ -73,7 +73,7 @@ export const aboutPages: Record<string, EditorialContent> = {
         title: "Why PMG exists",
         paragraphs: [
           "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment.",
-          "Since {{SAMPLE: firstYear}}, PMG has been partnering with hospitals to manage socially and medically responsible pain management centers.",
+          "Since its first hospital partnership in {{PMG: firstPartnership}}, PMG has been partnering with hospitals to manage socially and medically responsible pain management centers. Pain Management Group was established as a company in {{PMG: established}}.",
         ],
       },
       {

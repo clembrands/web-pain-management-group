@@ -11,10 +11,6 @@ export type SampleFigure = {
 };
 
 export const sampleFigures = {
-  firstYear: {
-    value: "2009",
-    note: "First partnership year. The live site says 2009; PMG's onboarding homework says 20 years of operation (about 2006). PMG confirms which is right.",
-  },
   newPatients: {
     value: "12,500",
     note: "New patients in the reporting year. Illustrative; PMG supplies the real figure.",
@@ -29,7 +25,7 @@ export const sampleFigures = {
   },
   longestPartnershipYears: {
     value: "17 years",
-    note: "Longest-running partnership, counted from the 2009 first year on the live site. PMG confirms.",
+    note: "Longest-running partnership still active. Illustrative; PMG's first partnership began in 2004 and PMG was established in 2009. PMG confirms.",
   },
   patientSatisfaction: {
     value: "4.7 / 5",
@@ -42,10 +38,6 @@ export const sampleFigures = {
   edVisitChange: {
     value: "-22%",
     note: "Change in pain-related emergency visits. Illustrative; PMG supplies the real change and method.",
-  },
-  timeToFirstPatient: {
-    value: "6 to 9 months",
-    note: "Time from signed agreement to first patient. Illustrative; PMG confirms the typical range.",
   },
   breakEven: {
     value: "within 18 months",

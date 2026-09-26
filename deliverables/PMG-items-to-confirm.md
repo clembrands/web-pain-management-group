@@ -26,13 +26,14 @@ wording is right to publish:
 - [ ] **187,000 patient encounters in 2025.**
 - [ ] **95% partner retention over the past two years.**
 - [ ] **68 care locations** (the homework says "approximately 68").
-- [ ] **20 years in operation.**
+- [ ] **20+ years partnering with hospitals** (the homework's "20 years", updated because the
+      first partnership was in 2004).
 
 Still open:
 
-- [ ] **Year PMG began partnering with hospitals.** The current site says 2009, which would be
-      17 years, while the homework says 20 years of operation. Did PMG operate before its
-      first hospital partnership, or should the site say a different year?
+- [x] **Year PMG began partnering with hospitals.** Answered by Cole (September 25): first
+      partnership 2004, PMG established 2009. The site now says "partnering with hospitals
+      since 2004" and "established as a company in 2009". Confirm the wording.
 - [ ] **Average partnership length** and **longest-running partnership**, in years.
 - [ ] **Partner locations.** Your partnership deck says "50+ partner locations"; the homework
       says 40 partnerships and about 68 care locations. The site uses the homework figures.
@@ -50,21 +51,33 @@ confirmed answers matter more than polish.
 
 - [ ] Partnerships are described as **joint ventures** between the hospital and PMG. Is that
       the right term for every partnership?
-- [ ] The **legal structure** of the joint venture, the **ownership split**, and who holds
-      which **decision rights**.
-- [ ] The **hospital's typical startup investment**, what it covers (space, equipment,
-      staffing, working capital), and what PMG contributes.
-- [ ] How **professional and facility services are billed**, and by whom.
-- [ ] How **revenue is shared** and **operating income distributed**, and how PMG is paid
-      (management fee, share of income, or both).
+- [x] The **legal structure** of the joint venture, the **ownership split**, and who holds
+      which **decision rights**. Answered by Cole: hospital 51%, PMG 49%; three agreements
+      (management, services, operating); the hospital maintains operational control; the
+      hospital keeps downstream revenue. Now on the site.
+- [ ] The **hospital's typical startup investment**, what it covers (staffing, working
+      capital), and what PMG contributes. (Space and equipment are answered: the joint venture
+      leases them from the hospital.)
+- [x] How **professional and facility services are billed**, and by whom. Answered by Cole:
+      Medicare split-bill; the hospital bills facility fees, PMG bills professional fees and
+      carries their risk.
+- [x] How **revenue is shared** and how PMG is paid. Answered by Cole: a modest management
+      fee plus 49% of excess cash distributions; PMG is not paid from professional fees.
+- [ ] **Please confirm two wordings we chose:** Cole wrote that PMG "usually absorbs a loss on
+      the professional side". The site says PMG "carries the financial risk" of professional
+      billing instead. Keep that, or say it plainly? And the site calls the management fee
+      "modest", in Cole's word. Fine to publish?
 - [ ] **Typical time to break-even** across PMG partnerships.
-- [ ] **Typical time from signed agreement to first patient**, and the main steps in between
-      (agreement, joint-venture setup, launch).
+- [x] **Typical time from signed agreement to first patient.** Answered by Cole: six months
+      or less, driven by hospital privileging and insurance enrollment (about 120 days, or 90
+      days for a location add).
 - [ ] **Who recruits, employs, and credentials** the pain physicians and APPs, and how the care
       team is trained.
-- [ ] The **full split of responsibilities** between the hospital and PMG: space and equipment,
-      physician recruiting, staffing, credentialing, billing, marketing, and compliance.
-- [ ] **Governance:** whose name the program carries, and which decisions the hospital controls.
+- [ ] The **rest of the split of responsibilities** between the hospital and PMG: physician
+      recruiting, employment, credentialing, and marketing. (Space, equipment, billing, and
+      operational control are answered.)
+- [x] **Governance:** the hospital maintains operational control (Cole). Centers carry the
+      hospital's name, as on the current site.
 - [ ] **Three new questions** added from your homework's objections list, with answers to
       write together: taking business from orthopedics or primary care; compliance,
       including Stark law, opioid scrutiny, and billing; and "we have other priorities right
@@ -110,7 +123,9 @@ confirmed answers matter more than polish.
 **Sign-off needed: whoever approves PMG's partnership contracts.**
 
 - [ ] **Sign-off needed:** the answer to "What happens if the partnership isn't working?",
-      including contract term, performance review, and exit or unwind provisions.
+      including contract term, performance review, and exit or unwind provisions. Cole is
+      checking with the team on what PMG is comfortable publishing; the site keeps this as a
+      placeholder until then.
 
 ## 5. Results
 

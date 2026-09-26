@@ -95,10 +95,11 @@ facts, only clinician review.
 PMG's onboarding homework (July 2026) answers the headline figures, the objections hospital
 leaders raise, what sets PMG apart, and the provider selling points. PMG's partnership deck
 (September 2026, `deliverables/PMG-deck-notes.md`) answers what a hospital provides, what
-PMG reports and how often, the referral model, and how prescribing is audited. What is left
-fits five questions, by call or text, to the CEO or COO.
+PMG reports and how often, the referral model, and how prescribing is audited. Cole
+McMath answered questions 1 to 4 below on September 25, 2026 (now on the site); question 5,
+exit terms, is with PMG's team.
 
-**Five questions**
+**Five questions** (1 to 4 answered)
 Feeds `/partnership/financial-model/`, `/partnership/questions/`, Home.
 
 1. How is a partnership set up legally: who owns what, and who makes which decisions?

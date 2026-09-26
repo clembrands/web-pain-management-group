@@ -168,7 +168,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "track-record",
         title: "Hospitals that partner with PMG",
         paragraphs: [
-          "Hospitals have partnered with PMG since {{SAMPLE: firstYear}}. PMG has {{PMG: partnerships}} hospital partnerships today. [Find partner centers by state](/our-partners/).",
+          "PMG's first hospital partnership began in {{PMG: firstPartnership}}, and Pain Management Group was established as a company in {{PMG: established}}. PMG has {{PMG: partnerships}} hospital partnerships today. [Find partner centers by state](/our-partners/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -196,7 +196,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "phases",
         title: "The four phases of a partnership",
         paragraphs: [
-          "Typical time from signed agreement to first patient: {{SAMPLE: timeToFirstPatient}}.",
+          "From signed agreement to first patient typically takes {{PMG: timeToFirstPatient}}. The timeline depends mostly on the hospital's privileging process and on insurance enrollment: {{PMG: enrollmentDays}} for full enrollment of a new provider, or {{PMG: locationAddDays}} to add a location for providers already practicing under PMG.",
         ],
         steps: [
           {
@@ -205,7 +205,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
           },
           {
             title: phases[1].title,
-            body: `${phases[1].body} {{TBD: agreement and joint-venture setup steps}}`,
+            body: `${phases[1].body} The partnership is set up as a joint venture governed by three agreements: a management agreement that sets out PMG's management services, a services agreement that sets out the services the hospital provides, and an operating agreement that sets out how the partners work together.`,
           },
           {
             title: phases[2].title,
@@ -237,7 +237,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
         paragraphs: [
           "PMG brings the blueprint and ongoing program management. The hospital brings the facility, its standing in the community, and the primary care physicians who refer patients.",
           "Behind every program, PMG runs the systems that keep it on track: referral management and reporting, quality and exception metrics, financial benchmarking, chart audits, and the training videos and operations manual that standardize how centers work.",
-          "{{TBD: the rest of the responsibility split, including physician recruiting, employment, credentialing, professional billing, and marketing}}",
+          "The hospital maintains operational control and bills the facility fees. PMG bills the professional fees and carries their financial risk. The joint venture leases underused hospital space and the equipment it needs from the hospital. [See the financial model](/partnership/financial-model/).",
+          "{{TBD: the rest of the responsibility split, including physician recruiting, employment, credentialing, and marketing}}",
         ],
       },
       {
@@ -339,13 +340,20 @@ export const partnershipPages: Record<string, EditorialContent> = {
     eyebrow: "Partnership Model",
     lede: "PMG partnerships are structured as joint ventures between the hospital and PMG. This page explains the structure in plain terms. Numbers for your hospital come from a conversation with your team.",
     faqs: ["structure", "investment", "revenue", "break-even", "exit"],
-    terms: ["joint-venture", "break-even", "payer-mix", "encounter"],
+    terms: [
+      "joint-venture",
+      "split-bill",
+      "break-even",
+      "payer-mix",
+      "encounter",
+    ],
     sections: [
       {
         id: "structure",
         title: "How the joint venture is structured",
         paragraphs: [
-          "{{TBD: legal structure of the joint venture, ownership split between the hospital and PMG, and who holds which decision rights}}",
+          "Each partnership is a joint venture in which the hospital owns {{PMG: hospitalEquity}} and PMG owns {{PMG: pmgEquity}}. All revenue and expenses of direct patient care run through the joint venture, and the hospital maintains operational control.",
+          "The joint venture is governed by three agreements: a management agreement that sets out PMG's management services, a services agreement that sets out the services the hospital provides, and an operating agreement that sets out how the partners work together.",
           "The pain management center itself is hospital-based, and your primary care physicians refer patients into it.",
         ],
       },
@@ -354,14 +362,16 @@ export const partnershipPages: Record<string, EditorialContent> = {
         title: "What the hospital invests",
         paragraphs: [
           "Limited capital. A PMG program is designed to launch with a small footprint using mostly existing hospital resources: underused space, one procedure room, and four exam rooms, with the procedure equipment and hospital services the program needs. [See the full list](/partnership/how-it-works/#program-needs).",
-          "{{TBD: typical startup investment by the hospital, what it covers (equipment, staffing, working capital), and what PMG contributes}}",
+          "The joint venture typically leases underused hospital space and the equipment it needs from the hospital.",
+          "{{TBD: typical startup investment by the hospital, what it covers (staffing, working capital), and what PMG contributes}}",
         ],
       },
       {
         id: "revenue",
         title: "Where the revenue comes from",
         paragraphs: [
-          "The center earns revenue from outpatient pain management services. {{TBD: how professional and facility services are billed, and by whom}}",
+          "The center earns revenue from outpatient pain management services. Partnerships typically use the Medicare split-bill model: the hospital bills the facility fees, and PMG bills the professional fees and carries their financial risk. The joint venture shares all revenue and expenses of direct patient care.",
+          "The hospital keeps all downstream revenue, such as lab, imaging, and physical therapy.",
           "The PMG model also moves patients through a coordinated care path and directs them to the appropriate resources in your hospital, which drives downstream revenue back to the hospital: physical and occupational therapy, lab services, radiology, behavioral health, and specialty referrals to orthopedics, neurology, and neurosurgery.",
         ],
       },
@@ -369,7 +379,8 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "shared-results",
         title: "How results are shared",
         paragraphs: [
-          "{{TBD: how operating income is distributed, and how PMG is compensated (management fee, share of income, or both)}}",
+          "PMG is paid in two ways: a modest management fee for its services, and its {{PMG: pmgEquity}} share of the joint venture's excess cash distributions. The hospital receives the other {{PMG: hospitalEquity}}.",
+          "PMG is not paid from professional fees. Its compensation comes from the joint venture, which the hospital's facility fees fund.",
         ],
       },
       {
@@ -420,14 +431,15 @@ export const hospitalLeaderQuestions: Question[] = [
     answer: [
       "Because a physician is only one part of a pain program: PMG brings the blueprint and ongoing program management that turn a specialist into a sustainable service line.",
       "That means a hospital-based model, a balanced treatment approach, a referral path from your primary care physicians, and quantifiable outcomes. PMG also runs the systems a single physician can't: referral management, market capture and referral source reporting, quarterly chart and procedure audits, financial benchmarking across its network, and the clinical protocols, training videos, and operations manual behind every center.",
-      "{{TBD: PMG's role in physician recruiting, credentialing, and billing}}",
+      "PMG also bills the professional fees and carries their financial risk. {{TBD: PMG's role in physician recruiting and credentialing}}",
     ],
   },
   {
     id: "structure",
     question: "How is a PMG partnership structured?",
     answer: [
-      "As a joint venture between your hospital and PMG. {{TBD: legal entity, ownership split, and decision rights}}",
+      "As a joint venture in which your hospital owns {{PMG: hospitalEquity}} and PMG owns {{PMG: pmgEquity}}, and your hospital maintains operational control.",
+      "All revenue and expenses of direct patient care run through the joint venture, and the hospital keeps all downstream revenue, such as lab, imaging, and physical therapy. Three agreements govern the partnership: a management agreement for PMG's services, a services agreement for the services the hospital provides, and an operating agreement for how the partners work together.",
       "[Partnership and Financial Model](/partnership/financial-model/) explains the structure in plain terms.",
     ],
   },
@@ -443,8 +455,8 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "launch-time",
     question: "How long does it take to launch a program?",
     answer: [
-      "A new program typically takes {{SAMPLE: timeToFirstPatient}} to launch.",
-      "That time covers the first three phases of a partnership: assessing the opportunity, designing the program, and building and launching the center. [See the four phases](/partnership/how-it-works/).",
+      "From signed agreement to first patient typically takes {{PMG: timeToFirstPatient}}.",
+      "The timeline depends mostly on the hospital's privileging process and on insurance enrollment, which takes {{PMG: enrollmentDays}} for a new provider, or {{PMG: locationAddDays}} to add a location for providers already practicing under PMG. [See the four phases](/partnership/how-it-works/).",
     ],
   },
   {
@@ -460,14 +472,15 @@ export const hospitalLeaderQuestions: Question[] = [
     question: "How does the program make money for the hospital?",
     answer: [
       "Through outpatient pain management services at the hospital-based center, and the downstream services those patients receive in your hospital.",
-      "The PMG model moves patients through a coordinated care path and directs them to the appropriate resources in your hospital, such as physical therapy, imaging, lab services, and specialty care, instead of losing them to other systems. {{TBD: how revenue is billed and shared between the hospital and PMG}}",
+      "The PMG model moves patients through a coordinated care path and directs them to the appropriate resources in your hospital, such as physical therapy, imaging, lab services, and specialty care, instead of losing them to other systems. The hospital keeps all of that downstream revenue.",
+      "Under the Medicare split-bill model most partnerships use, the hospital bills the facility fees, PMG bills the professional fees and carries their risk, and the joint venture shares all revenue and expenses of direct patient care. [See the financial model](/partnership/financial-model/).",
     ],
   },
   {
     id: "control",
     question: "Will the center carry our name, and who makes the decisions?",
     answer: [
-      "Partner centers carry their hospital's name, like the Fisher-Titus Pain Management Centers and the Knox Center for Pain Management. {{TBD: governance structure and which decisions the hospital controls}}",
+      "Partner centers carry their hospital's name, like the Fisher-Titus Pain Management Centers and the Knox Center for Pain Management. The hospital maintains operational control of the joint venture, which three agreements govern: management, services, and operating.",
       "See every partner center on [Our Partners](/our-partners/).",
     ],
   },
@@ -508,7 +521,7 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "track-record",
     question: "How long has PMG been doing this, and do hospitals stay?",
     answer: [
-      "PMG has partnered with hospitals since {{SAMPLE: firstYear}} and reports {{PMG: partnerRetention}} partner retention over the past two years. The average partnership has run {{SAMPLE: avgPartnershipYears}}.",
+      "PMG's first hospital partnership began in {{PMG: firstPartnership}}, and Pain Management Group was established in {{PMG: established}}. PMG reports {{PMG: partnerRetention}} partner retention over the past two years. The average partnership has run {{SAMPLE: avgPartnershipYears}}.",
       "Patrick J. Martin of Fisher-Titus Medical Center says the hospital started its program with PMG in 2009. [Read what partner leaders say](/results/testimonials/).",
     ],
   },

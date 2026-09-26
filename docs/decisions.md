@@ -193,6 +193,22 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   procedure support, how PMG works with other service lines, responsible prescribing
   (chart audits), sizing for smaller hospitals. Remaining TBDs narrowed.
 
+## PMG's answers to the five questions (September 2026)
+
+- Source: Cole McMath's email of September 25, 2026 (answers 1 to 4; 5 pending with PMG's
+  team). Figures he stated are PMG figures in `src/content/pmg-figures.ts`.
+- Year: first hospital partnership 2004, PMG established 2009. The site says "partnering with
+  hospitals since 2004" and "established as a company in 2009"; the homework's "20 years" is
+  shown as "20+ years". Patrick J. Martin's 2009 start is his hospital's and stays as he
+  said it.
+- Structure: 51/49 joint venture, three agreements, hospital operational control, hospital
+  keeps downstream revenue; split billing; PMG paid a management fee plus 49% of excess cash
+  distributions, not from professional fees; six months or less to first patient.
+- Softened for publication pending PMG's confirmation: "PMG usually absorbs a loss on the
+  professional side" is written as PMG "carries the financial risk" of professional billing.
+- Exit terms stay a placeholder until PMG decides what to publish.
+- Samples retired: `firstYear`, `timeToFirstPatient`.
+
 ## Review-build routes (301)
 
 | Review route                                   | Rev 2.0 destination                             |

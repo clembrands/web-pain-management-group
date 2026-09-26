@@ -9,7 +9,7 @@ export const homeContent = {
     description:
       "Pain Management Group partners with health systems and independent hospitals to build and manage hospital-based pain management centers that are medically, socially, and financially responsible.",
     facts: [
-      "Partnering with hospitals since {{SAMPLE: firstYear}}",
+      "Partnering with hospitals since {{PMG: firstPartnership}}",
       "directory:hospitals partner hospitals",
       "{{PMG: careLocations}} care locations",
     ],
@@ -17,7 +17,7 @@ export const homeContent = {
     figures: [
       {
         label: "Partnering with hospitals since",
-        value: "{{SAMPLE: firstYear}}",
+        value: "{{PMG: firstPartnership}}",
       },
       { label: "Partner hospitals", value: "directory:hospitals" },
       { label: "Care locations", value: "{{PMG: careLocations}}" },
@@ -39,7 +39,7 @@ export const homeContent = {
       },
       {
         value: "{{PMG: yearsOperating}}",
-        label: "in operation",
+        label: "partnering with hospitals",
       },
     ],
   },

@@ -80,6 +80,7 @@ export const providerPages: Record<string, EditorialContent> = {
         title: "A model built for responsible pain care",
         paragraphs: [
           "Partner centers follow PMG's Balanced Pain Treatment model: pain care that is medically, socially, and financially responsible. [How the model works](/partnership/balanced-pain-treatment/).",
+          "One thing to know about how PMG is paid: PMG takes nothing from providers or their professional fees. PMG bills the professional fees and carries their risk; its own compensation comes from the joint venture with the hospital.",
           "{{TBD: compensation approach, onboarding, and APP training, confirmed by PMG}}",
         ],
       },
