@@ -150,7 +150,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
           "PMG tracks quality outcomes, not just procedure volume. The goal is better results for patients.",
           "PMG works only with hospitals, providing pain services to rural communities, and speaks the language of hospital finance and compliance.",
           "Every partner program is led by a board-certified, fellowship-trained pain physician, and advanced practice providers go through a structured education, training, and onboarding process.",
-          "The joint venture aligns incentives: what is good for patients is good for the hospital, its providers, the community, and PMG.",
+          "The joint venture aligns incentives: what is good for patients is good for the hospital, its providers, the community, and PMG. PMG isn't paid until the hospital is.",
         ],
       },
       {
@@ -339,7 +339,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
   "/partnership/financial-model/": {
     eyebrow: "Partnership Model",
     lede: "PMG partnerships are structured as joint ventures between the hospital and PMG. This page explains the structure in plain terms. Numbers for your hospital come from a conversation with your team.",
-    faqs: ["structure", "investment", "revenue", "break-even", "exit"],
+    faqs: ["structure", "investment", "revenue", "paid-last", "break-even"],
     terms: [
       "joint-venture",
       "split-bill",
@@ -381,6 +381,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         paragraphs: [
           "PMG is paid in two ways: a modest management fee for its services, and its {{PMG: pmgEquity}} share of the joint venture's excess cash distributions. The hospital receives the other {{PMG: hospitalEquity}}.",
           "PMG is not paid from professional fees. Its compensation comes from the joint venture, which the hospital's facility fees fund.",
+          "And PMG is paid last. Until the joint venture has paid the hospital for all of its costs, such as space and equipment leases, staff salaries and benefits, and hospital-purchased services, PMG receives nothing. PMG earns its share only when the program is working for the hospital.",
         ],
       },
       {
@@ -553,11 +554,11 @@ export const hospitalLeaderQuestions: Question[] = [
     ],
   },
   {
-    id: "exit",
-    question: "What happens if the partnership isn't working?",
+    id: "paid-last",
+    question: "When does PMG get paid?",
     answer: [
-      "{{TBD: contract term, performance review process, and exit or unwind provisions}}.",
-      "Ask about these terms on your first call with PMG.",
+      "Only after your hospital does. Until the joint venture has paid the hospital for all of its costs, such as space and equipment leases, staff salaries and benefits, and hospital-purchased services, PMG does not see a dime.",
+      "That is what aligned incentives mean in practice: PMG is a partner, not a vendor, and it earns its share only when the program is working for the hospital. [See how results are shared](/partnership/financial-model/#shared-results).",
     ],
   },
 ];

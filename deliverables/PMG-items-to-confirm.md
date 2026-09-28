@@ -120,12 +120,11 @@ confirmed answers matter more than polish.
 
 ## 4. Contract terms
 
-**Sign-off needed: whoever approves PMG's partnership contracts.**
-
-- [ ] **Sign-off needed:** the answer to "What happens if the partnership isn't working?",
-      including contract term, performance review, and exit or unwind provisions. Cole is
-      checking with the team on what PMG is comfortable publishing; the site keeps this as a
-      placeholder until then.
+- [x] **Exit terms are not published**, at PMG's request (Cole, September 28): they depend on
+      what each hospital negotiates. The question "What happens if the partnership isn't
+      working?" is removed. In its place, "When does PMG get paid?" answers with the aligned
+      incentives Cole described: PMG is paid only after the joint venture has paid the
+      hospital's costs. Please confirm the wording, including "PMG does not see a dime".
 
 ## 5. Results
 

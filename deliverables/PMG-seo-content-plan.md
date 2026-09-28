@@ -97,7 +97,7 @@ leaders raise, what sets PMG apart, and the provider selling points. PMG's partn
 (September 2026, `deliverables/PMG-deck-notes.md`) answers what a hospital provides, what
 PMG reports and how often, the referral model, and how prescribing is audited. Cole
 McMath answered questions 1 to 4 below on September 25, 2026 (now on the site); question 5,
-exit terms, is with PMG's team.
+exit terms, PMG chose not to publish; the site answers "When does PMG get paid?" instead.
 
 **Five questions** (1 to 4 answered)
 Feeds `/partnership/financial-model/`, `/partnership/questions/`, Home.

@@ -29,9 +29,9 @@ each build phase finds them. **Blockers** stop the launch; the rest can follow w
 - [ ] PMG's clinical team reviews the copy written from the partnership deck on
       `/partnership/balanced-pain-treatment/` (treatment plan, care network, chart and
       time-out audits) and the answer on responsible prescribing.
-- [ ] PMG signs off on two answers on `/partnership/questions/`: "How do you keep pain care,
-      including opioid prescribing, responsible?" (clinical team) and "What happens if the
-      partnership isn't working?" (contract terms).
+- [ ] PMG signs off on the answer on `/partnership/questions/` to "How do you keep pain care,
+      including opioid prescribing, responsible?" (clinical team). The exit question was
+      removed at PMG's request (September 2026).
 - [ ] Partner names and cities confirmed (section 7 of `deliverables/PMG-items-to-confirm.md`).
       Update `src/content/legacy/partners.ts` and `inventory/partners-to-confirm.csv`, then
       re-run `npm run import:content`.

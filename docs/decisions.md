@@ -206,7 +206,11 @@ on it (`docs/seo-geo-sitemap.md`, `docs/photography-direction.md`) are supersede
   distributions, not from professional fees; six months or less to first patient.
 - Softened for publication pending PMG's confirmation: "PMG usually absorbs a loss on the
   professional side" is written as PMG "carries the financial risk" of professional billing.
-- Exit terms stay a placeholder until PMG decides what to publish.
+- Exit terms are not published (Cole, September 28: "the how" depends on what each hospital
+  negotiates). The exit question is replaced by "When does PMG get paid?": only after the
+  joint venture has paid the hospital's costs (leases, staff salaries and benefits,
+  hospital-purchased services). Added to the Financial Model and "What makes PMG
+  different".
 - Samples retired: `firstYear`, `timeToFirstPatient`.
 
 ## Review-build routes (301)
