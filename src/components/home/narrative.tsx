@@ -96,7 +96,7 @@ export async function HomeNarrative() {
       <section className="bg-haze">
         <div className="container-shell grid gap-12 py-24 md:py-32 lg:grid-cols-[1.1fr_1fr] lg:gap-24">
           <div>
-            <p className="label text-[#2d5d84]">The problem</p>
+            <p className="label text-[#2d5d84]">The pain problem</p>
             <dl className="mt-8 grid gap-8 border-t sm:grid-cols-2 border-[#cfdbe5] pt-8">
               {[
                 [painBurden.chronic, painBurden.chronicLabel],
@@ -228,7 +228,7 @@ export async function HomeNarrative() {
                 <CountUp text={String(counts.hospitals)} />
               </p>
               <p className="label mt-3 text-muted">
-                partner hospitals in {counts.states} states
+                partnerships in {counts.states} states
               </p>
               <Link
                 href="/our-partners/"
@@ -260,13 +260,13 @@ export async function HomeNarrative() {
           <div className="lg:sticky lg:top-24 lg:self-start">
             <p className="label text-brand">Straight answers</p>
             <h2 className="display-md display-sans mt-6 text-navy">
-              What hospital leaders actually ask us
+              FAQ
             </h2>
             <Link
               href="/partnership/questions/"
               className="button button-outline mt-10"
             >
-              See every question
+              See the full list
             </Link>
           </div>
           <RuleFaqs items={questions} />

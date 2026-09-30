@@ -58,15 +58,15 @@ export const phases: Step[] = [
   },
   {
     title: "Design the program",
-    body: "Using PMG's blueprint, the partners define the center: scope of services, space, staffing, and the referral pathway from your primary care physicians.",
+    body: "Using PMG's blueprint, the partners define the center: scope of services, space, staffing, and the referral pathway from your medical staff and community physicians.",
   },
   {
     title: "Build and launch",
-    body: "The hospital-based center opens and primary care physicians begin referring patients to it.",
+    body: "The hospital-based center is designed in a multi-stage process that brings in each hospital department the new service line affects.",
   },
   {
     title: "Manage and grow",
-    body: "PMG provides ongoing program management after launch and tracks quantifiable outcomes and results with your team.",
+    body: "PMG provides ongoing program management after launch and tracks quantifiable outcomes and results in partnership with you.",
   },
 ];
 
@@ -116,7 +116,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
     sections: [
       {
         id: "why-pain",
-        title: "Why pain management deserves its own service line",
+        title: "Why Establish Hospital-Based Pain Management?",
         paragraphs: [
           `About ${painBurden.chronic} U.S. adults live with chronic pain, and for ${painBurden.highImpact} of them it limits life or work on most days or every day (${painBurden.source}). Despite the need, many hospitals lack an organized system for pain management.`,
           "A fragmented approach, without the right clinical model, shows up across the hospital as five problems:",
@@ -142,9 +142,6 @@ export const partnershipPages: Record<string, EditorialContent> = {
       {
         id: "what-makes-pmg-different",
         title: "What makes PMG different",
-        paragraphs: [
-          "PMG describes five things that set its partnerships apart from other pain management companies and from programs hospitals build on their own:",
-        ],
         points: [
           "Programs are managed through data, with close visibility into how each one performs.",
           "PMG tracks quality outcomes, not just procedure volume. The goal is better results for patients.",
@@ -155,7 +152,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
       },
       {
         id: "patient-path",
-        title: "How patients move through the program",
+        title: "How patients access pain care",
         paragraphs: [
           "The model starts with the physicians your community already trusts and keeps patients in your hospital from referral through treatment. PMG calls it the preferred state for managing pain:",
         ],

@@ -4,8 +4,8 @@ import { scheduleCallHref } from "@/lib/site";
 
 export const ctas = {
   hospital: {
-    title: "Talk with PMG about a pain management program for your hospital.",
-    body: "A short call covers the partnership model, what it takes to launch, and whether it fits your community.",
+    title: "Talk with PMG about partnering with your hospital.",
+    body: "A short call covers the partnership model, what it takes to launch, and to answer any additional questions you might have.",
     label: "Schedule a Call",
     href: scheduleCallHref,
     secondary: [

@@ -9,7 +9,7 @@ import { faqJsonLd } from "@/lib/faq-schema";
 export function PageFaqs({
   questions,
   eyebrow = "Questions hospital leaders ask",
-  title = "About this page",
+  title = "FAQ",
 }: {
   questions: Question[];
   eyebrow?: string;

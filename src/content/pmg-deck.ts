@@ -58,8 +58,8 @@ export const hospitalChallenges: Card[] = [
     body: "Unresolved pain frustrates primary care physicians.",
   },
   {
-    title: "Medication burden",
-    body: "Managing controlled substances is complex and time-consuming.",
+    title: "Medication risk",
+    body: "Managing controlled substances puts unnecessary risk on primary care physicians.",
   },
 ];
 
@@ -107,7 +107,7 @@ export const referralPathway = {
     {
       label: "First contact",
       title: "Primary care provider",
-      body: "The typical entry point, and the physician who refers the patient to the pain center.",
+      body: "The typical entry point, and the provider who refers the patient to the pain center.",
     },
     {
       label: "Evaluation and treatment",
@@ -145,7 +145,7 @@ export const referralPathway = {
   summary: [
     "One referral",
     "A personalized treatment plan",
-    "Care connected across the hospital",
+    "Care connected across hospital services",
   ],
 };
 
