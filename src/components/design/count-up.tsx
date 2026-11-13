@@ -8,10 +8,14 @@ import { plainText, pmgKeyOf, sampleKeyOf } from "@/components/rich-text";
 export function CountUp({
   text,
   className = "",
+  onLoad = false,
 }: {
   // Copy string, possibly holding a {{SAMPLE: key}} token.
   text: string;
   className?: string;
+  // Count once when the page loads instead of with scrolling, for figures already in view
+  // at the top of a page (a scroll-linked count would sit at a partial number there).
+  onLoad?: boolean;
 }) {
   const value = plainText(text);
   const sample = sampleKeyOf(text);
@@ -33,7 +37,7 @@ export function CountUp({
       <span className="sr-only">{value}</span>
       <span
         aria-hidden="true"
-        className="count"
+        className={onLoad ? "count count-load" : "count"}
         style={{ "--start": start, "--target": target } as React.CSSProperties}
       />
       <span aria-hidden="true">{rest}</span>

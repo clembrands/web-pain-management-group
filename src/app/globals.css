@@ -192,6 +192,14 @@
     }
   }
 }
+/* Figures in view when the page opens count once on load rather than with scrolling. */
+@media (prefers-reduced-motion: no-preference) {
+  .count.count-load {
+    animation: count-up 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-timeline: auto;
+    animation-range: normal;
+  }
+}
 @keyframes count-up {
   from {
     --n: var(--start, 0);

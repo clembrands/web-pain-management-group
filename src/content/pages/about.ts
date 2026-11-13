@@ -57,8 +57,10 @@ export const aboutPages: Record<string, EditorialContent> = {
         id: "mission-vision",
         title: "Our mission and vision",
         paragraphs: [
-          `Our mission is ${lower(mission)}`,
-          `Our vision is ${lower(vision)}`,
+          `Our mission: ${lower(mission)}`,
+          "Building a strong pain program takes more than clinical care. It takes a model that works within the hospital, supports the people delivering care, and can serve patients consistently over time. PMG works alongside each partner to help make that possible.",
+          `Our vision: ${lower(vision)}`,
+          "We believe hospitals are a natural home for this care, connecting patients with trusted providers and keeping pain management close to the communities they serve.",
           `${missionStatement} PMG's partner centers carry that mission into their communities as Balanced Pain Treatment Centers.`,
         ],
       },
@@ -72,7 +74,7 @@ export const aboutPages: Record<string, EditorialContent> = {
         id: "why-pmg-exists",
         title: "Why PMG exists",
         paragraphs: [
-          "PMG exists to help hospitals better serve their communities by providing safe and responsible pain treatment.",
+          "PMG exists to help rural and community hospitals provide high-quality pain care close to home. Many communities need this care, but building and sustaining a specialized program can be difficult for a hospital to manage alone. PMG brings the clinical, operational, and management support to make hospital-based pain care viable over time. Together with our partners, we help more patients access responsible care in their own communities while strengthening the hospitals that serve them.",
           "Since its first hospital partnership in {{PMG: firstPartnership}}, PMG has been partnering with hospitals to manage socially and medically responsible pain management centers. Pain Management Group was established as a company in {{PMG: established}}.",
         ],
       },

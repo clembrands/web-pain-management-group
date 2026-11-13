@@ -54,11 +54,11 @@ export type EditorialContent = {
 export const phases: Step[] = [
   {
     title: "Assess the opportunity",
-    body: "PMG and your leadership team look at community need, primary care referral patterns, the pain services you offer today, and where pain patients go now.",
+    body: "PMG and your leadership team look at community need, primary care referral patterns, and current options for pain care.",
   },
   {
     title: "Design the program",
-    body: "Using PMG's blueprint, the partners define the center: scope of services, space, staffing, and the referral pathway from your medical staff and community physicians.",
+    body: "Using PMG's blueprint, we collaboratively define the center: scope of services, space, staffing, and the referral pathway from your medical staff and community physicians.",
   },
   {
     title: "Build and launch",
@@ -193,12 +193,12 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "phases",
         title: "The four phases of a partnership",
         paragraphs: [
-          "From signed agreement to first patient typically takes {{PMG: timeToFirstPatient}}. The timeline depends mostly on the hospital's privileging process and on insurance enrollment: {{PMG: enrollmentDays}} for full enrollment of a new provider, or {{PMG: locationAddDays}} to add a location for providers already practicing under PMG.",
+          "Most partnerships welcome their first patient within six months of a signed agreement. We work with each hospital to build a timeline that fits local needs and supports timely access to care.",
         ],
         steps: [
           {
             title: phases[0].title,
-            body: `${phases[0].body} The goal is a clear answer on whether a hospital-based pain center makes sense for your hospital. {{TBD: what the assessment includes and what the hospital's team provides for it}}`,
+            body: `${phases[0].body} The goal is a clear answer on whether a hospital-based pain center makes sense for you.`,
           },
           {
             title: phases[1].title,
@@ -206,19 +206,19 @@ export const partnershipPages: Record<string, EditorialContent> = {
           },
           {
             title: phases[2].title,
-            body: `${phases[2].body} {{TBD: who recruits and credentials the pain specialists and APPs, and how the care team is trained}}`,
+            body: "PMG leads recruiting and credentialing for the board-certified, fellowship-trained pain specialists and APPs. Providers complete PMG's balanced care model orientation. The hospital-based center opens and medical staff begin referring patients.",
           },
           {
             title: phases[3].title,
-            body: `${phases[3].body} Each program has a quarterly KPI scorecard in iStats, PMG's program data system, covering market capture, quality, provider effectiveness, and net operating income. [See what PMG reports](/results/). {{TBD: who attends the review meetings with the hospital, and how often}}`,
+            body: `${phases[3].body} Each program has a quarterly KPI scorecard in iStats, PMG's proprietary pain practice management system, covering market capture, quality, provider efficiency, and financials. [See what PMG reports](/results/). Program performance data is reviewed quarterly by key stakeholders.`,
           },
         ],
       },
       {
         id: "patient-path",
-        title: "What happens for patients",
+        title: "Patient pathway to care",
         paragraphs: [
-          "Once the center is open, patients follow the same coordinated path at every PMG partner hospital:",
+          "Once the center is open, patients typically follow the same coordinated path to access a balanced pain treatment program:",
         ],
         points: patientPath,
       },
@@ -232,9 +232,9 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "responsibilities",
         title: "Who does what",
         paragraphs: [
-          "PMG brings the blueprint and ongoing program management. The hospital brings the facility, its standing in the community, and the primary care physicians who refer patients.",
-          "Behind every program, PMG runs the systems that keep it on track: referral management and reporting, quality and exception metrics, financial benchmarking, chart audits, and the training videos and operations manual that standardize how centers work.",
-          "The hospital maintains operational control and bills the facility fees. PMG bills the professional fees and carries their financial risk. The joint venture leases underused hospital space and the equipment it needs from the hospital. [See the financial model](/partnership/financial-model/).",
+          "PMG brings the blueprint, providers, and ongoing program management. The hospital brings the facility, its standing in the community, and the referral network.",
+          "Behind every program, PMG runs the systems that keep it on track: referral management and reporting, quality and exception metrics, financial benchmarking, chart audits, and the training resources and operations manual that ensure consistent, high-quality care.",
+          "The hospital maintains operational control and bills the facility fees. PMG typically bills for and carries the financial risk of the provider's professional services. The joint venture leases underused hospital space and the equipment it needs from the hospital. [See the financial model](/partnership/financial-model/).",
           "{{TBD: the rest of the responsibility split, including physician recruiting, employment, credentialing, and marketing}}",
         ],
       },
@@ -242,7 +242,7 @@ export const partnershipPages: Record<string, EditorialContent> = {
         id: "built-to-last",
         title: "Built to last beyond launch",
         paragraphs: [
-          "Program sustainability is one of the four elements of every PMG partnership. PMG reports {{PMG: partnerRetention}} partner retention over the past two years, and the average partnership has run {{SAMPLE: avgPartnershipYears}}. Ask the rest of your questions on [What Hospital Leaders Ask](/partnership/questions/).",
+          "Program sustainability is one of the four elements of every PMG partnership. Over the past two years, PMG reports {{PMG: partnerRetention}} partner retention. Learn more about our partnership model on [What Hospital Leaders Ask](/partnership/questions/).",
         ],
         quote: "Patrick J. Martin",
       },
@@ -453,8 +453,8 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "launch-time",
     question: "How long does it take to launch a program?",
     answer: [
-      "From signed agreement to first patient typically takes {{PMG: timeToFirstPatient}}.",
-      "The timeline depends mostly on the hospital's privileging process and on insurance enrollment, which takes {{PMG: enrollmentDays}} for a new provider, or {{PMG: locationAddDays}} to add a location for providers already practicing under PMG. [See the four phases](/partnership/how-it-works/).",
+      "Most partnerships welcome their first patient within six months of a signed agreement.",
+      "We work with each hospital to build a timeline that fits local needs and supports timely access to care. [See the four phases](/partnership/how-it-works/).",
     ],
   },
   {
