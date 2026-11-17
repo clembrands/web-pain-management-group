@@ -1,3 +1,4 @@
+import { CountReveal } from "@/components/design/count-reveal";
 import { plainText, pmgKeyOf, sampleKeyOf } from "@/components/rich-text";
 
 // A figure that counts up to its value as it scrolls into view, with CSS only (see .count in
@@ -8,14 +9,14 @@ import { plainText, pmgKeyOf, sampleKeyOf } from "@/components/rich-text";
 export function CountUp({
   text,
   className = "",
-  onLoad = false,
+  reveal = false,
 }: {
   // Copy string, possibly holding a {{SAMPLE: key}} token.
   text: string;
   className?: string;
-  // Count once when the page loads instead of with scrolling, for figures already in view
-  // at the top of a page (a scroll-linked count would sit at a partial number there).
-  onLoad?: boolean;
+  // Stay hidden until the figure is fully in view, then count once, for figures near the
+  // top of a page (a scroll-linked count would sit at a partial number there).
+  reveal?: boolean;
 }) {
   const value = plainText(text);
   const sample = sampleKeyOf(text);
@@ -32,15 +33,20 @@ export function CountUp({
   // A year counts through its last two decades rather than up from zero.
   const start =
     target >= 1900 && target <= 2100 && rest === "" ? target - 19 : 0;
-  return (
-    <span className={className} data-sample={sample} data-pmg={pmg}>
-      <span className="sr-only">{value}</span>
+  const figure = (
+    <>
       <span
         aria-hidden="true"
-        className={onLoad ? "count count-load" : "count"}
+        className="count"
         style={{ "--start": start, "--target": target } as React.CSSProperties}
       />
       <span aria-hidden="true">{rest}</span>
+    </>
+  );
+  return (
+    <span className={className} data-sample={sample} data-pmg={pmg}>
+      <span className="sr-only">{value}</span>
+      {reveal ? <CountReveal>{figure}</CountReveal> : figure}
     </span>
   );
 }

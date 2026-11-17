@@ -79,7 +79,7 @@ export async function HomeNarrative() {
               <div key={f.label} className="px-6 py-8 md:px-10 md:py-12">
                 <dt className="label text-muted">{f.label}</dt>
                 <dd className="display-sans mt-4 text-5xl text-navy tabular-nums md:text-7xl">
-                  <CountUp text={f.value} onLoad />
+                  <CountUp text={f.value} reveal />
                 </dd>
               </div>
             ))}

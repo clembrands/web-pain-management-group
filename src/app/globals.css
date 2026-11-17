@@ -192,9 +192,20 @@
     }
   }
 }
-/* Figures in view when the page opens count once on load rather than with scrolling. */
+/* Figures near the top of a page stay hidden until fully in view, then count once
+   (CountReveal sets data-shown). Readers who prefer reduced motion see the value at once. */
 @media (prefers-reduced-motion: no-preference) {
-  .count.count-load {
+  .count-reveal {
+    opacity: 0;
+  }
+  .count-reveal .count {
+    animation: none;
+  }
+  .count-reveal[data-shown] {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
+  .count-reveal[data-shown] .count {
     animation: count-up 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
     animation-timeline: auto;
     animation-range: normal;
