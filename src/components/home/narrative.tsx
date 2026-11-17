@@ -105,7 +105,7 @@ export async function HomeNarrative() {
                 <div key={label}>
                   <dt className="sr-only">{label}</dt>
                   <dd className="display-sans text-4xl whitespace-nowrap text-navy tabular-nums md:text-5xl">
-                    <CountUp text={value} />
+                    <CountUp text={value} reveal />
                   </dd>
                   <dd className="mt-3 text-sm text-muted">{label}</dd>
                 </div>
@@ -225,7 +225,7 @@ export async function HomeNarrative() {
           <div className="container-shell grid divide-y divide-line lg:grid-cols-[1.2fr_1fr_1fr_1fr] lg:divide-x lg:divide-y-0">
             <div className="py-10 text-navy lg:pr-6 lg:pl-0 xl:pr-10">
               <p className="numeral display-sans text-navy">
-                <CountUp text={String(counts.hospitals)} />
+                <CountUp text={String(counts.hospitals)} reveal />
               </p>
               <p className="label mt-3 text-muted">
                 partnerships in {counts.states} states
@@ -240,7 +240,7 @@ export async function HomeNarrative() {
             {homeContent.stats.items.slice(1).map((s) => (
               <div key={s.label} className="py-10 text-navy lg:px-6 xl:px-10">
                 <p className="display-sans text-4xl whitespace-nowrap md:text-5xl lg:text-4xl xl:text-5xl">
-                  <CountUp text={s.value} />
+                  <CountUp text={s.value} reveal />
                 </p>
                 <p className="label mt-3 text-muted">
                   <RichText text={s.label} />
