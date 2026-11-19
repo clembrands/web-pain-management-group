@@ -428,8 +428,9 @@ export const hospitalLeaderQuestions: Question[] = [
       "Why partner with PMG instead of recruiting a pain physician ourselves?",
     answer: [
       "Because a physician is only one part of a pain program: PMG brings the blueprint and ongoing program management that turn a specialist into a sustainable service line.",
-      "That means a hospital-based model, a balanced treatment approach, a referral path from your primary care physicians, and quantifiable outcomes. PMG also runs the systems a single physician can't: referral management, market capture and referral source reporting, quarterly chart and procedure audits, financial benchmarking across its network, and the clinical protocols, training videos, and operations manual behind every center.",
-      "PMG also bills the professional fees and carries their financial risk. {{TBD: PMG's role in physician recruiting and credentialing}}",
+      "That means a hospital-based model, a balanced treatment approach, a referral path from your primary care physicians, and quantifiable outcomes. PMG also runs the systems a single physician can't: reliable referral and schedule management, systematic market capture strategy, patient safety and clinical quality audits, financial benchmarking across the PMG network, along with accountability for clinical protocols.",
+      "Additionally, PMG typically carries the financial risk for the physician and APPs which makes creating a financially responsible pain program within reach for hospitals of all sizes.",
+      "PMG's recruiting and credentialing teams help protect continuity of care when a provider transition occurs. We draw on a vetted network and look for providers who fit the needs of the community and can contribute to its broader medical community, so patients can continue accessing care from someone who's prepared to serve them well.",
     ],
   },
   {
@@ -478,7 +479,7 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "control",
     question: "Will the center carry our name, and who makes the decisions?",
     answer: [
-      "Partner centers carry their hospital's name, like the Fisher-Titus Pain Management Centers and the Knox Center for Pain Management. The hospital maintains operational control of the joint venture, which three agreements govern: management, services, and operating.",
+      "Partner centers carry the hospital's name and with {{PMG: hospitalEquity}} equity in the joint venture, the hospital maintains operational control.",
       "See every partner center on [Our Partners](/our-partners/).",
     ],
   },
@@ -511,8 +512,9 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "community-hospitals",
     question: "Will this work at a community hospital our size?",
     answer: [
-      "Many of PMG's partners are community hospitals, such as Adams County Regional Medical Center in Seaman, Ohio, Twin Lakes Regional Medical Center in Leitchfield, Kentucky, and Decatur County Memorial Hospital in Greensburg, Indiana.",
-      "PMG partners with health systems and independent hospitals, large and small, and a program launches with a small footprint using mostly existing hospital resources. Browse partners by state on [Our Partners](/our-partners/).",
+      "Yes. PMG designs each program around the community it serves, including local patient needs, hospital resources, referral patterns, and growth goals.",
+      "A program can begin with a focused footprint and make use of existing hospital resources, then adapt as demand changes.",
+      "PMG partners with both independent hospitals and larger health systems. The right model depends on your community, not the size of your hospital. You can browse our partners by state on [Our Partners](/our-partners/).",
     ],
   },
   {
