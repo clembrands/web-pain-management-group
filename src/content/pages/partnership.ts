@@ -487,8 +487,8 @@ export const hospitalLeaderQuestions: Question[] = [
     id: "staffing",
     question: "Who recruits and employs the physicians and APPs?",
     answer: [
-      "{{TBD: who recruits, employs, and credentials the pain physicians and APPs}}.",
-      "Every patient is examined and diagnosed by a board-certified, fellowship-trained pain specialist. [For Providers](/providers/) describes the roles.",
+      "PMG recruits and employs APPs and board-certified, fellowship-trained pain physicians who staff the program. We also handle insurance credentialing, focusing on insurance networks that align with the hospital's local payor mix. Additionally, with PMG support, providers apply for privileges through the hospital's medical staff process.",
+      "For more information about how physicians and APPs contribute to care, visit [For Providers](/providers/).",
     ],
   },
   {
