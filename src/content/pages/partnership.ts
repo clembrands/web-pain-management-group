@@ -548,8 +548,8 @@ export const hospitalLeaderQuestions: Question[] = [
     question:
       "We have other priorities right now. When does it make sense to start?",
     answer: [
-      "{{TBD: how PMG fits the first phase around a hospital's other priorities, and what a first assessment asks of the hospital's team}}.",
-      "A partnership starts with an assessment of your community's need and where pain patients go today, which tells you whether a program makes sense before anything is committed. When you do launch, the program starts small, using mostly existing hospital resources. [See the four phases](/partnership/how-it-works/).",
+      "It can make sense to start with a conversation, even if there are competing priorities. The first phase helps determine whether a pain management program fits your community's needs and that can inform where it belongs among your list of priorities. The assessment focuses on your community's need and where pain patients go today, using information your team already has where possible. It gives you a clearer picture before the hospital commits to a program or any open date for patient care.",
+      "If you decide to move forward, the program launches in phases, starting small and using mostly existing hospital resources. [See the four phases](/partnership/how-it-works/).",
     ],
   },
   {
